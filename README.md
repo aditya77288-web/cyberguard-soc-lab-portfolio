@@ -319,8 +319,8 @@ cyberguard-soc-lab/
 Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/aditya77288-web/cyberguard-soc-lab.git
-cd cyberguard-soc-lab
+git clone https://github.com/aditya77288-web/cyberguard-soc-lab-portfolio.git
+cd cyberguard-soc-lab-portfolio
 npm install
 ```
 

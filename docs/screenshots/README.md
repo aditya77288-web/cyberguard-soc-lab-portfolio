@@ -2,7 +2,7 @@
 
 This directory contains 12 verified genuine application screenshots showcasing the CyberGuard SOC Lab (v1.10.0) user interface in both Dark Mode and Light Mode.
 
-Repository: [`https://github.com/aditya77288-web/cyberguard-soc-lab`](https://github.com/aditya77288-web/cyberguard-soc-lab)
+Repository: [`https://github.com/aditya77288-web/cyberguard-soc-lab-portfolio`](https://github.com/aditya77288-web/cyberguard-soc-lab-portfolio)
 
 ## Verified Screenshot Index
 
