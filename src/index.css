@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --color-bg-app: #F4F7FB;
+  --color-bg-sidebar: #FFFFFF;
+  --color-bg-card: #FFFFFF;
+  --color-bg-elevated: #EEF4FA;
+  --color-accent-primary: #007FA8;
+  --color-accent-secondary: #164E8A;
+  --color-text-primary: #172033;
+  --color-text-secondary: #64748B;
+  --color-text-muted: #8492A6;
+  --color-border: #DCE5EF;
+  --color-hover: #EDF5FA;
+}
+
+.dark {
+  --color-bg-app: #0B1220;
+  --color-bg-sidebar: #111C2E;
+  --color-bg-card: #17243A;
+  --color-bg-elevated: #1B2A41;
+  --color-accent-primary: #00C2FF;
+  --color-accent-secondary: #38BDF8;
+  --color-text-primary: #F8FAFC;
+  --color-text-secondary: #94A3B8;
+  --color-text-muted: #64748B;
+  --color-border: #29384D;
+  --color-hover: #20324A;
+}
+
+@theme {
+  --color-soc-bg-app: var(--color-bg-app);
+  --color-soc-bg-sidebar: var(--color-bg-sidebar);
+  --color-soc-bg-card: var(--color-bg-card);
+  --color-soc-bg-elevated: var(--color-bg-elevated);
+  --color-soc-accent: var(--color-accent-primary);
+  --color-soc-accent-secondary: var(--color-accent-secondary);
+  --color-soc-text-primary: var(--color-text-primary);
+  --color-soc-text-secondary: var(--color-text-secondary);
+  --color-soc-text-muted: var(--color-text-muted);
+  --color-soc-border: var(--color-border);
+  --color-soc-hover: var(--color-hover);
+}
+
+/* Custom scrollbars matching theme */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.25);
+  border-radius: 9999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(41, 56, 77, 0.6);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.4);
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.4);
+}
