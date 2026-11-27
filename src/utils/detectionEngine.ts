@@ -351,6 +351,7 @@ export function calculateRuleMetrics(
   const totalRules = rules.length;
   const enabledRules = rules.filter((r) => r.enabled && r.status !== 'unsupported').length;
   const disabledRules = rules.filter((r) => !r.enabled && r.status !== 'unsupported').length;
+  const unsupportedRules = rules.filter((r) => r.status === 'unsupported').length;
   const criticalRules = rules.filter((r) => r.severity === 'critical').length;
   const highRules = rules.filter((r) => r.severity === 'high').length;
 
@@ -358,6 +359,7 @@ export function calculateRuleMetrics(
     totalRules,
     enabledRules,
     disabledRules,
+    unsupportedRules,
     triggeredRules: evaluationResult.matchedRuleIds.length,
     criticalRules,
     highRules,

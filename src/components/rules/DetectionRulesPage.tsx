@@ -264,7 +264,8 @@ export const DetectionRulesPage: React.FC<DetectionRulesPageProps> = ({
         <SummaryCard
           label="Disabled Rules"
           value={metrics.disabledRules}
-          subValue="Tuned or dormant signatures"
+          subValue={`${metrics.unsupportedRules} unsupported in engine`}
+          trend={`${metrics.disabledRules + metrics.unsupportedRules} inactive total`}
           badgeText="Dormant"
           icon={Power}
           accentColor="orange"

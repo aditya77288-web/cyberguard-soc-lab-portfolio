@@ -217,7 +217,7 @@ export const MitreAttackPage: React.FC<MitreAttackPageProps> = ({
                 {MITRE_DEMO_METADATA.frameworkVersion}
               </span>
               <span className="rounded bg-[#007FA8]/10 dark:bg-[#00C2FF]/15 px-2 py-0.5 text-[10px] font-mono text-[#007FA8] dark:text-[#00C2FF] border border-[#007FA8]/30 dark:border-[#00C2FF]/30">
-                14 Tactics &bull; 28 Techniques Curated
+                {metrics.tacticsCount} Tactics &bull; {metrics.totalTechniques} Techniques Curated
               </span>
             </div>
             <p className="text-xs text-[#64748B] dark:text-[#94A3B8] leading-relaxed">

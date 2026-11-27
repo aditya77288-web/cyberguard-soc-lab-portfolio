@@ -1,10 +1,11 @@
-# CyberGuard SOC Lab (`cyberguard-soc-lab`)
+# CyberGuard SOC Lab (`cyberguard-soc-lab-portfolio`)
 
 [![Version](https://img.shields.io/badge/version-1.10.0-cyan.svg)](package.json)
 [![React](https://img.shields.io/badge/React-19.0-blue.svg)](https://react.dev)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6.svg)](https://www.typescriptlang.org)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4.0-38B2AC.svg)](https://tailwindcss.com)
-[![Vite](https://img.shields.io/badge/Vite-8.0-646CFF.svg)](https://vitejs.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-7.0-3178C6.svg)](https://www.typescriptlang.org)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4.3-38B2AC.svg)](https://tailwindcss.com)
+[![Vite](https://img.shields.io/badge/Vite-8.3-646CFF.svg)](https://vitejs.dev)
+[![Bun](https://img.shields.io/badge/Bun-1.4-FBF0DF.svg?logo=bun&logoColor=black)](https://bun.sh)
 [![Unit Tests](https://img.shields.io/badge/tests-109%20passed-emerald.svg)](src/utils)
 [![License](https://img.shields.io/badge/license-MIT-slate.svg)](LICENSE)
 
@@ -57,9 +58,9 @@ The interface is styled with a **Midnight Blue + Electric Cyan** theme, featurin
 | :---: | :---: |
 | ![Data Sources](docs/screenshots/09-data-sources-dark.png) | ![Settings](docs/screenshots/10-settings-dark.png) |
 
-| SOC Overview (Light Mode) | Full Application (Light Mode) |
+| SOC Overview (Light Mode) | Security Alerts Triage Queue (Light Mode) |
 | :---: | :---: |
-| ![SOC Overview Light](docs/screenshots/11-soc-overview-light.png) | ![Light Mode Overview](docs/screenshots/12-light-mode-overview.png) |
+| ![SOC Overview Light](docs/screenshots/11-soc-overview-light.png) | ![Security Alerts Triage Light](docs/screenshots/12-light-mode-overview.png) |
 
 ---
 
@@ -244,26 +245,34 @@ All data is stored exclusively in client-side `localStorage` under strictly isol
 | Layer | Technology | Purpose |
 |---|---|---|
 | **Frontend Framework** | React 19 (`react`, `react-dom`) | Modern component architecture, functional hooks, concurrent rendering |
-| **Language** | TypeScript 5.8 | Strict type safety, shared domain interfaces, enums |
-| **Build Tool & Bundler** | Vite 8 (`vite`, `@vitejs/plugin-react`) | Rapid HMR, optimized ESM bundling, zero-overhead development |
-| **Styling** | Tailwind CSS v4 (`@tailwindcss/vite`) | Utility-first responsive design, theme-driven variables |
+| **Language** | TypeScript 7.0 (`typescript`) | Strict type safety, shared domain interfaces, enums |
+| **Build Tool & Bundler** | Vite 8.3 (`vite`, `@vitejs/plugin-react`) | Rapid HMR, optimized ESM bundling, zero-overhead development |
+| **Styling** | Tailwind CSS v4.3 (`@tailwindcss/vite`, `tailwindcss`) | Utility-first responsive design, theme-driven variables |
+| **Package Manager & Runtime** | Bun 1.4 (`bun.lock`) | Fast dependency management, locked reproducible installs, CI pipeline |
 | **Iconography** | Lucide React (`lucide-react`) | Enterprise security, networking, and triage iconography |
 | **Animations** | Motion (`motion`) | Smooth modal transitions and UI drawer animations |
-| **Testing** | Node.js Test Runner (`node:test`, `node:assert/strict`) via `tsx` | Blazing-fast native TypeScript unit test execution |
+| **Testing** | Node.js Test Runner / Bun Test (`node:test`, `tsx --test` / `bun test`) | Blazing-fast native TypeScript unit test execution (109 passing tests) |
 
 ---
 
 ## Project Structure
 
 ```
-cyberguard-soc-lab/
+cyberguard-soc-lab-portfolio/     # Repository root (npm package: cyberguard-soc-lab)
 ├── .env.example                  # Environment variable reference (zero secrets)
+├── .github/
+│   └── workflows/
+│       └── ci.yml                # GitHub Actions CI workflow (Bun test, lint, build)
 ├── .gitignore                    # Comprehensive Git ignore rules
+├── bun.lock                      # Authoritative Bun lockfile for reproducible installs
 ├── index.html                    # Application entry HTML document
+├── LICENSE                       # MIT License
 ├── package.json                  # Project manifest, dependencies, and scripts
+├── SECURITY.md                   # Security policy & vulnerability reporting guidance
 ├── tsconfig.json                 # TypeScript compiler configuration
 ├── vite.config.ts                # Vite build and plugin setup
 ├── docs/
+│   ├── CASE_STUDY.md             # Architectural & educational SOC workflow case study
 │   └── screenshots/              # Verified application screenshots (12 PNG assets)
 │       └── README.md             # Screenshot catalog and specifications
 ├── public/                       # Static public assets
@@ -312,22 +321,28 @@ cyberguard-soc-lab/
 ## Getting Started
 
 ### Prerequisites
-- **Node.js**: v18.0.0 or higher (v20+ recommended)
-- **npm**: v9.0.0 or higher
+- **Bun**: v1.1.0 or higher (v1.4+ recommended — the authoritative lockfile is `bun.lock`, which is also used in GitHub Actions CI)
+- *Alternative*: **Node.js**: v20.0.0 or higher with **npm**: v10.0.0 or higher
 
 ### Installation
-Clone the repository and install dependencies:
+Clone the repository and install dependencies using **Bun** (recommended, respecting `bun.lock`):
 
 ```bash
 git clone https://github.com/aditya77288-web/cyberguard-soc-lab-portfolio.git
 cd cyberguard-soc-lab-portfolio
-npm install
+bun install --frozen-lockfile
 ```
+
+> **Note for npm users**: You can alternatively run `npm install`. Note that `bun.lock` is the authoritative lockfile checked into the repository and validated by CI.
 
 ### Development Server
 Launch the local development server on `http://localhost:3000`:
 
 ```bash
+# Using Bun (Recommended)
+bun run dev
+
+# Or using npm
 npm run dev
 ```
 
@@ -335,25 +350,34 @@ npm run dev
 Compile TypeScript and generate an optimized production bundle:
 
 ```bash
+# Using Bun (Recommended)
+bun run build
+
+# Or using npm
 npm run build
 ```
 
 Preview the production build locally:
 
 ```bash
+# Using Bun (Recommended)
+bun run preview
+
+# Or using npm
 npm run preview
 ```
 
 ### Running Tests
-Execute the comprehensive unit test suite:
+Execute the comprehensive 109-test suite across all 10 domain modules:
 
 ```bash
+# Using Bun (Instant execution via native test runner)
+bun test
+
+# Or using npm / tsx (Node.js test runner)
 npm test
-```
 
-Or run directly with `tsx`:
-
-```bash
+# Direct tsx execution
 npx tsx --test src/utils/*.test.ts
 ```
 
@@ -402,7 +426,7 @@ Contributions, feedback, and issue reports are welcome!
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Ensure all tests pass (`npm test` and `npm run lint`)
+4. Ensure all tests pass (`bun test` or `npm test`, and `bun run lint` or `npm run lint`)
 5. Push to the Branch (`git push origin feature/AmazingFeature`)
 6. Open a Pull Request
 

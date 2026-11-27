@@ -1584,7 +1584,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
                   <div className="p-2.5 rounded-lg bg-[#F8FAFC] dark:bg-[#111C2E] border border-[#DCE5EF] dark:border-[#29384D] flex items-center justify-between">
                     <div>
                       <span className="font-semibold text-[#172033] dark:text-white">Stage 6: MITRE ATT&amp;CK Mapping</span>
-                      <span className="text-[#64748B] dark:text-slate-400 block text-[11px]">14 tactics, 28 enterprise techniques, dynamic rule-to-technique coverage</span>
+                      <span className="text-[#64748B] dark:text-slate-400 block text-[11px]">14 tactics, 34 enterprise techniques, dynamic rule-to-technique coverage</span>
                     </div>
                     <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/40 font-semibold">Complete</span>
                   </div>

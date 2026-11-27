@@ -813,14 +813,14 @@ export const MOCK_SECURITY_ALERTS: SecurityAlert[] = [
 ];
 
 export const MOCK_DASHBOARD_METRICS = {
-  totalEvents: 153170,
+  totalEvents: 168910,
   activeAlerts: 9,
   criticalAlerts: 3,
-  openIncidents: 2,
-  activeDetectionRules: 142,
-  totalDetectionRules: 160,
-  connectedDataSources: 5,
-  totalDataSources: 6,
+  openIncidents: 3,
+  activeDetectionRules: 10,
+  totalDetectionRules: 12,
+  connectedDataSources: 6,
+  totalDataSources: 9,
 };
 
 export const MOCK_THREAT_INDICATORS: ThreatIndicator[] = [

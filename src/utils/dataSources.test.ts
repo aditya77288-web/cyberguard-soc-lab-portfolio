@@ -223,6 +223,13 @@ test('15. Dashboard metric synchronization (DataSourcesMetrics)', () => {
   assert.equal(metrics.degradedSources, 1);
   assert.equal(metrics.disconnectedSources, 1);
   assert.equal(metrics.notConfiguredSources, 1);
+  assert.equal(
+    metrics.healthySources +
+      metrics.degradedSources +
+      metrics.disconnectedSources +
+      metrics.notConfiguredSources,
+    metrics.totalSources
+  );
   assert.ok(metrics.totalEventsIngested > 0);
   assert.equal(metrics.activeCollectors, 7); // 6 healthy + 1 degraded
 });

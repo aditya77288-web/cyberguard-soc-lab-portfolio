@@ -25,7 +25,7 @@ The 12 standardized screenshot assets included in this repository are:
 
 ## Refreshing Screenshots
 To recapture screenshots after future UI updates:
-1. Start the local server: `npm run dev`.
+1. Start the local server: `bun run dev` (or `npm run dev`).
 2. Open `http://localhost:3000` in a desktop browser at 1080p resolution (1920 × 1080, 100% zoom).
 3. Capture genuine full-viewport screenshots for each module.
 4. Save the PNG files into this folder matching the exact filenames listed above.

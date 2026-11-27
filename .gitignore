@@ -50,3 +50,5 @@ pnpm-debug.log*
 ehthumbs.db
 Thumbs.db
 
+# AI Studio artifacts
+.aistudio/

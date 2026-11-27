@@ -23,6 +23,7 @@ import {
   ShieldCheck,
   Check,
   RefreshCw,
+  Sliders,
 } from 'lucide-react';
 import {
   ConnectionCheckRecord,
@@ -301,14 +302,14 @@ export const DataSourcesPage: React.FC<DataSourcesPageProps> = ({
         </div>
       </div>
 
-      {/* 5 Requested KPI Cards */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-5 gap-3 sm:gap-4">
+      {/* 6 Requested KPI Cards */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-3 sm:gap-4">
         {/* 1. Total Data Sources */}
         <SummaryCard
           label="Total Data Sources"
           value={metrics.totalSources}
           subValue={`${metrics.activeCollectors} collectors active`}
-          trend="9 configured"
+          trend={`${metrics.totalSources} registered`}
           icon={Database}
           accentColor="cyan"
         />
@@ -343,7 +344,17 @@ export const DataSourcesPage: React.FC<DataSourcesPageProps> = ({
           accentColor="red"
         />
 
-        {/* 5. Total Events Ingested */}
+        {/* 5. Not Configured */}
+        <SummaryCard
+          label="Not Configured"
+          value={metrics.notConfiguredSources}
+          subValue="Awaiting enrollment"
+          badgeText="Unenrolled"
+          icon={Sliders}
+          accentColor="orange"
+        />
+
+        {/* 6. Total Events Ingested */}
         <SummaryCard
           label="Total Events Ingested"
           value={metrics.totalEventsIngested.toLocaleString()}

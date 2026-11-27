@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   Activity,
   AlertTriangle,
@@ -60,6 +60,8 @@ import {
   loadStoredRuleSettings,
   saveStoredRuleSettings,
   resetStoredRuleSettings,
+  evaluateDetectionRules,
+  calculateRuleMetrics,
 } from './utils/detectionEngine';
 import {
   loadStoredIncidents,
@@ -196,6 +198,16 @@ export default function App() {
 
   // Dynamically calculated data source metrics
   const sourcesMetrics = calculateDataSourcesMetrics(sources);
+
+  // Dynamically evaluated detection rules and rule metrics
+  const ruleEvaluation = useMemo(
+    () => evaluateDetectionRules(rules, events),
+    [rules, events]
+  );
+  const ruleMetrics = useMemo(
+    () => calculateRuleMetrics(rules, ruleEvaluation),
+    [rules, ruleEvaluation]
+  );
 
   const handleUpdateSources = (updated: LogDataSource[]) => {
     setSources(updated);
@@ -481,13 +493,13 @@ export default function App() {
 
               {/* Summary Cards Grid (conditioned on dashboard preferences!) */}
               <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-3 sm:gap-4">
-                {/* 1. Total Events */}
+                {/* 1. Ingested Telemetry */}
                 {settings.dashboard.showTotalEventsCard && (
                   <SummaryCard
-                    label="Total Events"
-                    value={formatNumber(events.length)}
-                    subValue={`${sourcesMetrics.totalEventsIngested.toLocaleString()} ingested`}
-                    trend="+8.4% vs 24h"
+                    label="Ingested Telemetry"
+                    value={sourcesMetrics.totalEventsIngested.toLocaleString()}
+                    subValue={`${events.length} records in active triage buffer`}
+                    trend="24h cumulative feed"
                     icon={Activity}
                     accentColor="cyan"
                   />
@@ -533,8 +545,8 @@ export default function App() {
                 {settings.dashboard.showDetectionRulesCard && (
                   <SummaryCard
                     label="Detection Rules"
-                    value={MOCK_DASHBOARD_METRICS.activeDetectionRules}
-                    subValue={`of ${MOCK_DASHBOARD_METRICS.totalDetectionRules} enabled`}
+                    value={ruleMetrics.enabledRules}
+                    subValue={`of ${ruleMetrics.totalRules} enabled (${ruleMetrics.triggeredRules} triggered)`}
                     badgeText="Sigma"
                     icon={FileCode}
                     accentColor="blue"
@@ -546,7 +558,7 @@ export default function App() {
                   <SummaryCard
                     label="Data Sources"
                     value={`${sourcesMetrics.healthySources}/${sourcesMetrics.totalSources}`}
-                    subValue={`${sourcesMetrics.degradedSources} degraded, ${sourcesMetrics.disconnectedSources} offline`}
+                    subValue={`${sourcesMetrics.degradedSources} degraded, ${sourcesMetrics.disconnectedSources} offline, ${sourcesMetrics.notConfiguredSources} unconfigured`}
                     badgeText="Sensors"
                     icon={Database}
                     accentColor="emerald"

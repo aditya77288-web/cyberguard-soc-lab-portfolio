@@ -284,6 +284,7 @@ export interface DetectionRulesMetrics {
   totalRules: number;
   enabledRules: number;
   disabledRules: number;
+  unsupportedRules: number;
   triggeredRules: number;
   criticalRules: number;
   highRules: number;

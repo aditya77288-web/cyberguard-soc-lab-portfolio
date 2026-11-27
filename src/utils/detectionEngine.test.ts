@@ -310,6 +310,11 @@ test('calculateRuleMetrics computes accurate counts', () => {
   assert.equal(metrics.totalRules, 4);
   assert.equal(metrics.enabledRules, 2);
   assert.equal(metrics.disabledRules, 1);
+  assert.equal(metrics.unsupportedRules, 1);
+  assert.equal(
+    metrics.enabledRules + metrics.disabledRules + metrics.unsupportedRules,
+    metrics.totalRules
+  );
   assert.equal(metrics.triggeredRules, 2);
   assert.equal(metrics.criticalRules, 1);
   assert.equal(metrics.highRules, 2);

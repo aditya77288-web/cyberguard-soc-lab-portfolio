@@ -282,6 +282,12 @@ test('calculateAttackCoverageMetrics calculates percentages without double-count
   assert.equal(metrics.coveredTechniques, 1);
   assert.equal(metrics.partiallyCoveredTechniques, 1);
   assert.equal(metrics.uncoveredTechniques, 1);
+  assert.equal(
+    metrics.coveredTechniques +
+      metrics.partiallyCoveredTechniques +
+      metrics.uncoveredTechniques,
+    metrics.totalTechniques
+  );
   assert.equal(metrics.coveragePercentage, 33);
   assert.equal(metrics.tacticsCount, 3);
   assert.equal(metrics.techniquesWithActiveMatches, 1);

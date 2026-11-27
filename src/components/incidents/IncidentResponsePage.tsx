@@ -179,7 +179,7 @@ export const IncidentResponsePage: React.FC<IncidentResponsePageProps> = ({
         <SummaryCard
           label="Total Incidents"
           value={metrics.totalIncidents}
-          subValue="Logged portfolio tickets"
+          subValue="Tracked incident cases"
           badgeText="All Cases"
           icon={LifeBuoy}
           accentColor="blue"
