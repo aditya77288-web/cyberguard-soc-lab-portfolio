@@ -274,9 +274,9 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
       aria-labelledby="incident-modal-title"
       className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-black/60 dark:bg-black/75 backdrop-blur-xs"
     >
-      <div className="relative flex flex-col w-full max-w-4xl max-h-[92vh] overflow-hidden rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] text-[#172033] dark:text-[#F8FAFC] shadow-2xl transition-colors">
+      <div className="relative flex flex-col w-full max-w-4xl max-h-[92vh] overflow-hidden rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#1A211B] text-[#1C241F] dark:text-[#F0EFE6] shadow-2xl transition-colors">
         {/* Modal Top Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#111C2E] px-5 py-4 gap-3">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#0D120F] px-5 py-4 gap-3">
           <div className="flex flex-wrap items-center gap-2">
             <span
               className={`inline-flex items-center gap-1.5 rounded border px-2.5 py-0.5 text-xs font-semibold uppercase ${severityStyle.badgeBg} ${severityStyle.badgeBorder} ${severityStyle.badgeText}`}
@@ -298,7 +298,7 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
               {statusStyle.label}
             </span>
 
-            <span className="font-mono text-xs text-[#64748B] dark:text-[#94A3B8] ml-1">
+            <span className="font-mono text-xs text-[#58635A] dark:text-[#A8B09F] ml-1">
               {incident.id}
             </span>
           </div>
@@ -307,7 +307,7 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
             {/* Quick Transition button */}
             {allowedTransitions.length > 0 && (
               <div className="flex items-center gap-1.5">
-                <span className="text-[11px] text-[#64748B] dark:text-[#94A3B8] hidden md:inline">Advance to:</span>
+                <span className="text-[11px] text-[#58635A] dark:text-[#A8B09F] hidden md:inline">Advance to:</span>
                 {allowedTransitions.map((nextSt) => (
                   <button
                     key={nextSt}
@@ -317,7 +317,7 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
                       setTransitionReason('');
                       setTransitionError(null);
                     }}
-                    className="inline-flex items-center gap-1 rounded-lg border border-[#DCE5EF] dark:border-[#00C2FF]/40 bg-[#EEF4FA] dark:bg-[#00C2FF]/10 px-2.5 py-1 text-xs font-medium text-[#007FA8] dark:text-[#38BDF8] hover:bg-[#DCE5EF] dark:hover:bg-[#00C2FF]/20 transition-colors"
+                    className="inline-flex items-center gap-1 rounded-lg border border-[#CDCFC2] dark:border-[#E27A54]/40 bg-[#E1DED1] dark:bg-[#E27A54]/10 px-2.5 py-1 text-xs font-medium text-[#A9492D] dark:text-[#C3D579] hover:bg-[#CDCFC2] dark:hover:bg-[#E27A54]/20 transition-colors"
                   >
                     <span>{nextSt}</span>
                     <ArrowRight className="h-3 w-3" />
@@ -330,7 +330,7 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
               type="button"
               onClick={onClose}
               aria-label="Close dialog"
-              className="rounded-lg p-1.5 text-[#64748B] dark:text-[#94A3B8] hover:bg-[#EEF4FA] dark:hover:bg-[#1B2A41] hover:text-[#172033] dark:hover:text-[#F8FAFC] transition-colors ml-2"
+              className="rounded-lg p-1.5 text-[#58635A] dark:text-[#A8B09F] hover:bg-[#E1DED1] dark:hover:bg-[#252C24] hover:text-[#1C241F] dark:hover:text-[#F0EFE6] transition-colors ml-2"
             >
               <X className="h-5 w-5" />
             </button>
@@ -338,32 +338,32 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
         </div>
 
         {/* Title & Host Subheader */}
-        <div className="px-5 py-3 bg-white dark:bg-[#17243A] border-b border-[#DCE5EF] dark:border-[#29384D] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <div className="px-5 py-3 bg-[#F2F0E6] dark:bg-[#1A211B] border-b border-[#CDCFC2] dark:border-[#3A443A] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div>
-            <h2 id="incident-modal-title" className="text-base sm:text-lg font-semibold text-[#172033] dark:text-[#F8FAFC]">
+            <h2 id="incident-modal-title" className="text-base sm:text-lg font-semibold text-[#1C241F] dark:text-[#F0EFE6]">
               {incident.title}
             </h2>
-            <div className="flex items-center gap-3 text-xs text-[#64748B] dark:text-[#94A3B8] mt-0.5">
-              <span className="flex items-center gap-1 text-[#172033] dark:text-[#F8FAFC]">
-                <Server className="h-3.5 w-3.5 text-[#64748B] dark:text-[#94A3B8]" />
+            <div className="flex items-center gap-3 text-xs text-[#58635A] dark:text-[#A8B09F] mt-0.5">
+              <span className="flex items-center gap-1 text-[#1C241F] dark:text-[#F0EFE6]">
+                <Server className="h-3.5 w-3.5 text-[#58635A] dark:text-[#A8B09F]" />
                 <span className="font-mono">{incident.affectedHost}</span>
               </span>
               <span>&bull;</span>
-              <span className="text-[#172033] dark:text-[#F8FAFC]">{incident.category}</span>
+              <span className="text-[#1C241F] dark:text-[#F0EFE6]">{incident.category}</span>
               <span>&bull;</span>
-              <span className="text-[#64748B] dark:text-[#94A3B8]">Source: {incident.detectionSource}</span>
+              <span className="text-[#58635A] dark:text-[#A8B09F]">Source: {incident.detectionSource}</span>
             </div>
           </div>
 
           <div className="flex items-center gap-2 text-xs">
-            <span className="rounded bg-[#EEF4FA] dark:bg-[#1B2A41] px-2 py-0.5 font-mono text-[11px] text-[#007FA8] dark:text-[#00C2FF] border border-[#DCE5EF] dark:border-[#29384D] font-semibold">
+            <span className="rounded bg-[#E1DED1] dark:bg-[#252C24] px-2 py-0.5 font-mono text-[11px] text-[#A9492D] dark:text-[#E27A54] border border-[#CDCFC2] dark:border-[#3A443A] font-semibold">
               SIMULATED CASE
             </span>
           </div>
         </div>
 
         {/* Lifecycle Stepper Bar */}
-        <div className="px-5 py-2.5 bg-[#F8FAFC] dark:bg-[#0B1220]/70 border-b border-[#DCE5EF] dark:border-[#29384D] overflow-x-auto">
+        <div className="px-5 py-2.5 bg-[#F0EFE6] dark:bg-[#111713]/70 border-b border-[#CDCFC2] dark:border-[#3A443A] overflow-x-auto">
           <div className="flex items-center gap-1 text-[11px] min-w-max">
             {INCIDENT_STATUS_FLOW.map((st, idx) => {
               const isCurrent = incident.status === st;
@@ -377,14 +377,14 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
                   <div
                     className={`flex items-center gap-1 px-2.5 py-1 rounded font-medium transition-colors ${
                       isCurrent
-                        ? 'bg-[#EEF4FA] dark:bg-[#00C2FF]/20 text-[#007FA8] dark:text-[#38BDF8] border border-[#007FA8]/30 dark:border-[#00C2FF]/40 font-semibold shadow-xs'
+                        ? 'bg-[#E1DED1] dark:bg-[#E27A54]/20 text-[#A9492D] dark:text-[#C3D579] border border-[#A9492D]/30 dark:border-[#E27A54]/40 font-semibold shadow-xs'
                         : isPast
-                        ? 'text-[#64748B] dark:text-[#94A3B8] bg-white dark:bg-[#111C2E]/60 border border-[#DCE5EF] dark:border-transparent'
-                        : 'text-[#8492A6] dark:text-[#64748B] bg-transparent'
+                        ? 'text-[#58635A] dark:text-[#A8B09F] bg-[#F2F0E6] dark:bg-[#0D120F]/60 border border-[#CDCFC2] dark:border-transparent'
+                        : 'text-[#798074] dark:text-[#58635A] bg-transparent'
                     }`}
                   >
                     {isCurrent ? (
-                      <span className="h-1.5 w-1.5 rounded-full bg-[#007FA8] dark:bg-[#00C2FF] animate-pulse" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#A9492D] dark:bg-[#E27A54] animate-pulse" />
                     ) : isPast ? (
                       <CheckCircle2 className="h-3 w-3 text-emerald-500 dark:text-emerald-400" />
                     ) : (
@@ -393,7 +393,7 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
                     <span>{st}</span>
                   </div>
                   {idx < INCIDENT_STATUS_FLOW.length - 1 && (
-                    <ChevronRight className="h-3 w-3 text-[#8492A6] dark:text-[#64748B] shrink-0" />
+                    <ChevronRight className="h-3 w-3 text-[#798074] dark:text-[#58635A] shrink-0" />
                   )}
                 </React.Fragment>
               );
@@ -403,21 +403,21 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
 
         {/* Transition Dialog Confirmation Modal */}
         {targetStatus && (
-          <div className="p-4 bg-[#EEF4FA] dark:bg-[#111C2E] border-b border-[#DCE5EF] dark:border-[#00C2FF]/30 flex flex-col gap-3">
+          <div className="p-4 bg-[#E1DED1] dark:bg-[#0D120F] border-b border-[#CDCFC2] dark:border-[#E27A54]/30 flex flex-col gap-3">
             <div className="flex items-start justify-between">
               <div>
-                <h3 className="text-xs font-semibold text-[#007FA8] dark:text-[#38BDF8] uppercase tracking-wider">
+                <h3 className="text-xs font-semibold text-[#A9492D] dark:text-[#C3D579] uppercase tracking-wider">
                   Confirm Lifecycle Status Transition
                 </h3>
-                <p className="text-xs text-[#64748B] dark:text-[#94A3B8] mt-0.5">
-                  Transitioning incident {incident.id} from <span className="font-semibold text-[#172033] dark:text-[#F8FAFC]">{incident.status}</span> to{' '}
-                  <span className="font-semibold text-[#007FA8] dark:text-[#00C2FF]">{targetStatus}</span>.
+                <p className="text-xs text-[#58635A] dark:text-[#A8B09F] mt-0.5">
+                  Transitioning incident {incident.id} from <span className="font-semibold text-[#1C241F] dark:text-[#F0EFE6]">{incident.status}</span> to{' '}
+                  <span className="font-semibold text-[#A9492D] dark:text-[#E27A54]">{targetStatus}</span>.
                 </p>
               </div>
               <button
                 type="button"
                 onClick={() => setTargetStatus(null)}
-                className="text-[#64748B] dark:text-[#94A3B8] hover:text-[#172033] dark:hover:text-[#F8FAFC]"
+                className="text-[#58635A] dark:text-[#A8B09F] hover:text-[#1C241F] dark:hover:text-[#F0EFE6]"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -428,8 +428,8 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
             )}
 
             <div>
-              <label htmlFor="transition-reason" className="block text-[11px] font-medium text-[#172033] dark:text-[#F8FAFC] mb-1">
-                Triage / Escalation Rationale <span className="text-[#64748B] dark:text-[#94A3B8]">(logged to timeline)</span>
+              <label htmlFor="transition-reason" className="block text-[11px] font-medium text-[#1C241F] dark:text-[#F0EFE6] mb-1">
+                Triage / Escalation Rationale <span className="text-[#58635A] dark:text-[#A8B09F]">(logged to timeline)</span>
               </label>
               <input
                 id="transition-reason"
@@ -437,7 +437,7 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
                 value={transitionReason}
                 onChange={(e) => setTransitionReason(e.target.value)}
                 placeholder="e.g. Threat contained on endpoint; isolating subnet interface..."
-                className="w-full rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#0B1220] px-3 py-1.5 text-xs text-[#172033] dark:text-[#F8FAFC] placeholder-[#8492A6] dark:placeholder-[#64748B] focus:border-[#007FA8] dark:focus:border-[#00C2FF] focus:outline-none focus:ring-1 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF]"
+                className="w-full rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#111713] px-3 py-1.5 text-xs text-[#1C241F] dark:text-[#F0EFE6] placeholder-[#798074] dark:placeholder-[#58635A] focus:border-[#A9492D] dark:focus:border-[#E27A54] focus:outline-none focus:ring-1 focus:ring-[#A9492D] dark:focus:ring-[#E27A54]"
               />
             </div>
 
@@ -445,14 +445,14 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
               <button
                 type="button"
                 onClick={() => setTargetStatus(null)}
-                className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] px-3 py-1 text-xs text-[#64748B] dark:text-[#94A3B8] hover:bg-white dark:hover:bg-[#1B2A41] transition-colors"
+                className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] px-3 py-1 text-xs text-[#58635A] dark:text-[#A8B09F] hover:bg-[#F2F0E6] dark:hover:bg-[#252C24] transition-colors"
               >
                 Cancel
               </button>
               <button
                 type="button"
                 onClick={handleConfirmTransition}
-                className="rounded-lg bg-[#007FA8] hover:bg-[#006A8C] dark:bg-[#00C2FF] dark:hover:bg-[#38BDF8] text-white dark:text-[#0B1220] font-semibold px-3 py-1 text-xs transition-colors shadow-xs"
+                className="rounded-lg bg-[#A9492D] hover:bg-[#823B27] dark:bg-[#E27A54] dark:hover:bg-[#C3D579] text-white dark:text-[#111713] font-semibold px-3 py-1 text-xs transition-colors shadow-xs"
               >
                 Confirm Advance to {targetStatus}
               </button>
@@ -461,14 +461,14 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
         )}
 
         {/* Navigation Tabs Bar */}
-        <div className="flex items-center gap-1 border-b border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#111C2E] px-5 pt-2">
+        <div className="flex items-center gap-1 border-b border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#0D120F] px-5 pt-2">
           <button
             type="button"
             onClick={() => setActiveTab('overview')}
             className={`pb-2.5 px-3 text-xs font-semibold border-b-2 transition-colors ${
               activeTab === 'overview'
-                ? 'border-[#007FA8] dark:border-[#00C2FF] text-[#007FA8] dark:text-[#00C2FF]'
-                : 'border-transparent text-[#64748B] dark:text-[#94A3B8] hover:text-[#172033] dark:hover:text-[#F8FAFC]'
+                ? 'border-[#A9492D] dark:border-[#E27A54] text-[#A9492D] dark:text-[#E27A54]'
+                : 'border-transparent text-[#58635A] dark:text-[#A8B09F] hover:text-[#1C241F] dark:hover:text-[#F0EFE6]'
             }`}
           >
             Overview &amp; Notes
@@ -478,12 +478,12 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
             onClick={() => setActiveTab('timeline')}
             className={`pb-2.5 px-3 text-xs font-semibold border-b-2 transition-colors flex items-center gap-1.5 ${
               activeTab === 'timeline'
-                ? 'border-[#007FA8] dark:border-[#00C2FF] text-[#007FA8] dark:text-[#00C2FF]'
-                : 'border-transparent text-[#64748B] dark:text-[#94A3B8] hover:text-[#172033] dark:hover:text-[#F8FAFC]'
+                ? 'border-[#A9492D] dark:border-[#E27A54] text-[#A9492D] dark:text-[#E27A54]'
+                : 'border-transparent text-[#58635A] dark:text-[#A8B09F] hover:text-[#1C241F] dark:hover:text-[#F0EFE6]'
             }`}
           >
             <span>Timeline</span>
-            <span className="rounded-full bg-[#EEF4FA] dark:bg-[#1B2A41] px-1.5 py-0.2 text-[10px] text-[#64748B] dark:text-[#94A3B8] font-mono border border-[#DCE5EF] dark:border-[#29384D]">
+            <span className="rounded-full bg-[#E1DED1] dark:bg-[#252C24] px-1.5 py-0.2 text-[10px] text-[#58635A] dark:text-[#A8B09F] font-mono border border-[#CDCFC2] dark:border-[#3A443A]">
               {incident.timeline.length}
             </span>
           </button>
@@ -492,12 +492,12 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
             onClick={() => setActiveTab('evidence')}
             className={`pb-2.5 px-3 text-xs font-semibold border-b-2 transition-colors flex items-center gap-1.5 ${
               activeTab === 'evidence'
-                ? 'border-[#007FA8] dark:border-[#00C2FF] text-[#007FA8] dark:text-[#00C2FF]'
-                : 'border-transparent text-[#64748B] dark:text-[#94A3B8] hover:text-[#172033] dark:hover:text-[#F8FAFC]'
+                ? 'border-[#A9492D] dark:border-[#E27A54] text-[#A9492D] dark:text-[#E27A54]'
+                : 'border-transparent text-[#58635A] dark:text-[#A8B09F] hover:text-[#1C241F] dark:hover:text-[#F0EFE6]'
             }`}
           >
             <span>Evidence</span>
-            <span className="rounded-full bg-[#EEF4FA] dark:bg-[#1B2A41] px-1.5 py-0.2 text-[10px] text-[#64748B] dark:text-[#94A3B8] font-mono border border-[#DCE5EF] dark:border-[#29384D]">
+            <span className="rounded-full bg-[#E1DED1] dark:bg-[#252C24] px-1.5 py-0.2 text-[10px] text-[#58635A] dark:text-[#A8B09F] font-mono border border-[#CDCFC2] dark:border-[#3A443A]">
               {incident.evidence.length}
             </span>
           </button>
@@ -506,12 +506,12 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
             onClick={() => setActiveTab('actions')}
             className={`pb-2.5 px-3 text-xs font-semibold border-b-2 transition-colors flex items-center gap-1.5 ${
               activeTab === 'actions'
-                ? 'border-[#007FA8] dark:border-[#00C2FF] text-[#007FA8] dark:text-[#00C2FF]'
-                : 'border-transparent text-[#64748B] dark:text-[#94A3B8] hover:text-[#172033] dark:hover:text-[#F8FAFC]'
+                ? 'border-[#A9492D] dark:border-[#E27A54] text-[#A9492D] dark:text-[#E27A54]'
+                : 'border-transparent text-[#58635A] dark:text-[#A8B09F] hover:text-[#1C241F] dark:hover:text-[#F0EFE6]'
             }`}
           >
             <span>Response Actions</span>
-            <span className="rounded-full bg-[#EEF4FA] dark:bg-[#1B2A41] px-1.5 py-0.2 text-[10px] text-[#64748B] dark:text-[#94A3B8] font-mono border border-[#DCE5EF] dark:border-[#29384D]">
+            <span className="rounded-full bg-[#E1DED1] dark:bg-[#252C24] px-1.5 py-0.2 text-[10px] text-[#58635A] dark:text-[#A8B09F] font-mono border border-[#CDCFC2] dark:border-[#3A443A]">
               {incident.responseActions.length}
             </span>
           </button>
@@ -520,12 +520,12 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
             onClick={() => setActiveTab('correlated')}
             className={`pb-2.5 px-3 text-xs font-semibold border-b-2 transition-colors flex items-center gap-1.5 ${
               activeTab === 'correlated'
-                ? 'border-[#007FA8] dark:border-[#00C2FF] text-[#007FA8] dark:text-[#00C2FF]'
-                : 'border-transparent text-[#64748B] dark:text-[#94A3B8] hover:text-[#172033] dark:hover:text-[#F8FAFC]'
+                ? 'border-[#A9492D] dark:border-[#E27A54] text-[#A9492D] dark:text-[#E27A54]'
+                : 'border-transparent text-[#58635A] dark:text-[#A8B09F] hover:text-[#1C241F] dark:hover:text-[#F0EFE6]'
             }`}
           >
             <span>Correlated Data</span>
-            <span className="rounded-full bg-[#EEF4FA] dark:bg-[#1B2A41] px-1.5 py-0.2 text-[10px] text-[#64748B] dark:text-[#94A3B8] font-mono border border-[#DCE5EF] dark:border-[#29384D]">
+            <span className="rounded-full bg-[#E1DED1] dark:bg-[#252C24] px-1.5 py-0.2 text-[10px] text-[#58635A] dark:text-[#A8B09F] font-mono border border-[#CDCFC2] dark:border-[#3A443A]">
               {incident.relatedAlertIds.length +
                 incident.relatedEventIds.length +
                 incident.relatedIndicatorIds.length +
@@ -535,10 +535,10 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
         </div>
 
         {/* Tab Content Viewport */}
-        <div className="flex-1 overflow-y-auto p-5 space-y-5 bg-white dark:bg-[#17243A]">
+        <div className="flex-1 overflow-y-auto p-5 space-y-5 bg-[#F2F0E6] dark:bg-[#1A211B]">
           {feedbackMessage && (
-            <div className="flex items-center gap-2 rounded-lg border border-[#007FA8]/40 dark:border-[#00C2FF]/40 bg-[#EEF4FA] dark:bg-[#00C2FF]/10 p-3 text-xs text-[#007FA8] dark:text-[#38BDF8] animate-fadeIn shadow-xs">
-              <CheckCircle2 className="h-4 w-4 shrink-0 text-[#007FA8] dark:text-[#00C2FF]" />
+            <div className="flex items-center gap-2 rounded-lg border border-[#A9492D]/40 dark:border-[#E27A54]/40 bg-[#E1DED1] dark:bg-[#E27A54]/10 p-3 text-xs text-[#A9492D] dark:text-[#C3D579] animate-fadeIn shadow-xs">
+              <CheckCircle2 className="h-4 w-4 shrink-0 text-[#A9492D] dark:text-[#E27A54]" />
               <span className="font-medium">{feedbackMessage}</span>
             </div>
           )}
@@ -547,11 +547,11 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
           {activeTab === 'overview' && (
             <div className="space-y-5">
               {/* Scope & Description */}
-              <div className="rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-[#F8FAFC] dark:bg-[#111C2E]/60 p-4 space-y-2">
-                <h3 className="text-xs font-semibold uppercase tracking-wider text-[#64748B] dark:text-[#94A3B8]">
+              <div className="rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F0EFE6] dark:bg-[#0D120F]/60 p-4 space-y-2">
+                <h3 className="text-xs font-semibold uppercase tracking-wider text-[#58635A] dark:text-[#A8B09F]">
                   Incident Description &amp; Scope
                 </h3>
-                <p className="text-xs text-[#172033] dark:text-[#F8FAFC] leading-relaxed">
+                <p className="text-xs text-[#1C241F] dark:text-[#F0EFE6] leading-relaxed">
                   {incident.description}
                 </p>
               </div>
@@ -576,32 +576,32 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
 
               {/* Metadata Grid */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                <div className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F8FAFC] dark:bg-[#111C2E]/60 p-3">
-                  <span className="block text-[10px] font-mono uppercase text-[#64748B] dark:text-[#94A3B8]">Created</span>
-                  <span className="text-xs font-mono text-[#172033] dark:text-[#F8FAFC] mt-1 block">
+                <div className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F0EFE6] dark:bg-[#0D120F]/60 p-3">
+                  <span className="block text-[10px] font-mono uppercase text-[#58635A] dark:text-[#A8B09F]">Created</span>
+                  <span className="text-xs font-mono text-[#1C241F] dark:text-[#F0EFE6] mt-1 block">
                     {new Date(incident.createdAt).toLocaleDateString()}{' '}
                     {new Date(incident.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                   </span>
                 </div>
-                <div className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F8FAFC] dark:bg-[#111C2E]/60 p-3">
-                  <span className="block text-[10px] font-mono uppercase text-[#64748B] dark:text-[#94A3B8]">Last Updated</span>
-                  <span className="text-xs font-mono text-[#172033] dark:text-[#F8FAFC] mt-1 block">
+                <div className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F0EFE6] dark:bg-[#0D120F]/60 p-3">
+                  <span className="block text-[10px] font-mono uppercase text-[#58635A] dark:text-[#A8B09F]">Last Updated</span>
+                  <span className="text-xs font-mono text-[#1C241F] dark:text-[#F0EFE6] mt-1 block">
                     {new Date(incident.updatedAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                   </span>
                 </div>
-                <div className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F8FAFC] dark:bg-[#111C2E]/60 p-3">
-                  <span className="block text-[10px] font-mono uppercase text-[#64748B] dark:text-[#94A3B8]">Category</span>
-                  <span className="text-xs text-[#007FA8] dark:text-[#38BDF8] font-semibold mt-1 block">
+                <div className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F0EFE6] dark:bg-[#0D120F]/60 p-3">
+                  <span className="block text-[10px] font-mono uppercase text-[#58635A] dark:text-[#A8B09F]">Category</span>
+                  <span className="text-xs text-[#A9492D] dark:text-[#C3D579] font-semibold mt-1 block">
                     {incident.category}
                   </span>
                 </div>
-                <div className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F8FAFC] dark:bg-[#111C2E]/60 p-3">
-                  <span className="block text-[10px] font-mono uppercase text-[#64748B] dark:text-[#94A3B8]">Assigned Lead</span>
+                <div className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F0EFE6] dark:bg-[#0D120F]/60 p-3">
+                  <span className="block text-[10px] font-mono uppercase text-[#58635A] dark:text-[#A8B09F]">Assigned Lead</span>
                   <div className="mt-1">
                     <select
                       value={incident.assignedAnalyst || 'unassigned'}
                       onChange={handleAssignChange}
-                      className="w-full rounded border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#0B1220] px-2 py-0.5 text-xs text-[#172033] dark:text-[#F8FAFC] focus:outline-none focus:ring-1 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF]"
+                      className="w-full rounded border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#111713] px-2 py-0.5 text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:outline-none focus:ring-1 focus:ring-[#A9492D] dark:focus:ring-[#E27A54]"
                     >
                       {MOCK_ANALYSTS.map((a) => (
                         <option key={a} value={a}>
@@ -617,22 +617,22 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
               {/* Investigation Notes Thread */}
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-xs font-semibold uppercase tracking-wider text-[#172033] dark:text-[#F8FAFC] flex items-center gap-1.5">
-                    <FileText className="h-4 w-4 text-[#007FA8] dark:text-[#00C2FF]" />
+                  <h3 className="text-xs font-semibold uppercase tracking-wider text-[#1C241F] dark:text-[#F0EFE6] flex items-center gap-1.5">
+                    <FileText className="h-4 w-4 text-[#A9492D] dark:text-[#E27A54]" />
                     <span>Investigation Notes ({incident.investigationNotes.length})</span>
                   </h3>
                 </div>
 
                 {/* Add Note Form */}
-                <form onSubmit={handleNoteSubmit} className="space-y-2 rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-[#F8FAFC] dark:bg-[#111C2E]/60 p-3.5">
-                  <div className="flex items-center justify-between text-xs text-[#64748B] dark:text-[#94A3B8] mb-1">
-                    <span className="font-semibold text-[#172033] dark:text-[#F8FAFC]">Append Investigation Note</span>
+                <form onSubmit={handleNoteSubmit} className="space-y-2 rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F0EFE6] dark:bg-[#0D120F]/60 p-3.5">
+                  <div className="flex items-center justify-between text-xs text-[#58635A] dark:text-[#A8B09F] mb-1">
+                    <span className="font-semibold text-[#1C241F] dark:text-[#F0EFE6]">Append Investigation Note</span>
                     <div className="flex items-center gap-1.5">
-                      <span className="text-[11px] text-[#64748B] dark:text-[#94A3B8]">Author:</span>
+                      <span className="text-[11px] text-[#58635A] dark:text-[#A8B09F]">Author:</span>
                       <select
                         value={selectedAuthor}
                         onChange={(e) => setSelectedAuthor(e.target.value)}
-                        className="rounded border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#0B1220] px-2 py-0.5 text-xs text-[#172033] dark:text-[#F8FAFC] focus:outline-none"
+                        className="rounded border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#111713] px-2 py-0.5 text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:outline-none"
                       >
                         {MOCK_ANALYSTS.map((a) => (
                           <option key={a} value={a}>
@@ -647,13 +647,13 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
                     value={newNoteText}
                     onChange={(e) => setNewNoteText(e.target.value)}
                     placeholder="Enter case observations, findings, forensic tool outputs, or triage details..."
-                    className="w-full rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#0B1220] px-3 py-2 text-xs text-[#172033] dark:text-[#F8FAFC] placeholder-[#8492A6] dark:placeholder-[#64748B] focus:border-[#007FA8] dark:focus:border-[#00C2FF] focus:outline-none focus:ring-1 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF]"
+                    className="w-full rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#111713] px-3 py-2 text-xs text-[#1C241F] dark:text-[#F0EFE6] placeholder-[#798074] dark:placeholder-[#58635A] focus:border-[#A9492D] dark:focus:border-[#E27A54] focus:outline-none focus:ring-1 focus:ring-[#A9492D] dark:focus:ring-[#E27A54]"
                   />
                   <div className="flex justify-end">
                     <button
                       type="submit"
                       disabled={!newNoteText.trim()}
-                      className="inline-flex items-center gap-1.5 rounded-lg border border-[#DCE5EF] dark:border-[#00C2FF]/40 bg-[#EEF4FA] dark:bg-[#00C2FF]/10 px-3 py-1.5 text-xs font-semibold text-[#007FA8] dark:text-[#38BDF8] hover:bg-[#DCE5EF] dark:hover:bg-[#00C2FF]/20 transition-colors disabled:opacity-40"
+                      className="inline-flex items-center gap-1.5 rounded-lg border border-[#CDCFC2] dark:border-[#E27A54]/40 bg-[#E1DED1] dark:bg-[#E27A54]/10 px-3 py-1.5 text-xs font-semibold text-[#A9492D] dark:text-[#C3D579] hover:bg-[#CDCFC2] dark:hover:bg-[#E27A54]/20 transition-colors disabled:opacity-40"
                     >
                       <Send className="h-3 w-3" />
                       <span>Log Note to Timeline</span>
@@ -664,22 +664,22 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
                 {/* Notes List */}
                 <div className="space-y-2.5">
                   {incident.investigationNotes.length === 0 ? (
-                    <div className="p-4 text-center rounded-lg border border-dashed border-[#DCE5EF] dark:border-[#29384D] text-xs text-[#64748B] dark:text-[#94A3B8]">
+                    <div className="p-4 text-center rounded-lg border border-dashed border-[#CDCFC2] dark:border-[#3A443A] text-xs text-[#58635A] dark:text-[#A8B09F]">
                       No investigation notes recorded yet.
                     </div>
                   ) : (
                     incident.investigationNotes.map((note) => (
                       <div
                         key={note.id}
-                        className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F8FAFC] dark:bg-[#111C2E]/60 p-3 space-y-1.5 text-xs"
+                        className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F0EFE6] dark:bg-[#0D120F]/60 p-3 space-y-1.5 text-xs"
                       >
-                        <div className="flex items-center justify-between text-[11px] text-[#64748B] dark:text-[#94A3B8] border-b border-[#DCE5EF] dark:border-[#29384D] pb-1">
-                          <span className="font-semibold text-[#007FA8] dark:text-[#00C2FF]">{note.author}</span>
-                          <span className="font-mono text-[#64748B] dark:text-[#94A3B8]">
+                        <div className="flex items-center justify-between text-[11px] text-[#58635A] dark:text-[#A8B09F] border-b border-[#CDCFC2] dark:border-[#3A443A] pb-1">
+                          <span className="font-semibold text-[#A9492D] dark:text-[#E27A54]">{note.author}</span>
+                          <span className="font-mono text-[#58635A] dark:text-[#A8B09F]">
                             {new Date(note.createdAt).toLocaleString()}
                           </span>
                         </div>
-                        <p className="text-[#172033] dark:text-[#F8FAFC] leading-relaxed whitespace-pre-wrap">{note.text}</p>
+                        <p className="text-[#1C241F] dark:text-[#F0EFE6] leading-relaxed whitespace-pre-wrap">{note.text}</p>
                       </div>
                     ))
                   )}
@@ -691,23 +691,23 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
           {/* TAB 2: TIMELINE */}
           {activeTab === 'timeline' && (
             <div className="space-y-4">
-              <div className="flex items-center justify-between text-xs text-[#64748B] dark:text-[#94A3B8]">
+              <div className="flex items-center justify-between text-xs text-[#58635A] dark:text-[#A8B09F]">
                 <span>Chronological event journal for case auditability</span>
-                <span className="font-mono text-[11px] text-[#007FA8] dark:text-[#00C2FF] font-semibold">
+                <span className="font-mono text-[11px] text-[#A9492D] dark:text-[#E27A54] font-semibold">
                   {incident.timeline.length} timeline milestones
                 </span>
               </div>
 
-              <div className="relative pl-6 space-y-5 before:absolute before:left-2.5 before:top-2 before:bottom-2 before:w-0.5 before:bg-[#DCE5EF] dark:before:bg-[#29384D]">
+              <div className="relative pl-6 space-y-5 before:absolute before:left-2.5 before:top-2 before:bottom-2 before:w-0.5 before:bg-[#CDCFC2] dark:before:bg-[#3A443A]">
                 {incident.timeline.map((item) => {
-                  let badgeColor = 'bg-[#EEF4FA] dark:bg-[#1B2A41] text-[#172033] dark:text-[#F8FAFC] border-[#DCE5EF] dark:border-[#29384D]';
+                  let badgeColor = 'bg-[#E1DED1] dark:bg-[#252C24] text-[#1C241F] dark:text-[#F0EFE6] border-[#CDCFC2] dark:border-[#3A443A]';
                   let Icon = Clock;
 
                   if (item.type === 'Incident created') {
                     badgeColor = 'bg-blue-500/15 text-blue-600 dark:text-blue-400 border-blue-500/30';
                     Icon = Sparkles;
                   } else if (item.type === 'Analyst assigned') {
-                    badgeColor = 'bg-[#007FA8]/15 dark:bg-[#00C2FF]/20 text-[#007FA8] dark:text-[#38BDF8] border-[#007FA8]/30 dark:border-[#00C2FF]/40';
+                    badgeColor = 'bg-[#A9492D]/15 dark:bg-[#E27A54]/20 text-[#A9492D] dark:text-[#C3D579] border-[#A9492D]/30 dark:border-[#E27A54]/40';
                     Icon = User;
                   } else if (item.type === 'Status changed') {
                     badgeColor = 'bg-amber-500/15 text-amber-600 dark:text-amber-400 border-amber-500/30';
@@ -735,20 +735,20 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
                         <Icon className="h-2.5 w-2.5" />
                       </div>
 
-                      <div className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F8FAFC] dark:bg-[#111C2E]/60 p-3 space-y-1 hover:border-[#007FA8]/40 dark:hover:border-[#00C2FF]/40 transition-colors">
+                      <div className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F0EFE6] dark:bg-[#0D120F]/60 p-3 space-y-1 hover:border-[#A9492D]/40 dark:hover:border-[#E27A54]/40 transition-colors">
                         <div className="flex flex-wrap items-center justify-between gap-1 text-[11px]">
-                          <span className="font-semibold text-[#172033] dark:text-[#F8FAFC]">{item.title}</span>
-                          <span className="font-mono text-[#64748B] dark:text-[#94A3B8]">
+                          <span className="font-semibold text-[#1C241F] dark:text-[#F0EFE6]">{item.title}</span>
+                          <span className="font-mono text-[#58635A] dark:text-[#A8B09F]">
                             {new Date(item.timestamp).toLocaleString()}
                           </span>
                         </div>
-                        <p className="text-xs text-[#172033] dark:text-[#F8FAFC] leading-relaxed">{item.description}</p>
-                        <div className="flex items-center gap-2 pt-1 text-[11px] text-[#64748B] dark:text-[#94A3B8]">
-                          <span>Actor: <span className="text-[#007FA8] dark:text-[#00C2FF] font-medium">{item.analyst}</span></span>
+                        <p className="text-xs text-[#1C241F] dark:text-[#F0EFE6] leading-relaxed">{item.description}</p>
+                        <div className="flex items-center gap-2 pt-1 text-[11px] text-[#58635A] dark:text-[#A8B09F]">
+                          <span>Actor: <span className="text-[#A9492D] dark:text-[#E27A54] font-medium">{item.analyst}</span></span>
                           {item.previousStatus && item.newStatus && (
                             <span>
                               &bull; Phase transition: {item.previousStatus} &rarr;{' '}
-                              <span className="text-[#172033] dark:text-[#F8FAFC] font-semibold">{item.newStatus}</span>
+                              <span className="text-[#1C241F] dark:text-[#F0EFE6] font-semibold">{item.newStatus}</span>
                             </span>
                           )}
                         </div>
@@ -765,17 +765,17 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="text-xs font-semibold uppercase tracking-wider text-[#172033] dark:text-[#F8FAFC]">
+                  <h3 className="text-xs font-semibold uppercase tracking-wider text-[#1C241F] dark:text-[#F0EFE6]">
                     Forensic Evidence Artifacts ({incident.evidence.length})
                   </h3>
-                  <p className="text-xs text-[#64748B] dark:text-[#94A3B8]">
+                  <p className="text-xs text-[#58635A] dark:text-[#A8B09F]">
                     Host artifacts, logs, PCAPs, memory dumps, and indicators
                   </p>
                 </div>
                 <button
                   type="button"
                   onClick={() => setShowAddEvidence((prev) => !prev)}
-                  className="inline-flex items-center gap-1.5 rounded-lg border border-[#DCE5EF] dark:border-[#00C2FF]/40 bg-[#EEF4FA] dark:bg-[#00C2FF]/10 px-3 py-1.5 text-xs font-semibold text-[#007FA8] dark:text-[#38BDF8] hover:bg-[#DCE5EF] dark:hover:bg-[#00C2FF]/20 transition-colors"
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-[#CDCFC2] dark:border-[#E27A54]/40 bg-[#E1DED1] dark:bg-[#E27A54]/10 px-3 py-1.5 text-xs font-semibold text-[#A9492D] dark:text-[#C3D579] hover:bg-[#CDCFC2] dark:hover:bg-[#E27A54]/20 transition-colors"
                 >
                   <Plus className="h-3.5 w-3.5" />
                   <span>{showAddEvidence ? 'Cancel' : 'Attach Evidence'}</span>
@@ -786,14 +786,14 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
               {showAddEvidence && (
                 <form
                   onSubmit={handleEvidenceSubmit}
-                  className="rounded-xl border border-[#007FA8]/30 dark:border-[#00C2FF]/40 bg-[#EEF4FA] dark:bg-[#111C2E] p-4 space-y-3 animate-fadeIn shadow-xs"
+                  className="rounded-xl border border-[#A9492D]/30 dark:border-[#E27A54]/40 bg-[#E1DED1] dark:bg-[#0D120F] p-4 space-y-3 animate-fadeIn shadow-xs"
                 >
-                  <h4 className="text-xs font-semibold text-[#007FA8] dark:text-[#38BDF8] uppercase tracking-wider">
+                  <h4 className="text-xs font-semibold text-[#A9492D] dark:text-[#C3D579] uppercase tracking-wider">
                     Attach New Evidence Artifact
                   </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                      <label htmlFor="ev-title" className="block text-[11px] font-medium text-[#172033] dark:text-[#F8FAFC] mb-1">
+                      <label htmlFor="ev-title" className="block text-[11px] font-medium text-[#1C241F] dark:text-[#F0EFE6] mb-1">
                         Artifact Title *
                       </label>
                       <input
@@ -803,18 +803,18 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
                         value={evidenceTitle}
                         onChange={(e) => setEvidenceTitle(e.target.value)}
                         placeholder="e.g. Memory Dump File, Wireshark Stream"
-                        className="w-full rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#0B1220] px-3 py-1.5 text-xs text-[#172033] dark:text-[#F8FAFC] placeholder-[#8492A6] dark:placeholder-[#64748B] focus:outline-none focus:ring-1 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF]"
+                        className="w-full rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#111713] px-3 py-1.5 text-xs text-[#1C241F] dark:text-[#F0EFE6] placeholder-[#798074] dark:placeholder-[#58635A] focus:outline-none focus:ring-1 focus:ring-[#A9492D] dark:focus:ring-[#E27A54]"
                       />
                     </div>
                     <div>
-                      <label htmlFor="ev-type" className="block text-[11px] font-medium text-[#172033] dark:text-[#F8FAFC] mb-1">
+                      <label htmlFor="ev-type" className="block text-[11px] font-medium text-[#1C241F] dark:text-[#F0EFE6] mb-1">
                         Evidence Type
                       </label>
                       <select
                         id="ev-type"
                         value={evidenceType}
                         onChange={(e) => setEvidenceType(e.target.value as EvidenceType)}
-                        className="w-full rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#0B1220] px-3 py-1.5 text-xs text-[#172033] dark:text-[#F8FAFC] focus:outline-none"
+                        className="w-full rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#111713] px-3 py-1.5 text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:outline-none"
                       >
                         <option value="file">File Artifact</option>
                         <option value="log">Log Entry / Journal</option>
@@ -826,7 +826,7 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
                     </div>
                   </div>
                   <div>
-                    <label htmlFor="ev-val" className="block text-[11px] font-medium text-[#172033] dark:text-[#F8FAFC] mb-1">
+                    <label htmlFor="ev-val" className="block text-[11px] font-medium text-[#1C241F] dark:text-[#F0EFE6] mb-1">
                       Artifact Value / Path / Hash *
                     </label>
                     <input
@@ -836,11 +836,11 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
                       value={evidenceValue}
                       onChange={(e) => setEvidenceValue(e.target.value)}
                       placeholder="e.g. C:\Windows\Temp\payload.dll, SHA256, or IP address"
-                      className="w-full rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#0B1220] px-3 py-1.5 text-xs text-[#172033] dark:text-[#F8FAFC] font-mono placeholder-[#8492A6] dark:placeholder-[#64748B] focus:outline-none focus:ring-1 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF]"
+                      className="w-full rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#111713] px-3 py-1.5 text-xs text-[#1C241F] dark:text-[#F0EFE6] font-mono placeholder-[#798074] dark:placeholder-[#58635A] focus:outline-none focus:ring-1 focus:ring-[#A9492D] dark:focus:ring-[#E27A54]"
                     />
                   </div>
                   <div>
-                    <label htmlFor="ev-desc" className="block text-[11px] font-medium text-[#172033] dark:text-[#F8FAFC] mb-1">
+                    <label htmlFor="ev-desc" className="block text-[11px] font-medium text-[#1C241F] dark:text-[#F0EFE6] mb-1">
                       Description &amp; Relevance
                     </label>
                     <textarea
@@ -849,20 +849,20 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
                       value={evidenceDesc}
                       onChange={(e) => setEvidenceDesc(e.target.value)}
                       placeholder="Why this artifact is significant to the investigation..."
-                      className="w-full rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#0B1220] px-3 py-1.5 text-xs text-[#172033] dark:text-[#F8FAFC] placeholder-[#8492A6] dark:placeholder-[#64748B] focus:outline-none"
+                      className="w-full rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#111713] px-3 py-1.5 text-xs text-[#1C241F] dark:text-[#F0EFE6] placeholder-[#798074] dark:placeholder-[#58635A] focus:outline-none"
                     />
                   </div>
                   <div className="flex justify-end gap-2">
                     <button
                       type="button"
                       onClick={() => setShowAddEvidence(false)}
-                      className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] px-3 py-1 text-xs text-[#64748B] dark:text-[#94A3B8] hover:bg-white dark:hover:bg-[#1B2A41] transition-colors"
+                      className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] px-3 py-1 text-xs text-[#58635A] dark:text-[#A8B09F] hover:bg-[#F2F0E6] dark:hover:bg-[#252C24] transition-colors"
                     >
                       Cancel
                     </button>
                     <button
                       type="submit"
-                      className="rounded-lg bg-[#007FA8] hover:bg-[#006A8C] dark:bg-[#00C2FF] dark:hover:bg-[#38BDF8] px-3 py-1 text-xs font-semibold text-white dark:text-[#0B1220] transition-colors shadow-xs"
+                      className="rounded-lg bg-[#A9492D] hover:bg-[#823B27] dark:bg-[#E27A54] dark:hover:bg-[#C3D579] px-3 py-1 text-xs font-semibold text-white dark:text-[#111713] transition-colors shadow-xs"
                     >
                       Attach Artifact
                     </button>
@@ -873,35 +873,35 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
               {/* Evidence Items List */}
               <div className="space-y-3">
                 {incident.evidence.length === 0 ? (
-                  <div className="p-6 text-center rounded-lg border border-dashed border-[#DCE5EF] dark:border-[#29384D] text-xs text-[#64748B] dark:text-[#94A3B8]">
+                  <div className="p-6 text-center rounded-lg border border-dashed border-[#CDCFC2] dark:border-[#3A443A] text-xs text-[#58635A] dark:text-[#A8B09F]">
                     No evidence attached yet. Use the "Attach Evidence" button above to log forensic indicators.
                   </div>
                 ) : (
                   incident.evidence.map((ev) => (
                     <div
                       key={ev.id}
-                      className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F8FAFC] dark:bg-[#111C2E]/60 p-3.5 space-y-2 hover:border-[#007FA8]/40 dark:hover:border-[#00C2FF]/40 transition-colors"
+                      className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F0EFE6] dark:bg-[#0D120F]/60 p-3.5 space-y-2 hover:border-[#A9492D]/40 dark:hover:border-[#E27A54]/40 transition-colors"
                     >
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
-                          <span className="rounded bg-[#EEF4FA] dark:bg-[#1B2A41] px-2 py-0.5 text-[10px] font-mono uppercase text-[#007FA8] dark:text-[#00C2FF] font-semibold border border-[#DCE5EF] dark:border-[#29384D]">
+                          <span className="rounded bg-[#E1DED1] dark:bg-[#252C24] px-2 py-0.5 text-[10px] font-mono uppercase text-[#A9492D] dark:text-[#E27A54] font-semibold border border-[#CDCFC2] dark:border-[#3A443A]">
                             {ev.type}
                           </span>
-                          <h4 className="text-xs font-semibold text-[#172033] dark:text-[#F8FAFC]">{ev.title}</h4>
+                          <h4 className="text-xs font-semibold text-[#1C241F] dark:text-[#F0EFE6]">{ev.title}</h4>
                         </div>
-                        <span className="text-[11px] font-mono text-[#64748B] dark:text-[#94A3B8]">{ev.id}</span>
+                        <span className="text-[11px] font-mono text-[#58635A] dark:text-[#A8B09F]">{ev.id}</span>
                       </div>
 
-                      <div className="rounded bg-white dark:bg-[#0B1220] border border-[#DCE5EF] dark:border-[#29384D] p-2 font-mono text-xs text-[#007FA8] dark:text-[#38BDF8] break-all select-all">
+                      <div className="rounded bg-[#F2F0E6] dark:bg-[#111713] border border-[#CDCFC2] dark:border-[#3A443A] p-2 font-mono text-xs text-[#A9492D] dark:text-[#C3D579] break-all select-all">
                         {ev.value}
                       </div>
 
                       {ev.description && (
-                        <p className="text-xs text-[#172033] dark:text-[#F8FAFC] leading-relaxed">{ev.description}</p>
+                        <p className="text-xs text-[#1C241F] dark:text-[#F0EFE6] leading-relaxed">{ev.description}</p>
                       )}
 
-                      <div className="flex items-center justify-between text-[11px] text-[#64748B] dark:text-[#94A3B8] pt-1 border-t border-[#DCE5EF] dark:border-[#29384D]">
-                        <span>Logged by: <span className="text-[#172033] dark:text-[#F8FAFC] font-medium">{ev.addedBy}</span></span>
+                      <div className="flex items-center justify-between text-[11px] text-[#58635A] dark:text-[#A8B09F] pt-1 border-t border-[#CDCFC2] dark:border-[#3A443A]">
+                        <span>Logged by: <span className="text-[#1C241F] dark:text-[#F0EFE6] font-medium">{ev.addedBy}</span></span>
                         <span>{new Date(ev.addedAt).toLocaleString()}</span>
                       </div>
                     </div>
@@ -916,10 +916,10 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="text-xs font-semibold uppercase tracking-wider text-[#172033] dark:text-[#F8FAFC]">
+                  <h3 className="text-xs font-semibold uppercase tracking-wider text-[#1C241F] dark:text-[#F0EFE6]">
                     Response &amp; Containment Playbooks ({incident.responseActions.length})
                   </h3>
-                  <p className="text-xs text-[#64748B] dark:text-[#94A3B8]">
+                  <p className="text-xs text-[#58635A] dark:text-[#A8B09F]">
                     Simulated containment, eradication, and recovery procedures
                   </p>
                 </div>
@@ -952,7 +952,7 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
                   </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                     <div className="sm:col-span-2">
-                      <label htmlFor="act-title" className="block text-[11px] font-medium text-[#172033] dark:text-[#F8FAFC] mb-1">
+                      <label htmlFor="act-title" className="block text-[11px] font-medium text-[#1C241F] dark:text-[#F0EFE6] mb-1">
                         Action Title *
                       </label>
                       <input
@@ -962,18 +962,18 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
                         value={actionTitle}
                         onChange={(e) => setActionTitle(e.target.value)}
                         placeholder="e.g. Revoke compromised Kerberos service ticket"
-                        className="w-full rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#0B1220] px-3 py-1.5 text-xs text-[#172033] dark:text-[#F8FAFC] placeholder-[#8492A6] dark:placeholder-[#64748B] focus:outline-none focus:ring-1 focus:ring-amber-500"
+                        className="w-full rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#111713] px-3 py-1.5 text-xs text-[#1C241F] dark:text-[#F0EFE6] placeholder-[#798074] dark:placeholder-[#58635A] focus:outline-none focus:ring-1 focus:ring-amber-500"
                       />
                     </div>
                     <div>
-                      <label htmlFor="act-type" className="block text-[11px] font-medium text-[#172033] dark:text-[#F8FAFC] mb-1">
+                      <label htmlFor="act-type" className="block text-[11px] font-medium text-[#1C241F] dark:text-[#F0EFE6] mb-1">
                         Action Type
                       </label>
                       <select
                         id="act-type"
                         value={actionType}
                         onChange={(e) => setActionType(e.target.value as ResponseActionType)}
-                        className="w-full rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#0B1220] px-3 py-1.5 text-xs text-[#172033] dark:text-[#F8FAFC] focus:outline-none"
+                        className="w-full rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#111713] px-3 py-1.5 text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:outline-none"
                       >
                         <option value="Investigate">Investigate</option>
                         <option value="Contain">Contain (Isolate)</option>
@@ -986,14 +986,14 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                      <label htmlFor="act-status" className="block text-[11px] font-medium text-[#172033] dark:text-[#F8FAFC] mb-1">
+                      <label htmlFor="act-status" className="block text-[11px] font-medium text-[#1C241F] dark:text-[#F0EFE6] mb-1">
                         Initial Execution Status
                       </label>
                       <select
                         id="act-status"
                         value={actionStatus}
                         onChange={(e) => setActionStatus(e.target.value as ResponseActionStatus)}
-                        className="w-full rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#0B1220] px-3 py-1.5 text-xs text-[#172033] dark:text-[#F8FAFC] focus:outline-none"
+                        className="w-full rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#111713] px-3 py-1.5 text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:outline-none"
                       >
                         <option value="Pending">Pending Approval</option>
                         <option value="In Progress">In Progress</option>
@@ -1002,7 +1002,7 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
                       </select>
                     </div>
                     <div>
-                      <label htmlFor="act-notes" className="block text-[11px] font-medium text-[#172033] dark:text-[#F8FAFC] mb-1">
+                      <label htmlFor="act-notes" className="block text-[11px] font-medium text-[#1C241F] dark:text-[#F0EFE6] mb-1">
                         Execution Notes
                       </label>
                       <input
@@ -1011,7 +1011,7 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
                         value={actionNotes}
                         onChange={(e) => setActionNotes(e.target.value)}
                         placeholder="e.g. Executed via scripted SSH playbook"
-                        className="w-full rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#0B1220] px-3 py-1.5 text-xs text-[#172033] dark:text-[#F8FAFC] focus:outline-none"
+                        className="w-full rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#111713] px-3 py-1.5 text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:outline-none"
                       />
                     </div>
                   </div>
@@ -1019,7 +1019,7 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
                     <button
                       type="button"
                       onClick={() => setShowAddAction(false)}
-                      className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] px-3 py-1 text-xs text-[#64748B] dark:text-[#94A3B8] hover:bg-white dark:hover:bg-[#1B2A41] transition-colors"
+                      className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] px-3 py-1 text-xs text-[#58635A] dark:text-[#A8B09F] hover:bg-[#F2F0E6] dark:hover:bg-[#252C24] transition-colors"
                     >
                       Cancel
                     </button>
@@ -1036,7 +1036,7 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
               {/* Response Actions List */}
               <div className="space-y-3">
                 {incident.responseActions.length === 0 ? (
-                  <div className="p-6 text-center rounded-lg border border-dashed border-[#DCE5EF] dark:border-[#29384D] text-xs text-[#64748B] dark:text-[#94A3B8]">
+                  <div className="p-6 text-center rounded-lg border border-dashed border-[#CDCFC2] dark:border-[#3A443A] text-xs text-[#58635A] dark:text-[#A8B09F]">
                     No response actions logged yet. Record containment and remediation steps to maintain audit trails.
                   </div>
                 ) : (
@@ -1047,7 +1047,7 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
                     return (
                       <div
                         key={act.id}
-                        className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F8FAFC] dark:bg-[#111C2E]/60 p-3.5 space-y-2 hover:border-[#007FA8]/40 dark:hover:border-[#00C2FF]/40 transition-colors"
+                        className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F0EFE6] dark:bg-[#0D120F]/60 p-3.5 space-y-2 hover:border-[#A9492D]/40 dark:hover:border-[#E27A54]/40 transition-colors"
                       >
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-2">
@@ -1064,7 +1064,7 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
                             >
                               {act.actionType}
                             </span>
-                            <h4 className="text-xs font-semibold text-[#172033] dark:text-[#F8FAFC]">{act.title}</h4>
+                            <h4 className="text-xs font-semibold text-[#1C241F] dark:text-[#F0EFE6]">{act.title}</h4>
                           </div>
 
                           <div className="flex items-center gap-2">
@@ -1077,7 +1077,7 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
                                   ? 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30 hover:bg-emerald-500/25'
                                   : isInProgress
                                   ? 'bg-amber-500/15 text-amber-700 dark:text-amber-400 border border-amber-500/30 hover:bg-amber-500/25'
-                                  : 'bg-[#EEF4FA] dark:bg-[#1B2A41] text-[#64748B] dark:text-[#94A3B8] border border-[#DCE5EF] dark:border-[#29384D] hover:bg-white dark:hover:bg-[#20324A]'
+                                  : 'bg-[#E1DED1] dark:bg-[#252C24] text-[#58635A] dark:text-[#A8B09F] border border-[#CDCFC2] dark:border-[#3A443A] hover:bg-[#F2F0E6] dark:hover:bg-[#303A31]'
                               }`}
                             >
                               {isDone ? (
@@ -1093,13 +1093,13 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
                         </div>
 
                         {act.notes && (
-                          <p className="text-xs text-[#172033] dark:text-[#F8FAFC] leading-relaxed bg-white dark:bg-[#0B1220] p-2 rounded border border-[#DCE5EF] dark:border-[#29384D]">
+                          <p className="text-xs text-[#1C241F] dark:text-[#F0EFE6] leading-relaxed bg-[#F2F0E6] dark:bg-[#111713] p-2 rounded border border-[#CDCFC2] dark:border-[#3A443A]">
                             {act.notes}
                           </p>
                         )}
 
-                        <div className="flex items-center justify-between text-[11px] text-[#64748B] dark:text-[#94A3B8] pt-1">
-                          <span>Operator: <span className="text-[#172033] dark:text-[#F8FAFC] font-medium">{act.executedBy}</span></span>
+                        <div className="flex items-center justify-between text-[11px] text-[#58635A] dark:text-[#A8B09F] pt-1">
+                          <span>Operator: <span className="text-[#1C241F] dark:text-[#F0EFE6] font-medium">{act.executedBy}</span></span>
                           <span>{new Date(act.timestamp).toLocaleString()}</span>
                         </div>
                       </div>
@@ -1115,14 +1115,14 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
             <div className="space-y-5">
               {/* Correlated Alerts */}
               <div className="space-y-2.5">
-                <h4 className="text-xs font-semibold uppercase tracking-wider text-[#172033] dark:text-[#F8FAFC] flex items-center justify-between">
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-[#1C241F] dark:text-[#F0EFE6] flex items-center justify-between">
                   <span className="flex items-center gap-1.5">
                     <AlertTriangle className="h-4 w-4 text-amber-500" />
                     <span>Correlated Security Alerts ({correlatedAlerts.length})</span>
                   </span>
                 </h4>
                 {correlatedAlerts.length === 0 ? (
-                  <p className="text-xs text-[#64748B] dark:text-[#94A3B8] p-3 rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F8FAFC] dark:bg-[#111C2E]/60">
+                  <p className="text-xs text-[#58635A] dark:text-[#A8B09F] p-3 rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F0EFE6] dark:bg-[#0D120F]/60">
                     No direct alert links associated with this case.
                   </p>
                 ) : (
@@ -1130,19 +1130,19 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
                     {correlatedAlerts.map((alt) => (
                       <div
                         key={alt.id}
-                        className="flex items-center justify-between rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F8FAFC] dark:bg-[#111C2E]/60 p-3 hover:border-[#007FA8]/40 dark:hover:border-[#00C2FF]/40 transition-colors"
+                        className="flex items-center justify-between rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F0EFE6] dark:bg-[#0D120F]/60 p-3 hover:border-[#A9492D]/40 dark:hover:border-[#E27A54]/40 transition-colors"
                       >
                         <div className="space-y-1">
                           <div className="flex items-center gap-2">
-                            <span className="font-mono text-xs font-semibold text-[#007FA8] dark:text-[#00C2FF]">
+                            <span className="font-mono text-xs font-semibold text-[#A9492D] dark:text-[#E27A54]">
                               {alt.id}
                             </span>
-                            <span className="rounded bg-[#EEF4FA] dark:bg-[#1B2A41] px-1.5 py-0.5 text-[10px] uppercase font-semibold text-amber-700 dark:text-amber-300 border border-[#DCE5EF] dark:border-[#29384D]">
+                            <span className="rounded bg-[#E1DED1] dark:bg-[#252C24] px-1.5 py-0.5 text-[10px] uppercase font-semibold text-amber-700 dark:text-amber-300 border border-[#CDCFC2] dark:border-[#3A443A]">
                               {alt.severity}
                             </span>
-                            <span className="text-xs text-[#172033] dark:text-[#F8FAFC] font-medium">{alt.title}</span>
+                            <span className="text-xs text-[#1C241F] dark:text-[#F0EFE6] font-medium">{alt.title}</span>
                           </div>
-                          <p className="text-[11px] text-[#64748B] dark:text-[#94A3B8] line-clamp-1">{alt.description}</p>
+                          <p className="text-[11px] text-[#58635A] dark:text-[#A8B09F] line-clamp-1">{alt.description}</p>
                         </div>
                         {onNavigateToAlert && (
                           <button
@@ -1151,7 +1151,7 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
                               onClose();
                               onNavigateToAlert(alt.id);
                             }}
-                            className="inline-flex items-center gap-1 rounded border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#1B2A41] px-2.5 py-1 text-xs text-[#172033] dark:text-[#F8FAFC] hover:bg-[#EEF4FA] dark:hover:bg-[#20324A] shrink-0 ml-3 transition-colors"
+                            className="inline-flex items-center gap-1 rounded border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#252C24] px-2.5 py-1 text-xs text-[#1C241F] dark:text-[#F0EFE6] hover:bg-[#E1DED1] dark:hover:bg-[#303A31] shrink-0 ml-3 transition-colors"
                           >
                             <span>Inspect Alert</span>
                             <ExternalLink className="h-3 w-3" />
@@ -1165,12 +1165,12 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
 
               {/* Correlated Events */}
               <div className="space-y-2.5">
-                <h4 className="text-xs font-semibold uppercase tracking-wider text-[#172033] dark:text-[#F8FAFC] flex items-center gap-1.5">
-                  <Search className="h-4 w-4 text-[#007FA8] dark:text-[#00C2FF]" />
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-[#1C241F] dark:text-[#F0EFE6] flex items-center gap-1.5">
+                  <Search className="h-4 w-4 text-[#A9492D] dark:text-[#E27A54]" />
                   <span>Correlated Security Events ({correlatedEvents.length})</span>
                 </h4>
                 {correlatedEvents.length === 0 ? (
-                  <p className="text-xs text-[#64748B] dark:text-[#94A3B8] p-3 rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F8FAFC] dark:bg-[#111C2E]/60">
+                  <p className="text-xs text-[#58635A] dark:text-[#A8B09F] p-3 rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F0EFE6] dark:bg-[#0D120F]/60">
                     No specific event IDs linked directly to this case.
                   </p>
                 ) : (
@@ -1178,16 +1178,16 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
                     {correlatedEvents.map((evt) => (
                       <div
                         key={evt.id}
-                        className="flex items-center justify-between rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F8FAFC] dark:bg-[#111C2E]/60 p-3 hover:border-[#007FA8]/40 dark:hover:border-[#00C2FF]/40 transition-colors"
+                        className="flex items-center justify-between rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F0EFE6] dark:bg-[#0D120F]/60 p-3 hover:border-[#A9492D]/40 dark:hover:border-[#E27A54]/40 transition-colors"
                       >
                         <div className="space-y-1">
                           <div className="flex items-center gap-2">
-                            <span className="font-mono text-xs text-[#007FA8] dark:text-[#00C2FF] font-semibold">{evt.id}</span>
-                            <span className="text-xs text-[#172033] dark:text-[#F8FAFC] font-medium">{evt.ruleName}</span>
-                            <span className="text-[11px] font-mono text-[#64748B] dark:text-[#94A3B8]">{evt.sourceSystem}</span>
+                            <span className="font-mono text-xs text-[#A9492D] dark:text-[#E27A54] font-semibold">{evt.id}</span>
+                            <span className="text-xs text-[#1C241F] dark:text-[#F0EFE6] font-medium">{evt.ruleName}</span>
+                            <span className="text-[11px] font-mono text-[#58635A] dark:text-[#A8B09F]">{evt.sourceSystem}</span>
                           </div>
-                          <p className="text-[11px] text-[#64748B] dark:text-[#94A3B8]">
-                            Host: <span className="font-mono text-[#172033] dark:text-[#F8FAFC]">{evt.host}</span> &bull; Action:{' '}
+                          <p className="text-[11px] text-[#58635A] dark:text-[#A8B09F]">
+                            Host: <span className="font-mono text-[#1C241F] dark:text-[#F0EFE6]">{evt.host}</span> &bull; Action:{' '}
                             <span className="text-amber-600 dark:text-amber-400 font-medium">{evt.action}</span>
                           </p>
                         </div>
@@ -1198,7 +1198,7 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
                               onClose();
                               onNavigateToEvent(evt.id);
                             }}
-                            className="inline-flex items-center gap-1 rounded border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#1B2A41] px-2.5 py-1 text-xs text-[#172033] dark:text-[#F8FAFC] hover:bg-[#EEF4FA] dark:hover:bg-[#20324A] shrink-0 ml-3 transition-colors"
+                            className="inline-flex items-center gap-1 rounded border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#252C24] px-2.5 py-1 text-xs text-[#1C241F] dark:text-[#F0EFE6] hover:bg-[#E1DED1] dark:hover:bg-[#303A31] shrink-0 ml-3 transition-colors"
                           >
                             <span>Jump to Event</span>
                             <ExternalLink className="h-3 w-3" />
@@ -1212,12 +1212,12 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
 
               {/* Threat Intel Indicators */}
               <div className="space-y-2.5">
-                <h4 className="text-xs font-semibold uppercase tracking-wider text-[#172033] dark:text-[#F8FAFC] flex items-center gap-1.5">
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-[#1C241F] dark:text-[#F0EFE6] flex items-center gap-1.5">
                   <Radio className="h-4 w-4 text-purple-600 dark:text-purple-400" />
                   <span>Threat Intelligence Indicators ({correlatedIndicators.length})</span>
                 </h4>
                 {correlatedIndicators.length === 0 ? (
-                  <p className="text-xs text-[#64748B] dark:text-[#94A3B8] p-3 rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F8FAFC] dark:bg-[#111C2E]/60">
+                  <p className="text-xs text-[#58635A] dark:text-[#A8B09F] p-3 rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F0EFE6] dark:bg-[#0D120F]/60">
                     No linked Threat Intel IOCs registered in case files.
                   </p>
                 ) : (
@@ -1225,19 +1225,19 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
                     {correlatedIndicators.map((ioc) => (
                       <div
                         key={ioc.id}
-                        className="flex items-center justify-between rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F8FAFC] dark:bg-[#111C2E]/60 p-3 hover:border-[#007FA8]/40 dark:hover:border-[#00C2FF]/40 transition-colors"
+                        className="flex items-center justify-between rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F0EFE6] dark:bg-[#0D120F]/60 p-3 hover:border-[#A9492D]/40 dark:hover:border-[#E27A54]/40 transition-colors"
                       >
                         <div className="space-y-1">
                           <div className="flex items-center gap-2">
-                            <span className="rounded bg-[#EEF4FA] dark:bg-[#1B2A41] px-1.5 py-0.5 text-[10px] font-mono uppercase text-[#64748B] dark:text-[#94A3B8] border border-[#DCE5EF] dark:border-[#29384D]">
+                            <span className="rounded bg-[#E1DED1] dark:bg-[#252C24] px-1.5 py-0.5 text-[10px] font-mono uppercase text-[#58635A] dark:text-[#A8B09F] border border-[#CDCFC2] dark:border-[#3A443A]">
                               {ioc.type}
                             </span>
-                            <span className="font-mono text-xs text-[#172033] dark:text-[#F8FAFC] font-semibold">{ioc.value}</span>
+                            <span className="font-mono text-xs text-[#1C241F] dark:text-[#F0EFE6] font-semibold">{ioc.value}</span>
                             <span className="text-xs font-semibold text-red-600 dark:text-red-400">
                               Risk {ioc.riskScore}/100
                             </span>
                           </div>
-                          <p className="text-[11px] text-[#64748B] dark:text-[#94A3B8]">{ioc.riskReason}</p>
+                          <p className="text-[11px] text-[#58635A] dark:text-[#A8B09F]">{ioc.riskReason}</p>
                         </div>
                         {onNavigateToIndicator && (
                           <button
@@ -1246,7 +1246,7 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
                               onClose();
                               onNavigateToIndicator(ioc.id);
                             }}
-                            className="inline-flex items-center gap-1 rounded border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#1B2A41] px-2.5 py-1 text-xs text-[#172033] dark:text-[#F8FAFC] hover:bg-[#EEF4FA] dark:hover:bg-[#20324A] shrink-0 ml-3 transition-colors"
+                            className="inline-flex items-center gap-1 rounded border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#252C24] px-2.5 py-1 text-xs text-[#1C241F] dark:text-[#F0EFE6] hover:bg-[#E1DED1] dark:hover:bg-[#303A31] shrink-0 ml-3 transition-colors"
                           >
                             <span>View Threat Intel</span>
                             <ExternalLink className="h-3 w-3" />
@@ -1260,12 +1260,12 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
 
               {/* MITRE ATT&CK Techniques */}
               <div className="space-y-2.5">
-                <h4 className="text-xs font-semibold uppercase tracking-wider text-[#172033] dark:text-[#F8FAFC] flex items-center gap-1.5">
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-[#1C241F] dark:text-[#F0EFE6] flex items-center gap-1.5">
                   <Crosshair className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
                   <span>MITRE ATT&amp;CK Tactics &amp; Techniques</span>
                 </h4>
                 {incident.relatedMitreTechniqueIds.length === 0 ? (
-                  <p className="text-xs text-[#64748B] dark:text-[#94A3B8] p-3 rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F8FAFC] dark:bg-[#111C2E]/60">
+                  <p className="text-xs text-[#58635A] dark:text-[#A8B09F] p-3 rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F0EFE6] dark:bg-[#0D120F]/60">
                     No explicit MITRE technique IDs mapped to this incident.
                   </p>
                 ) : (
@@ -1273,7 +1273,7 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
                     {incident.relatedMitreTechniqueIds.map((tech) => (
                       <div
                         key={tech}
-                        className="flex items-center gap-2 rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#0B1220] px-3 py-1.5 text-xs shadow-xs"
+                        className="flex items-center gap-2 rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#111713] px-3 py-1.5 text-xs shadow-xs"
                       >
                         <span className="font-mono font-semibold text-emerald-600 dark:text-emerald-400">{tech}</span>
                         {onNavigateToTechnique && (
@@ -1283,7 +1283,7 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
                               onClose();
                               onNavigateToTechnique(tech);
                             }}
-                            className="text-[#64748B] dark:text-[#94A3B8] hover:text-[#172033] dark:hover:text-[#F8FAFC]"
+                            className="text-[#58635A] dark:text-[#A8B09F] hover:text-[#1C241F] dark:hover:text-[#F0EFE6]"
                             title="Inspect in MITRE Matrix"
                           >
                             <ExternalLink className="h-3 w-3" />
@@ -1299,15 +1299,15 @@ export const IncidentDetailModal: React.FC<IncidentDetailModalProps> = ({
         </div>
 
         {/* Modal Footer */}
-        <div className="flex items-center justify-between border-t border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#111C2E] px-5 py-3">
-          <div className="text-[11px] text-[#64748B] dark:text-[#94A3B8] flex items-center gap-1.5">
-            <Shield className="h-3.5 w-3.5 text-[#007FA8] dark:text-[#00C2FF]" />
+        <div className="flex items-center justify-between border-t border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#0D120F] px-5 py-3">
+          <div className="text-[11px] text-[#58635A] dark:text-[#A8B09F] flex items-center gap-1.5">
+            <Shield className="h-3.5 w-3.5 text-[#A9492D] dark:text-[#E27A54]" />
             <span>CyberGuard SOC Lab &bull; Stage 7 Incident Management Case Record</span>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#1B2A41] px-4 py-1.5 text-xs font-semibold text-[#172033] dark:text-[#F8FAFC] hover:bg-[#EEF4FA] dark:hover:bg-[#20324A] transition-colors"
+            className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#252C24] px-4 py-1.5 text-xs font-semibold text-[#1C241F] dark:text-[#F0EFE6] hover:bg-[#E1DED1] dark:hover:bg-[#303A31] transition-colors"
           >
             Close
           </button>

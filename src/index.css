@@ -3,31 +3,31 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --color-bg-app: #F4F7FB;
-  --color-bg-sidebar: #FFFFFF;
-  --color-bg-card: #FFFFFF;
-  --color-bg-elevated: #EEF4FA;
-  --color-accent-primary: #007FA8;
-  --color-accent-secondary: #164E8A;
-  --color-text-primary: #172033;
-  --color-text-secondary: #64748B;
-  --color-text-muted: #8492A6;
-  --color-border: #DCE5EF;
-  --color-hover: #EDF5FA;
+  --color-bg-app: #E9E5D9;
+  --color-bg-sidebar: #F2F0E6;
+  --color-bg-card: #F2F0E6;
+  --color-bg-elevated: #E1DED1;
+  --color-accent-primary: #A9492D;
+  --color-accent-secondary: #526447;
+  --color-text-primary: #1C241F;
+  --color-text-secondary: #58635A;
+  --color-text-muted: #798074;
+  --color-border: #CDCFC2;
+  --color-hover: #E5E2D8;
 }
 
 .dark {
-  --color-bg-app: #0B1220;
-  --color-bg-sidebar: #111C2E;
-  --color-bg-card: #17243A;
-  --color-bg-elevated: #1B2A41;
-  --color-accent-primary: #00C2FF;
-  --color-accent-secondary: #38BDF8;
-  --color-text-primary: #F8FAFC;
-  --color-text-secondary: #94A3B8;
-  --color-text-muted: #64748B;
-  --color-border: #29384D;
-  --color-hover: #20324A;
+  --color-bg-app: #111713;
+  --color-bg-sidebar: #0D120F;
+  --color-bg-card: #1A211B;
+  --color-bg-elevated: #252C24;
+  --color-accent-primary: #E27A54;
+  --color-accent-secondary: #C3D579;
+  --color-text-primary: #F0EFE6;
+  --color-text-secondary: #A8B09F;
+  --color-text-muted: #808A7C;
+  --color-border: #3A443A;
+  --color-hover: #303A31;
 }
 
 @theme {
@@ -42,6 +42,109 @@
   --color-soc-text-muted: var(--color-text-muted);
   --color-soc-border: var(--color-border);
   --color-soc-hover: var(--color-hover);
+  --color-signal-50: #F9EBE6;
+  --color-signal-100: #F1D1C4;
+  --color-signal-200: #E9B59D;
+  --color-signal-300: #E39A7A;
+  --color-signal-400: #DA7F5D;
+  --color-signal-500: #C76642;
+  --color-signal-600: #B35131;
+  --color-signal-700: #963F27;
+  --color-signal-800: #743522;
+  --color-signal-900: #542A1E;
+  --color-signal-950: #321D18;
+}
+
+* {
+  scrollbar-color: rgba(128, 138, 124, 0.65) transparent;
+}
+
+body {
+  font-family: "Segoe UI Variable", Aptos, ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.operator-shell {
+  --operator-grid: rgba(82, 100, 71, 0.07);
+  background-image:
+    linear-gradient(var(--operator-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--operator-grid) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.dark .operator-shell {
+  --operator-grid: rgba(195, 213, 121, 0.035);
+}
+
+.operator-header {
+  background: var(--color-bg-sidebar) !important;
+  border-bottom-color: var(--color-border) !important;
+  box-shadow: 0 1px 0 rgba(18, 27, 20, 0.05);
+}
+
+.operator-sidebar {
+  background: var(--color-bg-sidebar) !important;
+  border-right-color: var(--color-border) !important;
+}
+
+.operator-sidebar nav button {
+  border-radius: 6px !important;
+}
+
+.operator-page {
+  max-width: 1480px;
+  margin-inline: auto;
+}
+
+.workbench-eyebrow {
+  color: var(--color-accent-primary);
+  font: 700 10px/1.3 ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.workbench-panel {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(18, 27, 20, 0.045);
+}
+
+.dark .workbench-panel {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+}
+
+.workbench-rule {
+  border-color: var(--color-border);
+}
+
+.workbench-metric {
+  border-left: 2px solid var(--color-accent-primary);
+  padding-left: 14px;
+}
+
+.workbench-action {
+  background: var(--color-accent-primary);
+  border: 1px solid var(--color-accent-primary);
+  color: #fff;
+  transition: transform 140ms ease, filter 140ms ease;
+}
+
+.workbench-action:hover {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+}
+
+.workbench-action:focus-visible {
+  outline: 2px solid var(--color-accent-secondary);
+  outline-offset: 2px;
 }
 
 /* Custom scrollbars matching theme */

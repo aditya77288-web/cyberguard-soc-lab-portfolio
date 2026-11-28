@@ -40,9 +40,9 @@ export const EventDetailModal: React.FC<EventDetailModalProps> = ({ event, onClo
       aria-labelledby="modal-event-title"
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 dark:bg-black/80 backdrop-blur-sm animate-fade-in"
     >
-      <div className="relative w-full max-w-3xl overflow-hidden rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] shadow-2xl text-[#172033] dark:text-[#F8FAFC]">
+      <div className="relative w-full max-w-3xl overflow-hidden rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#1A211B] shadow-2xl text-[#1C241F] dark:text-[#F0EFE6]">
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] px-6 py-4">
+        <div className="flex items-center justify-between border-b border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] px-6 py-4">
           <div className="flex items-center gap-3">
             <span
               className={`inline-flex items-center gap-1.5 rounded border px-2.5 py-0.5 text-xs font-bold uppercase ${severityStyle.badgeBg} ${severityStyle.badgeBorder} ${severityStyle.badgeText}`}
@@ -51,10 +51,10 @@ export const EventDetailModal: React.FC<EventDetailModalProps> = ({ event, onClo
               {severityStyle.label}
             </span>
             <div>
-              <h3 id="modal-event-title" className="text-base font-bold text-[#172033] dark:text-white">
+              <h3 id="modal-event-title" className="text-base font-bold text-[#1C241F] dark:text-white">
                 {event.ruleName}
               </h3>
-              <p className="text-xs font-mono text-[#64748B] dark:text-[#94A3B8]">
+              <p className="text-xs font-mono text-[#58635A] dark:text-[#A8B09F]">
                 Event ID: {event.id} &bull; Rule: {event.ruleId}
               </p>
             </div>
@@ -64,7 +64,7 @@ export const EventDetailModal: React.FC<EventDetailModalProps> = ({ event, onClo
             type="button"
             onClick={onClose}
             aria-label="Close event inspection dialog"
-            className="rounded-lg p-1.5 text-[#64748B] dark:text-[#94A3B8] hover:bg-[#DCE5EF] dark:hover:bg-[#20324A] hover:text-[#172033] dark:hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF]"
+            className="rounded-lg p-1.5 text-[#58635A] dark:text-[#A8B09F] hover:bg-[#CDCFC2] dark:hover:bg-[#303A31] hover:text-[#1C241F] dark:hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[#A9492D] dark:focus:ring-[#E27A54]"
           >
             <X className="h-5 w-5" />
           </button>
@@ -74,26 +74,26 @@ export const EventDetailModal: React.FC<EventDetailModalProps> = ({ event, onClo
         <div className="max-h-[75vh] overflow-y-auto p-6 space-y-5 text-xs">
           {/* Metadata Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <div className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] p-3">
-              <span className="text-[11px] text-[#64748B] dark:text-[#94A3B8] block font-medium">Timestamp (UTC)</span>
-              <span className="text-xs text-[#172033] dark:text-white font-mono mt-0.5 block truncate">
+            <div className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] p-3">
+              <span className="text-[11px] text-[#58635A] dark:text-[#A8B09F] block font-medium">Timestamp (UTC)</span>
+              <span className="text-xs text-[#1C241F] dark:text-white font-mono mt-0.5 block truncate">
                 {event.timestamp}
               </span>
             </div>
-            <div className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] p-3">
-              <span className="text-[11px] text-[#64748B] dark:text-[#94A3B8] block font-medium">Action Enforced</span>
-              <span className="text-xs font-bold text-[#007FA8] dark:text-[#00C2FF] mt-0.5 block">
+            <div className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] p-3">
+              <span className="text-[11px] text-[#58635A] dark:text-[#A8B09F] block font-medium">Action Enforced</span>
+              <span className="text-xs font-bold text-[#A9492D] dark:text-[#E27A54] mt-0.5 block">
                 {event.action}
               </span>
             </div>
-            <div className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] p-3">
-              <span className="text-[11px] text-[#64748B] dark:text-[#94A3B8] block font-medium">Target Host</span>
-              <span className="text-xs text-[#172033] dark:text-white font-mono mt-0.5 block truncate">
+            <div className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] p-3">
+              <span className="text-[11px] text-[#58635A] dark:text-[#A8B09F] block font-medium">Target Host</span>
+              <span className="text-xs text-[#1C241F] dark:text-white font-mono mt-0.5 block truncate">
                 {event.host}
               </span>
             </div>
-            <div className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] p-3">
-              <span className="text-[11px] text-[#64748B] dark:text-[#94A3B8] block font-medium">MITRE Technique</span>
+            <div className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] p-3">
+              <span className="text-[11px] text-[#58635A] dark:text-[#A8B09F] block font-medium">MITRE Technique</span>
               <span className="text-xs text-purple-700 dark:text-purple-300 font-mono mt-0.5 block truncate" title={event.mitreTechnique}>
                 {event.mitreTechnique}
               </span>
@@ -101,45 +101,45 @@ export const EventDetailModal: React.FC<EventDetailModalProps> = ({ event, onClo
           </div>
 
           {/* Network context */}
-          <div className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA]/50 dark:bg-[#111C2E]/60 p-3.5 space-y-2">
-            <div className="flex items-center gap-2 text-[#172033] dark:text-slate-200 font-bold text-xs">
-              <Network className="h-4 w-4 text-[#007FA8] dark:text-[#00C2FF]" />
+          <div className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1]/50 dark:bg-[#0D120F]/60 p-3.5 space-y-2">
+            <div className="flex items-center gap-2 text-[#1C241F] dark:text-slate-200 font-bold text-xs">
+              <Network className="h-4 w-4 text-[#A9492D] dark:text-[#E27A54]" />
               <span>Network Direction &amp; Addressing</span>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-              <div className="flex items-center justify-between rounded bg-white dark:bg-[#17243A] px-3 py-2 border border-[#DCE5EF] dark:border-[#29384D]">
-                <span className="text-[#64748B] dark:text-[#94A3B8]">Source:</span>
-                <span className="font-mono text-[#172033] dark:text-white text-xs">{event.sourceIp}</span>
+              <div className="flex items-center justify-between rounded bg-[#F2F0E6] dark:bg-[#1A211B] px-3 py-2 border border-[#CDCFC2] dark:border-[#3A443A]">
+                <span className="text-[#58635A] dark:text-[#A8B09F]">Source:</span>
+                <span className="font-mono text-[#1C241F] dark:text-white text-xs">{event.sourceIp}</span>
               </div>
-              <div className="flex items-center justify-between rounded bg-white dark:bg-[#17243A] px-3 py-2 border border-[#DCE5EF] dark:border-[#29384D]">
-                <span className="text-[#64748B] dark:text-[#94A3B8]">Destination:</span>
-                <span className="font-mono text-[#172033] dark:text-white text-xs">{event.destinationIp}</span>
+              <div className="flex items-center justify-between rounded bg-[#F2F0E6] dark:bg-[#1A211B] px-3 py-2 border border-[#CDCFC2] dark:border-[#3A443A]">
+                <span className="text-[#58635A] dark:text-[#A8B09F]">Destination:</span>
+                <span className="font-mono text-[#1C241F] dark:text-white text-xs">{event.destinationIp}</span>
               </div>
             </div>
           </div>
 
           {/* Execution details if available */}
           {(event.details.process || event.details.commandLine || event.details.user) && (
-            <div className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA]/50 dark:bg-[#111C2E]/60 p-3.5 space-y-2">
-              <div className="flex items-center gap-2 text-[#172033] dark:text-slate-200 font-bold text-xs">
+            <div className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1]/50 dark:bg-[#0D120F]/60 p-3.5 space-y-2">
+              <div className="flex items-center gap-2 text-[#1C241F] dark:text-slate-200 font-bold text-xs">
                 <Terminal className="h-4 w-4 text-amber-600 dark:text-amber-400" />
                 <span>Process &amp; Identity Context</span>
               </div>
               {event.details.user && (
                 <div className="font-mono text-[11px]">
-                  <span className="text-[#64748B] dark:text-[#94A3B8]">Security Principal: </span>
-                  <span className="text-[#172033] dark:text-white font-semibold">{event.details.user}</span>
+                  <span className="text-[#58635A] dark:text-[#A8B09F]">Security Principal: </span>
+                  <span className="text-[#1C241F] dark:text-white font-semibold">{event.details.user}</span>
                 </div>
               )}
               {event.details.process && (
-                <div className="font-mono text-[11px] break-all bg-white dark:bg-[#17243A] p-2 rounded border border-[#DCE5EF] dark:border-[#29384D] text-[#172033] dark:text-[#F8FAFC]">
-                  <span className="text-[#64748B] dark:text-[#94A3B8] block mb-0.5 font-sans">Command Line / Image:</span>
+                <div className="font-mono text-[11px] break-all bg-[#F2F0E6] dark:bg-[#1A211B] p-2 rounded border border-[#CDCFC2] dark:border-[#3A443A] text-[#1C241F] dark:text-[#F0EFE6]">
+                  <span className="text-[#58635A] dark:text-[#A8B09F] block mb-0.5 font-sans">Command Line / Image:</span>
                   {event.details.process}
                 </div>
               )}
               {event.details.sha256 && (
-                <div className="font-mono text-[11px] break-all bg-white dark:bg-[#17243A] p-2 rounded border border-[#DCE5EF] dark:border-[#29384D] text-[#172033] dark:text-[#F8FAFC]">
-                  <span className="text-[#64748B] dark:text-[#94A3B8] block mb-0.5 font-sans">SHA-256 Hash:</span>
+                <div className="font-mono text-[11px] break-all bg-[#F2F0E6] dark:bg-[#1A211B] p-2 rounded border border-[#CDCFC2] dark:border-[#3A443A] text-[#1C241F] dark:text-[#F0EFE6]">
+                  <span className="text-[#58635A] dark:text-[#A8B09F] block mb-0.5 font-sans">SHA-256 Hash:</span>
                   {event.details.sha256}
                 </div>
               )}
@@ -147,16 +147,16 @@ export const EventDetailModal: React.FC<EventDetailModalProps> = ({ event, onClo
           )}
 
           {/* Raw Log Payload */}
-          <div className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] p-3.5 space-y-2">
+          <div className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] p-3.5 space-y-2">
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2 text-[#172033] dark:text-slate-200 font-bold text-xs">
-                <Hash className="h-4 w-4 text-[#007FA8] dark:text-[#00C2FF]" />
+              <div className="flex items-center gap-2 text-[#1C241F] dark:text-slate-200 font-bold text-xs">
+                <Hash className="h-4 w-4 text-[#A9492D] dark:text-[#E27A54]" />
                 <span>Simulated Raw Log Record</span>
               </div>
               <button
                 type="button"
                 onClick={handleCopyLog}
-                className="flex items-center gap-1 rounded bg-white dark:bg-[#17243A] hover:bg-[#EDF5FA] dark:hover:bg-[#20324A] text-[#172033] dark:text-[#F8FAFC] border border-[#DCE5EF] dark:border-[#29384D] px-2 py-1 text-[11px] transition-colors"
+                className="flex items-center gap-1 rounded bg-[#F2F0E6] dark:bg-[#1A211B] hover:bg-[#E5E2D8] dark:hover:bg-[#303A31] text-[#1C241F] dark:text-[#F0EFE6] border border-[#CDCFC2] dark:border-[#3A443A] px-2 py-1 text-[11px] transition-colors"
               >
                 {copied ? (
                   <>
@@ -171,7 +171,7 @@ export const EventDetailModal: React.FC<EventDetailModalProps> = ({ event, onClo
                 )}
               </button>
             </div>
-            <pre className="overflow-x-auto rounded bg-white dark:bg-[#0B1220] p-3 font-mono text-[11px] text-[#007FA8] dark:text-cyan-200 whitespace-pre-wrap leading-relaxed border border-[#DCE5EF] dark:border-[#29384D] max-h-40">
+            <pre className="overflow-x-auto rounded bg-[#F2F0E6] dark:bg-[#111713] p-3 font-mono text-[11px] text-[#A9492D] dark:text-signal-200 whitespace-pre-wrap leading-relaxed border border-[#CDCFC2] dark:border-[#3A443A] max-h-40">
               {event.details.rawPayloadSnippet || JSON.stringify(event, null, 2)}
             </pre>
           </div>
@@ -183,11 +183,11 @@ export const EventDetailModal: React.FC<EventDetailModalProps> = ({ event, onClo
         </div>
 
         {/* Footer */}
-        <div className="flex items-center justify-end border-t border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] px-6 py-3">
+        <div className="flex items-center justify-end border-t border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] px-6 py-3">
           <button
             type="button"
             onClick={onClose}
-            className="rounded-lg bg-white dark:bg-[#1B2A41] hover:bg-[#EDF5FA] dark:hover:bg-[#20324A] text-[#172033] dark:text-white border border-[#DCE5EF] dark:border-[#29384D] px-4 py-1.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF]"
+            className="rounded-lg bg-[#F2F0E6] dark:bg-[#252C24] hover:bg-[#E5E2D8] dark:hover:bg-[#303A31] text-[#1C241F] dark:text-white border border-[#CDCFC2] dark:border-[#3A443A] px-4 py-1.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-[#A9492D] dark:focus:ring-[#E27A54]"
           >
             Close Inspector
           </button>

@@ -101,7 +101,7 @@ export const ThreatIntelPage: React.FC<ThreatIntelPageProps> = ({
       case 'hash':
         return <Hash className="h-3.5 w-3.5 text-purple-600 dark:text-purple-400" />;
       case 'domain':
-        return <Globe className="h-3.5 w-3.5 text-[#007FA8] dark:text-[#00C2FF]" />;
+        return <Globe className="h-3.5 w-3.5 text-[#A9492D] dark:text-[#E27A54]" />;
       case 'url':
         return <Link2 className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400" />;
       case 'ipv4':
@@ -140,21 +140,21 @@ export const ThreatIntelPage: React.FC<ThreatIntelPageProps> = ({
   return (
     <div className="space-y-6 max-w-7xl mx-auto">
       {/* Page Header & Status Banner */}
-      <div className="rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] p-5 shadow-xs transition-colors">
+      <div className="rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#1A211B] p-5 shadow-xs transition-colors">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2.5">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-cyan-50 dark:bg-cyan-950/70 border border-cyan-200 dark:border-cyan-500/40 text-[#007FA8] dark:text-[#00C2FF] shadow-2xs">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-signal-50 dark:bg-signal-950/70 border border-signal-200 dark:border-signal-500/40 text-[#A9492D] dark:text-[#E27A54] shadow-2xs">
                 <ShieldAlert className="h-5 w-5" />
               </div>
               <div>
-                <h1 className="text-base sm:text-lg font-bold text-[#172033] dark:text-white tracking-tight flex items-center gap-2">
+                <h1 className="text-base sm:text-lg font-bold text-[#1C241F] dark:text-white tracking-tight flex items-center gap-2">
                   Threat Intelligence &amp; Risk Analysis
                   <span className="rounded bg-emerald-50 dark:bg-emerald-950/80 px-2 py-0.5 text-[10px] font-mono text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/40 font-semibold">
                     STAGE 4 ACTIVE
                   </span>
                 </h1>
-                <p className="text-xs text-[#64748B] dark:text-[#94A3B8] mt-0.5">
+                <p className="text-xs text-[#58635A] dark:text-[#A8B09F] mt-0.5">
                   Deterministic risk scoring, multi-type IOC tracking, defanged inspection, and SOC cross-correlation
                 </p>
               </div>
@@ -175,9 +175,9 @@ export const ThreatIntelPage: React.FC<ThreatIntelPageProps> = ({
             {/* External Integration Notice Badge */}
             <div
               title="External 3P threat intelligence APIs (VirusTotal, AlienVault) unconfigured. Deterministic heuristic engine active."
-              className="inline-flex items-center gap-1.5 rounded-full border border-cyan-200 dark:border-cyan-700/40 bg-cyan-50 dark:bg-cyan-950/50 px-3 py-1.5 text-xs font-semibold text-[#007FA8] dark:text-cyan-300 shadow-2xs"
+              className="inline-flex items-center gap-1.5 rounded-full border border-signal-200 dark:border-signal-700/40 bg-signal-50 dark:bg-signal-950/50 px-3 py-1.5 text-xs font-semibold text-[#A9492D] dark:text-signal-300 shadow-2xs"
             >
-              <Info className="h-3.5 w-3.5 text-[#007FA8] dark:text-cyan-400" />
+              <Info className="h-3.5 w-3.5 text-[#A9492D] dark:text-signal-400" />
               <span>3P Feeds Unconfigured</span>
             </div>
           </div>
@@ -228,24 +228,24 @@ export const ThreatIntelPage: React.FC<ThreatIntelPageProps> = ({
       </div>
 
       {/* Search & Filter Toolbar */}
-      <div className="rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] p-4 space-y-3.5 shadow-xs transition-colors">
+      <div className="rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#1A211B] p-4 space-y-3.5 shadow-xs transition-colors">
         {/* Search Input Row */}
         <div className="relative">
-          <Search className="absolute left-3 top-2.5 h-4 w-4 text-[#8492A6] dark:text-[#64748B]" />
+          <Search className="absolute left-3 top-2.5 h-4 w-4 text-[#798074] dark:text-[#58635A]" />
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search indicator value, IOC ID, threat reason, category, tags, or feed provider..."
             aria-label="Search threat indicators"
-            className="w-full rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#111C2E] py-2 pl-9 pr-8 text-xs text-[#172033] dark:text-[#F8FAFC] placeholder-[#8492A6] dark:placeholder-[#64748B] focus:border-[#007FA8] dark:focus:border-[#00C2FF] focus:outline-none focus:ring-1 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF] font-sans"
+            className="w-full rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#0D120F] py-2 pl-9 pr-8 text-xs text-[#1C241F] dark:text-[#F0EFE6] placeholder-[#798074] dark:placeholder-[#58635A] focus:border-[#A9492D] dark:focus:border-[#E27A54] focus:outline-none focus:ring-1 focus:ring-[#A9492D] dark:focus:ring-[#E27A54] font-sans"
           />
           {searchQuery && (
             <button
               type="button"
               onClick={() => setSearchQuery('')}
               aria-label="Clear search input"
-              className="absolute right-2.5 top-2.5 text-[#8492A6] dark:text-[#64748B] hover:text-[#172033] dark:hover:text-white"
+              className="absolute right-2.5 top-2.5 text-[#798074] dark:text-[#58635A] hover:text-[#1C241F] dark:hover:text-white"
             >
               <X className="h-3.5 w-3.5" />
             </button>
@@ -255,68 +255,68 @@ export const ThreatIntelPage: React.FC<ThreatIntelPageProps> = ({
         {/* Filters and Sorting Controls */}
         <div className="flex flex-wrap items-center gap-2.5 text-xs">
           {/* Indicator Type Filter */}
-          <div className="flex items-center gap-1.5 rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] px-2.5 py-1.5">
-            <span className="text-[#64748B] dark:text-[#94A3B8] font-medium">Type:</span>
+          <div className="flex items-center gap-1.5 rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] px-2.5 py-1.5">
+            <span className="text-[#58635A] dark:text-[#A8B09F] font-medium">Type:</span>
             <select
               value={typeFilter}
               onChange={(e) => setTypeFilter(e.target.value)}
               aria-label="Filter by indicator type"
-              className="bg-transparent text-xs text-[#172033] dark:text-[#F8FAFC] focus:outline-none cursor-pointer"
+              className="bg-transparent text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:outline-none cursor-pointer"
             >
-              <option value="all" className="bg-white dark:bg-[#111C2E] text-[#172033] dark:text-white">All Types</option>
-              <option value="ipv4" className="bg-white dark:bg-[#111C2E] text-[#172033] dark:text-white">IPv4 Addresses</option>
-              <option value="ipv6" className="bg-white dark:bg-[#111C2E] text-[#172033] dark:text-white">IPv6 Addresses</option>
-              <option value="domain" className="bg-white dark:bg-[#111C2E] text-[#172033] dark:text-white">Domains</option>
-              <option value="url" className="bg-white dark:bg-[#111C2E] text-[#172033] dark:text-white">URLs</option>
-              <option value="hash" className="bg-white dark:bg-[#111C2E] text-[#172033] dark:text-white">File Hashes (SHA-256)</option>
+              <option value="all" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-[#1C241F] dark:text-white">All Types</option>
+              <option value="ipv4" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-[#1C241F] dark:text-white">IPv4 Addresses</option>
+              <option value="ipv6" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-[#1C241F] dark:text-white">IPv6 Addresses</option>
+              <option value="domain" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-[#1C241F] dark:text-white">Domains</option>
+              <option value="url" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-[#1C241F] dark:text-white">URLs</option>
+              <option value="hash" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-[#1C241F] dark:text-white">File Hashes (SHA-256)</option>
             </select>
           </div>
 
           {/* Risk Classification Filter */}
-          <div className="flex items-center gap-1.5 rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] px-2.5 py-1.5">
-            <span className="text-[#64748B] dark:text-[#94A3B8] font-medium">Risk:</span>
+          <div className="flex items-center gap-1.5 rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] px-2.5 py-1.5">
+            <span className="text-[#58635A] dark:text-[#A8B09F] font-medium">Risk:</span>
             <select
               value={riskFilter}
               onChange={(e) => setRiskFilter(e.target.value)}
               aria-label="Filter by risk classification"
-              className="bg-transparent text-xs text-[#172033] dark:text-[#F8FAFC] focus:outline-none cursor-pointer"
+              className="bg-transparent text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:outline-none cursor-pointer"
             >
-              <option value="all" className="bg-white dark:bg-[#111C2E] text-[#172033] dark:text-white">All Risk Tiers</option>
-              <option value="critical" className="bg-white dark:bg-[#111C2E] text-red-600 dark:text-red-400">Critical (80-100)</option>
-              <option value="high" className="bg-white dark:bg-[#111C2E] text-orange-600 dark:text-orange-400">High (60-79)</option>
-              <option value="medium" className="bg-white dark:bg-[#111C2E] text-amber-600 dark:text-amber-400">Medium (35-59)</option>
-              <option value="low" className="bg-white dark:bg-[#111C2E] text-sky-600 dark:text-sky-400">Low (1-34)</option>
+              <option value="all" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-[#1C241F] dark:text-white">All Risk Tiers</option>
+              <option value="critical" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-red-600 dark:text-red-400">Critical (80-100)</option>
+              <option value="high" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-orange-600 dark:text-orange-400">High (60-79)</option>
+              <option value="medium" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-amber-600 dark:text-amber-400">Medium (35-59)</option>
+              <option value="low" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-sky-600 dark:text-sky-400">Low (1-34)</option>
             </select>
           </div>
 
           {/* Confidence Filter */}
-          <div className="flex items-center gap-1.5 rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] px-2.5 py-1.5">
-            <span className="text-[#64748B] dark:text-[#94A3B8] font-medium">Confidence:</span>
+          <div className="flex items-center gap-1.5 rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] px-2.5 py-1.5">
+            <span className="text-[#58635A] dark:text-[#A8B09F] font-medium">Confidence:</span>
             <select
               value={confidenceFilter}
               onChange={(e) => setConfidenceFilter(e.target.value)}
               aria-label="Filter by confidence score"
-              className="bg-transparent text-xs text-[#172033] dark:text-[#F8FAFC] focus:outline-none cursor-pointer"
+              className="bg-transparent text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:outline-none cursor-pointer"
             >
-              <option value="all" className="bg-white dark:bg-[#111C2E] text-[#172033] dark:text-white">All Confidence</option>
-              <option value="high" className="bg-white dark:bg-[#111C2E] text-[#172033] dark:text-white">High (&ge; 80%)</option>
-              <option value="medium" className="bg-white dark:bg-[#111C2E] text-[#172033] dark:text-white">Medium (50% - 79%)</option>
-              <option value="low" className="bg-white dark:bg-[#111C2E] text-[#172033] dark:text-white">Low (&lt; 50%)</option>
+              <option value="all" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-[#1C241F] dark:text-white">All Confidence</option>
+              <option value="high" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-[#1C241F] dark:text-white">High (&ge; 80%)</option>
+              <option value="medium" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-[#1C241F] dark:text-white">Medium (50% - 79%)</option>
+              <option value="low" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-[#1C241F] dark:text-white">Low (&lt; 50%)</option>
             </select>
           </div>
 
           {/* Source Category Filter */}
-          <div className="flex items-center gap-1.5 rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] px-2.5 py-1.5">
-            <span className="text-[#64748B] dark:text-[#94A3B8] font-medium">Source:</span>
+          <div className="flex items-center gap-1.5 rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] px-2.5 py-1.5">
+            <span className="text-[#58635A] dark:text-[#A8B09F] font-medium">Source:</span>
             <select
               value={sourceFilter}
               onChange={(e) => setSourceFilter(e.target.value)}
               aria-label="Filter by source category"
-              className="bg-transparent text-xs text-[#172033] dark:text-[#F8FAFC] focus:outline-none cursor-pointer max-w-[180px] truncate"
+              className="bg-transparent text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:outline-none cursor-pointer max-w-[180px] truncate"
             >
-              <option value="all" className="bg-white dark:bg-[#111C2E] text-[#172033] dark:text-white">All Sources</option>
+              <option value="all" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-[#1C241F] dark:text-white">All Sources</option>
               {uniqueSources.map((source) => (
-                <option key={source} value={source} className="bg-white dark:bg-[#111C2E] text-[#172033] dark:text-white">
+                <option key={source} value={source} className="bg-[#F2F0E6] dark:bg-[#0D120F] text-[#1C241F] dark:text-white">
                   {source}
                 </option>
               ))}
@@ -324,22 +324,22 @@ export const ThreatIntelPage: React.FC<ThreatIntelPageProps> = ({
           </div>
 
           {/* Sort By Dropdown */}
-          <div className="flex items-center gap-1.5 rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] px-2.5 py-1.5 ml-auto">
-            <ArrowUpDown className="h-3.5 w-3.5 text-[#8492A6] dark:text-[#64748B]" />
-            <span className="text-[#64748B] dark:text-[#94A3B8] font-medium">Sort:</span>
+          <div className="flex items-center gap-1.5 rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] px-2.5 py-1.5 ml-auto">
+            <ArrowUpDown className="h-3.5 w-3.5 text-[#798074] dark:text-[#58635A]" />
+            <span className="text-[#58635A] dark:text-[#A8B09F] font-medium">Sort:</span>
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as IndicatorSortField)}
               aria-label="Sort indicators"
-              className="bg-transparent text-xs text-[#172033] dark:text-[#F8FAFC] focus:outline-none cursor-pointer"
+              className="bg-transparent text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:outline-none cursor-pointer"
             >
-              <option value="risk-desc" className="bg-white dark:bg-[#111C2E] text-[#172033] dark:text-white">Risk: High &rarr; Low</option>
-              <option value="risk-asc" className="bg-white dark:bg-[#111C2E] text-[#172033] dark:text-white">Risk: Low &rarr; High</option>
-              <option value="confidence-desc" className="bg-white dark:bg-[#111C2E] text-[#172033] dark:text-white">Confidence: High &rarr; Low</option>
-              <option value="confidence-asc" className="bg-white dark:bg-[#111C2E] text-[#172033] dark:text-white">Confidence: Low &rarr; High</option>
-              <option value="lastSeen-desc" className="bg-white dark:bg-[#111C2E] text-[#172033] dark:text-white">Last Seen: Newest</option>
-              <option value="lastSeen-asc" className="bg-white dark:bg-[#111C2E] text-[#172033] dark:text-white">Last Seen: Oldest</option>
-              <option value="value" className="bg-white dark:bg-[#111C2E] text-[#172033] dark:text-white">Indicator Value</option>
+              <option value="risk-desc" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-[#1C241F] dark:text-white">Risk: High &rarr; Low</option>
+              <option value="risk-asc" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-[#1C241F] dark:text-white">Risk: Low &rarr; High</option>
+              <option value="confidence-desc" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-[#1C241F] dark:text-white">Confidence: High &rarr; Low</option>
+              <option value="confidence-asc" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-[#1C241F] dark:text-white">Confidence: Low &rarr; High</option>
+              <option value="lastSeen-desc" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-[#1C241F] dark:text-white">Last Seen: Newest</option>
+              <option value="lastSeen-asc" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-[#1C241F] dark:text-white">Last Seen: Oldest</option>
+              <option value="value" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-[#1C241F] dark:text-white">Indicator Value</option>
             </select>
           </div>
 
@@ -348,7 +348,7 @@ export const ThreatIntelPage: React.FC<ThreatIntelPageProps> = ({
             <button
               type="button"
               onClick={handleResetFilters}
-              className="inline-flex items-center gap-1 rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#1B2A41] px-2.5 py-1.5 text-xs font-semibold text-[#172033] dark:text-slate-200 hover:bg-[#EDF5FA] dark:hover:bg-[#20324A] transition-colors"
+              className="inline-flex items-center gap-1 rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#252C24] px-2.5 py-1.5 text-xs font-semibold text-[#1C241F] dark:text-slate-200 hover:bg-[#E5E2D8] dark:hover:bg-[#303A31] transition-colors"
             >
               <RotateCcw className="h-3 w-3" />
               <span>Reset</span>
@@ -357,12 +357,12 @@ export const ThreatIntelPage: React.FC<ThreatIntelPageProps> = ({
         </div>
 
         {/* Result Counter Row */}
-        <div className="flex items-center justify-between pt-1 border-t border-[#DCE5EF] dark:border-[#29384D]/60 text-xs text-[#64748B] dark:text-[#94A3B8]">
+        <div className="flex items-center justify-between pt-1 border-t border-[#CDCFC2] dark:border-[#3A443A]/60 text-xs text-[#58635A] dark:text-[#A8B09F]">
           <div>
-            Showing <strong className="text-[#172033] dark:text-white">{filteredIndicators.length}</strong> of{' '}
-            <strong className="text-[#172033] dark:text-white">{indicators.length}</strong> threat indicators
+            Showing <strong className="text-[#1C241F] dark:text-white">{filteredIndicators.length}</strong> of{' '}
+            <strong className="text-[#1C241F] dark:text-white">{indicators.length}</strong> threat indicators
           </div>
-          <div className="font-mono text-[11px] text-[#8492A6] dark:text-[#64748B]">
+          <div className="font-mono text-[11px] text-[#798074] dark:text-[#58635A]">
             All values rendered defanged (untrusted string mode)
           </div>
         </div>
@@ -370,30 +370,30 @@ export const ThreatIntelPage: React.FC<ThreatIntelPageProps> = ({
 
       {/* Main Threat Indicators Table */}
       {filteredIndicators.length === 0 ? (
-        <div className="rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] p-12 text-center space-y-3">
+        <div className="rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#1A211B] p-12 text-center space-y-3">
           <div className="flex justify-center">
-            <div className="rounded-full bg-[#EEF4FA] dark:bg-[#111C2E] p-3 text-[#8492A6] dark:text-[#64748B] border border-[#DCE5EF] dark:border-[#29384D]">
+            <div className="rounded-full bg-[#E1DED1] dark:bg-[#0D120F] p-3 text-[#798074] dark:text-[#58635A] border border-[#CDCFC2] dark:border-[#3A443A]">
               <ShieldAlert className="h-6 w-6" />
             </div>
           </div>
-          <h2 className="text-base font-bold text-[#172033] dark:text-white">No threat indicators match criteria</h2>
-          <p className="text-xs text-[#64748B] dark:text-[#94A3B8] max-w-md mx-auto">
+          <h2 className="text-base font-bold text-[#1C241F] dark:text-white">No threat indicators match criteria</h2>
+          <p className="text-xs text-[#58635A] dark:text-[#A8B09F] max-w-md mx-auto">
             No synthetic IOCs found matching query "{searchQuery}" under current filters. Try resetting the filters or searching for another hash, domain, or IP.
           </p>
           <button
             type="button"
             onClick={handleResetFilters}
-            className="inline-flex items-center gap-1.5 rounded-lg bg-[#007FA8] hover:bg-[#006C8F] dark:bg-[#00C2FF] dark:hover:bg-[#38BDF8] text-white dark:text-[#0B1220] px-4 py-2 text-xs font-semibold transition-colors shadow-xs"
+            className="inline-flex items-center gap-1.5 rounded-lg bg-[#A9492D] hover:bg-[#823B27] dark:bg-[#E27A54] dark:hover:bg-[#C3D579] text-white dark:text-[#111713] px-4 py-2 text-xs font-semibold transition-colors shadow-xs"
           >
             <RotateCcw className="h-3.5 w-3.5" />
             <span>Reset All Filters</span>
           </button>
         </div>
       ) : (
-        <div className="rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] overflow-hidden shadow-xs transition-colors">
+        <div className="rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#1A211B] overflow-hidden shadow-xs transition-colors">
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs text-[#172033] dark:text-slate-300">
-              <thead className="border-b border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#1B2A41] font-mono text-[11px] uppercase text-[#64748B] dark:text-[#94A3B8]">
+            <table className="w-full text-left text-xs text-[#1C241F] dark:text-slate-300">
+              <thead className="border-b border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#252C24] font-mono text-[11px] uppercase text-[#58635A] dark:text-[#A8B09F]">
                 <tr>
                   <th scope="col" className="py-3 px-3.5">Risk Tier &amp; Score</th>
                   <th scope="col" className="py-3 px-3.5">Indicator Value (Defanged)</th>
@@ -405,7 +405,7 @@ export const ThreatIntelPage: React.FC<ThreatIntelPageProps> = ({
                   <th scope="col" className="py-3 px-3.5 text-right">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#DCE5EF] dark:divide-[#29384D]/60 font-sans">
+              <tbody className="divide-y divide-[#CDCFC2] dark:divide-[#3A443A]/60 font-sans">
                 {filteredIndicators.map((indicator) => {
                   const defanged = defangIndicator(indicator.type, indicator.value);
                   const linkedAlertCount = indicator.associatedAlertIds.length;
@@ -415,7 +415,7 @@ export const ThreatIntelPage: React.FC<ThreatIntelPageProps> = ({
                     <tr
                       key={indicator.id}
                       onClick={() => setSelectedIndicator(indicator)}
-                      className="hover:bg-[#EDF5FA]/80 dark:hover:bg-[#20324A]/50 transition-colors cursor-pointer group"
+                      className="hover:bg-[#E5E2D8]/80 dark:hover:bg-[#303A31]/50 transition-colors cursor-pointer group"
                     >
                       {/* Risk Tier & Score */}
                       <td className="py-3 px-3.5 whitespace-nowrap">
@@ -425,10 +425,10 @@ export const ThreatIntelPage: React.FC<ThreatIntelPageProps> = ({
                       {/* Defanged Value & ID */}
                       <td className="py-3 px-3.5 max-w-xs sm:max-w-md">
                         <div className="space-y-0.5">
-                          <div className="font-mono text-xs font-bold text-[#172033] dark:text-white group-hover:text-[#007FA8] dark:group-hover:text-[#00C2FF] transition-colors break-all">
+                          <div className="font-mono text-xs font-bold text-[#1C241F] dark:text-white group-hover:text-[#A9492D] dark:group-hover:text-[#E27A54] transition-colors break-all">
                             {defanged}
                           </div>
-                          <div className="flex items-center gap-2 text-[10px] text-[#64748B] dark:text-[#94A3B8] font-mono">
+                          <div className="flex items-center gap-2 text-[10px] text-[#58635A] dark:text-[#A8B09F] font-mono">
                             <span>{indicator.id}</span>
                             <span>&bull;</span>
                             <span className="truncate">{indicator.riskReason}</span>
@@ -438,7 +438,7 @@ export const ThreatIntelPage: React.FC<ThreatIntelPageProps> = ({
 
                       {/* Type Badge */}
                       <td className="py-3 px-3.5 whitespace-nowrap">
-                        <span className="inline-flex items-center gap-1 rounded bg-[#EEF4FA] dark:bg-[#111C2E] px-2 py-0.5 text-[11px] font-mono text-[#172033] dark:text-slate-300 border border-[#DCE5EF] dark:border-[#29384D] font-semibold">
+                        <span className="inline-flex items-center gap-1 rounded bg-[#E1DED1] dark:bg-[#0D120F] px-2 py-0.5 text-[11px] font-mono text-[#1C241F] dark:text-slate-300 border border-[#CDCFC2] dark:border-[#3A443A] font-semibold">
                           {getTypeIcon(indicator.type)}
                           {indicator.type.toUpperCase()}
                         </span>
@@ -447,13 +447,13 @@ export const ThreatIntelPage: React.FC<ThreatIntelPageProps> = ({
                       {/* Confidence Meter */}
                       <td className="py-3 px-3.5 whitespace-nowrap">
                         <div className="space-y-1 w-24">
-                          <div className="flex justify-between text-[10px] font-mono text-[#64748B] dark:text-[#94A3B8]">
+                          <div className="flex justify-between text-[10px] font-mono text-[#58635A] dark:text-[#A8B09F]">
                             <span>Conf</span>
-                            <span className="text-[#007FA8] dark:text-cyan-400 font-bold">{indicator.confidence}%</span>
+                            <span className="text-[#A9492D] dark:text-signal-400 font-bold">{indicator.confidence}%</span>
                           </div>
-                          <div className="w-full bg-[#DCE5EF] dark:bg-[#111C2E] h-1.5 rounded-full overflow-hidden">
+                          <div className="w-full bg-[#CDCFC2] dark:bg-[#0D120F] h-1.5 rounded-full overflow-hidden">
                             <div
-                              className="h-full bg-[#007FA8] dark:bg-[#00C2FF]"
+                              className="h-full bg-[#A9492D] dark:bg-[#E27A54]"
                               style={{ width: `${indicator.confidence}%` }}
                             />
                           </div>
@@ -463,10 +463,10 @@ export const ThreatIntelPage: React.FC<ThreatIntelPageProps> = ({
                       {/* Source & Feed Provider */}
                       <td className="py-3 px-3.5">
                         <div className="space-y-0.5 max-w-[200px]">
-                          <div className="text-xs font-semibold text-[#172033] dark:text-slate-200 truncate">
+                          <div className="text-xs font-semibold text-[#1C241F] dark:text-slate-200 truncate">
                             {indicator.sourceCategory}
                           </div>
-                          <div className="text-[10px] text-[#64748B] dark:text-[#94A3B8] font-mono truncate">
+                          <div className="text-[10px] text-[#58635A] dark:text-[#A8B09F] font-mono truncate">
                             {indicator.feedProvider}
                           </div>
                         </div>
@@ -488,13 +488,13 @@ export const ThreatIntelPage: React.FC<ThreatIntelPageProps> = ({
                             </span>
                           ) : null}
                           {linkedAlertCount === 0 && linkedEventCount === 0 && (
-                            <span className="text-[11px] text-[#8492A6] dark:text-[#64748B] font-mono">None</span>
+                            <span className="text-[11px] text-[#798074] dark:text-[#58635A] font-mono">None</span>
                           )}
                         </div>
                       </td>
 
                       {/* Last Seen */}
-                      <td className="py-3 px-3.5 whitespace-nowrap font-mono text-[11px] text-[#64748B] dark:text-[#94A3B8]">
+                      <td className="py-3 px-3.5 whitespace-nowrap font-mono text-[11px] text-[#58635A] dark:text-[#A8B09F]">
                         {indicator.lastSeen.slice(11, 19)} UTC
                       </td>
 
@@ -507,7 +507,7 @@ export const ThreatIntelPage: React.FC<ThreatIntelPageProps> = ({
                             setSelectedIndicator(indicator);
                           }}
                           aria-label={`Inspect indicator ${indicator.id}`}
-                          className="inline-flex items-center gap-1 rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#1B2A41] hover:bg-cyan-50 dark:hover:bg-[#20324A] hover:border-[#007FA8]/50 dark:hover:border-[#00C2FF]/50 hover:text-[#007FA8] dark:hover:text-[#00C2FF] px-2.5 py-1 text-xs font-semibold text-[#172033] dark:text-[#F8FAFC] transition-colors focus:outline-none focus:ring-1 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF]"
+                          className="inline-flex items-center gap-1 rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#252C24] hover:bg-signal-50 dark:hover:bg-[#303A31] hover:border-[#A9492D]/50 dark:hover:border-[#E27A54]/50 hover:text-[#A9492D] dark:hover:text-[#E27A54] px-2.5 py-1 text-xs font-semibold text-[#1C241F] dark:text-[#F0EFE6] transition-colors focus:outline-none focus:ring-1 focus:ring-[#A9492D] dark:focus:ring-[#E27A54]"
                         >
                           <Eye className="h-3 w-3" />
                           <span>Inspect</span>
@@ -523,15 +523,15 @@ export const ThreatIntelPage: React.FC<ThreatIntelPageProps> = ({
       )}
 
       {/* Disclaimers & Methodology Card */}
-      <div className="rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] p-4 text-xs text-[#64748B] dark:text-[#94A3B8] space-y-2">
-        <div className="flex items-center gap-2 text-[#172033] dark:text-white font-bold text-xs">
-          <Info className="h-4 w-4 text-[#007FA8] dark:text-[#00C2FF]" />
+      <div className="rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] p-4 text-xs text-[#58635A] dark:text-[#A8B09F] space-y-2">
+        <div className="flex items-center gap-2 text-[#1C241F] dark:text-white font-bold text-xs">
+          <Info className="h-4 w-4 text-[#A9492D] dark:text-[#E27A54]" />
           <span>Threat Intelligence Scoring Methodology &amp; Simulation Scope</span>
         </div>
-        <p className="text-[11px] leading-relaxed text-[#172033]/90 dark:text-slate-300">
+        <p className="text-[11px] leading-relaxed text-[#1C241F]/90 dark:text-slate-300">
           Risk scores are bounded strictly between <strong>1 and 100</strong> and evaluated deterministically across four weighted dimensions: <em>Indicator Specificity</em> (25%), <em>Active Alert &amp; SOC Correlation</em> (35%), <em>Heuristic Threat Characteristics</em> (25%), and <em>Temporal Recency</em> (15%). Risk scores represent threat severity, whereas confidence scores measure evidence corroboration and sensor reliability independently.
         </p>
-        <div className="flex flex-wrap gap-4 pt-1 font-mono text-[10px] text-[#64748B] dark:text-[#94A3B8]">
+        <div className="flex flex-wrap gap-4 pt-1 font-mono text-[10px] text-[#58635A] dark:text-[#A8B09F]">
           <span>Critical Tier: 80 - 100</span>
           <span>High Tier: 60 - 79</span>
           <span>Medium Tier: 35 - 59</span>

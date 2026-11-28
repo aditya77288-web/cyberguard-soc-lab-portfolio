@@ -69,9 +69,9 @@ export const EventDetailModal: React.FC<EventDetailModalProps> = ({
       aria-labelledby="event-modal-title"
       className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-slate-900/60 dark:bg-black/80 backdrop-blur-sm animate-fade-in"
     >
-      <div className="relative flex flex-col w-full max-w-3xl max-h-[90vh] overflow-hidden rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] shadow-2xl text-[#172033] dark:text-[#F8FAFC]">
+      <div className="relative flex flex-col w-full max-w-3xl max-h-[90vh] overflow-hidden rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#1A211B] shadow-2xl text-[#1C241F] dark:text-[#F0EFE6]">
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] px-5 py-4">
+        <div className="flex items-center justify-between border-b border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] px-5 py-4">
           <div className="flex flex-wrap items-center gap-2.5">
             <span
               className={`inline-flex items-center gap-1.5 rounded border px-2.5 py-0.5 text-xs font-bold uppercase ${severityStyle.badgeBg} ${severityStyle.badgeBorder} ${severityStyle.badgeText}`}
@@ -80,11 +80,11 @@ export const EventDetailModal: React.FC<EventDetailModalProps> = ({
               {severityStyle.label}
             </span>
 
-            <span className="rounded bg-white dark:bg-[#1B2A41] px-2 py-0.5 text-xs font-mono text-[#007FA8] dark:text-cyan-300 border border-[#DCE5EF] dark:border-[#29384D] font-semibold">
+            <span className="rounded bg-[#F2F0E6] dark:bg-[#252C24] px-2 py-0.5 text-xs font-mono text-[#A9492D] dark:text-signal-300 border border-[#CDCFC2] dark:border-[#3A443A] font-semibold">
               {event.sourceSystem}
             </span>
 
-            <span className="text-xs font-mono text-[#64748B] dark:text-[#94A3B8]">
+            <span className="text-xs font-mono text-[#58635A] dark:text-[#A8B09F]">
               {event.id}
             </span>
           </div>
@@ -93,7 +93,7 @@ export const EventDetailModal: React.FC<EventDetailModalProps> = ({
             type="button"
             onClick={onClose}
             aria-label="Close event detail dialog"
-            className="rounded-lg p-1.5 text-[#64748B] dark:text-[#94A3B8] hover:bg-[#DCE5EF] dark:hover:bg-[#20324A] hover:text-[#172033] dark:hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF]"
+            className="rounded-lg p-1.5 text-[#58635A] dark:text-[#A8B09F] hover:bg-[#CDCFC2] dark:hover:bg-[#303A31] hover:text-[#1C241F] dark:hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[#A9492D] dark:focus:ring-[#E27A54]"
           >
             <X className="h-5 w-5" />
           </button>
@@ -103,10 +103,10 @@ export const EventDetailModal: React.FC<EventDetailModalProps> = ({
         <div className="flex-1 overflow-y-auto p-5 sm:p-6 space-y-5 text-xs">
           {/* Title & Summary */}
           <div>
-            <h2 id="event-modal-title" className="text-lg font-bold text-[#172033] dark:text-white tracking-tight">
+            <h2 id="event-modal-title" className="text-lg font-bold text-[#1C241F] dark:text-white tracking-tight">
               {event.ruleName}
             </h2>
-            <p className="mt-1.5 text-[#172033]/90 dark:text-slate-300 text-xs sm:text-sm leading-relaxed bg-[#EEF4FA] dark:bg-[#111C2E] p-3 rounded-lg border border-[#DCE5EF] dark:border-[#29384D]">
+            <p className="mt-1.5 text-[#1C241F]/90 dark:text-slate-300 text-xs sm:text-sm leading-relaxed bg-[#E1DED1] dark:bg-[#0D120F] p-3 rounded-lg border border-[#CDCFC2] dark:border-[#3A443A]">
               {event.message || event.ruleName}
             </p>
           </div>
@@ -117,7 +117,7 @@ export const EventDetailModal: React.FC<EventDetailModalProps> = ({
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <div className="flex items-center gap-2">
                   <ShieldAlert className="h-4 w-4 text-red-600 dark:text-red-400 shrink-0" />
-                  <span className="text-xs font-bold text-[#172033] dark:text-white">
+                  <span className="text-xs font-bold text-[#1C241F] dark:text-white">
                     Correlated Security Alert:
                   </span>
                   <span className="font-mono text-xs font-bold text-red-700 dark:text-red-300">
@@ -146,50 +146,50 @@ export const EventDetailModal: React.FC<EventDetailModalProps> = ({
               </div>
 
               {correlatedAlert && (
-                <div className="text-[11px] text-[#172033]/90 dark:text-slate-300 border-t border-red-200 dark:border-red-900/40 pt-2 space-y-1">
+                <div className="text-[11px] text-[#1C241F]/90 dark:text-slate-300 border-t border-red-200 dark:border-red-900/40 pt-2 space-y-1">
                   <div>
-                    <span className="text-[#64748B] dark:text-[#94A3B8]">Alert Title: </span>
+                    <span className="text-[#58635A] dark:text-[#A8B09F]">Alert Title: </span>
                     <span className="font-semibold">{correlatedAlert.title}</span>
                   </div>
-                  <div className="flex flex-wrap gap-4 text-[#64748B] dark:text-[#94A3B8]">
-                    <span>Host: <strong className="text-[#172033] dark:text-white font-mono">{correlatedAlert.affectedHost}</strong></span>
-                    <span>Analyst: <strong className="text-[#172033] dark:text-white">{correlatedAlert.assignedAnalyst || 'Unassigned'}</strong></span>
+                  <div className="flex flex-wrap gap-4 text-[#58635A] dark:text-[#A8B09F]">
+                    <span>Host: <strong className="text-[#1C241F] dark:text-white font-mono">{correlatedAlert.affectedHost}</strong></span>
+                    <span>Analyst: <strong className="text-[#1C241F] dark:text-white">{correlatedAlert.assignedAnalyst || 'Unassigned'}</strong></span>
                   </div>
                 </div>
               )}
             </div>
           ) : (
-            <div className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] p-3 text-[11px] text-[#64748B] dark:text-[#94A3B8] flex items-center justify-between">
+            <div className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] p-3 text-[11px] text-[#58635A] dark:text-[#A8B09F] flex items-center justify-between">
               <span>No active security alert is currently correlated to this specific event.</span>
-              <span className="font-mono text-[10px] uppercase text-[#8492A6] dark:text-[#64748B]">Unescalated Event</span>
+              <span className="font-mono text-[10px] uppercase text-[#798074] dark:text-[#58635A]">Unescalated Event</span>
             </div>
           )}
 
           {/* Forensic Key Values Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-            <div className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] p-2.5">
-              <span className="text-[10px] text-[#64748B] dark:text-[#94A3B8] uppercase tracking-wider block font-semibold">Event ID</span>
+            <div className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] p-2.5">
+              <span className="text-[10px] text-[#58635A] dark:text-[#A8B09F] uppercase tracking-wider block font-semibold">Event ID</span>
               <span className="text-xs font-mono mt-0.5 block font-bold truncate">
                 {event.id}
               </span>
             </div>
 
-            <div className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] p-2.5">
-              <span className="text-[10px] text-[#64748B] dark:text-[#94A3B8] uppercase tracking-wider block font-semibold">Timestamp (UTC)</span>
-              <span className="text-xs font-mono mt-0.5 block truncate text-[#64748B] dark:text-slate-300">
+            <div className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] p-2.5">
+              <span className="text-[10px] text-[#58635A] dark:text-[#A8B09F] uppercase tracking-wider block font-semibold">Timestamp (UTC)</span>
+              <span className="text-xs font-mono mt-0.5 block truncate text-[#58635A] dark:text-slate-300">
                 {event.timestamp.replace('Z', ' UTC')}
               </span>
             </div>
 
-            <div className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] p-2.5">
-              <span className="text-[10px] text-[#64748B] dark:text-[#94A3B8] uppercase tracking-wider block font-semibold">Action Taken</span>
-              <span className="text-xs font-bold text-[#007FA8] dark:text-[#00C2FF] mt-0.5 block">
+            <div className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] p-2.5">
+              <span className="text-[10px] text-[#58635A] dark:text-[#A8B09F] uppercase tracking-wider block font-semibold">Action Taken</span>
+              <span className="text-xs font-bold text-[#A9492D] dark:text-[#E27A54] mt-0.5 block">
                 {event.action}
               </span>
             </div>
 
-            <div className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] p-2.5">
-              <span className="text-[10px] text-[#64748B] dark:text-[#94A3B8] uppercase tracking-wider block font-semibold">Category</span>
+            <div className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] p-2.5">
+              <span className="text-[10px] text-[#58635A] dark:text-[#A8B09F] uppercase tracking-wider block font-semibold">Category</span>
               <span className="text-xs font-medium mt-0.5 block truncate">
                 {event.category}
               </span>
@@ -198,15 +198,15 @@ export const EventDetailModal: React.FC<EventDetailModalProps> = ({
 
           {/* Host & Security Principal */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-            <div className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] p-3">
-              <span className="text-[10px] text-[#64748B] dark:text-[#94A3B8] uppercase tracking-wider block font-semibold">Monitored Target Host</span>
+            <div className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] p-3">
+              <span className="text-[10px] text-[#58635A] dark:text-[#A8B09F] uppercase tracking-wider block font-semibold">Monitored Target Host</span>
               <span className="text-sm font-mono font-bold mt-0.5 block">
                 {event.host}
               </span>
             </div>
 
-            <div className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] p-3">
-              <span className="text-[10px] text-[#64748B] dark:text-[#94A3B8] uppercase tracking-wider block font-semibold">User Context / Identity</span>
+            <div className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] p-3">
+              <span className="text-[10px] text-[#58635A] dark:text-[#A8B09F] uppercase tracking-wider block font-semibold">User Context / Identity</span>
               <span className="text-sm font-mono mt-0.5 block font-semibold">
                 {event.user || event.details?.user || 'N/A (System)'}
               </span>
@@ -214,18 +214,18 @@ export const EventDetailModal: React.FC<EventDetailModalProps> = ({
           </div>
 
           {/* Observed Network Endpoints */}
-          <div className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] p-3 space-y-2">
-            <div className="flex items-center gap-2 text-[#172033] dark:text-slate-300 font-bold text-xs">
-              <Network className="h-4 w-4 text-[#007FA8] dark:text-[#00C2FF]" />
+          <div className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] p-3 space-y-2">
+            <div className="flex items-center gap-2 text-[#1C241F] dark:text-slate-300 font-bold text-xs">
+              <Network className="h-4 w-4 text-[#A9492D] dark:text-[#E27A54]" />
               <span>Network Direction &amp; Flow</span>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1 font-mono">
-              <div className="flex items-center justify-between bg-white dark:bg-[#17243A] px-3 py-1.5 rounded border border-[#DCE5EF] dark:border-[#29384D]">
-                <span className="text-[#64748B] dark:text-[#94A3B8] font-sans text-[11px]">Source:</span>
+              <div className="flex items-center justify-between bg-[#F2F0E6] dark:bg-[#1A211B] px-3 py-1.5 rounded border border-[#CDCFC2] dark:border-[#3A443A]">
+                <span className="text-[#58635A] dark:text-[#A8B09F] font-sans text-[11px]">Source:</span>
                 <span className="font-semibold text-xs">{event.sourceIp}</span>
               </div>
-              <div className="flex items-center justify-between bg-white dark:bg-[#17243A] px-3 py-1.5 rounded border border-[#DCE5EF] dark:border-[#29384D]">
-                <span className="text-[#64748B] dark:text-[#94A3B8] font-sans text-[11px]">Destination:</span>
+              <div className="flex items-center justify-between bg-[#F2F0E6] dark:bg-[#1A211B] px-3 py-1.5 rounded border border-[#CDCFC2] dark:border-[#3A443A]">
+                <span className="text-[#58635A] dark:text-[#A8B09F] font-sans text-[11px]">Destination:</span>
                 <span className="font-semibold text-xs">{event.destinationIp}</span>
               </div>
             </div>
@@ -233,9 +233,9 @@ export const EventDetailModal: React.FC<EventDetailModalProps> = ({
 
           {/* MITRE Mapping */}
           {event.mitreTechnique && (
-            <div className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] p-3 flex items-center justify-between">
+            <div className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] p-3 flex items-center justify-between">
               <div>
-                <span className="text-[10px] text-[#64748B] dark:text-[#94A3B8] uppercase tracking-wider block font-semibold">MITRE ATT&amp;CK Mapping</span>
+                <span className="text-[10px] text-[#58635A] dark:text-[#A8B09F] uppercase tracking-wider block font-semibold">MITRE ATT&amp;CK Mapping</span>
                 <span className="text-xs font-mono font-bold text-purple-700 dark:text-purple-300 mt-0.5 block">
                   {event.mitreTechnique} {event.mitreTactic ? `(${event.mitreTactic})` : ''}
                 </span>
@@ -247,17 +247,17 @@ export const EventDetailModal: React.FC<EventDetailModalProps> = ({
           )}
 
           {/* Raw Log Payload */}
-          <div className="rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] p-4 space-y-2">
+          <div className="rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] p-4 space-y-2">
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2 text-[#172033] dark:text-white font-bold text-xs">
-                <Hash className="h-4 w-4 text-[#007FA8] dark:text-[#00C2FF]" />
+              <div className="flex items-center gap-2 text-[#1C241F] dark:text-white font-bold text-xs">
+                <Hash className="h-4 w-4 text-[#A9492D] dark:text-[#E27A54]" />
                 <span>Raw Synthetic Log Payload</span>
               </div>
 
               <button
                 type="button"
                 onClick={handleCopyPayload}
-                className="flex items-center gap-1 rounded bg-white dark:bg-[#17243A] hover:bg-[#EDF5FA] dark:hover:bg-[#20324A] text-[#172033] dark:text-white border border-[#DCE5EF] dark:border-[#29384D] px-2.5 py-1 text-[11px] font-semibold transition-colors shadow-2xs"
+                className="flex items-center gap-1 rounded bg-[#F2F0E6] dark:bg-[#1A211B] hover:bg-[#E5E2D8] dark:hover:bg-[#303A31] text-[#1C241F] dark:text-white border border-[#CDCFC2] dark:border-[#3A443A] px-2.5 py-1 text-[11px] font-semibold transition-colors shadow-2xs"
               >
                 {copied ? (
                   <>
@@ -266,14 +266,14 @@ export const EventDetailModal: React.FC<EventDetailModalProps> = ({
                   </>
                 ) : (
                   <>
-                    <Copy className="h-3 w-3 text-[#8492A6] dark:text-[#64748B]" />
+                    <Copy className="h-3 w-3 text-[#798074] dark:text-[#58635A]" />
                     <span>Copy Payload</span>
                   </>
                 )}
               </button>
             </div>
 
-            <pre className="overflow-x-auto rounded bg-white dark:bg-[#0B1220] p-3 font-mono text-[11px] text-[#007FA8] dark:text-cyan-200 whitespace-pre-wrap leading-relaxed border border-[#DCE5EF] dark:border-[#29384D] max-h-48">
+            <pre className="overflow-x-auto rounded bg-[#F2F0E6] dark:bg-[#111713] p-3 font-mono text-[11px] text-[#A9492D] dark:text-signal-200 whitespace-pre-wrap leading-relaxed border border-[#CDCFC2] dark:border-[#3A443A] max-h-48">
               {event.details?.rawPayloadSnippet || JSON.stringify(event, null, 2)}
             </pre>
           </div>
@@ -289,14 +289,14 @@ export const EventDetailModal: React.FC<EventDetailModalProps> = ({
         </div>
 
         {/* Footer */}
-        <div className="flex items-center justify-between border-t border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] px-5 py-3">
-          <span className="text-[11px] text-[#64748B] dark:text-[#94A3B8] font-mono">
+        <div className="flex items-center justify-between border-t border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] px-5 py-3">
+          <span className="text-[11px] text-[#58635A] dark:text-[#A8B09F] font-mono">
             CyberGuard SOC Lab &bull; Event Explorer v3
           </span>
           <button
             type="button"
             onClick={onClose}
-            className="rounded-lg bg-white dark:bg-[#1B2A41] hover:bg-[#EDF5FA] dark:hover:bg-[#20324A] border border-[#DCE5EF] dark:border-[#29384D] px-4 py-1.5 text-xs font-semibold text-[#172033] dark:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF]"
+            className="rounded-lg bg-[#F2F0E6] dark:bg-[#252C24] hover:bg-[#E5E2D8] dark:hover:bg-[#303A31] border border-[#CDCFC2] dark:border-[#3A443A] px-4 py-1.5 text-xs font-semibold text-[#1C241F] dark:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[#A9492D] dark:focus:ring-[#E27A54]"
           >
             Close Inspector
           </button>

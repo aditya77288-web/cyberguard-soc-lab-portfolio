@@ -58,17 +58,17 @@ export const SeverityDistribution: React.FC<SeverityDistributionProps> = ({ coun
   ];
 
   return (
-    <div className="flex flex-col rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] p-5 shadow-xs transition-colors">
+    <div className="flex flex-col rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#1A211B] p-5 shadow-xs transition-colors">
       {/* Header */}
-      <div className="flex items-center justify-between pb-4 border-b border-[#DCE5EF] dark:border-[#29384D]/70">
+      <div className="flex items-center justify-between pb-4 border-b border-[#CDCFC2] dark:border-[#3A443A]/70">
         <div>
-          <h2 className="text-sm font-bold tracking-tight text-[#172033] dark:text-white flex items-center gap-2">
+          <h2 className="text-sm font-bold tracking-tight text-[#1C241F] dark:text-white flex items-center gap-2">
             Alert Severity Breakdown
-            <span className="rounded bg-[#EEF4FA] dark:bg-[#1B2A41] px-1.5 py-0.5 text-[10px] font-mono text-[#64748B] dark:text-[#94A3B8] border border-[#DCE5EF] dark:border-[#29384D]">
+            <span className="rounded bg-[#E1DED1] dark:bg-[#252C24] px-1.5 py-0.5 text-[10px] font-mono text-[#58635A] dark:text-[#A8B09F] border border-[#CDCFC2] dark:border-[#3A443A]">
               {stats.total} Total
             </span>
           </h2>
-          <p className="text-xs text-[#64748B] dark:text-[#94A3B8] mt-0.5">
+          <p className="text-xs text-[#58635A] dark:text-[#A8B09F] mt-0.5">
             Active triaged alerts sorted by severity impact tier
           </p>
         </div>
@@ -76,7 +76,7 @@ export const SeverityDistribution: React.FC<SeverityDistributionProps> = ({ coun
 
       {/* Proportional Segmented Progress Strip */}
       <div className="my-4">
-        <div className="h-3 w-full overflow-hidden rounded-full bg-[#EEF4FA] dark:bg-[#111C2E] flex shadow-inner border border-[#DCE5EF] dark:border-[#29384D]">
+        <div className="h-3 w-full overflow-hidden rounded-full bg-[#E1DED1] dark:bg-[#0D120F] flex shadow-inner border border-[#CDCFC2] dark:border-[#3A443A]">
           <div
             style={{ width: `${stats.percentages.critical}%` }}
             className="bg-red-500 transition-all duration-300"
@@ -98,7 +98,7 @@ export const SeverityDistribution: React.FC<SeverityDistributionProps> = ({ coun
             title={`Low: ${stats.low} (${stats.percentages.low}%)`}
           />
         </div>
-        <div className="flex justify-between items-center text-[10px] text-[#64748B] dark:text-[#94A3B8] font-mono mt-1 px-1">
+        <div className="flex justify-between items-center text-[10px] text-[#58635A] dark:text-[#A8B09F] font-mono mt-1 px-1">
           <span>0%</span>
           <span>Proportional Alert Load</span>
           <span>100%</span>
@@ -112,7 +112,7 @@ export const SeverityDistribution: React.FC<SeverityDistributionProps> = ({ coun
           return (
             <div
               key={tier.label}
-              className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D]/70 bg-[#EEF4FA] dark:bg-[#111C2E] p-3 transition-colors hover:border-[#007FA8]/40 dark:hover:border-[#00C2FF]/40"
+              className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A]/70 bg-[#E1DED1] dark:bg-[#0D120F] p-3 transition-colors hover:border-[#A9492D]/40 dark:hover:border-[#E27A54]/40"
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
@@ -120,10 +120,10 @@ export const SeverityDistribution: React.FC<SeverityDistributionProps> = ({ coun
                     <Icon className="h-3.5 w-3.5" />
                   </div>
                   <div>
-                    <span className="text-xs font-bold text-[#172033] dark:text-white block">
+                    <span className="text-xs font-bold text-[#1C241F] dark:text-white block">
                       {tier.label}
                     </span>
-                    <span className="text-[11px] text-[#64748B] dark:text-[#94A3B8] block line-clamp-1">
+                    <span className="text-[11px] text-[#58635A] dark:text-[#A8B09F] block line-clamp-1">
                       {tier.desc}
                     </span>
                   </div>
@@ -133,14 +133,14 @@ export const SeverityDistribution: React.FC<SeverityDistributionProps> = ({ coun
                   <span className={`text-base font-bold font-mono ${tier.textColor}`}>
                     {tier.count}
                   </span>
-                  <span className="text-[10px] text-[#64748B] dark:text-[#94A3B8] font-mono block">
+                  <span className="text-[10px] text-[#58635A] dark:text-[#A8B09F] font-mono block">
                     {tier.pct}%
                   </span>
                 </div>
               </div>
 
               {/* Progress bar per tier */}
-              <div className="mt-2 h-1.5 w-full rounded-full bg-[#DCE5EF] dark:bg-[#1B2A41] overflow-hidden">
+              <div className="mt-2 h-1.5 w-full rounded-full bg-[#CDCFC2] dark:bg-[#252C24] overflow-hidden">
                 <div
                   className={`h-full ${tier.barColor} rounded-full`}
                   style={{ width: `${Math.min(100, tier.pct)}%` }}

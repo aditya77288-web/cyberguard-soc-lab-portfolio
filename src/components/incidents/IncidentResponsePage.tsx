@@ -127,25 +127,25 @@ export const IncidentResponsePage: React.FC<IncidentResponsePageProps> = ({
   return (
     <div className="space-y-6 max-w-7xl mx-auto">
       {/* Top Banner & Header */}
-      <div className="rounded-xl border border-[#007FA8]/30 dark:border-[#00C2FF]/30 bg-gradient-to-r from-[#007FA8]/10 via-[#F4F7FB] to-white dark:from-[#00C2FF]/10 dark:via-[#17243A] dark:to-[#17243A] p-4 sm:p-5 shadow-xs">
+      <div className="rounded-xl border border-[#A9492D]/30 dark:border-[#E27A54]/30 bg-gradient-to-r from-[#A9492D]/10 via-[#E9E5D9] to-white dark:from-[#E27A54]/10 dark:via-[#1A211B] dark:to-[#1A211B] p-4 sm:p-5 shadow-xs">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="flex items-start gap-3">
-            <div className="rounded-lg bg-[#007FA8]/15 dark:bg-[#00C2FF]/15 p-2.5 border border-[#007FA8]/30 dark:border-[#00C2FF]/30 text-[#007FA8] dark:text-[#00C2FF] shrink-0 mt-0.5">
+            <div className="rounded-lg bg-[#A9492D]/15 dark:bg-[#E27A54]/15 p-2.5 border border-[#A9492D]/30 dark:border-[#E27A54]/30 text-[#A9492D] dark:text-[#E27A54] shrink-0 mt-0.5">
               <LifeBuoy className="h-5 w-5" />
             </div>
             <div>
               <div className="flex flex-wrap items-center gap-2">
-                <h1 className="text-base sm:text-lg font-bold text-[#172033] dark:text-white">
+                <h1 className="text-base sm:text-lg font-bold text-[#1C241F] dark:text-white">
                   Incident Response &amp; Case Management
                 </h1>
                 <span className="rounded bg-emerald-50 dark:bg-emerald-950/80 px-2 py-0.5 text-[10px] font-mono text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-700/60 font-semibold">
                   Demo Mode (Simulated)
                 </span>
-                <span className="rounded bg-[#EEF4FA] dark:bg-[#1B2A41] px-2 py-0.5 text-[10px] font-mono text-[#007FA8] dark:text-[#00C2FF] border border-[#DCE5EF] dark:border-[#29384D] font-semibold">
+                <span className="rounded bg-[#E1DED1] dark:bg-[#252C24] px-2 py-0.5 text-[10px] font-mono text-[#A9492D] dark:text-[#E27A54] border border-[#CDCFC2] dark:border-[#3A443A] font-semibold">
                   Stage 7
                 </span>
               </div>
-              <p className="text-xs text-[#64748B] dark:text-[#94A3B8] mt-1 leading-relaxed max-w-3xl">
+              <p className="text-xs text-[#58635A] dark:text-[#A8B09F] mt-1 leading-relaxed max-w-3xl">
                 Coordinate end-to-end incident triage, stateful lifecycle transitions, forensic evidence logs, and containment playbooks with local browser persistence.
               </p>
             </div>
@@ -156,15 +156,15 @@ export const IncidentResponsePage: React.FC<IncidentResponsePageProps> = ({
               type="button"
               onClick={onResetIncidents}
               title="Reset incidents dataset to default synthetic records"
-              className="inline-flex items-center gap-1.5 rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#1B2A41] px-3 py-1.5 text-xs font-medium text-[#172033] dark:text-slate-300 hover:bg-[#DCE5EF] dark:hover:bg-[#20324A] transition-colors"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#252C24] px-3 py-1.5 text-xs font-medium text-[#1C241F] dark:text-slate-300 hover:bg-[#CDCFC2] dark:hover:bg-[#303A31] transition-colors"
             >
-              <RotateCcw className="h-3.5 w-3.5 text-[#8492A6] dark:text-[#64748B]" />
+              <RotateCcw className="h-3.5 w-3.5 text-[#798074] dark:text-[#58635A]" />
               <span>Reset Cases</span>
             </button>
             <button
               type="button"
               onClick={() => setCreateModalOpen(true)}
-              className="inline-flex items-center gap-1.5 rounded-lg bg-[#007FA8] dark:bg-[#00C2FF] px-3.5 py-1.5 text-xs font-semibold text-white dark:text-[#0B1220] hover:bg-[#007FA8]/90 dark:hover:bg-[#38BDF8] shadow-xs transition-colors"
+              className="inline-flex items-center gap-1.5 rounded-lg bg-[#A9492D] dark:bg-[#E27A54] px-3.5 py-1.5 text-xs font-semibold text-white dark:text-[#111713] hover:bg-[#A9492D]/90 dark:hover:bg-[#C3D579] shadow-xs transition-colors"
             >
               <Plus className="h-3.5 w-3.5" />
               <span>Declare Incident</span>
@@ -237,7 +237,7 @@ export const IncidentResponsePage: React.FC<IncidentResponsePageProps> = ({
       </div>
 
       {/* Filter Toolbar */}
-      <div className="rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] p-4 space-y-3 shadow-xs">
+      <div className="rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#1A211B] p-4 space-y-3 shadow-xs">
         <div className="flex flex-col md:flex-row gap-3">
           {/* Search bar */}
           <div className="relative flex-1">
@@ -246,14 +246,14 @@ export const IncidentResponsePage: React.FC<IncidentResponsePageProps> = ({
               value={filters.searchQuery}
               onChange={(e) => setFilters((prev) => ({ ...prev, searchQuery: e.target.value }))}
               placeholder="Search incidents by ID, title, host, category, analyst, or alert/event..."
-              className="w-full rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#111C2E] pl-9 pr-3.5 py-2 text-xs text-[#172033] dark:text-[#F8FAFC] placeholder-[#8492A6] dark:placeholder-[#64748B] focus:border-[#007FA8] dark:focus:border-[#00C2FF] focus:outline-none focus:ring-1 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF]"
+              className="w-full rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#0D120F] pl-9 pr-3.5 py-2 text-xs text-[#1C241F] dark:text-[#F0EFE6] placeholder-[#798074] dark:placeholder-[#58635A] focus:border-[#A9492D] dark:focus:border-[#E27A54] focus:outline-none focus:ring-1 focus:ring-[#A9492D] dark:focus:ring-[#E27A54]"
             />
-            <Search className="absolute left-3 top-2.5 h-3.5 w-3.5 text-[#8492A6] dark:text-[#64748B]" />
+            <Search className="absolute left-3 top-2.5 h-3.5 w-3.5 text-[#798074] dark:text-[#58635A]" />
             {filters.searchQuery && (
               <button
                 type="button"
                 onClick={() => setFilters((prev) => ({ ...prev, searchQuery: '' }))}
-                className="absolute right-3 top-2.5 text-xs text-[#8492A6] hover:text-[#172033] dark:hover:text-white"
+                className="absolute right-3 top-2.5 text-xs text-[#798074] hover:text-[#1C241F] dark:hover:text-white"
               >
                 Clear
               </button>
@@ -262,11 +262,11 @@ export const IncidentResponsePage: React.FC<IncidentResponsePageProps> = ({
 
           {/* Sort Dropdown */}
           <div className="flex items-center gap-2">
-            <span className="text-xs text-[#64748B] dark:text-[#94A3B8] whitespace-nowrap">Sort:</span>
+            <span className="text-xs text-[#58635A] dark:text-[#A8B09F] whitespace-nowrap">Sort:</span>
             <select
               value={filters.sortBy}
               onChange={(e) => setFilters((prev) => ({ ...prev, sortBy: e.target.value as IncidentSortOption }))}
-              className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#111C2E] px-3 py-2 text-xs text-[#172033] dark:text-[#F8FAFC] focus:border-[#007FA8] dark:focus:border-[#00C2FF] focus:outline-none"
+              className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#0D120F] px-3 py-2 text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:border-[#A9492D] dark:focus:border-[#E27A54] focus:outline-none"
             >
               <option value="newest">Newest Created</option>
               <option value="oldest">Oldest Created</option>
@@ -280,14 +280,14 @@ export const IncidentResponsePage: React.FC<IncidentResponsePageProps> = ({
         </div>
 
         {/* Secondary Filter Row */}
-        <div className="flex flex-wrap items-center gap-2.5 pt-2 border-t border-[#DCE5EF] dark:border-[#29384D] text-xs">
+        <div className="flex flex-wrap items-center gap-2.5 pt-2 border-t border-[#CDCFC2] dark:border-[#3A443A] text-xs">
           {/* Severity */}
           <div className="flex items-center gap-1.5">
-            <span className="text-[#64748B] dark:text-[#94A3B8]">Severity:</span>
+            <span className="text-[#58635A] dark:text-[#A8B09F]">Severity:</span>
             <select
               value={filters.severity}
               onChange={(e) => setFilters((prev) => ({ ...prev, severity: e.target.value }))}
-              className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#111C2E] px-2.5 py-1 text-xs text-[#172033] dark:text-[#F8FAFC] focus:outline-none"
+              className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#0D120F] px-2.5 py-1 text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:outline-none"
             >
               <option value="all">All Severities</option>
               <option value="critical">Critical</option>
@@ -299,11 +299,11 @@ export const IncidentResponsePage: React.FC<IncidentResponsePageProps> = ({
 
           {/* Priority */}
           <div className="flex items-center gap-1.5">
-            <span className="text-[#64748B] dark:text-[#94A3B8]">Priority:</span>
+            <span className="text-[#58635A] dark:text-[#A8B09F]">Priority:</span>
             <select
               value={filters.priority}
               onChange={(e) => setFilters((prev) => ({ ...prev, priority: e.target.value }))}
-              className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#111C2E] px-2.5 py-1 text-xs text-[#172033] dark:text-[#F8FAFC] focus:outline-none"
+              className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#0D120F] px-2.5 py-1 text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:outline-none"
             >
               <option value="all">All Priorities</option>
               {INCIDENT_PRIORITIES.map((p) => (
@@ -316,11 +316,11 @@ export const IncidentResponsePage: React.FC<IncidentResponsePageProps> = ({
 
           {/* Status */}
           <div className="flex items-center gap-1.5">
-            <span className="text-[#64748B] dark:text-[#94A3B8]">Status:</span>
+            <span className="text-[#58635A] dark:text-[#A8B09F]">Status:</span>
             <select
               value={filters.status}
               onChange={(e) => setFilters((prev) => ({ ...prev, status: e.target.value }))}
-              className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#111C2E] px-2.5 py-1 text-xs text-[#172033] dark:text-[#F8FAFC] focus:outline-none"
+              className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#0D120F] px-2.5 py-1 text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:outline-none"
             >
               <option value="all">All Statuses</option>
               {INCIDENT_STATUS_FLOW.map((s) => (
@@ -333,11 +333,11 @@ export const IncidentResponsePage: React.FC<IncidentResponsePageProps> = ({
 
           {/* Category */}
           <div className="flex items-center gap-1.5">
-            <span className="text-[#64748B] dark:text-[#94A3B8]">Category:</span>
+            <span className="text-[#58635A] dark:text-[#A8B09F]">Category:</span>
             <select
               value={filters.category}
               onChange={(e) => setFilters((prev) => ({ ...prev, category: e.target.value }))}
-              className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#111C2E] px-2.5 py-1 text-xs text-[#172033] dark:text-[#F8FAFC] focus:outline-none"
+              className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#0D120F] px-2.5 py-1 text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:outline-none"
             >
               <option value="all">All Categories</option>
               {INCIDENT_CATEGORIES.map((c) => (
@@ -350,11 +350,11 @@ export const IncidentResponsePage: React.FC<IncidentResponsePageProps> = ({
 
           {/* Analyst */}
           <div className="flex items-center gap-1.5">
-            <span className="text-[#64748B] dark:text-[#94A3B8]">Analyst:</span>
+            <span className="text-[#58635A] dark:text-[#A8B09F]">Analyst:</span>
             <select
               value={filters.assignedAnalyst}
               onChange={(e) => setFilters((prev) => ({ ...prev, assignedAnalyst: e.target.value }))}
-              className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#111C2E] px-2.5 py-1 text-xs text-[#172033] dark:text-[#F8FAFC] focus:outline-none"
+              className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#0D120F] px-2.5 py-1 text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:outline-none"
             >
               <option value="all">All Analysts</option>
               {MOCK_ANALYSTS.map((a) => (
@@ -371,7 +371,7 @@ export const IncidentResponsePage: React.FC<IncidentResponsePageProps> = ({
             <button
               type="button"
               onClick={handleClearFilters}
-              className="inline-flex items-center gap-1 text-xs text-[#007FA8] dark:text-[#00C2FF] hover:underline ml-auto font-medium"
+              className="inline-flex items-center gap-1 text-xs text-[#A9492D] dark:text-[#E27A54] hover:underline ml-auto font-medium"
             >
               <RotateCcw className="h-3 w-3" />
               <span>Reset Filters</span>
@@ -381,35 +381,35 @@ export const IncidentResponsePage: React.FC<IncidentResponsePageProps> = ({
       </div>
 
       {/* Incidents Table View */}
-      <div className="rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] overflow-hidden shadow-xs">
-        <div className="px-5 py-3.5 border-b border-[#DCE5EF] dark:border-[#29384D] flex items-center justify-between bg-[#F4F7FB]/50 dark:bg-transparent">
+      <div className="rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#1A211B] overflow-hidden shadow-xs">
+        <div className="px-5 py-3.5 border-b border-[#CDCFC2] dark:border-[#3A443A] flex items-center justify-between bg-[#E9E5D9]/50 dark:bg-transparent">
           <div className="flex items-center gap-2">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-[#172033] dark:text-slate-300">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-[#1C241F] dark:text-slate-300">
               Security Incidents Queue
             </h3>
-            <span className="rounded-full bg-[#EEF4FA] dark:bg-[#1B2A41] px-2 py-0.5 text-[11px] font-mono text-[#64748B] dark:text-slate-400 border border-[#DCE5EF] dark:border-[#29384D]">
+            <span className="rounded-full bg-[#E1DED1] dark:bg-[#252C24] px-2 py-0.5 text-[11px] font-mono text-[#58635A] dark:text-slate-400 border border-[#CDCFC2] dark:border-[#3A443A]">
               Showing {filteredIncidents.length} of {incidents.length}
             </span>
           </div>
-          <span className="text-[11px] text-[#8492A6] dark:text-[#64748B] hidden sm:inline">
+          <span className="text-[11px] text-[#798074] dark:text-[#58635A] hidden sm:inline">
             Click any row to open incident investigation modal
           </span>
         </div>
 
         {filteredIncidents.length === 0 ? (
           <div className="p-12 text-center space-y-3">
-            <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[#EEF4FA] dark:bg-[#1B2A41] text-[#64748B] dark:text-slate-400 border border-[#DCE5EF] dark:border-[#29384D]">
+            <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[#E1DED1] dark:bg-[#252C24] text-[#58635A] dark:text-slate-400 border border-[#CDCFC2] dark:border-[#3A443A]">
               <LifeBuoy className="h-6 w-6" />
             </div>
-            <h4 className="text-sm font-semibold text-[#172033] dark:text-white">No security incidents found</h4>
-            <p className="text-xs text-[#64748B] dark:text-[#94A3B8] max-w-sm mx-auto">
+            <h4 className="text-sm font-semibold text-[#1C241F] dark:text-white">No security incidents found</h4>
+            <p className="text-xs text-[#58635A] dark:text-[#A8B09F] max-w-sm mx-auto">
               No incidents match your selected filters. Adjust your search parameters or declare a new incident ticket.
             </p>
             {hasActiveFilters && (
               <button
                 type="button"
                 onClick={handleClearFilters}
-                className="inline-flex items-center gap-1.5 rounded-lg border border-[#007FA8]/30 dark:border-[#00C2FF]/40 bg-[#007FA8]/10 dark:bg-[#00C2FF]/15 px-3.5 py-1.5 text-xs font-semibold text-[#007FA8] dark:text-[#00C2FF] hover:bg-[#007FA8]/20 dark:hover:bg-[#00C2FF]/25 transition-colors"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-[#A9492D]/30 dark:border-[#E27A54]/40 bg-[#A9492D]/10 dark:bg-[#E27A54]/15 px-3.5 py-1.5 text-xs font-semibold text-[#A9492D] dark:text-[#E27A54] hover:bg-[#A9492D]/20 dark:hover:bg-[#E27A54]/25 transition-colors"
               >
                 Clear all filters
               </button>
@@ -418,7 +418,7 @@ export const IncidentResponsePage: React.FC<IncidentResponsePageProps> = ({
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs">
-              <thead className="bg-[#EEF4FA] dark:bg-[#111C2E] text-[11px] uppercase font-mono text-[#64748B] dark:text-[#94A3B8] border-b border-[#DCE5EF] dark:border-[#29384D]">
+              <thead className="bg-[#E1DED1] dark:bg-[#0D120F] text-[11px] uppercase font-mono text-[#58635A] dark:text-[#A8B09F] border-b border-[#CDCFC2] dark:border-[#3A443A]">
                 <tr>
                   <th scope="col" className="px-4 py-3">Incident ID</th>
                   <th scope="col" className="px-4 py-3">Title &amp; Category</th>
@@ -431,7 +431,7 @@ export const IncidentResponsePage: React.FC<IncidentResponsePageProps> = ({
                   <th scope="col" className="px-4 py-3 text-right">Action</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#DCE5EF] dark:divide-[#29384D]/80">
+              <tbody className="divide-y divide-[#CDCFC2] dark:divide-[#3A443A]/80">
                 {filteredIncidents.map((inc) => {
                   const sevStyle = getSeverityStyle(inc.severity);
                   const priStyle = getIncidentPriorityStyle(inc.priority);
@@ -441,10 +441,10 @@ export const IncidentResponsePage: React.FC<IncidentResponsePageProps> = ({
                     <tr
                       key={inc.id}
                       onClick={() => setSelectedIncident(inc)}
-                      className="hover:bg-[#EDF5FA] dark:hover:bg-[#20324A]/40 cursor-pointer transition-colors group"
+                      className="hover:bg-[#E5E2D8] dark:hover:bg-[#303A31]/40 cursor-pointer transition-colors group"
                     >
                       {/* ID */}
-                      <td className="px-4 py-3 font-mono font-semibold text-[#007FA8] dark:text-[#00C2FF] whitespace-nowrap">
+                      <td className="px-4 py-3 font-mono font-semibold text-[#A9492D] dark:text-[#E27A54] whitespace-nowrap">
                         <div className="flex items-center gap-1.5">
                           <span className={`h-1.5 w-1.5 rounded-full ${stStyle.dotBg}`} />
                           <span>{inc.id}</span>
@@ -453,14 +453,14 @@ export const IncidentResponsePage: React.FC<IncidentResponsePageProps> = ({
 
                       {/* Title & Category */}
                       <td className="px-4 py-3 max-w-xs">
-                        <div className="font-semibold text-[#172033] dark:text-white group-hover:text-[#007FA8] dark:group-hover:text-[#38BDF8] transition-colors line-clamp-1">
+                        <div className="font-semibold text-[#1C241F] dark:text-white group-hover:text-[#A9492D] dark:group-hover:text-[#C3D579] transition-colors line-clamp-1">
                           {inc.title}
                         </div>
-                        <div className="flex items-center gap-2 text-[11px] text-[#64748B] dark:text-[#94A3B8] mt-0.5">
-                          <span className="text-[#172033] dark:text-slate-300 font-medium">{inc.category}</span>
+                        <div className="flex items-center gap-2 text-[11px] text-[#58635A] dark:text-[#A8B09F] mt-0.5">
+                          <span className="text-[#1C241F] dark:text-slate-300 font-medium">{inc.category}</span>
                           <span>&bull;</span>
-                          <span className="font-mono text-[#8492A6] dark:text-slate-400 flex items-center gap-1">
-                            <Server className="h-3 w-3 text-[#8492A6] dark:text-slate-500" />
+                          <span className="font-mono text-[#798074] dark:text-slate-400 flex items-center gap-1">
+                            <Server className="h-3 w-3 text-[#798074] dark:text-slate-500" />
                             {inc.affectedHost}
                           </span>
                         </div>
@@ -496,14 +496,14 @@ export const IncidentResponsePage: React.FC<IncidentResponsePageProps> = ({
                       </td>
 
                       {/* Lead */}
-                      <td className="px-4 py-3 whitespace-nowrap text-[#172033] dark:text-slate-300 font-medium">
+                      <td className="px-4 py-3 whitespace-nowrap text-[#1C241F] dark:text-slate-300 font-medium">
                         {inc.assignedAnalyst ? (
                           <div className="flex items-center gap-1.5">
-                            <User className="h-3.5 w-3.5 text-[#8492A6] dark:text-slate-500" />
+                            <User className="h-3.5 w-3.5 text-[#798074] dark:text-slate-500" />
                             <span>{inc.assignedAnalyst.split(' ')[0]}</span>
                           </div>
                         ) : (
-                          <span className="text-[#8492A6] dark:text-slate-500 italic">Unassigned</span>
+                          <span className="text-[#798074] dark:text-slate-500 italic">Unassigned</span>
                         )}
                       </td>
 
@@ -521,7 +521,7 @@ export const IncidentResponsePage: React.FC<IncidentResponsePageProps> = ({
                           {inc.evidence.length > 0 && (
                             <span
                               title={`${inc.evidence.length} Evidence Artifacts`}
-                              className="rounded bg-[#EEF4FA] dark:bg-slate-800 px-1.5 py-0.5 text-[#007FA8] dark:text-cyan-300 border border-[#DCE5EF] dark:border-slate-700 flex items-center gap-0.5"
+                              className="rounded bg-[#E1DED1] dark:bg-slate-800 px-1.5 py-0.5 text-[#A9492D] dark:text-signal-300 border border-[#CDCFC2] dark:border-slate-700 flex items-center gap-0.5"
                             >
                               <Paperclip className="h-2.5 w-2.5" />
                               {inc.evidence.length}
@@ -539,7 +539,7 @@ export const IncidentResponsePage: React.FC<IncidentResponsePageProps> = ({
                       </td>
 
                       {/* Created */}
-                      <td className="px-4 py-3 whitespace-nowrap font-mono text-[11px] text-[#64748B] dark:text-slate-400">
+                      <td className="px-4 py-3 whitespace-nowrap font-mono text-[11px] text-[#58635A] dark:text-slate-400">
                         {new Date(inc.createdAt).toLocaleDateString()}{' '}
                         {new Date(inc.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                       </td>
@@ -552,7 +552,7 @@ export const IncidentResponsePage: React.FC<IncidentResponsePageProps> = ({
                             e.stopPropagation();
                             setSelectedIncident(inc);
                           }}
-                          className="inline-flex items-center gap-1 rounded-md border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#1B2A41] px-2.5 py-1 text-xs font-semibold text-[#172033] dark:text-slate-300 hover:bg-[#DCE5EF] dark:hover:bg-[#20324A] hover:text-[#007FA8] dark:hover:text-[#00C2FF] transition-colors"
+                          className="inline-flex items-center gap-1 rounded-md border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#252C24] px-2.5 py-1 text-xs font-semibold text-[#1C241F] dark:text-slate-300 hover:bg-[#CDCFC2] dark:hover:bg-[#303A31] hover:text-[#A9492D] dark:hover:text-[#E27A54] transition-colors"
                         >
                           <span>Investigate</span>
                           <ArrowRight className="h-3 w-3" />

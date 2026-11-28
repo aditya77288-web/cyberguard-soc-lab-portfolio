@@ -173,21 +173,21 @@ export const DetectionRulesPage: React.FC<DetectionRulesPageProps> = ({
   return (
     <div className="space-y-6 max-w-7xl mx-auto">
       {/* Page Header & Status Banner */}
-      <div className="rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] p-5 shadow-xs">
+      <div className="rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#1A211B] p-5 shadow-xs">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2.5">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#007FA8]/10 dark:bg-[#00C2FF]/10 border border-[#007FA8]/30 dark:border-[#00C2FF]/30 text-[#007FA8] dark:text-[#00C2FF]">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#A9492D]/10 dark:bg-[#E27A54]/10 border border-[#A9492D]/30 dark:border-[#E27A54]/30 text-[#A9492D] dark:text-[#E27A54]">
                 <FileCode2 className="h-4.5 w-4.5" />
               </div>
               <div>
-                <h1 className="text-base sm:text-lg font-bold text-[#172033] dark:text-white tracking-tight flex items-center gap-2">
+                <h1 className="text-base sm:text-lg font-bold text-[#1C241F] dark:text-white tracking-tight flex items-center gap-2">
                   Detection Rules &amp; Sigma Engine
                   <span className="rounded bg-emerald-50 dark:bg-emerald-950/80 px-2 py-0.5 text-[10px] font-mono text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/40 font-semibold">
                     STAGE 5 ACTIVE
                   </span>
                 </h1>
-                <p className="text-xs text-[#64748B] dark:text-[#94A3B8] mt-0.5">
+                <p className="text-xs text-[#58635A] dark:text-[#A8B09F] mt-0.5">
                   Deterministic local Sigma rule evaluation, Boolean condition matching, and telemetry findings
                 </p>
               </div>
@@ -210,7 +210,7 @@ export const DetectionRulesPage: React.FC<DetectionRulesPageProps> = ({
               type="button"
               onClick={handleRunEngine}
               disabled={isEvaluating}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-[#007FA8]/40 dark:border-[#00C2FF]/40 bg-[#007FA8]/10 dark:bg-[#00C2FF]/15 px-3 py-1.5 text-xs font-semibold text-[#007FA8] dark:text-[#00C2FF] hover:bg-[#007FA8]/20 dark:hover:bg-[#00C2FF]/25 transition-colors focus:outline-none focus:ring-2 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF] disabled:opacity-50"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-[#A9492D]/40 dark:border-[#E27A54]/40 bg-[#A9492D]/10 dark:bg-[#E27A54]/15 px-3 py-1.5 text-xs font-semibold text-[#A9492D] dark:text-[#E27A54] hover:bg-[#A9492D]/20 dark:hover:bg-[#E27A54]/25 transition-colors focus:outline-none focus:ring-2 focus:ring-[#A9492D] dark:focus:ring-[#E27A54] disabled:opacity-50"
             >
               <Play className={`h-3.5 w-3.5 ${isEvaluating ? 'animate-spin' : ''}`} />
               <span>{isEvaluating ? 'Evaluating...' : 'Run Engine'}</span>
@@ -221,7 +221,7 @@ export const DetectionRulesPage: React.FC<DetectionRulesPageProps> = ({
               type="button"
               onClick={handleResetDefaults}
               aria-label="Reset rule enablement to defaults"
-              className="inline-flex items-center gap-1 rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#1B2A41] px-2.5 py-1.5 text-xs font-medium text-[#172033] dark:text-[#F8FAFC] hover:bg-[#DCE5EF] dark:hover:bg-[#20324A] transition-colors"
+              className="inline-flex items-center gap-1 rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#252C24] px-2.5 py-1.5 text-xs font-medium text-[#1C241F] dark:text-[#F0EFE6] hover:bg-[#CDCFC2] dark:hover:bg-[#303A31] transition-colors"
             >
               <RotateCcw className="h-3 w-3" />
               <span>Reset Defaults</span>
@@ -231,7 +231,7 @@ export const DetectionRulesPage: React.FC<DetectionRulesPageProps> = ({
 
         {/* Feedback alert if engine was rerun */}
         {evalFeedback && (
-          <div className="mt-3 p-2.5 rounded-lg bg-[#007FA8]/10 dark:bg-[#00C2FF]/15 border border-[#007FA8]/30 dark:border-[#00C2FF]/30 text-[#007FA8] dark:text-[#00C2FF] text-xs flex items-center gap-2 animate-in fade-in duration-200">
+          <div className="mt-3 p-2.5 rounded-lg bg-[#A9492D]/10 dark:bg-[#E27A54]/15 border border-[#A9492D]/30 dark:border-[#E27A54]/30 text-[#A9492D] dark:text-[#E27A54] text-xs flex items-center gap-2 animate-in fade-in duration-200">
             <Sparkles className="h-4 w-4 shrink-0" />
             <span>{evalFeedback}</span>
           </div>
@@ -283,15 +283,15 @@ export const DetectionRulesPage: React.FC<DetectionRulesPageProps> = ({
       </div>
 
       {/* View Selector Tabs */}
-      <div className="flex items-center justify-between border-b border-[#DCE5EF] dark:border-[#29384D] pb-1">
+      <div className="flex items-center justify-between border-b border-[#CDCFC2] dark:border-[#3A443A] pb-1">
         <div className="flex items-center gap-2 text-xs">
           <button
             type="button"
             onClick={() => setActiveTab('catalog')}
             className={`py-2 px-3.5 rounded-lg font-medium transition-colors ${
               activeTab === 'catalog'
-                ? 'bg-[#007FA8] text-white dark:bg-[#00C2FF] dark:text-[#0B1220] font-semibold shadow-xs'
-                : 'text-[#64748B] dark:text-[#94A3B8] hover:text-[#172033] dark:hover:text-white hover:bg-[#EEF4FA] dark:hover:bg-[#1B2A41]'
+                ? 'bg-[#A9492D] text-white dark:bg-[#E27A54] dark:text-[#111713] font-semibold shadow-xs'
+                : 'text-[#58635A] dark:text-[#A8B09F] hover:text-[#1C241F] dark:hover:text-white hover:bg-[#E1DED1] dark:hover:bg-[#252C24]'
             }`}
           >
             Detection Rules Catalog ({filteredRules.length})
@@ -301,8 +301,8 @@ export const DetectionRulesPage: React.FC<DetectionRulesPageProps> = ({
             onClick={() => setActiveTab('matches')}
             className={`py-2 px-3.5 rounded-lg font-medium transition-colors flex items-center gap-1.5 ${
               activeTab === 'matches'
-                ? 'bg-[#007FA8] text-white dark:bg-[#00C2FF] dark:text-[#0B1220] font-semibold shadow-xs'
-                : 'text-[#64748B] dark:text-[#94A3B8] hover:text-[#172033] dark:hover:text-white hover:bg-[#EEF4FA] dark:hover:bg-[#1B2A41]'
+                ? 'bg-[#A9492D] text-white dark:bg-[#E27A54] dark:text-[#111713] font-semibold shadow-xs'
+                : 'text-[#58635A] dark:text-[#A8B09F] hover:text-[#1C241F] dark:hover:text-white hover:bg-[#E1DED1] dark:hover:bg-[#252C24]'
             }`}
           >
             <span>Engine Matches &amp; Findings</span>
@@ -312,7 +312,7 @@ export const DetectionRulesPage: React.FC<DetectionRulesPageProps> = ({
           </button>
         </div>
 
-        <span className="font-mono text-[11px] text-[#8492A6] dark:text-[#64748B] hidden sm:inline">
+        <span className="font-mono text-[11px] text-[#798074] dark:text-[#58635A] hidden sm:inline">
           Storage: cyberguard_soc_rules_v1
         </span>
       </div>
@@ -320,24 +320,24 @@ export const DetectionRulesPage: React.FC<DetectionRulesPageProps> = ({
       {activeTab === 'catalog' && (
         <div className="space-y-4">
           {/* Search & Filter Toolbar */}
-          <div className="rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] p-4 space-y-3.5 shadow-xs">
+          <div className="rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#1A211B] p-4 space-y-3.5 shadow-xs">
             {/* Search Input Row */}
             <div className="relative">
-              <Search className="absolute left-3 top-2.5 h-4 w-4 text-[#8492A6] dark:text-[#64748B]" />
+              <Search className="absolute left-3 top-2.5 h-4 w-4 text-[#798074] dark:text-[#58635A]" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search rule ID, title, description, category, product, tags, or MITRE technique..."
                 aria-label="Search detection rules"
-                className="w-full rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#111C2E] py-2 pl-9 pr-8 text-xs text-[#172033] dark:text-[#F8FAFC] placeholder:text-[#8492A6] dark:placeholder:text-[#64748B] focus:border-[#007FA8] dark:focus:border-[#00C2FF] focus:outline-none focus:ring-1 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF] font-sans"
+                className="w-full rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#0D120F] py-2 pl-9 pr-8 text-xs text-[#1C241F] dark:text-[#F0EFE6] placeholder:text-[#798074] dark:placeholder:text-[#58635A] focus:border-[#A9492D] dark:focus:border-[#E27A54] focus:outline-none focus:ring-1 focus:ring-[#A9492D] dark:focus:ring-[#E27A54] font-sans"
               />
               {searchQuery && (
                 <button
                   type="button"
                   onClick={() => setSearchQuery('')}
                   aria-label="Clear search input"
-                  className="absolute right-2.5 top-2.5 text-[#8492A6] hover:text-[#172033] dark:hover:text-white"
+                  className="absolute right-2.5 top-2.5 text-[#798074] hover:text-[#1C241F] dark:hover:text-white"
                 >
                   <X className="h-3.5 w-3.5" />
                 </button>
@@ -348,12 +348,12 @@ export const DetectionRulesPage: React.FC<DetectionRulesPageProps> = ({
             <div className="flex flex-wrap items-center gap-2.5 text-xs">
               {/* Severity Filter */}
               <div className="flex items-center gap-1.5">
-                <span className="text-[#64748B] dark:text-[#94A3B8] font-medium">Severity:</span>
+                <span className="text-[#58635A] dark:text-[#A8B09F] font-medium">Severity:</span>
                 <select
                   value={severityFilter}
                   onChange={(e) => setSeverityFilter(e.target.value)}
                   aria-label="Filter by rule severity"
-                  className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#111C2E] py-1.5 px-2.5 text-xs text-[#172033] dark:text-[#F8FAFC] focus:border-[#007FA8] dark:focus:border-[#00C2FF] focus:outline-none cursor-pointer"
+                  className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#0D120F] py-1.5 px-2.5 text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:border-[#A9492D] dark:focus:border-[#E27A54] focus:outline-none cursor-pointer"
                 >
                   <option value="all">All Severities</option>
                   <option value="critical">Critical</option>
@@ -365,12 +365,12 @@ export const DetectionRulesPage: React.FC<DetectionRulesPageProps> = ({
 
               {/* Status Filter */}
               <div className="flex items-center gap-1.5">
-                <span className="text-[#64748B] dark:text-[#94A3B8] font-medium">Status:</span>
+                <span className="text-[#58635A] dark:text-[#A8B09F] font-medium">Status:</span>
                 <select
                   value={statusFilter}
                   onChange={(e) => setStatusFilter(e.target.value)}
                   aria-label="Filter by rule status"
-                  className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#111C2E] py-1.5 px-2.5 text-xs text-[#172033] dark:text-[#F8FAFC] focus:border-[#007FA8] dark:focus:border-[#00C2FF] focus:outline-none cursor-pointer"
+                  className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#0D120F] py-1.5 px-2.5 text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:border-[#A9492D] dark:focus:border-[#E27A54] focus:outline-none cursor-pointer"
                 >
                   <option value="all">All Statuses</option>
                   <option value="enabled">Enabled</option>
@@ -381,12 +381,12 @@ export const DetectionRulesPage: React.FC<DetectionRulesPageProps> = ({
 
               {/* Category Filter */}
               <div className="flex items-center gap-1.5">
-                <span className="text-[#64748B] dark:text-[#94A3B8] font-medium">Category:</span>
+                <span className="text-[#58635A] dark:text-[#A8B09F] font-medium">Category:</span>
                 <select
                   value={categoryFilter}
                   onChange={(e) => setCategoryFilter(e.target.value)}
                   aria-label="Filter by rule category"
-                  className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#111C2E] py-1.5 px-2.5 text-xs text-[#172033] dark:text-[#F8FAFC] focus:border-[#007FA8] dark:focus:border-[#00C2FF] focus:outline-none cursor-pointer max-w-[180px] truncate"
+                  className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#0D120F] py-1.5 px-2.5 text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:border-[#A9492D] dark:focus:border-[#E27A54] focus:outline-none cursor-pointer max-w-[180px] truncate"
                 >
                   <option value="all">All Categories</option>
                   {uniqueCategories.map((cat) => (
@@ -399,13 +399,13 @@ export const DetectionRulesPage: React.FC<DetectionRulesPageProps> = ({
 
               {/* Sort By Dropdown */}
               <div className="flex items-center gap-1.5 ml-auto">
-                <ArrowUpDown className="h-3.5 w-3.5 text-[#8492A6] dark:text-[#64748B]" />
-                <span className="text-[#64748B] dark:text-[#94A3B8] font-medium">Sort:</span>
+                <ArrowUpDown className="h-3.5 w-3.5 text-[#798074] dark:text-[#58635A]" />
+                <span className="text-[#58635A] dark:text-[#A8B09F] font-medium">Sort:</span>
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
                   aria-label="Sort detection rules"
-                  className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#111C2E] py-1.5 px-2.5 text-xs text-[#172033] dark:text-[#F8FAFC] focus:border-[#007FA8] dark:focus:border-[#00C2FF] focus:outline-none cursor-pointer"
+                  className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#0D120F] py-1.5 px-2.5 text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:border-[#A9492D] dark:focus:border-[#E27A54] focus:outline-none cursor-pointer"
                 >
                   <option value="severity-desc">Severity: High &rarr; Low</option>
                   <option value="severity-asc">Severity: Low &rarr; High</option>
@@ -420,7 +420,7 @@ export const DetectionRulesPage: React.FC<DetectionRulesPageProps> = ({
                 <button
                   type="button"
                   onClick={handleResetFilters}
-                  className="inline-flex items-center gap-1 rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#1B2A41] px-2.5 py-1.5 text-xs text-[#172033] dark:text-[#F8FAFC] hover:bg-[#DCE5EF] dark:hover:bg-[#20324A] transition-colors"
+                  className="inline-flex items-center gap-1 rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#252C24] px-2.5 py-1.5 text-xs text-[#1C241F] dark:text-[#F0EFE6] hover:bg-[#CDCFC2] dark:hover:bg-[#303A31] transition-colors"
                 >
                   <RotateCcw className="h-3 w-3" />
                   <span>Reset</span>
@@ -429,12 +429,12 @@ export const DetectionRulesPage: React.FC<DetectionRulesPageProps> = ({
             </div>
 
             {/* Results counter */}
-            <div className="flex items-center justify-between pt-1 border-t border-[#DCE5EF] dark:border-[#29384D]/60 text-xs text-[#64748B] dark:text-[#94A3B8]">
+            <div className="flex items-center justify-between pt-1 border-t border-[#CDCFC2] dark:border-[#3A443A]/60 text-xs text-[#58635A] dark:text-[#A8B09F]">
               <div>
-                Showing <strong className="text-[#172033] dark:text-white">{filteredRules.length}</strong> of{' '}
-                <strong className="text-[#172033] dark:text-white">{rules.length}</strong> detection rules
+                Showing <strong className="text-[#1C241F] dark:text-white">{filteredRules.length}</strong> of{' '}
+                <strong className="text-[#1C241F] dark:text-white">{rules.length}</strong> detection rules
               </div>
-              <div className="font-mono text-[11px] text-[#8492A6] dark:text-[#64748B]">
+              <div className="font-mono text-[11px] text-[#798074] dark:text-[#58635A]">
                 Format: Sigma Standard YAML &bull; Deterministic Engine
               </div>
             </div>
@@ -442,30 +442,30 @@ export const DetectionRulesPage: React.FC<DetectionRulesPageProps> = ({
 
           {/* Rules Table */}
           {filteredRules.length === 0 ? (
-            <div className="rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#17243A]/60 p-12 text-center space-y-3">
+            <div className="rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#1A211B]/60 p-12 text-center space-y-3">
               <div className="flex justify-center">
-                <div className="rounded-full bg-[#EEF4FA] dark:bg-[#1B2A41] p-3 text-[#64748B] dark:text-[#94A3B8] border border-[#DCE5EF] dark:border-[#29384D]">
+                <div className="rounded-full bg-[#E1DED1] dark:bg-[#252C24] p-3 text-[#58635A] dark:text-[#A8B09F] border border-[#CDCFC2] dark:border-[#3A443A]">
                   <FileCode2 className="h-6 w-6" />
                 </div>
               </div>
-              <h2 className="text-base font-semibold text-[#172033] dark:text-white">No detection rules match criteria</h2>
-              <p className="text-xs text-[#64748B] dark:text-[#94A3B8] max-w-md mx-auto">
+              <h2 className="text-base font-semibold text-[#1C241F] dark:text-white">No detection rules match criteria</h2>
+              <p className="text-xs text-[#58635A] dark:text-[#A8B09F] max-w-md mx-auto">
                 No rules were found matching query "{searchQuery}" under current filters. Try resetting the filters or modifying your search terms.
               </p>
               <button
                 type="button"
                 onClick={handleResetFilters}
-                className="inline-flex items-center gap-1.5 rounded-lg border border-[#007FA8]/30 dark:border-[#00C2FF]/40 bg-[#007FA8]/10 dark:bg-[#00C2FF]/15 px-4 py-2 text-xs font-semibold text-[#007FA8] dark:text-[#00C2FF] hover:bg-[#007FA8]/20 dark:hover:bg-[#00C2FF]/25 transition-colors"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-[#A9492D]/30 dark:border-[#E27A54]/40 bg-[#A9492D]/10 dark:bg-[#E27A54]/15 px-4 py-2 text-xs font-semibold text-[#A9492D] dark:text-[#E27A54] hover:bg-[#A9492D]/20 dark:hover:bg-[#E27A54]/25 transition-colors"
               >
                 <RotateCcw className="h-3.5 w-3.5" />
                 <span>Reset All Filters</span>
               </button>
             </div>
           ) : (
-            <div className="rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] overflow-hidden shadow-xs">
+            <div className="rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#1A211B] overflow-hidden shadow-xs">
               <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-[#172033] dark:text-[#F8FAFC]">
-                  <thead className="border-b border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] font-mono text-[11px] uppercase text-[#64748B] dark:text-[#94A3B8]">
+                <table className="w-full text-left text-xs text-[#1C241F] dark:text-[#F0EFE6]">
+                  <thead className="border-b border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] font-mono text-[11px] uppercase text-[#58635A] dark:text-[#A8B09F]">
                     <tr>
                       <th scope="col" className="py-3 px-3.5">Severity</th>
                       <th scope="col" className="py-3 px-3.5">Rule ID &amp; Title</th>
@@ -477,7 +477,7 @@ export const DetectionRulesPage: React.FC<DetectionRulesPageProps> = ({
                       <th scope="col" className="py-3 px-3.5 text-right">Actions</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#DCE5EF] dark:divide-[#29384D]/60 font-sans">
+                  <tbody className="divide-y divide-[#CDCFC2] dark:divide-[#3A443A]/60 font-sans">
                     {filteredRules.map((rule) => {
                       const matchCount = evaluationResult.matches.filter((m) => m.ruleId === rule.id).length;
 
@@ -485,7 +485,7 @@ export const DetectionRulesPage: React.FC<DetectionRulesPageProps> = ({
                         <tr
                           key={rule.id}
                           onClick={() => setSelectedRule(rule)}
-                          className="hover:bg-[#EDF5FA] dark:hover:bg-[#20324A]/40 transition-colors cursor-pointer group"
+                          className="hover:bg-[#E5E2D8] dark:hover:bg-[#303A31]/40 transition-colors cursor-pointer group"
                         >
                           {/* Severity */}
                           <td className="py-3 px-3.5 whitespace-nowrap">
@@ -501,11 +501,11 @@ export const DetectionRulesPage: React.FC<DetectionRulesPageProps> = ({
                           {/* Rule Title & ID */}
                           <td className="py-3 px-3.5 max-w-xs sm:max-w-md">
                             <div className="space-y-0.5">
-                              <div className="text-xs font-semibold text-[#172033] dark:text-white group-hover:text-[#007FA8] dark:group-hover:text-[#00C2FF] transition-colors break-words">
+                              <div className="text-xs font-semibold text-[#1C241F] dark:text-white group-hover:text-[#A9492D] dark:group-hover:text-[#E27A54] transition-colors break-words">
                                 {rule.title}
                               </div>
-                              <div className="flex items-center gap-2 text-[10px] text-[#64748B] dark:text-[#94A3B8] font-mono">
-                                <span className="text-[#007FA8] dark:text-[#00C2FF] font-semibold">{rule.id}</span>
+                              <div className="flex items-center gap-2 text-[10px] text-[#58635A] dark:text-[#A8B09F] font-mono">
+                                <span className="text-[#A9492D] dark:text-[#E27A54] font-semibold">{rule.id}</span>
                                 <span>&bull;</span>
                                 <span className="truncate">{rule.description}</span>
                               </div>
@@ -514,14 +514,14 @@ export const DetectionRulesPage: React.FC<DetectionRulesPageProps> = ({
 
                           {/* Log Source */}
                           <td className="py-3 px-3.5 whitespace-nowrap">
-                            <span className="inline-flex items-center gap-1 rounded bg-[#EEF4FA] dark:bg-[#1B2A41] px-2 py-0.5 text-[11px] font-mono text-[#172033] dark:text-[#F8FAFC] border border-[#DCE5EF] dark:border-[#29384D]">
-                              <Server className="h-3 w-3 text-[#64748B] dark:text-[#94A3B8]" />
+                            <span className="inline-flex items-center gap-1 rounded bg-[#E1DED1] dark:bg-[#252C24] px-2 py-0.5 text-[11px] font-mono text-[#1C241F] dark:text-[#F0EFE6] border border-[#CDCFC2] dark:border-[#3A443A]">
+                              <Server className="h-3 w-3 text-[#58635A] dark:text-[#A8B09F]" />
                               {rule.logsource.product || 'Generic'}
                             </span>
                           </td>
 
                           {/* Category */}
-                          <td className="py-3 px-3.5 whitespace-nowrap font-medium text-[#64748B] dark:text-[#94A3B8]">
+                          <td className="py-3 px-3.5 whitespace-nowrap font-medium text-[#58635A] dark:text-[#A8B09F]">
                             {rule.category}
                           </td>
 
@@ -533,7 +533,7 @@ export const DetectionRulesPage: React.FC<DetectionRulesPageProps> = ({
                                 {rule.mitreTechniques[0].split(' - ')[0]}
                               </span>
                             ) : (
-                              <span className="text-[#8492A6] dark:text-[#64748B] text-[10px] font-mono">-</span>
+                              <span className="text-[#798074] dark:text-[#58635A] text-[10px] font-mono">-</span>
                             )}
                           </td>
 
@@ -544,7 +544,7 @@ export const DetectionRulesPage: React.FC<DetectionRulesPageProps> = ({
                                 {matchCount} Match{matchCount > 1 ? 'es' : ''}
                               </span>
                             ) : (
-                              <span className="text-[11px] text-[#8492A6] dark:text-[#64748B] font-mono">Dormant</span>
+                              <span className="text-[11px] text-[#798074] dark:text-[#58635A] font-mono">Dormant</span>
                             )}
                           </td>
 
@@ -565,12 +565,12 @@ export const DetectionRulesPage: React.FC<DetectionRulesPageProps> = ({
                                 className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[11px] font-mono font-medium transition-colors border ${
                                   rule.enabled
                                     ? 'bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100 dark:bg-emerald-950/70 dark:text-emerald-300 dark:border-emerald-800/60 dark:hover:bg-emerald-900/70'
-                                    : 'bg-[#EEF4FA] text-[#64748B] border-[#DCE5EF] hover:bg-[#DCE5EF] dark:bg-[#1B2A41] dark:text-[#94A3B8] dark:border-[#29384D] dark:hover:bg-[#20324A]'
+                                    : 'bg-[#E1DED1] text-[#58635A] border-[#CDCFC2] hover:bg-[#CDCFC2] dark:bg-[#252C24] dark:text-[#A8B09F] dark:border-[#3A443A] dark:hover:bg-[#303A31]'
                                 }`}
                               >
                                 <span
                                   className={`h-1.5 w-1.5 rounded-full ${
-                                    rule.enabled ? 'bg-emerald-500 dark:bg-emerald-400' : 'bg-[#8492A6] dark:bg-slate-500'
+                                    rule.enabled ? 'bg-emerald-500 dark:bg-emerald-400' : 'bg-[#798074] dark:bg-slate-500'
                                   }`}
                                 />
                                 <span>{rule.enabled ? 'Enabled' : 'Disabled'}</span>
@@ -587,9 +587,9 @@ export const DetectionRulesPage: React.FC<DetectionRulesPageProps> = ({
                                 setSelectedRule(rule);
                               }}
                               aria-label={`Inspect rule ${rule.id}`}
-                              className="inline-flex items-center gap-1 rounded-md border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#1B2A41] px-2.5 py-1 text-xs font-semibold text-[#172033] dark:text-white hover:bg-[#DCE5EF] dark:hover:bg-[#20324A] transition-colors focus:outline-none focus:ring-1 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF]"
+                              className="inline-flex items-center gap-1 rounded-md border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#252C24] px-2.5 py-1 text-xs font-semibold text-[#1C241F] dark:text-white hover:bg-[#CDCFC2] dark:hover:bg-[#303A31] transition-colors focus:outline-none focus:ring-1 focus:ring-[#A9492D] dark:focus:ring-[#E27A54]"
                             >
-                              <Eye className="h-3 w-3 text-[#007FA8] dark:text-[#00C2FF]" />
+                              <Eye className="h-3 w-3 text-[#A9492D] dark:text-[#E27A54]" />
                               <span>Inspect</span>
                             </button>
                           </td>
@@ -607,12 +607,12 @@ export const DetectionRulesPage: React.FC<DetectionRulesPageProps> = ({
       {/* Matches & Findings Tab */}
       {activeTab === 'matches' && (
         <div className="space-y-4">
-          <div className="rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs shadow-xs">
+          <div className="rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#1A211B] p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs shadow-xs">
             <div className="space-y-0.5">
-              <h2 className="font-semibold text-[#172033] dark:text-white">
+              <h2 className="font-semibold text-[#1C241F] dark:text-white">
                 Active Detection Engine Match Findings ({evaluationResult.totalMatches})
               </h2>
-              <p className="text-[#64748B] dark:text-[#94A3B8] text-xs">
+              <p className="text-[#58635A] dark:text-[#A8B09F] text-xs">
                 Generated deterministically by evaluating enabled Sigma rules against the current synthetic telemetry window.
               </p>
             </div>
@@ -620,7 +620,7 @@ export const DetectionRulesPage: React.FC<DetectionRulesPageProps> = ({
               type="button"
               onClick={handleRunEngine}
               disabled={isEvaluating}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-[#007FA8]/30 dark:border-[#00C2FF]/40 bg-[#007FA8]/10 dark:bg-[#00C2FF]/15 px-3 py-1.5 text-xs font-semibold text-[#007FA8] dark:text-[#00C2FF] hover:bg-[#007FA8]/20 dark:hover:bg-[#00C2FF]/25 transition-colors self-start sm:self-center"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-[#A9492D]/30 dark:border-[#E27A54]/40 bg-[#A9492D]/10 dark:bg-[#E27A54]/15 px-3 py-1.5 text-xs font-semibold text-[#A9492D] dark:text-[#E27A54] hover:bg-[#A9492D]/20 dark:hover:bg-[#E27A54]/25 transition-colors self-start sm:self-center"
             >
               <Play className={`h-3.5 w-3.5 ${isEvaluating ? 'animate-spin' : ''}`} />
               <span>Rerun Engine</span>
@@ -628,18 +628,18 @@ export const DetectionRulesPage: React.FC<DetectionRulesPageProps> = ({
           </div>
 
           {evaluationResult.matches.length === 0 ? (
-            <div className="p-12 text-center rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#17243A]/60 space-y-2">
+            <div className="p-12 text-center rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#1A211B]/60 space-y-2">
               <CheckCircle2 className="h-8 w-8 text-emerald-600 dark:text-emerald-400 mx-auto" />
-              <h3 className="text-sm font-semibold text-[#172033] dark:text-white">No active rule matches found</h3>
-              <p className="text-xs text-[#64748B] dark:text-[#94A3B8]">
+              <h3 className="text-sm font-semibold text-[#1C241F] dark:text-white">No active rule matches found</h3>
+              <p className="text-xs text-[#58635A] dark:text-[#A8B09F]">
                 All enabled detection rules evaluated without triggering any matches in the current telemetry window.
               </p>
             </div>
           ) : (
-            <div className="rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] overflow-hidden shadow-xs">
+            <div className="rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#1A211B] overflow-hidden shadow-xs">
               <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-[#172033] dark:text-[#F8FAFC]">
-                  <thead className="border-b border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] font-mono text-[11px] uppercase text-[#64748B] dark:text-[#94A3B8]">
+                <table className="w-full text-left text-xs text-[#1C241F] dark:text-[#F0EFE6]">
+                  <thead className="border-b border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] font-mono text-[11px] uppercase text-[#58635A] dark:text-[#A8B09F]">
                     <tr>
                       <th scope="col" className="py-3 px-3.5">Severity</th>
                       <th scope="col" className="py-3 px-3.5">Triggered Rule</th>
@@ -649,9 +649,9 @@ export const DetectionRulesPage: React.FC<DetectionRulesPageProps> = ({
                       <th scope="col" className="py-3 px-3.5 text-right">Actions</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#DCE5EF] dark:divide-[#29384D]/60 font-sans">
+                  <tbody className="divide-y divide-[#CDCFC2] dark:divide-[#3A443A]/60 font-sans">
                     {evaluationResult.matches.map((match) => (
-                      <tr key={match.id} className="hover:bg-[#EDF5FA] dark:hover:bg-[#20324A]/40 transition-colors">
+                      <tr key={match.id} className="hover:bg-[#E5E2D8] dark:hover:bg-[#303A31]/40 transition-colors">
                         <td className="py-3 px-3.5 whitespace-nowrap">
                           <span
                             className={`inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wider border font-mono ${getSeverityBadge(
@@ -664,8 +664,8 @@ export const DetectionRulesPage: React.FC<DetectionRulesPageProps> = ({
 
                         <td className="py-3 px-3.5">
                           <div className="space-y-0.5 max-w-xs">
-                            <div className="font-semibold text-[#172033] dark:text-white">{match.ruleTitle}</div>
-                            <div className="font-mono text-[10px] text-[#007FA8] dark:text-[#00C2FF] font-semibold">{match.ruleId}</div>
+                            <div className="font-semibold text-[#1C241F] dark:text-white">{match.ruleTitle}</div>
+                            <div className="font-mono text-[10px] text-[#A9492D] dark:text-[#E27A54] font-semibold">{match.ruleId}</div>
                           </div>
                         </td>
 
@@ -674,22 +674,22 @@ export const DetectionRulesPage: React.FC<DetectionRulesPageProps> = ({
                             <button
                               type="button"
                               onClick={() => onNavigateToEvent(match.eventId)}
-                              className="font-mono text-[#007FA8] dark:text-[#00C2FF] hover:underline font-semibold focus:outline-none"
+                              className="font-mono text-[#A9492D] dark:text-[#E27A54] hover:underline font-semibold focus:outline-none"
                             >
                               {match.eventId}
                             </button>
                           ) : (
-                            <span className="font-mono text-[#172033] dark:text-white font-semibold">{match.eventId}</span>
+                            <span className="font-mono text-[#1C241F] dark:text-white font-semibold">{match.eventId}</span>
                           )}
                         </td>
 
                         <td className="py-3 px-3.5 whitespace-nowrap font-mono text-[11px]">
-                          <div className="text-[#172033] dark:text-[#F8FAFC]">{match.eventSourceSystem}</div>
-                          <div className="text-[#8492A6] dark:text-[#64748B]">{match.eventTimestamp.slice(11, 19)} UTC</div>
+                          <div className="text-[#1C241F] dark:text-[#F0EFE6]">{match.eventSourceSystem}</div>
+                          <div className="text-[#798074] dark:text-[#58635A]">{match.eventTimestamp.slice(11, 19)} UTC</div>
                         </td>
 
-                        <td className="py-3 px-3.5 text-[#172033] dark:text-[#F8FAFC] text-[11px]">
-                          <div className="font-mono bg-[#F4F7FB] dark:bg-[#111C2E] p-2 rounded border border-[#DCE5EF] dark:border-[#29384D] max-w-lg break-words">
+                        <td className="py-3 px-3.5 text-[#1C241F] dark:text-[#F0EFE6] text-[11px]">
+                          <div className="font-mono bg-[#E9E5D9] dark:bg-[#0D120F] p-2 rounded border border-[#CDCFC2] dark:border-[#3A443A] max-w-lg break-words">
                             {match.matchExplanation}
                           </div>
                         </td>
@@ -700,7 +700,7 @@ export const DetectionRulesPage: React.FC<DetectionRulesPageProps> = ({
                               type="button"
                               onClick={() => onNavigateToEvent(match.eventId)}
                               aria-label={`View event ${match.eventId} in Explorer`}
-                              className="inline-flex items-center gap-1 rounded bg-[#EEF4FA] dark:bg-[#1B2A41] px-2 py-1 text-xs font-semibold text-[#172033] dark:text-slate-200 hover:bg-[#DCE5EF] dark:hover:bg-[#20324A] transition-colors"
+                              className="inline-flex items-center gap-1 rounded bg-[#E1DED1] dark:bg-[#252C24] px-2 py-1 text-xs font-semibold text-[#1C241F] dark:text-slate-200 hover:bg-[#CDCFC2] dark:hover:bg-[#303A31] transition-colors"
                             >
                               <span>View Evt</span>
                               <ArrowRight className="h-3 w-3" />
@@ -718,9 +718,9 @@ export const DetectionRulesPage: React.FC<DetectionRulesPageProps> = ({
       )}
 
       {/* Disclaimers & Methodology Card */}
-      <div className="rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#17243A]/60 p-4 text-xs text-[#64748B] dark:text-[#94A3B8] space-y-2">
-        <div className="flex items-center gap-2 text-[#172033] dark:text-slate-300 font-semibold text-xs">
-          <Info className="h-4 w-4 text-[#007FA8] dark:text-[#00C2FF]" />
+      <div className="rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#1A211B]/60 p-4 text-xs text-[#58635A] dark:text-[#A8B09F] space-y-2">
+        <div className="flex items-center gap-2 text-[#1C241F] dark:text-slate-300 font-semibold text-xs">
+          <Info className="h-4 w-4 text-[#A9492D] dark:text-[#E27A54]" />
           <span>Local Sigma Detection Engine Specification &amp; Safe Execution Guarantee</span>
         </div>
         <p className="text-[11px] leading-relaxed">

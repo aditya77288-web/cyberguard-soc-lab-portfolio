@@ -149,21 +149,21 @@ export const EventExplorerPage: React.FC<EventExplorerPageProps> = ({
   return (
     <div className="space-y-6 max-w-7xl mx-auto">
       {/* Page Title & Banner */}
-      <div className="rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] p-5 shadow-xs transition-colors">
+      <div className="rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#1A211B] p-5 shadow-xs transition-colors">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2.5">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-cyan-50 dark:bg-cyan-950/70 border border-cyan-200 dark:border-cyan-500/40 text-[#007FA8] dark:text-[#00C2FF] shadow-2xs">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-signal-50 dark:bg-signal-950/70 border border-signal-200 dark:border-signal-500/40 text-[#A9492D] dark:text-[#E27A54] shadow-2xs">
                 <Terminal className="h-5 w-5" />
               </div>
               <div>
-                <h1 className="text-base sm:text-lg font-bold text-[#172033] dark:text-white tracking-tight flex items-center gap-2">
+                <h1 className="text-base sm:text-lg font-bold text-[#1C241F] dark:text-white tracking-tight flex items-center gap-2">
                   Event Explorer &amp; Telemetry Search
                   <span className="rounded bg-emerald-50 dark:bg-emerald-950/80 px-2 py-0.5 text-[10px] font-mono text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/40 font-semibold">
                     STAGE 3 ACTIVE
                   </span>
                 </h1>
-                <p className="text-xs text-[#64748B] dark:text-[#94A3B8] mt-0.5">
+                <p className="text-xs text-[#58635A] dark:text-[#A8B09F] mt-0.5">
                   Deep query, field facet investigation, cross-correlation, and sanitized CSV telemetry export
                 </p>
               </div>
@@ -188,10 +188,10 @@ export const EventExplorerPage: React.FC<EventExplorerPageProps> = ({
               onClick={handleExportCsv}
               disabled={filteredEvents.length === 0}
               aria-label="Export filtered events as CSV"
-              className="inline-flex items-center gap-1.5 rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#1B2A41] hover:bg-[#EDF5FA] dark:hover:bg-[#20324A] disabled:opacity-40 px-3 py-1.5 text-xs font-semibold text-[#172033] dark:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF] shadow-2xs"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#252C24] hover:bg-[#E5E2D8] dark:hover:bg-[#303A31] disabled:opacity-40 px-3 py-1.5 text-xs font-semibold text-[#1C241F] dark:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[#A9492D] dark:focus:ring-[#E27A54] shadow-2xs"
               title="Export all records matching current filters with formula-injection protection"
             >
-              <Download className="h-3.5 w-3.5 text-[#007FA8] dark:text-[#00C2FF]" />
+              <Download className="h-3.5 w-3.5 text-[#A9492D] dark:text-[#E27A54]" />
               <span>Export CSV</span>
             </button>
           </div>
@@ -200,8 +200,8 @@ export const EventExplorerPage: React.FC<EventExplorerPageProps> = ({
 
       {/* Export Confirmation Feedback */}
       {exportFeedback && (
-        <div className="rounded-lg bg-cyan-50 dark:bg-cyan-950/90 border border-cyan-200 dark:border-cyan-700/80 px-4 py-2 text-xs text-[#007FA8] dark:text-cyan-200 flex items-center gap-2 animate-fade-in shadow-xs font-medium">
-          <CheckCircle2 className="h-4 w-4 text-[#007FA8] dark:text-cyan-400 shrink-0" />
+        <div className="rounded-lg bg-signal-50 dark:bg-signal-950/90 border border-signal-200 dark:border-signal-700/80 px-4 py-2 text-xs text-[#A9492D] dark:text-signal-200 flex items-center gap-2 animate-fade-in shadow-xs font-medium">
+          <CheckCircle2 className="h-4 w-4 text-[#A9492D] dark:text-signal-400 shrink-0" />
           <span>{exportFeedback}</span>
         </div>
       )}
@@ -250,24 +250,24 @@ export const EventExplorerPage: React.FC<EventExplorerPageProps> = ({
       </div>
 
       {/* Search, Filter Toolbar */}
-      <div className="rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] p-4 space-y-3.5 shadow-xs transition-colors">
+      <div className="rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#1A211B] p-4 space-y-3.5 shadow-xs transition-colors">
         {/* Search Input Row */}
         <div className="relative">
-          <Search className="absolute left-3 top-2.5 h-4 w-4 text-[#8492A6] dark:text-[#64748B]" />
+          <Search className="absolute left-3 top-2.5 h-4 w-4 text-[#798074] dark:text-[#58635A]" />
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => handleFilterChange(setSearchQuery, e.target.value)}
             placeholder="Search event ID, rule name, source system, IP address, hostname, user, or alert ID..."
             aria-label="Search security events"
-            className="w-full rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#111C2E] py-2 pl-9 pr-8 text-xs text-[#172033] dark:text-[#F8FAFC] placeholder-[#8492A6] dark:placeholder-[#64748B] focus:border-[#007FA8] dark:focus:border-[#00C2FF] focus:outline-none focus:ring-1 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF] font-sans"
+            className="w-full rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#0D120F] py-2 pl-9 pr-8 text-xs text-[#1C241F] dark:text-[#F0EFE6] placeholder-[#798074] dark:placeholder-[#58635A] focus:border-[#A9492D] dark:focus:border-[#E27A54] focus:outline-none focus:ring-1 focus:ring-[#A9492D] dark:focus:ring-[#E27A54] font-sans"
           />
           {searchQuery && (
             <button
               type="button"
               onClick={() => handleFilterChange(setSearchQuery, '')}
               aria-label="Clear search input"
-              className="absolute right-2.5 top-2.5 text-[#8492A6] dark:text-[#64748B] hover:text-[#172033] dark:hover:text-white"
+              className="absolute right-2.5 top-2.5 text-[#798074] dark:text-[#58635A] hover:text-[#1C241F] dark:hover:text-white"
             >
               <X className="h-3.5 w-3.5" />
             </button>
@@ -277,38 +277,38 @@ export const EventExplorerPage: React.FC<EventExplorerPageProps> = ({
         {/* Filter Dropdowns Grid */}
         <div className="flex flex-wrap items-center gap-2">
           {/* Severity */}
-          <div className="flex items-center gap-1.5 rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] px-2.5 py-1.5">
-            <label htmlFor="event-severity-select" className="text-[11px] font-medium text-[#64748B] dark:text-[#94A3B8]">
+          <div className="flex items-center gap-1.5 rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] px-2.5 py-1.5">
+            <label htmlFor="event-severity-select" className="text-[11px] font-medium text-[#58635A] dark:text-[#A8B09F]">
               Severity:
             </label>
             <select
               id="event-severity-select"
               value={severityFilter}
               onChange={(e) => handleFilterChange(setSeverityFilter, e.target.value)}
-              className="bg-transparent text-xs text-[#172033] dark:text-[#F8FAFC] focus:outline-none cursor-pointer"
+              className="bg-transparent text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:outline-none cursor-pointer"
             >
-              <option value="all" className="bg-white dark:bg-[#111C2E] text-[#172033] dark:text-white">All Severities</option>
-              <option value="critical" className="bg-white dark:bg-[#111C2E] text-red-600 dark:text-red-400">Critical</option>
-              <option value="high" className="bg-white dark:bg-[#111C2E] text-orange-600 dark:text-orange-400">High</option>
-              <option value="medium" className="bg-white dark:bg-[#111C2E] text-amber-600 dark:text-amber-400">Medium</option>
-              <option value="low" className="bg-white dark:bg-[#111C2E] text-sky-600 dark:text-sky-400">Low</option>
+              <option value="all" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-[#1C241F] dark:text-white">All Severities</option>
+              <option value="critical" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-red-600 dark:text-red-400">Critical</option>
+              <option value="high" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-orange-600 dark:text-orange-400">High</option>
+              <option value="medium" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-amber-600 dark:text-amber-400">Medium</option>
+              <option value="low" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-sky-600 dark:text-sky-400">Low</option>
             </select>
           </div>
 
           {/* Source System */}
-          <div className="flex items-center gap-1.5 rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] px-2.5 py-1.5">
-            <label htmlFor="event-source-select" className="text-[11px] font-medium text-[#64748B] dark:text-[#94A3B8]">
+          <div className="flex items-center gap-1.5 rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] px-2.5 py-1.5">
+            <label htmlFor="event-source-select" className="text-[11px] font-medium text-[#58635A] dark:text-[#A8B09F]">
               Source:
             </label>
             <select
               id="event-source-select"
               value={sourceFilter}
               onChange={(e) => handleFilterChange(setSourceFilter, e.target.value)}
-              className="bg-transparent text-xs text-[#172033] dark:text-[#F8FAFC] focus:outline-none cursor-pointer"
+              className="bg-transparent text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:outline-none cursor-pointer"
             >
-              <option value="all" className="bg-white dark:bg-[#111C2E] text-[#172033] dark:text-white">All Sources</option>
+              <option value="all" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-[#1C241F] dark:text-white">All Sources</option>
               {availableSources.map((src) => (
-                <option key={src} value={src} className="bg-white dark:bg-[#111C2E] text-[#172033] dark:text-white">
+                <option key={src} value={src} className="bg-[#F2F0E6] dark:bg-[#0D120F] text-[#1C241F] dark:text-white">
                   {src}
                 </option>
               ))}
@@ -316,19 +316,19 @@ export const EventExplorerPage: React.FC<EventExplorerPageProps> = ({
           </div>
 
           {/* Category */}
-          <div className="flex items-center gap-1.5 rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] px-2.5 py-1.5">
-            <label htmlFor="event-category-select" className="text-[11px] font-medium text-[#64748B] dark:text-[#94A3B8]">
+          <div className="flex items-center gap-1.5 rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] px-2.5 py-1.5">
+            <label htmlFor="event-category-select" className="text-[11px] font-medium text-[#58635A] dark:text-[#A8B09F]">
               Category:
             </label>
             <select
               id="event-category-select"
               value={categoryFilter}
               onChange={(e) => handleFilterChange(setCategoryFilter, e.target.value)}
-              className="bg-transparent text-xs text-[#172033] dark:text-[#F8FAFC] focus:outline-none cursor-pointer"
+              className="bg-transparent text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:outline-none cursor-pointer"
             >
-              <option value="all" className="bg-white dark:bg-[#111C2E] text-[#172033] dark:text-white">All Categories</option>
+              <option value="all" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-[#1C241F] dark:text-white">All Categories</option>
               {availableCategories.map((cat) => (
-                <option key={cat} value={cat} className="bg-white dark:bg-[#111C2E] text-[#172033] dark:text-white">
+                <option key={cat} value={cat} className="bg-[#F2F0E6] dark:bg-[#0D120F] text-[#1C241F] dark:text-white">
                   {cat}
                 </option>
               ))}
@@ -336,42 +336,42 @@ export const EventExplorerPage: React.FC<EventExplorerPageProps> = ({
           </div>
 
           {/* Time Range */}
-          <div className="flex items-center gap-1.5 rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] px-2.5 py-1.5">
-            <Clock className="h-3 w-3 text-[#8492A6] dark:text-[#64748B]" />
-            <label htmlFor="event-time-range-select" className="text-[11px] font-medium text-[#64748B] dark:text-[#94A3B8]">
+          <div className="flex items-center gap-1.5 rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] px-2.5 py-1.5">
+            <Clock className="h-3 w-3 text-[#798074] dark:text-[#58635A]" />
+            <label htmlFor="event-time-range-select" className="text-[11px] font-medium text-[#58635A] dark:text-[#A8B09F]">
               Time Range:
             </label>
             <select
               id="event-time-range-select"
               value={timeRange}
               onChange={(e) => handleFilterChange(setTimeRange, e.target.value as EventTimeRange)}
-              className="bg-transparent text-xs text-[#172033] dark:text-[#F8FAFC] focus:outline-none cursor-pointer"
+              className="bg-transparent text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:outline-none cursor-pointer"
             >
-              <option value="all" className="bg-white dark:bg-[#111C2E] text-[#172033] dark:text-white">All Recorded</option>
-              <option value="2h" className="bg-white dark:bg-[#111C2E] text-[#172033] dark:text-white">Last 2 Hours</option>
-              <option value="6h" className="bg-white dark:bg-[#111C2E] text-[#172033] dark:text-white">Last 6 Hours</option>
-              <option value="24h" className="bg-white dark:bg-[#111C2E] text-[#172033] dark:text-white">Last 24 Hours</option>
+              <option value="all" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-[#1C241F] dark:text-white">All Recorded</option>
+              <option value="2h" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-[#1C241F] dark:text-white">Last 2 Hours</option>
+              <option value="6h" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-[#1C241F] dark:text-white">Last 6 Hours</option>
+              <option value="24h" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-[#1C241F] dark:text-white">Last 24 Hours</option>
             </select>
           </div>
 
           {/* Sort By */}
-          <div className="flex items-center gap-1.5 rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] px-2.5 py-1.5">
-            <ArrowUpDown className="h-3 w-3 text-[#8492A6] dark:text-[#64748B]" />
-            <label htmlFor="event-sort-select" className="text-[11px] font-medium text-[#64748B] dark:text-[#94A3B8]">
+          <div className="flex items-center gap-1.5 rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] px-2.5 py-1.5">
+            <ArrowUpDown className="h-3 w-3 text-[#798074] dark:text-[#58635A]" />
+            <label htmlFor="event-sort-select" className="text-[11px] font-medium text-[#58635A] dark:text-[#A8B09F]">
               Sort:
             </label>
             <select
               id="event-sort-select"
               value={sortBy}
               onChange={(e) => handleFilterChange(setSortBy, e.target.value as EventSortField)}
-              className="bg-transparent text-xs text-[#172033] dark:text-[#F8FAFC] focus:outline-none cursor-pointer"
+              className="bg-transparent text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:outline-none cursor-pointer"
             >
-              <option value="newest" className="bg-white dark:bg-[#111C2E] text-[#172033] dark:text-white">Newest First</option>
-              <option value="oldest" className="bg-white dark:bg-[#111C2E] text-[#172033] dark:text-white">Oldest First</option>
-              <option value="severity-desc" className="bg-white dark:bg-[#111C2E] text-[#172033] dark:text-white">Severity: High &rarr; Low</option>
-              <option value="severity-asc" className="bg-white dark:bg-[#111C2E] text-[#172033] dark:text-white">Severity: Low &rarr; High</option>
-              <option value="source" className="bg-white dark:bg-[#111C2E] text-[#172033] dark:text-white">Source System</option>
-              <option value="category" className="bg-white dark:bg-[#111C2E] text-[#172033] dark:text-white">Category</option>
+              <option value="newest" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-[#1C241F] dark:text-white">Newest First</option>
+              <option value="oldest" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-[#1C241F] dark:text-white">Oldest First</option>
+              <option value="severity-desc" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-[#1C241F] dark:text-white">Severity: High &rarr; Low</option>
+              <option value="severity-asc" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-[#1C241F] dark:text-white">Severity: Low &rarr; High</option>
+              <option value="source" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-[#1C241F] dark:text-white">Source System</option>
+              <option value="category" className="bg-[#F2F0E6] dark:bg-[#0D120F] text-[#1C241F] dark:text-white">Category</option>
             </select>
           </div>
 
@@ -380,7 +380,7 @@ export const EventExplorerPage: React.FC<EventExplorerPageProps> = ({
             <button
               type="button"
               onClick={handleClearFilters}
-              className="rounded-lg bg-[#EEF4FA] hover:bg-[#EDF5FA] dark:bg-[#1B2A41] dark:hover:bg-[#20324A] border border-[#DCE5EF] dark:border-[#29384D] px-3 py-1.5 text-xs font-semibold text-[#172033] dark:text-white transition-colors"
+              className="rounded-lg bg-[#E1DED1] hover:bg-[#E5E2D8] dark:bg-[#252C24] dark:hover:bg-[#303A31] border border-[#CDCFC2] dark:border-[#3A443A] px-3 py-1.5 text-xs font-semibold text-[#1C241F] dark:text-white transition-colors"
             >
               Clear Filters
             </button>
@@ -388,16 +388,16 @@ export const EventExplorerPage: React.FC<EventExplorerPageProps> = ({
         </div>
 
         {/* Counter & Page Info */}
-        <div className="flex flex-wrap items-center justify-between text-xs text-[#64748B] dark:text-[#94A3B8] pt-1 border-t border-[#DCE5EF] dark:border-[#29384D]/60 gap-2">
+        <div className="flex flex-wrap items-center justify-between text-xs text-[#58635A] dark:text-[#A8B09F] pt-1 border-t border-[#CDCFC2] dark:border-[#3A443A]/60 gap-2">
           <span className="font-mono text-[11px]">
-            Showing <strong className="text-[#172033] dark:text-white">{filteredEvents.length === 0 ? 0 : pagination.startIndex + 1}</strong> -{' '}
-            <strong className="text-[#172033] dark:text-white">{pagination.endIndex}</strong> of{' '}
-            <strong className="text-[#172033] dark:text-slate-300">{filteredEvents.length}</strong> matching records
+            Showing <strong className="text-[#1C241F] dark:text-white">{filteredEvents.length === 0 ? 0 : pagination.startIndex + 1}</strong> -{' '}
+            <strong className="text-[#1C241F] dark:text-white">{pagination.endIndex}</strong> of{' '}
+            <strong className="text-[#1C241F] dark:text-slate-300">{filteredEvents.length}</strong> matching records
           </span>
 
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-1.5">
-              <label htmlFor="page-size-select" className="text-[11px] font-medium text-[#64748B] dark:text-[#94A3B8]">
+              <label htmlFor="page-size-select" className="text-[11px] font-medium text-[#58635A] dark:text-[#A8B09F]">
                 Per Page:
               </label>
               <select
@@ -407,7 +407,7 @@ export const EventExplorerPage: React.FC<EventExplorerPageProps> = ({
                   setPageSize(Number(e.target.value));
                   setCurrentPage(1);
                 }}
-                className="rounded border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#111C2E] px-2 py-0.5 text-xs text-[#172033] dark:text-[#F8FAFC] focus:outline-none"
+                className="rounded border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#0D120F] px-2 py-0.5 text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:outline-none"
               >
                 <option value={5}>5</option>
                 <option value={10}>10</option>
@@ -415,7 +415,7 @@ export const EventExplorerPage: React.FC<EventExplorerPageProps> = ({
               </select>
             </div>
 
-            <span className="text-[11px] text-[#64748B] dark:text-[#94A3B8] font-mono">
+            <span className="text-[11px] text-[#58635A] dark:text-[#A8B09F] font-mono">
               Page {pagination.currentPage} of {pagination.totalPages}
             </span>
           </div>
@@ -423,18 +423,18 @@ export const EventExplorerPage: React.FC<EventExplorerPageProps> = ({
       </div>
 
       {/* Events Table Container */}
-      <div className="overflow-hidden rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] shadow-xs transition-colors">
+      <div className="overflow-hidden rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#1A211B] shadow-xs transition-colors">
         {filteredEvents.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-16 px-4 text-center">
-            <FileSearch className="h-10 w-10 text-[#8492A6] dark:text-[#64748B] mb-2" />
-            <h2 className="text-sm font-bold text-[#172033] dark:text-white">No security events match criteria</h2>
-            <p className="text-xs text-[#64748B] dark:text-[#94A3B8] mt-1 max-w-md">
+            <FileSearch className="h-10 w-10 text-[#798074] dark:text-[#58635A] mb-2" />
+            <h2 className="text-sm font-bold text-[#1C241F] dark:text-white">No security events match criteria</h2>
+            <p className="text-xs text-[#58635A] dark:text-[#A8B09F] mt-1 max-w-md">
               No simulated events were found matching query "{searchQuery}" under severity "{severityFilter}" and source "{sourceFilter}".
             </p>
             <button
               type="button"
               onClick={handleClearFilters}
-              className="mt-4 rounded-lg bg-[#007FA8] hover:bg-[#006C8F] dark:bg-[#00C2FF] dark:hover:bg-[#38BDF8] text-white dark:text-[#0B1220] font-semibold px-4 py-1.5 text-xs transition-colors shadow-xs"
+              className="mt-4 rounded-lg bg-[#A9492D] hover:bg-[#823B27] dark:bg-[#E27A54] dark:hover:bg-[#C3D579] text-white dark:text-[#111713] font-semibold px-4 py-1.5 text-xs transition-colors shadow-xs"
             >
               Reset Filters
             </button>
@@ -443,7 +443,7 @@ export const EventExplorerPage: React.FC<EventExplorerPageProps> = ({
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse text-xs">
               <thead>
-                <tr className="border-b border-[#DCE5EF] dark:border-[#29384D] text-[11px] font-semibold uppercase tracking-wider text-[#64748B] dark:text-[#94A3B8] bg-[#EEF4FA] dark:bg-[#1B2A41]">
+                <tr className="border-b border-[#CDCFC2] dark:border-[#3A443A] text-[11px] font-semibold uppercase tracking-wider text-[#58635A] dark:text-[#A8B09F] bg-[#E1DED1] dark:bg-[#252C24]">
                   <th className="py-3 px-4">Severity</th>
                   <th className="py-3 px-4">Event ID / Time</th>
                   <th className="py-3 px-4">Source System</th>
@@ -455,14 +455,14 @@ export const EventExplorerPage: React.FC<EventExplorerPageProps> = ({
                   <th className="py-3 px-4 text-right">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#DCE5EF] dark:divide-[#29384D]/60">
+              <tbody className="divide-y divide-[#CDCFC2] dark:divide-[#3A443A]/60">
                 {pagination.paginatedEvents.map((evt) => {
                   const severity = getSeverityStyle(evt.severity);
 
                   return (
                     <tr
                       key={evt.id}
-                      className="group hover:bg-[#EDF5FA]/80 dark:hover:bg-[#20324A]/50 transition-colors"
+                      className="group hover:bg-[#E5E2D8]/80 dark:hover:bg-[#303A31]/50 transition-colors"
                     >
                       {/* Severity */}
                       <td className="py-3 px-4 whitespace-nowrap">
@@ -475,18 +475,18 @@ export const EventExplorerPage: React.FC<EventExplorerPageProps> = ({
                       </td>
 
                       {/* Event ID & Timestamp */}
-                      <td className="py-3 px-4 whitespace-nowrap font-mono text-[#172033] dark:text-[#F8FAFC]">
+                      <td className="py-3 px-4 whitespace-nowrap font-mono text-[#1C241F] dark:text-[#F0EFE6]">
                         <span className="block font-bold">
                           {evt.id}
                         </span>
-                        <span className="text-[10px] text-[#64748B] dark:text-[#94A3B8]">
+                        <span className="text-[10px] text-[#58635A] dark:text-[#A8B09F]">
                           {evt.timestamp.split('T')[1]?.replace('Z', '') || evt.timestamp} UTC
                         </span>
                       </td>
 
                       {/* Source System */}
                       <td className="py-3 px-4 whitespace-nowrap">
-                        <span className="rounded bg-[#EEF4FA] dark:bg-[#111C2E] px-2 py-0.5 text-[10px] font-mono text-[#007FA8] dark:text-cyan-300 border border-[#DCE5EF] dark:border-[#29384D] font-semibold">
+                        <span className="rounded bg-[#E1DED1] dark:bg-[#0D120F] px-2 py-0.5 text-[10px] font-mono text-[#A9492D] dark:text-signal-300 border border-[#CDCFC2] dark:border-[#3A443A] font-semibold">
                           {evt.sourceSystem}
                         </span>
                       </td>
@@ -496,38 +496,38 @@ export const EventExplorerPage: React.FC<EventExplorerPageProps> = ({
                         <button
                           type="button"
                           onClick={() => setSelectedEvent(evt)}
-                          className="text-left font-bold text-[#172033] dark:text-white hover:text-[#007FA8] dark:hover:text-[#00C2FF] transition-colors block truncate w-full"
+                          className="text-left font-bold text-[#1C241F] dark:text-white hover:text-[#A9492D] dark:hover:text-[#E27A54] transition-colors block truncate w-full"
                           title={evt.ruleName}
                         >
                           {evt.ruleName}
                         </button>
-                        <span className="block text-[10px] text-[#64748B] dark:text-[#94A3B8] truncate mt-0.5" title={evt.message || evt.ruleId}>
+                        <span className="block text-[10px] text-[#58635A] dark:text-[#A8B09F] truncate mt-0.5" title={evt.message || evt.ruleId}>
                           {evt.message || evt.ruleId}
                         </span>
                       </td>
 
                       {/* Category */}
                       <td className="py-3 px-4 whitespace-nowrap">
-                        <span className="text-[#172033] dark:text-slate-300 text-xs font-medium">
+                        <span className="text-[#1C241F] dark:text-slate-300 text-xs font-medium">
                           {evt.category}
                         </span>
                       </td>
 
                       {/* Host & User */}
-                      <td className="py-3 px-4 whitespace-nowrap font-mono text-[11px] text-[#172033] dark:text-slate-300">
+                      <td className="py-3 px-4 whitespace-nowrap font-mono text-[11px] text-[#1C241F] dark:text-slate-300">
                         <span className="block font-semibold">
                           {evt.host}
                         </span>
-                        <span className="block text-[10px] text-[#64748B] dark:text-[#94A3B8]">
+                        <span className="block text-[10px] text-[#58635A] dark:text-[#A8B09F]">
                           {evt.user || evt.details?.user || 'N/A'}
                         </span>
                       </td>
 
                       {/* Source -> Destination */}
-                      <td className="py-3 px-4 whitespace-nowrap font-mono text-[11px] text-[#64748B] dark:text-[#94A3B8]">
-                        <span className="text-[#172033] dark:text-slate-200">{evt.sourceIp}</span>
-                        <span className="text-[#8492A6] dark:text-[#64748B] mx-1">&rarr;</span>
-                        <span className="text-[#172033] dark:text-slate-200 truncate max-w-[95px]" title={evt.destinationIp}>
+                      <td className="py-3 px-4 whitespace-nowrap font-mono text-[11px] text-[#58635A] dark:text-[#A8B09F]">
+                        <span className="text-[#1C241F] dark:text-slate-200">{evt.sourceIp}</span>
+                        <span className="text-[#798074] dark:text-[#58635A] mx-1">&rarr;</span>
+                        <span className="text-[#1C241F] dark:text-slate-200 truncate max-w-[95px]" title={evt.destinationIp}>
                           {evt.destinationIp}
                         </span>
                       </td>
@@ -549,7 +549,7 @@ export const EventExplorerPage: React.FC<EventExplorerPageProps> = ({
                             <span>{evt.relatedAlertId}</span>
                           </button>
                         ) : (
-                          <span className="text-[#8492A6] dark:text-[#64748B] font-mono text-[11px] pl-2">
+                          <span className="text-[#798074] dark:text-[#58635A] font-mono text-[11px] pl-2">
                             &mdash;
                           </span>
                         )}
@@ -561,7 +561,7 @@ export const EventExplorerPage: React.FC<EventExplorerPageProps> = ({
                           type="button"
                           onClick={() => setSelectedEvent(evt)}
                           aria-label={`Inspect event ${evt.id}`}
-                          className="inline-flex items-center gap-1 rounded-lg bg-[#EEF4FA] hover:bg-cyan-50 dark:bg-[#1B2A41] dark:hover:bg-[#20324A] hover:border-[#007FA8]/50 dark:hover:border-[#00C2FF]/50 hover:text-[#007FA8] dark:hover:text-[#00C2FF] border border-[#DCE5EF] dark:border-[#29384D] px-2.5 py-1 text-xs text-[#172033] dark:text-[#F8FAFC] transition-colors focus:outline-none focus:ring-1 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF] font-medium"
+                          className="inline-flex items-center gap-1 rounded-lg bg-[#E1DED1] hover:bg-signal-50 dark:bg-[#252C24] dark:hover:bg-[#303A31] hover:border-[#A9492D]/50 dark:hover:border-[#E27A54]/50 hover:text-[#A9492D] dark:hover:text-[#E27A54] border border-[#CDCFC2] dark:border-[#3A443A] px-2.5 py-1 text-xs text-[#1C241F] dark:text-[#F0EFE6] transition-colors focus:outline-none focus:ring-1 focus:ring-[#A9492D] dark:focus:ring-[#E27A54] font-medium"
                         >
                           <Eye className="h-3.5 w-3.5" />
                           <span>Inspect</span>
@@ -577,8 +577,8 @@ export const EventExplorerPage: React.FC<EventExplorerPageProps> = ({
 
         {/* Pagination Navigation Footer */}
         {filteredEvents.length > 0 && pagination.totalPages > 1 && (
-          <div className="flex items-center justify-between border-t border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] px-4 py-3">
-            <span className="text-xs text-[#64748B] dark:text-[#94A3B8] font-mono">
+          <div className="flex items-center justify-between border-t border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] px-4 py-3">
+            <span className="text-xs text-[#58635A] dark:text-[#A8B09F] font-mono">
               Page {pagination.currentPage} of {pagination.totalPages}
             </span>
 
@@ -588,7 +588,7 @@ export const EventExplorerPage: React.FC<EventExplorerPageProps> = ({
                 onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
                 disabled={pagination.currentPage <= 1}
                 aria-label="Previous page"
-                className="flex h-8 items-center gap-1 rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#1B2A41] px-3 text-xs font-semibold text-[#172033] dark:text-white hover:bg-[#EDF5FA] dark:hover:bg-[#20324A] disabled:opacity-40 transition-colors"
+                className="flex h-8 items-center gap-1 rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#252C24] px-3 text-xs font-semibold text-[#1C241F] dark:text-white hover:bg-[#E5E2D8] dark:hover:bg-[#303A31] disabled:opacity-40 transition-colors"
               >
                 <ChevronLeft className="h-4 w-4" />
                 <span className="hidden sm:inline">Prev</span>
@@ -602,8 +602,8 @@ export const EventExplorerPage: React.FC<EventExplorerPageProps> = ({
                   onClick={() => setCurrentPage(pg)}
                   className={`h-8 w-8 rounded-lg text-xs font-mono font-bold transition-colors ${
                     pg === pagination.currentPage
-                      ? 'bg-[#007FA8] dark:bg-[#00C2FF] text-white dark:text-[#0B1220] shadow-xs'
-                      : 'border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#1B2A41] text-[#64748B] dark:text-[#94A3B8] hover:bg-[#EDF5FA] dark:hover:bg-[#20324A] hover:text-[#172033] dark:hover:text-white'
+                      ? 'bg-[#A9492D] dark:bg-[#E27A54] text-white dark:text-[#111713] shadow-xs'
+                      : 'border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#252C24] text-[#58635A] dark:text-[#A8B09F] hover:bg-[#E5E2D8] dark:hover:bg-[#303A31] hover:text-[#1C241F] dark:hover:text-white'
                   }`}
                 >
                   {pg}
@@ -615,7 +615,7 @@ export const EventExplorerPage: React.FC<EventExplorerPageProps> = ({
                 onClick={() => setCurrentPage((p) => Math.min(pagination.totalPages, p + 1))}
                 disabled={pagination.currentPage >= pagination.totalPages}
                 aria-label="Next page"
-                className="flex h-8 items-center gap-1 rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#1B2A41] px-3 text-xs font-semibold text-[#172033] dark:text-white hover:bg-[#EDF5FA] dark:hover:bg-[#20324A] disabled:opacity-40 transition-colors"
+                className="flex h-8 items-center gap-1 rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#252C24] px-3 text-xs font-semibold text-[#1C241F] dark:text-white hover:bg-[#E5E2D8] dark:hover:bg-[#303A31] disabled:opacity-40 transition-colors"
               >
                 <span className="hidden sm:inline">Next</span>
                 <ChevronRight className="h-4 w-4" />
@@ -636,14 +636,14 @@ export const EventExplorerPage: React.FC<EventExplorerPageProps> = ({
       )}
 
       {/* Simulated Disclaimer Banner */}
-      <div className="rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] p-4 text-xs text-[#64748B] dark:text-[#94A3B8] flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div className="rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] p-4 text-xs text-[#58635A] dark:text-[#A8B09F] flex flex-col sm:flex-row items-center justify-between gap-3">
         <div className="flex items-center gap-2">
-          <Terminal className="h-4 w-4 text-[#007FA8] dark:text-[#00C2FF] shrink-0" />
+          <Terminal className="h-4 w-4 text-[#A9492D] dark:text-[#E27A54] shrink-0" />
           <span>
-            <strong className="text-[#172033] dark:text-white">Simulated Telemetry Pipeline:</strong> All event records represent synthetic Sysmon, firewall, and NIDS logs. CSV exports include strict formula injection neutralization (=, +, -, @).
+            <strong className="text-[#1C241F] dark:text-white">Simulated Telemetry Pipeline:</strong> All event records represent synthetic Sysmon, firewall, and NIDS logs. CSV exports include strict formula injection neutralization (=, +, -, @).
           </span>
         </div>
-        <span className="font-mono text-[11px] text-[#64748B] dark:text-[#94A3B8] shrink-0">
+        <span className="font-mono text-[11px] text-[#58635A] dark:text-[#A8B09F] shrink-0">
           Format: RFC 4180 CSV / JSON
         </span>
       </div>

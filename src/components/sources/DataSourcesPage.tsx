@@ -256,32 +256,32 @@ export const DataSourcesPage: React.FC<DataSourcesPageProps> = ({
     <div className="space-y-6 max-w-7xl mx-auto pb-12">
       {/* Toast Notification */}
       {toastMessage && (
-        <div className="fixed top-20 right-6 z-50 flex items-center gap-2 rounded-xl border border-[#007FA8]/40 dark:border-[#00C2FF]/40 bg-white dark:bg-[#17243A] px-4 py-3 text-xs text-[#172033] dark:text-[#F8FAFC] shadow-xl animate-in fade-in slide-in-from-top-2">
-          <CheckCircle2 className="h-4 w-4 text-[#007FA8] dark:text-[#00C2FF]" />
+        <div className="fixed top-20 right-6 z-50 flex items-center gap-2 rounded-xl border border-[#A9492D]/40 dark:border-[#E27A54]/40 bg-[#F2F0E6] dark:bg-[#1A211B] px-4 py-3 text-xs text-[#1C241F] dark:text-[#F0EFE6] shadow-xl animate-in fade-in slide-in-from-top-2">
+          <CheckCircle2 className="h-4 w-4 text-[#A9492D] dark:text-[#E27A54]" />
           <span className="font-medium">{toastMessage}</span>
         </div>
       )}
 
       {/* Mandatory Simulated Banner */}
-      <div className="rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E]/90 p-4 shadow-xs transition-colors">
+      <div className="rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F]/90 p-4 shadow-xs transition-colors">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="flex items-start gap-3">
-            <div className="rounded-lg bg-white dark:bg-[#1B2A41] p-2 border border-[#DCE5EF] dark:border-[#29384D] text-[#007FA8] dark:text-[#00C2FF] shrink-0 mt-0.5 shadow-xs">
+            <div className="rounded-lg bg-[#F2F0E6] dark:bg-[#252C24] p-2 border border-[#CDCFC2] dark:border-[#3A443A] text-[#A9492D] dark:text-[#E27A54] shrink-0 mt-0.5 shadow-xs">
               <Sparkles className="h-5 w-5" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h1 className="text-sm sm:text-base font-bold text-[#172033] dark:text-[#F8FAFC] tracking-tight">
+                <h1 className="text-sm sm:text-base font-bold text-[#1C241F] dark:text-[#F0EFE6] tracking-tight">
                   Data Sources &amp; Log Collector Management
                 </h1>
-                <span className="rounded bg-white dark:bg-[#1B2A41] px-2 py-0.5 text-[10px] font-mono text-[#007FA8] dark:text-[#00C2FF] border border-[#DCE5EF] dark:border-[#29384D] font-semibold">
+                <span className="rounded bg-[#F2F0E6] dark:bg-[#252C24] px-2 py-0.5 text-[10px] font-mono text-[#A9492D] dark:text-[#E27A54] border border-[#CDCFC2] dark:border-[#3A443A] font-semibold">
                   Stage 9
                 </span>
               </div>
-              <p className="text-xs font-semibold text-[#007FA8] dark:text-[#38BDF8] mt-1 uppercase tracking-wide">
+              <p className="text-xs font-semibold text-[#A9492D] dark:text-[#C3D579] mt-1 uppercase tracking-wide">
                 SIMULATED SOC ENVIRONMENT — DATA INGESTION IS FOR DEMONSTRATION PURPOSES ONLY.
               </p>
-              <p className="text-xs text-[#64748B] dark:text-[#94A3B8] mt-0.5 leading-relaxed">
+              <p className="text-xs text-[#58635A] dark:text-[#A8B09F] mt-0.5 leading-relaxed">
                 Configure synthetic telemetry collectors, monitor ingest health, test local
                 connectivity handshakes, and inject controlled synthetic events directly into the
                 Event Explorer and Sigma Detection Engine.
@@ -293,9 +293,9 @@ export const DataSourcesPage: React.FC<DataSourcesPageProps> = ({
             <button
               type="button"
               onClick={onResetSources}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#1B2A41] px-3 py-1.5 text-xs font-semibold text-[#172033] dark:text-[#F8FAFC] hover:bg-[#EEF4FA] dark:hover:bg-[#20324A] transition-colors shadow-xs"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#252C24] px-3 py-1.5 text-xs font-semibold text-[#1C241F] dark:text-[#F0EFE6] hover:bg-[#E1DED1] dark:hover:bg-[#303A31] transition-colors shadow-xs"
             >
-              <RotateCcw className="h-3.5 w-3.5 text-[#64748B] dark:text-[#94A3B8]" />
+              <RotateCcw className="h-3.5 w-3.5 text-[#58635A] dark:text-[#A8B09F]" />
               <span>Reset Data Sources</span>
             </button>
           </div>
@@ -366,19 +366,19 @@ export const DataSourcesPage: React.FC<DataSourcesPageProps> = ({
       </div>
 
       {/* Navigation Sub-Tabs */}
-      <div className="flex border-b border-[#DCE5EF] dark:border-[#29384D] gap-6 text-sm font-medium">
+      <div className="flex border-b border-[#CDCFC2] dark:border-[#3A443A] gap-6 text-sm font-medium">
         <button
           type="button"
           onClick={() => setActiveViewTab('sources')}
           className={`pb-3 border-b-2 transition-colors flex items-center gap-2 ${
             activeViewTab === 'sources'
-              ? 'border-[#007FA8] dark:border-[#00C2FF] text-[#007FA8] dark:text-[#00C2FF] font-semibold'
-              : 'border-transparent text-[#64748B] dark:text-[#94A3B8] hover:text-[#172033] dark:hover:text-[#F8FAFC]'
+              ? 'border-[#A9492D] dark:border-[#E27A54] text-[#A9492D] dark:text-[#E27A54] font-semibold'
+              : 'border-transparent text-[#58635A] dark:text-[#A8B09F] hover:text-[#1C241F] dark:hover:text-[#F0EFE6]'
           }`}
         >
           <Server className="h-4 w-4" />
           <span>Configured Collectors &amp; Sources</span>
-          <span className="rounded-full bg-[#EEF4FA] dark:bg-[#1B2A41] px-2 py-0.5 text-xs font-mono text-[#64748B] dark:text-[#94A3B8] border border-[#DCE5EF] dark:border-[#29384D]">
+          <span className="rounded-full bg-[#E1DED1] dark:bg-[#252C24] px-2 py-0.5 text-xs font-mono text-[#58635A] dark:text-[#A8B09F] border border-[#CDCFC2] dark:border-[#3A443A]">
             {filteredSources.length}
           </span>
         </button>
@@ -388,13 +388,13 @@ export const DataSourcesPage: React.FC<DataSourcesPageProps> = ({
           onClick={() => setActiveViewTab('logs')}
           className={`pb-3 border-b-2 transition-colors flex items-center gap-2 ${
             activeViewTab === 'logs'
-              ? 'border-[#007FA8] dark:border-[#00C2FF] text-[#007FA8] dark:text-[#00C2FF] font-semibold'
-              : 'border-transparent text-[#64748B] dark:text-[#94A3B8] hover:text-[#172033] dark:hover:text-[#F8FAFC]'
+              ? 'border-[#A9492D] dark:border-[#E27A54] text-[#A9492D] dark:text-[#E27A54] font-semibold'
+              : 'border-transparent text-[#58635A] dark:text-[#A8B09F] hover:text-[#1C241F] dark:hover:text-[#F0EFE6]'
           }`}
         >
           <FileText className="h-4 w-4" />
           <span>Ingestion Activity Log</span>
-          <span className="rounded-full bg-[#EEF4FA] dark:bg-[#1B2A41] px-2 py-0.5 text-xs font-mono text-[#64748B] dark:text-[#94A3B8] border border-[#DCE5EF] dark:border-[#29384D]">
+          <span className="rounded-full bg-[#E1DED1] dark:bg-[#252C24] px-2 py-0.5 text-xs font-mono text-[#58635A] dark:text-[#A8B09F] border border-[#CDCFC2] dark:border-[#3A443A]">
             {filteredLogs.length}
           </span>
         </button>
@@ -404,17 +404,17 @@ export const DataSourcesPage: React.FC<DataSourcesPageProps> = ({
       {activeViewTab === 'sources' && (
         <div className="space-y-5">
           {/* Filter and Search Bar */}
-          <div className="rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] p-4 shadow-xs space-y-3 transition-colors">
+          <div className="rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#1A211B] p-4 shadow-xs space-y-3 transition-colors">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
               {/* Search */}
               <div className="relative lg:col-span-2">
-                <Search className="absolute left-3 top-2.5 h-4 w-4 text-[#8492A6] dark:text-[#64748B]" />
+                <Search className="absolute left-3 top-2.5 h-4 w-4 text-[#798074] dark:text-[#58635A]" />
                 <input
                   type="text"
                   placeholder="Search by source name, host, format, or type..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F8FAFC] dark:bg-[#0B1220] pl-9 pr-3 py-2 text-xs text-[#172033] dark:text-[#F8FAFC] placeholder-[#8492A6] dark:placeholder-[#64748B] focus:border-[#007FA8] dark:focus:border-[#00C2FF] focus:outline-none focus:ring-1 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF]"
+                  className="w-full rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F0EFE6] dark:bg-[#111713] pl-9 pr-3 py-2 text-xs text-[#1C241F] dark:text-[#F0EFE6] placeholder-[#798074] dark:placeholder-[#58635A] focus:border-[#A9492D] dark:focus:border-[#E27A54] focus:outline-none focus:ring-1 focus:ring-[#A9492D] dark:focus:ring-[#E27A54]"
                 />
               </div>
 
@@ -424,7 +424,7 @@ export const DataSourcesPage: React.FC<DataSourcesPageProps> = ({
                   value={statusFilter}
                   onChange={(e) => setStatusFilter(e.target.value)}
                   aria-label="Filter by Health Status"
-                  className="w-full rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F8FAFC] dark:bg-[#0B1220] px-3 py-2 text-xs text-[#172033] dark:text-[#F8FAFC] focus:border-[#007FA8] dark:focus:border-[#00C2FF] focus:outline-none focus:ring-1 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF]"
+                  className="w-full rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F0EFE6] dark:bg-[#111713] px-3 py-2 text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:border-[#A9492D] dark:focus:border-[#E27A54] focus:outline-none focus:ring-1 focus:ring-[#A9492D] dark:focus:ring-[#E27A54]"
                 >
                   <option value="all">All Health States</option>
                   <option value="Healthy">Healthy (Connected)</option>
@@ -440,7 +440,7 @@ export const DataSourcesPage: React.FC<DataSourcesPageProps> = ({
                   value={sourceTypeFilter}
                   onChange={(e) => setSourceTypeFilter(e.target.value)}
                   aria-label="Filter by Source Type"
-                  className="w-full rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F8FAFC] dark:bg-[#0B1220] px-3 py-2 text-xs text-[#172033] dark:text-[#F8FAFC] focus:border-[#007FA8] dark:focus:border-[#00C2FF] focus:outline-none focus:ring-1 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF]"
+                  className="w-full rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F0EFE6] dark:bg-[#111713] px-3 py-2 text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:border-[#A9492D] dark:focus:border-[#E27A54] focus:outline-none focus:ring-1 focus:ring-[#A9492D] dark:focus:ring-[#E27A54]"
                 >
                   <option value="all">All Source Types</option>
                   {availableTypes.map((t) => (
@@ -457,7 +457,7 @@ export const DataSourcesPage: React.FC<DataSourcesPageProps> = ({
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value as DataSourceSortOption)}
                   aria-label="Sort Data Sources"
-                  className="w-full rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F8FAFC] dark:bg-[#0B1220] px-3 py-2 text-xs text-[#172033] dark:text-[#F8FAFC] focus:border-[#007FA8] dark:focus:border-[#00C2FF] focus:outline-none focus:ring-1 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF]"
+                  className="w-full rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F0EFE6] dark:bg-[#111713] px-3 py-2 text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:border-[#A9492D] dark:focus:border-[#E27A54] focus:outline-none focus:ring-1 focus:ring-[#A9492D] dark:focus:ring-[#E27A54]"
                 >
                   <option value="name">Sort by Name (A-Z)</option>
                   <option value="status">Sort by Status</option>
@@ -473,14 +473,14 @@ export const DataSourcesPage: React.FC<DataSourcesPageProps> = ({
               statusFilter !== 'all' ||
               sourceTypeFilter !== 'all' ||
               enabledFilter !== 'all') && (
-              <div className="flex items-center justify-between text-xs pt-2 border-t border-[#DCE5EF] dark:border-[#29384D]">
-                <span className="text-[#64748B] dark:text-[#94A3B8]">
+              <div className="flex items-center justify-between text-xs pt-2 border-t border-[#CDCFC2] dark:border-[#3A443A]">
+                <span className="text-[#58635A] dark:text-[#A8B09F]">
                   Showing {filteredSources.length} of {sources.length} data sources
                 </span>
                 <button
                   type="button"
                   onClick={handleResetFilters}
-                  className="text-[#007FA8] dark:text-[#00C2FF] hover:underline font-semibold"
+                  className="text-[#A9492D] dark:text-[#E27A54] hover:underline font-semibold"
                 >
                   Reset all filters
                 </button>
@@ -490,17 +490,17 @@ export const DataSourcesPage: React.FC<DataSourcesPageProps> = ({
 
           {/* Sources Grid */}
           {filteredSources.length === 0 ? (
-            <div className="rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] p-12 text-center space-y-3 shadow-xs">
-              <Database className="h-10 w-10 text-[#8492A6] dark:text-[#64748B] mx-auto" />
-              <h3 className="text-base font-semibold text-[#172033] dark:text-[#F8FAFC]">No Matching Data Sources</h3>
-              <p className="text-xs text-[#64748B] dark:text-[#94A3B8] max-w-md mx-auto">
+            <div className="rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#1A211B] p-12 text-center space-y-3 shadow-xs">
+              <Database className="h-10 w-10 text-[#798074] dark:text-[#58635A] mx-auto" />
+              <h3 className="text-base font-semibold text-[#1C241F] dark:text-[#F0EFE6]">No Matching Data Sources</h3>
+              <p className="text-xs text-[#58635A] dark:text-[#A8B09F] max-w-md mx-auto">
                 No log collectors match the selected search query or facet filters. Try clearing
                 filters or search terms.
               </p>
               <button
                 type="button"
                 onClick={handleResetFilters}
-                className="mt-2 inline-flex items-center gap-1.5 rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#1B2A41] px-3.5 py-2 text-xs font-semibold text-[#172033] dark:text-[#F8FAFC] hover:bg-[#DCE5EF] dark:hover:bg-[#20324A] transition-colors"
+                className="mt-2 inline-flex items-center gap-1.5 rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#252C24] px-3.5 py-2 text-xs font-semibold text-[#1C241F] dark:text-[#F0EFE6] hover:bg-[#CDCFC2] dark:hover:bg-[#303A31] transition-colors"
               >
                 Clear Filters
               </button>
@@ -514,19 +514,19 @@ export const DataSourcesPage: React.FC<DataSourcesPageProps> = ({
                 return (
                   <div
                     key={src.id}
-                    className="flex flex-col justify-between rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] p-5 shadow-xs hover:border-[#007FA8]/40 dark:hover:border-[#00C2FF]/40 transition-all group"
+                    className="flex flex-col justify-between rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#1A211B] p-5 shadow-xs hover:border-[#A9492D]/40 dark:hover:border-[#E27A54]/40 transition-all group"
                   >
                     <div>
                       {/* Top Badges */}
                       <div className="flex items-start justify-between gap-2 mb-3">
                         <div className="space-y-0.5 min-w-0">
-                          <span className="text-xs font-mono text-[#007FA8] dark:text-[#00C2FF] font-semibold block">
+                          <span className="text-xs font-mono text-[#A9492D] dark:text-[#E27A54] font-semibold block">
                             {src.id}
                           </span>
-                          <h3 className="text-sm font-bold text-[#172033] dark:text-[#F8FAFC] tracking-tight truncate group-hover:text-[#007FA8] dark:group-hover:text-[#38BDF8] transition-colors">
+                          <h3 className="text-sm font-bold text-[#1C241F] dark:text-[#F0EFE6] tracking-tight truncate group-hover:text-[#A9492D] dark:group-hover:text-[#C3D579] transition-colors">
                             {src.name}
                           </h3>
-                          <span className="inline-block text-[11px] font-medium text-[#64748B] dark:text-[#94A3B8]">
+                          <span className="inline-block text-[11px] font-medium text-[#58635A] dark:text-[#A8B09F]">
                             {src.sourceType}
                           </span>
                         </div>
@@ -553,30 +553,30 @@ export const DataSourcesPage: React.FC<DataSourcesPageProps> = ({
                       </div>
 
                       {/* Health diagnostics snippet */}
-                      <div className="rounded-lg bg-[#F8FAFC] dark:bg-[#0B1220]/60 border border-[#DCE5EF] dark:border-[#29384D] p-2.5 text-[11px] text-[#172033] dark:text-[#F8FAFC] leading-snug mb-3">
-                        <span className="text-[#64748B] dark:text-[#94A3B8] font-medium block text-[10px] uppercase font-mono mb-0.5">
+                      <div className="rounded-lg bg-[#F0EFE6] dark:bg-[#111713]/60 border border-[#CDCFC2] dark:border-[#3A443A] p-2.5 text-[11px] text-[#1C241F] dark:text-[#F0EFE6] leading-snug mb-3">
+                        <span className="text-[#58635A] dark:text-[#A8B09F] font-medium block text-[10px] uppercase font-mono mb-0.5">
                           Health Message:
                         </span>
-                        <p className="line-clamp-2 text-[#64748B] dark:text-[#94A3B8]">{src.healthMessage}</p>
+                        <p className="line-clamp-2 text-[#58635A] dark:text-[#A8B09F]">{src.healthMessage}</p>
                       </div>
 
                       {/* Detail Metrics */}
-                      <div className="space-y-1.5 border-t border-[#DCE5EF] dark:border-[#29384D] pt-3 text-xs font-mono">
-                        <div className="flex justify-between text-[#64748B] dark:text-[#94A3B8]">
+                      <div className="space-y-1.5 border-t border-[#CDCFC2] dark:border-[#3A443A] pt-3 text-xs font-mono">
+                        <div className="flex justify-between text-[#58635A] dark:text-[#A8B09F]">
                           <span>Endpoint:</span>
-                          <span className="text-[#172033] dark:text-[#F8FAFC] truncate max-w-[170px]" title={src.hostname}>
+                          <span className="text-[#1C241F] dark:text-[#F0EFE6] truncate max-w-[170px]" title={src.hostname}>
                             {src.hostname}
                           </span>
                         </div>
-                        <div className="flex justify-between text-[#64748B] dark:text-[#94A3B8]">
+                        <div className="flex justify-between text-[#58635A] dark:text-[#A8B09F]">
                           <span>Log Format:</span>
-                          <span className="text-[#172033] dark:text-[#F8FAFC] truncate max-w-[170px]">{src.logFormat}</span>
+                          <span className="text-[#1C241F] dark:text-[#F0EFE6] truncate max-w-[170px]">{src.logFormat}</span>
                         </div>
-                        <div className="flex justify-between text-[#64748B] dark:text-[#94A3B8]">
+                        <div className="flex justify-between text-[#58635A] dark:text-[#A8B09F]">
                           <span>Ingested Events:</span>
-                          <span className="text-[#172033] dark:text-[#F8FAFC] font-bold">{src.eventsIngested.toLocaleString()}</span>
+                          <span className="text-[#1C241F] dark:text-[#F0EFE6] font-bold">{src.eventsIngested.toLocaleString()}</span>
                         </div>
-                        <div className="flex justify-between text-[#64748B] dark:text-[#94A3B8]">
+                        <div className="flex justify-between text-[#58635A] dark:text-[#A8B09F]">
                           <span>Collection State:</span>
                           <span
                             className={
@@ -584,7 +584,7 @@ export const DataSourcesPage: React.FC<DataSourcesPageProps> = ({
                                 ? 'text-amber-600 dark:text-amber-400 font-semibold'
                                 : src.enabled
                                 ? 'text-emerald-600 dark:text-emerald-400 font-semibold'
-                                : 'text-[#8492A6] dark:text-[#64748B]'
+                                : 'text-[#798074] dark:text-[#58635A]'
                             }
                           >
                             {src.isPaused ? 'Paused' : src.enabled ? 'Streaming' : 'Disabled'}
@@ -594,7 +594,7 @@ export const DataSourcesPage: React.FC<DataSourcesPageProps> = ({
                     </div>
 
                     {/* Card Action Buttons */}
-                    <div className="mt-4 pt-3 border-t border-[#DCE5EF] dark:border-[#29384D] space-y-2">
+                    <div className="mt-4 pt-3 border-t border-[#CDCFC2] dark:border-[#3A443A] space-y-2">
                       <div className="grid grid-cols-2 gap-2">
                         {/* Simulate Ingestion Button */}
                         <button
@@ -602,7 +602,7 @@ export const DataSourcesPage: React.FC<DataSourcesPageProps> = ({
                           aria-label={`Simulate ingestion for ${src.name}`}
                           disabled={!src.enabled || src.isPaused}
                           onClick={() => setSelectedSourceForIngest(src)}
-                          className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-[#007FA8] hover:bg-[#006A8C] dark:bg-[#00C2FF] dark:hover:bg-[#38BDF8] px-3 py-1.5 text-xs font-semibold text-white dark:text-[#0B1220] transition-colors disabled:opacity-40 disabled:cursor-not-allowed shadow-xs"
+                          className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-[#A9492D] hover:bg-[#823B27] dark:bg-[#E27A54] dark:hover:bg-[#C3D579] px-3 py-1.5 text-xs font-semibold text-white dark:text-[#111713] transition-colors disabled:opacity-40 disabled:cursor-not-allowed shadow-xs"
                         >
                           <Play className="h-3 w-3" />
                           <span>Simulate Ingest</span>
@@ -613,9 +613,9 @@ export const DataSourcesPage: React.FC<DataSourcesPageProps> = ({
                           type="button"
                           aria-label={`Check connection for ${src.name}`}
                           onClick={() => setSelectedSourceForCheck(src)}
-                          className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#1B2A41] hover:bg-[#DCE5EF] dark:hover:bg-[#20324A] px-3 py-1.5 text-xs font-semibold text-[#172033] dark:text-[#F8FAFC] transition-colors shadow-xs"
+                          className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#252C24] hover:bg-[#CDCFC2] dark:hover:bg-[#303A31] px-3 py-1.5 text-xs font-semibold text-[#1C241F] dark:text-[#F0EFE6] transition-colors shadow-xs"
                         >
-                          <Radio className="h-3 w-3 text-[#007FA8] dark:text-[#00C2FF]" />
+                          <Radio className="h-3 w-3 text-[#A9492D] dark:text-[#E27A54]" />
                           <span>Check Conn</span>
                         </button>
                       </div>
@@ -636,7 +636,7 @@ export const DataSourcesPage: React.FC<DataSourcesPageProps> = ({
 
                           {src.enabled && (
                             <>
-                              <span className="text-[#8492A6] dark:text-[#64748B]">&bull;</span>
+                              <span className="text-[#798074] dark:text-[#58635A]">&bull;</span>
                               <button
                                 type="button"
                                 aria-label={`${src.isPaused ? 'Resume' : 'Pause'} collection for ${src.name}`}
@@ -655,7 +655,7 @@ export const DataSourcesPage: React.FC<DataSourcesPageProps> = ({
                           type="button"
                           aria-label={`View details for ${src.name}`}
                           onClick={() => setSelectedSourceForDetail(src)}
-                          className="inline-flex items-center gap-1 text-[#007FA8] dark:text-[#00C2FF] hover:underline font-semibold"
+                          className="inline-flex items-center gap-1 text-[#A9492D] dark:text-[#E27A54] hover:underline font-semibold"
                         >
                           <Eye className="h-3 w-3" />
                           <span>Details</span>
@@ -674,15 +674,15 @@ export const DataSourcesPage: React.FC<DataSourcesPageProps> = ({
       {activeViewTab === 'logs' && (
         <div className="space-y-4">
           {/* Filters for Activity Logs */}
-          <div className="rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] p-4 shadow-xs flex flex-col sm:flex-row items-center gap-3 justify-between transition-colors">
+          <div className="rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#1A211B] p-4 shadow-xs flex flex-col sm:flex-row items-center gap-3 justify-between transition-colors">
             <div className="flex-1 w-full sm:w-auto relative">
-              <Search className="absolute left-3 top-2.5 h-4 w-4 text-[#8492A6] dark:text-[#64748B]" />
+              <Search className="absolute left-3 top-2.5 h-4 w-4 text-[#798074] dark:text-[#58635A]" />
               <input
                 type="text"
                 placeholder="Search ingestion logs by ID, source, or message..."
                 value={logSearchQuery}
                 onChange={(e) => setLogSearchQuery(e.target.value)}
-                className="w-full rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F8FAFC] dark:bg-[#0B1220] pl-9 pr-3 py-2 text-xs text-[#172033] dark:text-[#F8FAFC] placeholder-[#8492A6] dark:placeholder-[#64748B] focus:border-[#007FA8] dark:focus:border-[#00C2FF] focus:outline-none focus:ring-1 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF]"
+                className="w-full rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F0EFE6] dark:bg-[#111713] pl-9 pr-3 py-2 text-xs text-[#1C241F] dark:text-[#F0EFE6] placeholder-[#798074] dark:placeholder-[#58635A] focus:border-[#A9492D] dark:focus:border-[#E27A54] focus:outline-none focus:ring-1 focus:ring-[#A9492D] dark:focus:ring-[#E27A54]"
               />
             </div>
 
@@ -691,7 +691,7 @@ export const DataSourcesPage: React.FC<DataSourcesPageProps> = ({
                 value={logStatusFilter}
                 onChange={(e) => setLogStatusFilter(e.target.value)}
                 aria-label="Filter Ingestion by Status"
-                className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F8FAFC] dark:bg-[#0B1220] px-3 py-2 text-xs text-[#172033] dark:text-[#F8FAFC] focus:border-[#007FA8] dark:focus:border-[#00C2FF] focus:outline-none"
+                className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F0EFE6] dark:bg-[#111713] px-3 py-2 text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:border-[#A9492D] dark:focus:border-[#E27A54] focus:outline-none"
               >
                 <option value="all">All Statuses</option>
                 <option value="Success">Success</option>
@@ -703,7 +703,7 @@ export const DataSourcesPage: React.FC<DataSourcesPageProps> = ({
                 value={logSourceFilter}
                 onChange={(e) => setLogSourceFilter(e.target.value)}
                 aria-label="Filter Ingestion by Source"
-                className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F8FAFC] dark:bg-[#0B1220] px-3 py-2 text-xs text-[#172033] dark:text-[#F8FAFC] focus:border-[#007FA8] dark:focus:border-[#00C2FF] focus:outline-none"
+                className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F0EFE6] dark:bg-[#111713] px-3 py-2 text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:border-[#A9492D] dark:focus:border-[#E27A54] focus:outline-none"
               >
                 <option value="all">All Sources</option>
                 {sources.map((s) => (
@@ -716,11 +716,11 @@ export const DataSourcesPage: React.FC<DataSourcesPageProps> = ({
           </div>
 
           {/* Table of Activity Logs */}
-          <div className="rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] overflow-hidden shadow-xs transition-colors">
+          <div className="rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#1A211B] overflow-hidden shadow-xs transition-colors">
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs border-collapse">
                 <thead>
-                  <tr className="border-b border-[#DCE5EF] dark:border-[#29384D] bg-[#F8FAFC] dark:bg-[#0B1220]/80 text-[11px] font-semibold uppercase text-[#64748B] dark:text-[#94A3B8]">
+                  <tr className="border-b border-[#CDCFC2] dark:border-[#3A443A] bg-[#F0EFE6] dark:bg-[#111713]/80 text-[11px] font-semibold uppercase text-[#58635A] dark:text-[#A8B09F]">
                     <th className="px-4 py-3">Ingestion ID</th>
                     <th className="px-4 py-3">Data Source</th>
                     <th className="px-4 py-3">Timestamp (UTC)</th>
@@ -731,27 +731,27 @@ export const DataSourcesPage: React.FC<DataSourcesPageProps> = ({
                     <th className="px-4 py-3">Diagnostic Notes</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#DCE5EF] dark:divide-[#29384D] font-mono">
+                <tbody className="divide-y divide-[#CDCFC2] dark:divide-[#3A443A] font-mono">
                   {filteredLogs.length === 0 ? (
                     <tr>
-                      <td colSpan={8} className="px-4 py-8 text-center text-[#8492A6] dark:text-[#64748B] font-sans">
+                      <td colSpan={8} className="px-4 py-8 text-center text-[#798074] dark:text-[#58635A] font-sans">
                         No ingestion activity matching filter criteria.
                       </td>
                     </tr>
                   ) : (
                     filteredLogs.map((log) => (
-                      <tr key={log.id} className="hover:bg-[#F8FAFC] dark:hover:bg-[#1B2A41]/50 transition-colors">
-                        <td className="px-4 py-3 font-bold text-[#007FA8] dark:text-[#00C2FF]">{log.id}</td>
-                        <td className="px-4 py-3 font-sans text-[#172033] dark:text-[#F8FAFC]">
+                      <tr key={log.id} className="hover:bg-[#F0EFE6] dark:hover:bg-[#252C24]/50 transition-colors">
+                        <td className="px-4 py-3 font-bold text-[#A9492D] dark:text-[#E27A54]">{log.id}</td>
+                        <td className="px-4 py-3 font-sans text-[#1C241F] dark:text-[#F0EFE6]">
                           <span className="font-semibold block">{log.sourceName}</span>
-                          <span className="text-[10px] text-[#64748B] dark:text-[#94A3B8] font-mono">{log.sourceId}</span>
+                          <span className="text-[10px] text-[#58635A] dark:text-[#A8B09F] font-mono">{log.sourceId}</span>
                         </td>
-                        <td className="px-4 py-3 text-[#64748B] dark:text-[#94A3B8] text-[11px]">
+                        <td className="px-4 py-3 text-[#58635A] dark:text-[#A8B09F] text-[11px]">
                           {new Date(log.startTime).toLocaleString()}
                         </td>
-                        <td className="px-4 py-3 text-[#172033] dark:text-[#F8FAFC]">{log.eventsRequested}</td>
+                        <td className="px-4 py-3 text-[#1C241F] dark:text-[#F0EFE6]">{log.eventsRequested}</td>
                         <td className="px-4 py-3 text-emerald-600 dark:text-emerald-400 font-bold">{log.eventsIngested}</td>
-                        <td className="px-4 py-3 text-[#64748B] dark:text-[#94A3B8]">
+                        <td className="px-4 py-3 text-[#58635A] dark:text-[#A8B09F]">
                           {log.eventsRejected > 0 ? (
                             <span className="text-rose-600 dark:text-rose-400 font-bold">{log.eventsRejected}</span>
                           ) : (
@@ -774,7 +774,7 @@ export const DataSourcesPage: React.FC<DataSourcesPageProps> = ({
                             {log.status}
                           </span>
                         </td>
-                        <td className="px-4 py-3 font-sans text-[#64748B] dark:text-[#94A3B8] text-[11px] max-w-xs truncate">
+                        <td className="px-4 py-3 font-sans text-[#58635A] dark:text-[#A8B09F] text-[11px] max-w-xs truncate">
                           {log.errorMessage || 'Normal simulated pipeline ingestion completed'}
                         </td>
                       </tr>

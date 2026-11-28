@@ -158,44 +158,44 @@ export const ModulePlaceholder: React.FC<ModulePlaceholderProps> = ({
       <button
         type="button"
         onClick={onReturnToOverview}
-        className="inline-flex items-center gap-2 text-xs font-semibold text-[#007FA8] dark:text-[#00C2FF] hover:underline transition-colors focus:outline-none focus:ring-2 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF] rounded px-2 py-1"
+        className="inline-flex items-center gap-2 text-xs font-semibold text-[#A9492D] dark:text-[#E27A54] hover:underline transition-colors focus:outline-none focus:ring-2 focus:ring-[#A9492D] dark:focus:ring-[#E27A54] rounded px-2 py-1"
       >
         <ArrowLeft className="h-4 w-4" />
         <span>Return to SOC Command Center Overview</span>
       </button>
 
       {/* Main card */}
-      <div className="rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] p-6 sm:p-8 shadow-xs">
-        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#DCE5EF] dark:border-[#29384D]/70 pb-5">
+      <div className="rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#1A211B] p-6 sm:p-8 shadow-xs">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#CDCFC2] dark:border-[#3A443A]/70 pb-5">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
-              <span className="rounded bg-[#EEF4FA] dark:bg-cyan-950 px-2 py-0.5 text-xs font-mono font-semibold text-[#007FA8] dark:text-[#00C2FF] border border-[#DCE5EF] dark:border-cyan-800/40">
+              <span className="rounded bg-[#E1DED1] dark:bg-signal-950 px-2 py-0.5 text-xs font-mono font-semibold text-[#A9492D] dark:text-[#E27A54] border border-[#CDCFC2] dark:border-signal-800/40">
                 {info.stageLabel}
               </span>
-              <span className="rounded bg-[#EEF4FA] dark:bg-[#1B2A41] px-2 py-0.5 text-xs font-mono text-[#64748B] dark:text-[#94A3B8] border border-[#DCE5EF] dark:border-[#29384D]">
+              <span className="rounded bg-[#E1DED1] dark:bg-[#252C24] px-2 py-0.5 text-xs font-mono text-[#58635A] dark:text-[#A8B09F] border border-[#CDCFC2] dark:border-[#3A443A]">
                 Operational Module
               </span>
             </div>
-            <h2 className="text-xl font-bold tracking-tight text-[#172033] dark:text-white mt-1">
+            <h2 className="text-xl font-bold tracking-tight text-[#1C241F] dark:text-white mt-1">
               {info.title}
             </h2>
           </div>
 
-          <div className="flex items-center gap-1.5 rounded-full border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] px-3 py-1 text-xs text-[#64748B] dark:text-[#94A3B8]">
-            <Clock className="h-3.5 w-3.5 text-[#8492A6] dark:text-[#64748B]" />
+          <div className="flex items-center gap-1.5 rounded-full border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] px-3 py-1 text-xs text-[#58635A] dark:text-[#A8B09F]">
+            <Clock className="h-3.5 w-3.5 text-[#798074] dark:text-[#58635A]" />
             <span>Phase Status: Operational</span>
           </div>
         </div>
 
         {/* Notice */}
-        <div className="mt-6 rounded-lg border border-cyan-200 dark:border-cyan-800/40 bg-cyan-50/60 dark:bg-cyan-950/30 p-4 text-xs text-cyan-900 dark:text-cyan-200">
+        <div className="mt-6 rounded-lg border border-signal-200 dark:border-signal-800/40 bg-signal-50/60 dark:bg-signal-950/30 p-4 text-xs text-signal-900 dark:text-signal-200">
           <div className="flex items-start gap-3">
-            <AlertCircle className="h-4 w-4 text-[#007FA8] dark:text-[#00C2FF] shrink-0 mt-0.5" />
+            <AlertCircle className="h-4 w-4 text-[#A9492D] dark:text-[#E27A54] shrink-0 mt-0.5" />
             <div>
-              <p className="font-bold text-[#007FA8] dark:text-[#00C2FF]">
+              <p className="font-bold text-[#A9492D] dark:text-[#E27A54]">
                 CyberGuard SOC Module Architecture
               </p>
-              <p className="mt-1 text-[#172033]/80 dark:text-cyan-200/90 leading-relaxed">
+              <p className="mt-1 text-[#1C241F]/80 dark:text-signal-200/90 leading-relaxed">
                 This module has been registered and verified within the CyberGuard SOC Lab system.
               </p>
             </div>
@@ -205,23 +205,23 @@ export const ModulePlaceholder: React.FC<ModulePlaceholderProps> = ({
         {/* Scope and Roadmap */}
         <div className="mt-6 space-y-4">
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-[#64748B] dark:text-[#94A3B8]">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-[#58635A] dark:text-[#A8B09F]">
               Module Purpose
             </h3>
-            <p className="mt-1.5 text-sm text-[#172033] dark:text-[#F8FAFC] leading-relaxed">
+            <p className="mt-1.5 text-sm text-[#1C241F] dark:text-[#F0EFE6] leading-relaxed">
               {info.description}
             </p>
           </div>
 
           <div className="pt-2">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-[#64748B] dark:text-[#94A3B8] mb-2">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-[#58635A] dark:text-[#A8B09F] mb-2">
               Core Capabilities
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
               {info.plannedFeatures.map((feat, index) => (
                 <div
                   key={index}
-                  className="flex items-start gap-2.5 rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] p-3 text-xs text-[#172033] dark:text-[#F8FAFC]"
+                  className="flex items-start gap-2.5 rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] p-3 text-xs text-[#1C241F] dark:text-[#F0EFE6]"
                 >
                   <CheckCircle2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
                   <span className="leading-snug">{feat}</span>
@@ -232,14 +232,14 @@ export const ModulePlaceholder: React.FC<ModulePlaceholderProps> = ({
         </div>
 
         {/* Actions */}
-        <div className="mt-8 pt-6 border-t border-[#DCE5EF] dark:border-[#29384D]/70 flex items-center justify-between">
-          <span className="text-[11px] text-[#64748B] dark:text-[#94A3B8] font-mono">
+        <div className="mt-8 pt-6 border-t border-[#CDCFC2] dark:border-[#3A443A]/70 flex items-center justify-between">
+          <span className="text-[11px] text-[#58635A] dark:text-[#A8B09F] font-mono">
             CyberGuard SOC Lab Architecture &bull; Stage {info.stageNumber}
           </span>
           <button
             type="button"
             onClick={onReturnToOverview}
-            className="rounded-lg bg-[#007FA8] hover:bg-[#006C8F] dark:bg-[#00C2FF] dark:hover:bg-[#38BDF8] text-white dark:text-[#0B1220] font-semibold text-xs px-4 py-2 transition-colors focus:outline-none focus:ring-2 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF] shadow-xs"
+            className="rounded-lg bg-[#A9492D] hover:bg-[#823B27] dark:bg-[#E27A54] dark:hover:bg-[#C3D579] text-white dark:text-[#111713] font-semibold text-xs px-4 py-2 transition-colors focus:outline-none focus:ring-2 focus:ring-[#A9492D] dark:focus:ring-[#E27A54] shadow-xs"
           >
             Go to Active Dashboard
           </button>

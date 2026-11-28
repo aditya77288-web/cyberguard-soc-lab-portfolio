@@ -85,7 +85,7 @@ export const IndicatorDetailModal: React.FC<IndicatorDetailModalProps> = ({
       case 'hash':
         return <Hash className="h-3.5 w-3.5 text-purple-600 dark:text-purple-400" />;
       case 'domain':
-        return <Globe className="h-3.5 w-3.5 text-[#007FA8] dark:text-[#00C2FF]" />;
+        return <Globe className="h-3.5 w-3.5 text-[#A9492D] dark:text-[#E27A54]" />;
       case 'url':
         return <Link2 className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400" />;
       case 'ipv4':
@@ -106,14 +106,14 @@ export const IndicatorDetailModal: React.FC<IndicatorDetailModalProps> = ({
       className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 dark:bg-black/75 backdrop-blur-xs animate-in fade-in duration-150"
     >
       <div
-        className="w-full max-w-3xl max-h-[90vh] flex flex-col rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] shadow-2xl text-[#172033] dark:text-[#F8FAFC] overflow-hidden font-sans"
+        className="w-full max-w-3xl max-h-[90vh] flex flex-col rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#1A211B] shadow-2xl text-[#1C241F] dark:text-[#F0EFE6] overflow-hidden font-sans"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header */}
-        <div className="flex items-start justify-between p-4 sm:p-5 border-b border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#111C2E]">
+        <div className="flex items-start justify-between p-4 sm:p-5 border-b border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#0D120F]">
           <div className="space-y-1.5 pr-4">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="font-mono text-xs font-semibold text-[#007FA8] dark:text-[#00C2FF]">
+              <span className="font-mono text-xs font-semibold text-[#A9492D] dark:text-[#E27A54]">
                 {indicator.id}
               </span>
               <span
@@ -123,7 +123,7 @@ export const IndicatorDetailModal: React.FC<IndicatorDetailModalProps> = ({
               >
                 {indicator.riskClassification} Risk ({indicator.riskScore}/100)
               </span>
-              <span className="inline-flex items-center gap-1 rounded bg-[#EEF4FA] dark:bg-[#1B2A41] px-2 py-0.5 text-[11px] font-mono text-[#172033] dark:text-[#F8FAFC] border border-[#DCE5EF] dark:border-[#29384D]">
+              <span className="inline-flex items-center gap-1 rounded bg-[#E1DED1] dark:bg-[#252C24] px-2 py-0.5 text-[11px] font-mono text-[#1C241F] dark:text-[#F0EFE6] border border-[#CDCFC2] dark:border-[#3A443A]">
                 {getTypeIcon(indicator.type)}
                 {indicator.type.toUpperCase()}
               </span>
@@ -133,7 +133,7 @@ export const IndicatorDetailModal: React.FC<IndicatorDetailModalProps> = ({
             </div>
             <h2
               id="indicator-modal-title"
-              className="text-base sm:text-lg font-bold text-[#172033] dark:text-white tracking-tight break-all"
+              className="text-base sm:text-lg font-bold text-[#1C241F] dark:text-white tracking-tight break-all"
             >
               {defanged}
             </h2>
@@ -143,37 +143,37 @@ export const IndicatorDetailModal: React.FC<IndicatorDetailModalProps> = ({
             type="button"
             onClick={onClose}
             aria-label="Close threat indicator modal"
-            className="rounded-lg p-1.5 text-[#64748B] dark:text-[#94A3B8] hover:bg-[#EEF4FA] dark:hover:bg-[#20324A] hover:text-[#172033] dark:hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF]"
+            className="rounded-lg p-1.5 text-[#58635A] dark:text-[#A8B09F] hover:bg-[#E1DED1] dark:hover:bg-[#303A31] hover:text-[#1C241F] dark:hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[#A9492D] dark:focus:ring-[#E27A54]"
           >
             <X className="h-5 w-5" />
           </button>
         </div>
 
         {/* Modal Body */}
-        <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-6 text-xs text-[#64748B] dark:text-[#94A3B8]">
+        <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-6 text-xs text-[#58635A] dark:text-[#A8B09F]">
           {/* External Integration Notice Banner */}
-          <div className="rounded-lg border border-[#007FA8]/30 dark:border-[#00C2FF]/30 bg-[#007FA8]/5 dark:bg-[#00C2FF]/10 p-3 flex items-start gap-2.5">
-            <Info className="h-4 w-4 text-[#007FA8] dark:text-[#00C2FF] shrink-0 mt-0.5" />
+          <div className="rounded-lg border border-[#A9492D]/30 dark:border-[#E27A54]/30 bg-[#A9492D]/5 dark:bg-[#E27A54]/10 p-3 flex items-start gap-2.5">
+            <Info className="h-4 w-4 text-[#A9492D] dark:text-[#E27A54] shrink-0 mt-0.5" />
             <div className="space-y-0.5">
-              <p className="font-semibold text-[#172033] dark:text-white text-[11px]">
+              <p className="font-semibold text-[#1C241F] dark:text-white text-[11px]">
                 External Intelligence Status: Simulated Engine / 3P Feed Unconfigured
               </p>
-              <p className="text-[11px] text-[#64748B] dark:text-[#94A3B8] leading-relaxed">
+              <p className="text-[11px] text-[#58635A] dark:text-[#A8B09F] leading-relaxed">
                 Reputation evaluation calculated deterministically via CyberGuard simulated heuristic engine. External 3P providers (VirusTotal, AlienVault OTX) are unconfigured in demo mode; no external network requests were dispatched.
               </p>
             </div>
           </div>
 
           {/* Value Preview & Copy Bar */}
-          <div className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#111C2E] p-3 space-y-2">
+          <div className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#0D120F] p-3 space-y-2">
             <div className="flex items-center justify-between">
-              <span className="text-[11px] font-mono uppercase text-[#64748B] dark:text-[#94A3B8]">
+              <span className="text-[11px] font-mono uppercase text-[#58635A] dark:text-[#A8B09F]">
                 Defanged Indicator Value (Untrusted Text)
               </span>
               <button
                 type="button"
                 onClick={handleCopy}
-                className="inline-flex items-center gap-1 text-[11px] font-mono font-medium text-[#007FA8] dark:text-[#00C2FF] hover:underline focus:outline-none"
+                className="inline-flex items-center gap-1 text-[11px] font-mono font-medium text-[#A9492D] dark:text-[#E27A54] hover:underline focus:outline-none"
               >
                 {copied ? (
                   <>
@@ -188,7 +188,7 @@ export const IndicatorDetailModal: React.FC<IndicatorDetailModalProps> = ({
                 )}
               </button>
             </div>
-            <div className="font-mono text-xs text-amber-800 dark:text-amber-200/90 break-all bg-white dark:bg-[#17243A] p-2.5 rounded border border-[#DCE5EF] dark:border-[#29384D] select-all">
+            <div className="font-mono text-xs text-amber-800 dark:text-amber-200/90 break-all bg-[#F2F0E6] dark:bg-[#1A211B] p-2.5 rounded border border-[#CDCFC2] dark:border-[#3A443A] select-all">
               {defanged}
             </div>
           </div>
@@ -196,9 +196,9 @@ export const IndicatorDetailModal: React.FC<IndicatorDetailModalProps> = ({
           {/* Scores Overview Row */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {/* Risk Score */}
-            <div className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#111C2E] p-3 space-y-1.5">
+            <div className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#0D120F] p-3 space-y-1.5">
               <div className="flex items-center justify-between">
-                <span className="text-[#64748B] dark:text-[#94A3B8] text-[11px]">Risk Score</span>
+                <span className="text-[#58635A] dark:text-[#A8B09F] text-[11px]">Risk Score</span>
                 <span
                   className={`text-sm font-bold font-mono ${
                     indicator.riskScore >= 80
@@ -213,7 +213,7 @@ export const IndicatorDetailModal: React.FC<IndicatorDetailModalProps> = ({
                   {indicator.riskScore} / 100
                 </span>
               </div>
-              <div className="w-full bg-[#DCE5EF] dark:bg-[#29384D] h-2 rounded-full overflow-hidden">
+              <div className="w-full bg-[#CDCFC2] dark:bg-[#3A443A] h-2 rounded-full overflow-hidden">
                 <div
                   className={`h-full ${
                     indicator.riskScore >= 80
@@ -227,62 +227,62 @@ export const IndicatorDetailModal: React.FC<IndicatorDetailModalProps> = ({
                   style={{ width: `${indicator.riskScore}%` }}
                 />
               </div>
-              <p className="text-[10px] text-[#64748B] dark:text-[#94A3B8]">
-                Classification: <strong className="text-[#172033] dark:text-white capitalize">{indicator.riskClassification}</strong>
+              <p className="text-[10px] text-[#58635A] dark:text-[#A8B09F]">
+                Classification: <strong className="text-[#1C241F] dark:text-white capitalize">{indicator.riskClassification}</strong>
               </p>
             </div>
 
             {/* Confidence Score */}
-            <div className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#111C2E] p-3 space-y-1.5">
+            <div className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#0D120F] p-3 space-y-1.5">
               <div className="flex items-center justify-between">
-                <span className="text-[#64748B] dark:text-[#94A3B8] text-[11px]">Analyst Confidence</span>
-                <span className="text-sm font-bold font-mono text-[#007FA8] dark:text-[#00C2FF]">
+                <span className="text-[#58635A] dark:text-[#A8B09F] text-[11px]">Analyst Confidence</span>
+                <span className="text-sm font-bold font-mono text-[#A9492D] dark:text-[#E27A54]">
                   {indicator.confidence}%
                 </span>
               </div>
-              <div className="w-full bg-[#DCE5EF] dark:bg-[#29384D] h-2 rounded-full overflow-hidden">
+              <div className="w-full bg-[#CDCFC2] dark:bg-[#3A443A] h-2 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-[#007FA8] dark:bg-[#00C2FF]"
+                  className="h-full bg-[#A9492D] dark:bg-[#E27A54]"
                   style={{ width: `${indicator.confidence}%` }}
                 />
               </div>
-              <p className="text-[10px] text-[#64748B] dark:text-[#94A3B8]">
+              <p className="text-[10px] text-[#58635A] dark:text-[#A8B09F]">
                 Corroboration &amp; evidence reliability
               </p>
             </div>
 
             {/* Source Category */}
-            <div className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#111C2E] p-3 space-y-1">
-              <span className="text-[#64748B] dark:text-[#94A3B8] text-[11px]">Source Category</span>
-              <p className="text-xs font-semibold text-[#172033] dark:text-white">
+            <div className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#0D120F] p-3 space-y-1">
+              <span className="text-[#58635A] dark:text-[#A8B09F] text-[11px]">Source Category</span>
+              <p className="text-xs font-semibold text-[#1C241F] dark:text-white">
                 {indicator.sourceCategory}
               </p>
-              <p className="text-[10px] text-[#64748B] dark:text-[#94A3B8] font-mono truncate">
+              <p className="text-[10px] text-[#58635A] dark:text-[#A8B09F] font-mono truncate">
                 {indicator.feedProvider}
               </p>
             </div>
           </div>
 
           {/* Assessment Reasoning */}
-          <div className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#111C2E] p-3.5 space-y-1.5">
-            <h3 className="font-semibold text-[#172033] dark:text-white text-xs flex items-center gap-1.5">
-              <ShieldAlert className="h-3.5 w-3.5 text-[#007FA8] dark:text-[#00C2FF]" />
+          <div className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#0D120F] p-3.5 space-y-1.5">
+            <h3 className="font-semibold text-[#1C241F] dark:text-white text-xs flex items-center gap-1.5">
+              <ShieldAlert className="h-3.5 w-3.5 text-[#A9492D] dark:text-[#E27A54]" />
               Risk Assessment Rationale
             </h3>
-            <p className="text-[#172033] dark:text-[#94A3B8] leading-relaxed text-xs">
+            <p className="text-[#1C241F] dark:text-[#A8B09F] leading-relaxed text-xs">
               {indicator.riskReason}
             </p>
           </div>
 
           {/* Scoring Factors Breakdown Table */}
           <div className="space-y-2">
-            <h3 className="font-semibold text-[#172033] dark:text-white text-xs flex items-center gap-1.5">
-              <Layers className="h-3.5 w-3.5 text-[#007FA8] dark:text-[#00C2FF]" />
+            <h3 className="font-semibold text-[#1C241F] dark:text-white text-xs flex items-center gap-1.5">
+              <Layers className="h-3.5 w-3.5 text-[#A9492D] dark:text-[#E27A54]" />
               Deterministic Risk Factor Breakdown
             </h3>
-            <div className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] overflow-hidden bg-white dark:bg-[#17243A]">
+            <div className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] overflow-hidden bg-[#F2F0E6] dark:bg-[#1A211B]">
               <table className="w-full text-left text-xs">
-                <thead className="border-b border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#1B2A41] text-[11px] font-mono uppercase text-[#64748B] dark:text-[#94A3B8]">
+                <thead className="border-b border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#252C24] text-[11px] font-mono uppercase text-[#58635A] dark:text-[#A8B09F]">
                   <tr>
                     <th className="py-2.5 px-3">Scoring Factor</th>
                     <th className="py-2.5 px-3">Weight</th>
@@ -290,22 +290,22 @@ export const IndicatorDetailModal: React.FC<IndicatorDetailModalProps> = ({
                     <th className="py-2.5 px-3">Factor Evaluation</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#DCE5EF] dark:divide-[#29384D]/60">
+                <tbody className="divide-y divide-[#CDCFC2] dark:divide-[#3A443A]/60">
                   {indicator.riskFactors.map((factor, idx) => (
-                    <tr key={idx} className="hover:bg-[#EDF5FA] dark:hover:bg-[#20324A]/40 transition-colors">
-                      <td className="py-2.5 px-3 font-semibold text-[#172033] dark:text-white">
+                    <tr key={idx} className="hover:bg-[#E5E2D8] dark:hover:bg-[#303A31]/40 transition-colors">
+                      <td className="py-2.5 px-3 font-semibold text-[#1C241F] dark:text-white">
                         {factor.name}
                       </td>
-                      <td className="py-2.5 px-3 font-mono text-[#64748B] dark:text-[#94A3B8]">
+                      <td className="py-2.5 px-3 font-mono text-[#58635A] dark:text-[#A8B09F]">
                         {Math.round(factor.weight * 100)}%
                       </td>
                       <td className="py-2.5 px-3 font-mono">
-                        <span className="text-[#007FA8] dark:text-[#00C2FF] font-semibold">
+                        <span className="text-[#A9492D] dark:text-[#E27A54] font-semibold">
                           +{factor.scoreContribution}
                         </span>{' '}
-                        <span className="text-[#8492A6] dark:text-[#64748B]">/ {factor.maxScore}</span>
+                        <span className="text-[#798074] dark:text-[#58635A]">/ {factor.maxScore}</span>
                       </td>
-                      <td className="py-2.5 px-3 text-[#172033] dark:text-[#94A3B8] text-[11px]">
+                      <td className="py-2.5 px-3 text-[#1C241F] dark:text-[#A8B09F] text-[11px]">
                         {factor.description}
                       </td>
                     </tr>
@@ -317,30 +317,30 @@ export const IndicatorDetailModal: React.FC<IndicatorDetailModalProps> = ({
 
           {/* Temporal & Tagging Metadata */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-            <div className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#111C2E] p-3 space-y-1">
-              <span className="text-[#64748B] dark:text-[#94A3B8] text-[11px] flex items-center gap-1">
-                <Clock className="h-3 w-3 text-[#8492A6] dark:text-[#64748B]" /> Observation Timestamps
+            <div className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#0D120F] p-3 space-y-1">
+              <span className="text-[#58635A] dark:text-[#A8B09F] text-[11px] flex items-center gap-1">
+                <Clock className="h-3 w-3 text-[#798074] dark:text-[#58635A]" /> Observation Timestamps
               </span>
-              <div className="font-mono text-[11px] space-y-0.5 text-[#172033] dark:text-[#F8FAFC]">
+              <div className="font-mono text-[11px] space-y-0.5 text-[#1C241F] dark:text-[#F0EFE6]">
                 <div>First Seen: {new Date(indicator.firstSeen).toUTCString()}</div>
                 <div>Last Seen: {new Date(indicator.lastSeen).toUTCString()}</div>
               </div>
             </div>
 
-            <div className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#111C2E] p-3 space-y-1">
-              <span className="text-[#64748B] dark:text-[#94A3B8] text-[11px]">Associated Tags</span>
+            <div className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#0D120F] p-3 space-y-1">
+              <span className="text-[#58635A] dark:text-[#A8B09F] text-[11px]">Associated Tags</span>
               <div className="flex flex-wrap gap-1 mt-1">
                 {indicator.tags && indicator.tags.length > 0 ? (
                   indicator.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded bg-[#EEF4FA] dark:bg-[#1B2A41] px-2 py-0.5 text-[10px] font-mono text-[#007FA8] dark:text-[#38BDF8] border border-[#DCE5EF] dark:border-[#29384D]"
+                      className="rounded bg-[#E1DED1] dark:bg-[#252C24] px-2 py-0.5 text-[10px] font-mono text-[#A9492D] dark:text-[#C3D579] border border-[#CDCFC2] dark:border-[#3A443A]"
                     >
                       #{tag}
                     </span>
                   ))
                 ) : (
-                  <span className="text-[#8492A6] dark:text-[#64748B] text-[11px]">None assigned</span>
+                  <span className="text-[#798074] dark:text-[#58635A] text-[11px]">None assigned</span>
                 )}
               </div>
             </div>
@@ -349,7 +349,7 @@ export const IndicatorDetailModal: React.FC<IndicatorDetailModalProps> = ({
           {/* Correlated SOC Alerts Section */}
           <div className="space-y-2">
             <div className="flex items-center justify-between">
-              <h3 className="font-semibold text-[#172033] dark:text-white text-xs flex items-center gap-1.5">
+              <h3 className="font-semibold text-[#1C241F] dark:text-white text-xs flex items-center gap-1.5">
                 <AlertTriangle className="h-3.5 w-3.5 text-amber-500 dark:text-amber-400" />
                 Correlated SOC Security Alerts ({linkedAlerts.length})
               </h3>
@@ -359,11 +359,11 @@ export const IndicatorDetailModal: React.FC<IndicatorDetailModalProps> = ({
                 {linkedAlerts.map((alert) => (
                   <div
                     key={alert.id}
-                    className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-3 rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] hover:border-[#007FA8]/50 dark:hover:border-[#00C2FF]/50 transition-colors"
+                    className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-3 rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#1A211B] hover:border-[#A9492D]/50 dark:hover:border-[#E27A54]/50 transition-colors"
                   >
                     <div className="space-y-0.5">
                       <div className="flex items-center gap-2">
-                        <span className="font-mono font-semibold text-xs text-[#172033] dark:text-white">
+                        <span className="font-mono font-semibold text-xs text-[#1C241F] dark:text-white">
                           {alert.id}
                         </span>
                         <span
@@ -377,12 +377,12 @@ export const IndicatorDetailModal: React.FC<IndicatorDetailModalProps> = ({
                         >
                           {alert.severity}
                         </span>
-                        <span className="rounded bg-[#EEF4FA] dark:bg-[#1B2A41] px-1.5 py-0.5 text-[10px] font-mono text-[#64748B] dark:text-[#94A3B8] border border-[#DCE5EF] dark:border-[#29384D]">
+                        <span className="rounded bg-[#E1DED1] dark:bg-[#252C24] px-1.5 py-0.5 text-[10px] font-mono text-[#58635A] dark:text-[#A8B09F] border border-[#CDCFC2] dark:border-[#3A443A]">
                           {alert.status}
                         </span>
                       </div>
-                      <p className="text-xs text-[#172033] dark:text-white font-medium">{alert.title}</p>
-                      <p className="text-[11px] text-[#64748B] dark:text-[#94A3B8] font-mono">
+                      <p className="text-xs text-[#1C241F] dark:text-white font-medium">{alert.title}</p>
+                      <p className="text-[11px] text-[#58635A] dark:text-[#A8B09F] font-mono">
                         Host: {alert.affectedHost} &bull; Analyst: {alert.assignedAnalyst || 'Unassigned'}
                       </p>
                     </div>
@@ -394,7 +394,7 @@ export const IndicatorDetailModal: React.FC<IndicatorDetailModalProps> = ({
                           onClose();
                           onNavigateToAlert(alert.id);
                         }}
-                        className="inline-flex items-center gap-1 rounded bg-[#007FA8]/10 dark:bg-[#00C2FF]/15 px-2.5 py-1 text-xs font-semibold text-[#007FA8] dark:text-[#00C2FF] border border-[#007FA8]/30 dark:border-[#00C2FF]/30 hover:bg-[#007FA8]/20 dark:hover:bg-[#00C2FF]/25 transition-colors self-start sm:self-center"
+                        className="inline-flex items-center gap-1 rounded bg-[#A9492D]/10 dark:bg-[#E27A54]/15 px-2.5 py-1 text-xs font-semibold text-[#A9492D] dark:text-[#E27A54] border border-[#A9492D]/30 dark:border-[#E27A54]/30 hover:bg-[#A9492D]/20 dark:hover:bg-[#E27A54]/25 transition-colors self-start sm:self-center"
                       >
                         <span>Investigate Alert</span>
                         <ArrowRight className="h-3 w-3" />
@@ -404,7 +404,7 @@ export const IndicatorDetailModal: React.FC<IndicatorDetailModalProps> = ({
                 ))}
               </div>
             ) : (
-              <div className="p-3 rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#111C2E] text-[#64748B] dark:text-[#94A3B8] text-xs italic">
+              <div className="p-3 rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#0D120F] text-[#58635A] dark:text-[#A8B09F] text-xs italic">
                 No correlated SOC alerts recorded for this indicator.
               </div>
             )}
@@ -412,7 +412,7 @@ export const IndicatorDetailModal: React.FC<IndicatorDetailModalProps> = ({
 
           {/* Correlated Security Events Section */}
           <div className="space-y-2">
-            <h3 className="font-semibold text-[#172033] dark:text-white text-xs flex items-center gap-1.5">
+            <h3 className="font-semibold text-[#1C241F] dark:text-white text-xs flex items-center gap-1.5">
               <FileCode className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400" />
               Correlated Telemetry Events ({linkedEvents.length})
             </h3>
@@ -421,22 +421,22 @@ export const IndicatorDetailModal: React.FC<IndicatorDetailModalProps> = ({
                 {linkedEvents.map((event) => (
                   <div
                     key={event.id}
-                    className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-3 rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] hover:border-[#007FA8]/50 dark:hover:border-[#00C2FF]/50 transition-colors"
+                    className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-3 rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#1A211B] hover:border-[#A9492D]/50 dark:hover:border-[#E27A54]/50 transition-colors"
                   >
                     <div className="space-y-0.5">
                       <div className="flex items-center gap-2">
-                        <span className="font-mono font-semibold text-xs text-[#172033] dark:text-white">
+                        <span className="font-mono font-semibold text-xs text-[#1C241F] dark:text-white">
                           {event.id}
                         </span>
-                        <span className="rounded bg-[#EEF4FA] dark:bg-[#1B2A41] px-1.5 py-0.5 text-[10px] font-mono text-[#007FA8] dark:text-[#00C2FF] border border-[#DCE5EF] dark:border-[#29384D]">
+                        <span className="rounded bg-[#E1DED1] dark:bg-[#252C24] px-1.5 py-0.5 text-[10px] font-mono text-[#A9492D] dark:text-[#E27A54] border border-[#CDCFC2] dark:border-[#3A443A]">
                           {event.sourceSystem}
                         </span>
-                        <span className="text-[11px] font-mono text-[#64748B] dark:text-[#94A3B8]">
+                        <span className="text-[11px] font-mono text-[#58635A] dark:text-[#A8B09F]">
                           {event.timestamp.slice(11, 19)} UTC
                         </span>
                       </div>
-                      <p className="text-xs text-[#172033] dark:text-white font-medium">{event.ruleName}</p>
-                      <p className="text-[11px] text-[#64748B] dark:text-[#94A3B8] font-mono">
+                      <p className="text-xs text-[#1C241F] dark:text-white font-medium">{event.ruleName}</p>
+                      <p className="text-[11px] text-[#58635A] dark:text-[#A8B09F] font-mono">
                         {event.host} &bull; {event.sourceIp} &rarr; {event.destinationIp}
                       </p>
                     </div>
@@ -448,7 +448,7 @@ export const IndicatorDetailModal: React.FC<IndicatorDetailModalProps> = ({
                           onClose();
                           onNavigateToEvent(event.id);
                         }}
-                        className="inline-flex items-center gap-1 rounded bg-[#EEF4FA] dark:bg-[#1B2A41] px-2.5 py-1 text-xs font-semibold text-[#172033] dark:text-white border border-[#DCE5EF] dark:border-[#29384D] hover:bg-[#EDF5FA] dark:hover:bg-[#20324A] transition-colors self-start sm:self-center"
+                        className="inline-flex items-center gap-1 rounded bg-[#E1DED1] dark:bg-[#252C24] px-2.5 py-1 text-xs font-semibold text-[#1C241F] dark:text-white border border-[#CDCFC2] dark:border-[#3A443A] hover:bg-[#E5E2D8] dark:hover:bg-[#303A31] transition-colors self-start sm:self-center"
                       >
                         <span>View in Explorer</span>
                         <ArrowRight className="h-3 w-3" />
@@ -458,7 +458,7 @@ export const IndicatorDetailModal: React.FC<IndicatorDetailModalProps> = ({
                 ))}
               </div>
             ) : (
-              <div className="p-3 rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#111C2E] text-[#64748B] dark:text-[#94A3B8] text-xs italic">
+              <div className="p-3 rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#0D120F] text-[#58635A] dark:text-[#A8B09F] text-xs italic">
                 No associated telemetry events indexed for this indicator.
               </div>
             )}
@@ -466,14 +466,14 @@ export const IndicatorDetailModal: React.FC<IndicatorDetailModalProps> = ({
         </div>
 
         {/* Modal Footer */}
-        <div className="flex items-center justify-between p-4 border-t border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#111C2E]">
-          <span className="text-[11px] text-[#64748B] dark:text-[#94A3B8] font-mono">
+        <div className="flex items-center justify-between p-4 border-t border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#0D120F]">
+          <span className="text-[11px] text-[#58635A] dark:text-[#A8B09F] font-mono">
             CyberGuard SOC Lab &bull; Threat Intelligence v4
           </span>
           <button
             type="button"
             onClick={onClose}
-            className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#1B2A41] px-4 py-1.5 text-xs font-semibold text-[#172033] dark:text-white hover:bg-[#EEF4FA] dark:hover:bg-[#20324A] transition-colors focus:outline-none focus:ring-2 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF]"
+            className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#252C24] px-4 py-1.5 text-xs font-semibold text-[#1C241F] dark:text-white hover:bg-[#E1DED1] dark:hover:bg-[#303A31] transition-colors focus:outline-none focus:ring-2 focus:ring-[#A9492D] dark:focus:ring-[#E27A54]"
           >
             Close Inspector
           </button>

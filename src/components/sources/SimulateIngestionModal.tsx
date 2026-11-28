@@ -79,20 +79,20 @@ export const SimulateIngestionModal: React.FC<SimulateIngestionModalProps> = ({
       aria-modal="true"
       aria-labelledby="simulate-ingestion-title"
     >
-      <div className="relative w-full max-w-2xl rounded-2xl border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] text-[#172033] dark:text-[#F8FAFC] shadow-2xl overflow-hidden my-8">
+      <div className="relative w-full max-w-2xl rounded-2xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#1A211B] text-[#1C241F] dark:text-[#F0EFE6] shadow-2xl overflow-hidden my-8">
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-[#DCE5EF] dark:border-[#29384D] px-6 py-4 bg-[#F4F7FB] dark:bg-[#111C2E]">
+        <div className="flex items-center justify-between border-b border-[#CDCFC2] dark:border-[#3A443A] px-6 py-4 bg-[#E9E5D9] dark:bg-[#0D120F]">
           <div className="flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-cyan-50 dark:bg-cyan-950/80 border border-cyan-200 dark:border-cyan-800/40 text-cyan-600 dark:text-cyan-400">
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-signal-50 dark:bg-signal-950/80 border border-signal-200 dark:border-signal-800/40 text-signal-600 dark:text-signal-400">
               <Database className="h-5 w-5" />
             </div>
             <div>
-              <h2 id="simulate-ingestion-title" className="text-base font-semibold text-[#172033] dark:text-[#F8FAFC]">
+              <h2 id="simulate-ingestion-title" className="text-base font-semibold text-[#1C241F] dark:text-[#F0EFE6]">
                 Simulate Log Ingestion
               </h2>
-              <p className="text-xs text-[#64748B] dark:text-[#94A3B8]">
+              <p className="text-xs text-[#58635A] dark:text-[#A8B09F]">
                 Generate synthetic security events for{' '}
-                <span className="font-semibold text-cyan-600 dark:text-cyan-300">{source.name}</span>
+                <span className="font-semibold text-signal-600 dark:text-signal-300">{source.name}</span>
               </p>
             </div>
           </div>
@@ -100,7 +100,7 @@ export const SimulateIngestionModal: React.FC<SimulateIngestionModalProps> = ({
             type="button"
             onClick={handleResetDialog}
             aria-label="Close dialog"
-            className="rounded-lg p-1.5 text-[#64748B] dark:text-[#94A3B8] hover:bg-[#EEF4FA] dark:hover:bg-[#1B2A41] hover:text-[#172033] dark:text-[#F8FAFC] transition-colors"
+            className="rounded-lg p-1.5 text-[#58635A] dark:text-[#A8B09F] hover:bg-[#E1DED1] dark:hover:bg-[#252C24] hover:text-[#1C241F] dark:text-[#F0EFE6] transition-colors"
           >
             <X className="h-5 w-5" />
           </button>
@@ -109,10 +109,10 @@ export const SimulateIngestionModal: React.FC<SimulateIngestionModalProps> = ({
         {/* Content */}
         <div className="p-6 space-y-5">
           {/* Simulated Disclaimer Banner */}
-          <div className="rounded-xl border border-cyan-200 dark:border-cyan-900/60 bg-cyan-50/80 dark:bg-cyan-950/30 p-3.5 text-xs text-cyan-900 dark:text-cyan-300 flex items-start gap-2.5">
-            <Sparkles className="h-4 w-4 text-cyan-600 dark:text-cyan-400 shrink-0 mt-0.5" />
+          <div className="rounded-xl border border-signal-200 dark:border-signal-900/60 bg-signal-50/80 dark:bg-signal-950/30 p-3.5 text-xs text-signal-900 dark:text-signal-300 flex items-start gap-2.5">
+            <Sparkles className="h-4 w-4 text-signal-600 dark:text-signal-400 shrink-0 mt-0.5" />
             <div>
-              <span className="font-semibold text-cyan-800 dark:text-cyan-200">Demonstration Pipeline:</span> Synthetic
+              <span className="font-semibold text-signal-800 dark:text-signal-200">Demonstration Pipeline:</span> Synthetic
               events are generated purely in memory for testing SOC correlation and Sigma detection
               rules. No live network probes or external endpoints are contacted.
             </div>
@@ -130,7 +130,7 @@ export const SimulateIngestionModal: React.FC<SimulateIngestionModalProps> = ({
                     ? 'Collection Paused'
                     : 'Data Source Disabled'}
                 </h3>
-                <p className="mt-1 text-[#64748B] dark:text-[#94A3B8] leading-relaxed">
+                <p className="mt-1 text-[#58635A] dark:text-[#A8B09F] leading-relaxed">
                   {!simulationEnabled
                     ? 'Synthetic event generation is currently paused in Settings. Re-enable Simulation Mode in Settings to ingest new telemetry.'
                     : source.isPaused
@@ -142,21 +142,21 @@ export const SimulateIngestionModal: React.FC<SimulateIngestionModalProps> = ({
           )}
 
           {/* Source Overview Mini-Card */}
-          <div className="rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-[#F8FAFC] dark:bg-[#111C2E] p-4 grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs">
+          <div className="rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F0EFE6] dark:bg-[#0D120F] p-4 grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs">
             <div>
-              <span className="text-[#64748B] dark:text-[#94A3B8] block text-[11px]">Source Type:</span>
-              <span className="font-semibold text-[#172033] dark:text-[#F8FAFC]">{source.sourceType}</span>
+              <span className="text-[#58635A] dark:text-[#A8B09F] block text-[11px]">Source Type:</span>
+              <span className="font-semibold text-[#1C241F] dark:text-[#F0EFE6]">{source.sourceType}</span>
             </div>
             <div>
-              <span className="text-[#64748B] dark:text-[#94A3B8] block text-[11px]">Endpoint / Host:</span>
-              <span className="font-mono text-cyan-600 dark:text-cyan-300 truncate block">{source.hostname}</span>
+              <span className="text-[#58635A] dark:text-[#A8B09F] block text-[11px]">Endpoint / Host:</span>
+              <span className="font-mono text-signal-600 dark:text-signal-300 truncate block">{source.hostname}</span>
             </div>
             <div>
-              <span className="text-[#64748B] dark:text-[#94A3B8] block text-[11px]">Log Format:</span>
-              <span className="text-[#172033] dark:text-[#F8FAFC] truncate block">{source.logFormat}</span>
+              <span className="text-[#58635A] dark:text-[#A8B09F] block text-[11px]">Log Format:</span>
+              <span className="text-[#1C241F] dark:text-[#F0EFE6] truncate block">{source.logFormat}</span>
             </div>
             <div>
-              <span className="text-[#64748B] dark:text-[#94A3B8] block text-[11px]">Health Status:</span>
+              <span className="text-[#58635A] dark:text-[#A8B09F] block text-[11px]">Health Status:</span>
               <span
                 className={`inline-block font-semibold ${
                   source.status === 'Healthy'
@@ -170,12 +170,12 @@ export const SimulateIngestionModal: React.FC<SimulateIngestionModalProps> = ({
               </span>
             </div>
             <div>
-              <span className="text-[#64748B] dark:text-[#94A3B8] block text-[11px]">Current Total Events:</span>
-              <span className="font-mono text-[#172033] dark:text-white font-bold">{source.eventsIngested.toLocaleString()}</span>
+              <span className="text-[#58635A] dark:text-[#A8B09F] block text-[11px]">Current Total Events:</span>
+              <span className="font-mono text-[#1C241F] dark:text-white font-bold">{source.eventsIngested.toLocaleString()}</span>
             </div>
             <div>
-              <span className="text-[#64748B] dark:text-[#94A3B8] block text-[11px]">Collector State:</span>
-              <span className="font-mono text-[#172033] dark:text-[#94A3B8]">
+              <span className="text-[#58635A] dark:text-[#A8B09F] block text-[11px]">Collector State:</span>
+              <span className="font-mono text-[#1C241F] dark:text-[#A8B09F]">
                 {source.isPaused ? 'Paused' : source.enabled ? 'Streaming' : 'Offline'}
               </span>
             </div>
@@ -185,7 +185,7 @@ export const SimulateIngestionModal: React.FC<SimulateIngestionModalProps> = ({
             <>
               {/* Batch Size Selector */}
               <div>
-                <label className="text-xs font-semibold text-[#172033] dark:text-[#F8FAFC] block mb-2">
+                <label className="text-xs font-semibold text-[#1C241F] dark:text-[#F0EFE6] block mb-2">
                   Select Event Batch Size:
                 </label>
                 <div className="grid grid-cols-4 gap-2.5">
@@ -197,23 +197,23 @@ export const SimulateIngestionModal: React.FC<SimulateIngestionModalProps> = ({
                       onClick={() => setBatchSize(size)}
                       className={`flex flex-col items-center justify-center p-3 rounded-xl border text-xs font-medium transition-all ${
                         batchSize === size
-                          ? 'border-cyan-500 bg-cyan-50 dark:bg-cyan-950/60 text-cyan-700 dark:text-cyan-200 shadow-xs font-bold'
-                          : 'border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#111C2E] text-[#64748B] dark:text-[#94A3B8] hover:border-cyan-300 dark:hover:border-[#384A63] hover:text-[#172033] dark:hover:text-[#F8FAFC]'
+                          ? 'border-signal-500 bg-signal-50 dark:bg-signal-950/60 text-signal-700 dark:text-signal-200 shadow-xs font-bold'
+                          : 'border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#0D120F] text-[#58635A] dark:text-[#A8B09F] hover:border-signal-300 dark:hover:border-[#526047] hover:text-[#1C241F] dark:hover:text-[#F0EFE6]'
                       } ${isBlocked ? 'opacity-50 cursor-not-allowed' : ''}`}
                     >
                       <span className="text-base font-mono">{size}</span>
-                      <span className="text-[10px] text-[#64748B] dark:text-[#94A3B8] font-normal">Events</span>
+                      <span className="text-[10px] text-[#58635A] dark:text-[#A8B09F] font-normal">Events</span>
                     </button>
                   ))}
                 </div>
               </div>
 
               {/* Ingestion Preview */}
-              <div className="rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-[#F8FAFC] dark:bg-[#111C2E] p-3.5 text-xs">
-                <span className="font-semibold text-[#172033] dark:text-[#F8FAFC] block mb-1">
+              <div className="rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F0EFE6] dark:bg-[#0D120F] p-3.5 text-xs">
+                <span className="font-semibold text-[#1C241F] dark:text-[#F0EFE6] block mb-1">
                   Synthetic Telemetry Content Preview:
                 </span>
-                <p className="text-[#64748B] dark:text-[#94A3B8] leading-relaxed text-[11px]">
+                <p className="text-[#58635A] dark:text-[#A8B09F] leading-relaxed text-[11px]">
                   Generates realistic {source.sourceType} telemetry formatted to RFC specifications,
                   including process execution details, network ports, authentication outcomes, and
                   MITRE ATT&CK technique mappings compatible with active Sigma detection rules.
@@ -229,9 +229,9 @@ export const SimulateIngestionModal: React.FC<SimulateIngestionModalProps> = ({
                   <h3 className="font-semibold text-emerald-800 dark:text-emerald-200 text-sm">
                     Simulated Ingestion Complete
                   </h3>
-                  <p className="mt-0.5 text-[#64748B] dark:text-[#94A3B8]">
+                  <p className="mt-0.5 text-[#58635A] dark:text-[#A8B09F]">
                     Successfully ingested{' '}
-                    <span className="font-bold text-[#172033] dark:text-white font-mono">
+                    <span className="font-bold text-[#1C241F] dark:text-white font-mono">
                       {ingestionResult.events.length}
                     </span>{' '}
                     events into the CyberGuard SOC pipeline.
@@ -241,17 +241,17 @@ export const SimulateIngestionModal: React.FC<SimulateIngestionModalProps> = ({
 
               {/* Sample of generated events */}
               <div>
-                <span className="text-xs font-semibold text-[#172033] dark:text-[#F8FAFC] block mb-2">
+                <span className="text-xs font-semibold text-[#1C241F] dark:text-[#F0EFE6] block mb-2">
                   Ingested Events Preview (First {Math.min(3, ingestionResult.events.length)}):
                 </span>
                 <div className="space-y-2 max-h-48 overflow-y-auto">
                   {ingestionResult.events.slice(0, 3).map((evt) => (
                     <div
                       key={evt.id}
-                      className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F8FAFC] dark:bg-[#111C2E] p-2.5 text-xs font-mono"
+                      className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F0EFE6] dark:bg-[#0D120F] p-2.5 text-xs font-mono"
                     >
                       <div className="flex items-center justify-between text-[11px]">
-                        <span className="text-cyan-600 dark:text-cyan-400 font-bold">{evt.id}</span>
+                        <span className="text-signal-600 dark:text-signal-400 font-bold">{evt.id}</span>
                         <span
                           className={`px-1.5 py-0.2 rounded text-[10px] font-semibold uppercase ${
                             evt.severity === 'critical'
@@ -264,15 +264,15 @@ export const SimulateIngestionModal: React.FC<SimulateIngestionModalProps> = ({
                           {evt.severity}
                         </span>
                       </div>
-                      <p className="text-[#172033] dark:text-[#94A3B8] text-[11px] mt-1 font-sans truncate">
+                      <p className="text-[#1C241F] dark:text-[#A8B09F] text-[11px] mt-1 font-sans truncate">
                         {evt.ruleName}
                       </p>
-                      <div className="mt-1 flex items-center gap-2 text-[10px] text-[#64748B] dark:text-[#94A3B8]">
+                      <div className="mt-1 flex items-center gap-2 text-[10px] text-[#58635A] dark:text-[#A8B09F]">
                         <span>Host: {evt.host}</span>
                         <span>&bull;</span>
                         <span>Action: {evt.action}</span>
                         <span>&bull;</span>
-                        <span className="text-cyan-600 dark:text-cyan-400">{evt.mitreTechnique}</span>
+                        <span className="text-signal-600 dark:text-signal-400">{evt.mitreTechnique}</span>
                       </div>
                     </div>
                   ))}
@@ -283,11 +283,11 @@ export const SimulateIngestionModal: React.FC<SimulateIngestionModalProps> = ({
         </div>
 
         {/* Footer Actions */}
-        <div className="flex items-center justify-between border-t border-[#DCE5EF] dark:border-[#29384D] px-6 py-4 bg-[#F4F7FB] dark:bg-[#111C2E]">
+        <div className="flex items-center justify-between border-t border-[#CDCFC2] dark:border-[#3A443A] px-6 py-4 bg-[#E9E5D9] dark:bg-[#0D120F]">
           <button
             type="button"
             onClick={handleResetDialog}
-            className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] px-4 py-2 text-xs font-medium text-[#172033] dark:text-[#F8FAFC] hover:bg-[#EEF4FA] dark:hover:bg-[#1B2A41] transition-colors"
+            className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#1A211B] px-4 py-2 text-xs font-medium text-[#1C241F] dark:text-[#F0EFE6] hover:bg-[#E1DED1] dark:hover:bg-[#252C24] transition-colors"
           >
             {ingestionResult ? 'Close' : 'Cancel'}
           </button>
@@ -297,7 +297,7 @@ export const SimulateIngestionModal: React.FC<SimulateIngestionModalProps> = ({
               type="button"
               disabled={isBlocked || isIngesting}
               onClick={handleStartIngestion}
-              className="inline-flex items-center gap-2 rounded-lg bg-cyan-600 px-4 py-2 text-xs font-semibold text-white hover:bg-cyan-500 transition-colors shadow-xs disabled:opacity-50 disabled:cursor-not-allowed focus:ring-2 focus:ring-cyan-400"
+              className="inline-flex items-center gap-2 rounded-lg bg-signal-600 px-4 py-2 text-xs font-semibold text-white hover:bg-signal-500 transition-colors shadow-xs disabled:opacity-50 disabled:cursor-not-allowed focus:ring-2 focus:ring-signal-400"
             >
               <Play className={`h-3.5 w-3.5 ${isIngesting ? 'animate-pulse' : ''}`} />
               <span>{isIngesting ? 'Ingesting Events...' : `Ingest ${batchSize} Events`}</span>
@@ -311,7 +311,7 @@ export const SimulateIngestionModal: React.FC<SimulateIngestionModalProps> = ({
                     handleResetDialog();
                     onNavigateToExplorer(source.name);
                   }}
-                  className="inline-flex items-center gap-1.5 rounded-lg bg-cyan-600 px-3.5 py-2 text-xs font-semibold text-white hover:bg-cyan-500 transition-colors shadow-xs"
+                  className="inline-flex items-center gap-1.5 rounded-lg bg-signal-600 px-3.5 py-2 text-xs font-semibold text-white hover:bg-signal-500 transition-colors shadow-xs"
                 >
                   <span>View in Event Explorer</span>
                   <ArrowRight className="h-3.5 w-3.5" />

@@ -23,6 +23,7 @@ import {
   executeResetScope,
 } from './settings';
 import { ApplicationSettings } from '../types/soc';
+import { MOCK_INCIDENT_REPORTS } from '../data/mockReportsData';
 
 // Mock localStorage for Node.js test environment
 class MockLocalStorage {
@@ -260,7 +261,7 @@ describe('Settings & Simulation Controls (Stage 10)', () => {
   });
 
   // 12. Import preview and validation
-  test('12. Import preview and validation accurately counts records in preview before applying', () => {
+  test('12. Import preview validates record shapes and accurately counts records', () => {
     const validBackup = JSON.stringify({
       backupMetadata: {
         appName: 'CyberGuard SOC Lab',
@@ -269,8 +270,38 @@ describe('Settings & Simulation Controls (Stage 10)', () => {
         exportTimestamp: '2026-11-03T07:00:00Z',
       },
       settings: DEFAULT_APPLICATION_SETTINGS,
-      alerts: [{ id: 'ALT-1' }, { id: 'ALT-2' }],
-      events: [{ id: 'EVT-1' }],
+      alerts: ['ALT-1', 'ALT-2'].map((id) => ({
+        id,
+        title: 'Synthetic alert',
+        description: 'Demonstration alert record',
+        severity: 'high',
+        status: 'New',
+        createdAt: '2026-11-03T07:00:00Z',
+        affectedHost: 'lab-host-01',
+        detectionRuleId: 'RULE-1',
+        detectionRuleName: 'Synthetic rule',
+        relatedEventIds: [],
+        assignedAnalyst: null,
+        investigationNotes: [],
+        isSimulated: true,
+      })),
+      events: [{
+        id: 'EVT-1',
+        timestamp: '2026-11-03T07:00:00Z',
+        ruleName: 'Synthetic event',
+        ruleId: 'RULE-1',
+        severity: 'medium',
+        sourceSystem: 'Synthetic Collector',
+        category: 'Execution',
+        mitreTechnique: 'T1059',
+        mitreTactic: 'Execution',
+        sourceIp: '192.0.2.1',
+        destinationIp: '192.0.2.2',
+        host: 'lab-host-01',
+        action: 'Logged',
+        details: {},
+        isSimulated: true,
+      }],
     });
 
     const result = validateImportPayload(validBackup);
@@ -279,6 +310,59 @@ describe('Settings & Simulation Controls (Stage 10)', () => {
     assert.equal(result.preview?.categoriesFound.alertsCount, 2);
     assert.equal(result.preview?.categoriesFound.eventsCount, 1);
     assert.equal(result.preview?.categoriesFound.incidentsCount, 0);
+
+    const invalidSettings = validateImportPayload(JSON.stringify({
+      backupMetadata: { schemaVersion: 'v1' },
+      settings: {},
+    }));
+    assert.equal(invalidSettings.isValid, false);
+
+    const invalidAlert = validateImportPayload(JSON.stringify({
+      backupMetadata: { schemaVersion: 'v1' },
+      alerts: [null],
+    }));
+    assert.equal(invalidAlert.isValid, false);
+
+    const invalidSourceHistory = validateImportPayload(JSON.stringify({
+      backupMetadata: { schemaVersion: 'v1' },
+      sources: [{
+        id: 'SRC-1',
+        name: 'Synthetic source',
+        sourceType: 'Windows Event Log',
+        typeId: 'windows-event-log',
+        description: 'Synthetic source',
+        status: 'Healthy',
+        hostname: 'lab-host-01',
+        logFormat: 'JSON',
+        lastEventReceived: '2026-11-03T07:00:00Z',
+        lastConnectionCheck: '2026-11-03T07:00:00Z',
+        eventsIngested: 0,
+        collectionInterval: '1m',
+        enabled: true,
+        isPaused: false,
+        healthMessage: 'Synthetic',
+        createdAt: '2026-11-03T07:00:00Z',
+        isSimulated: true,
+        connectionHistory: [null],
+      }],
+    }));
+    assert.equal(invalidSourceHistory.isValid, false);
+
+    const reportWithInvalidNotes = JSON.parse(JSON.stringify(MOCK_INCIDENT_REPORTS[0]));
+    reportWithInvalidNotes.analystObservations = { unexpected: 'object' };
+    const invalidReportNotes = validateImportPayload(JSON.stringify({
+      backupMetadata: { schemaVersion: 'v1' },
+      reports: [reportWithInvalidNotes],
+    }));
+    assert.equal(invalidReportNotes.isValid, false);
+
+    const reportWithInvalidIndicatorScores = JSON.parse(JSON.stringify(MOCK_INCIDENT_REPORTS[0]));
+    delete reportWithInvalidIndicatorScores.correlatedIndicators[0].riskScore;
+    const invalidIndicatorScores = validateImportPayload(JSON.stringify({
+      backupMetadata: { schemaVersion: 'v1' },
+      reports: [reportWithInvalidIndicatorScores],
+    }));
+    assert.equal(invalidIndicatorScores.isValid, false);
   });
 
   // 13. Preference reset behaviour
