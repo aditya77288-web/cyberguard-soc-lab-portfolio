@@ -342,6 +342,9 @@ export function validateImportPayload(jsonString: string): ImportValidationResul
     );
   const hasRecordArray = (value: Record<string, any>, field: string) =>
     Array.isArray(value[field]) && value[field].every(isRecord);
+  const hasRecordArrayFields = (value: Record<string, any>, field: string, fields: string[]) =>
+    hasRecordArray(value, field) &&
+    value[field].every((item: Record<string, any>) => hasStringFields(item, fields));
   const hasSettingsShape = (value: unknown): boolean => {
     if (!isRecord(value) ||
         !hasStringFields(value, ['version', 'schemaVersion', 'updatedAt']) ||
@@ -421,6 +424,8 @@ export function validateImportPayload(jsonString: string): ImportValidationResul
             )
           ) &&
           isRecord(item.detection.condition) &&
+          hasStringFields(item.detection.condition, ['type']) &&
+          hasStringArrayFields(item.detection.condition, ['selections']) &&
           hasStringArrayFields(item, ['tags']);
       case 'incidents':
         return hasStringFields(item, [
@@ -431,9 +436,10 @@ export function validateImportPayload(jsonString: string): ImportValidationResul
             'relatedAlertIds', 'relatedEventIds', 'relatedIndicatorIds',
             'relatedDetectionRuleIds', 'relatedMitreTechniqueIds',
           ]) &&
-          ['investigationNotes', 'evidence', 'responseActions', 'timeline'].every((field) =>
-            hasRecordArray(item, field)
-          );
+          hasRecordArrayFields(item, 'investigationNotes', ['id', 'author', 'text', 'createdAt']) &&
+          hasRecordArrayFields(item, 'evidence', ['id', 'title', 'type', 'value', 'description', 'addedAt', 'addedBy']) &&
+          hasRecordArrayFields(item, 'responseActions', ['id', 'title', 'actionType', 'status', 'executedBy', 'timestamp']) &&
+          hasRecordArrayFields(item, 'timeline', ['id', 'timestamp', 'type', 'title', 'description', 'analyst']);
       case 'reports':
         return hasStringFields(item, [
           'id', 'incidentId', 'title', 'reportType', 'status', 'preparedBy',
@@ -444,11 +450,19 @@ export function validateImportPayload(jsonString: string): ImportValidationResul
           'findingsSummary', 'threatIntelSummary', 'mitreMappingSummary',
           'responseActionsSummary', 'impactAssessment', 'conclusion',
         ]) &&
-          ['dataSourcesExamined', 'timelineSummary', 'findings', 'correlatedIndicators',
-            'correlatedTechniques', 'recordedActions', 'recommendations', 'relatedAlerts',
-            'relatedEvents', 'evidenceList', 'analystNotes'].every((field) =>
-            hasRecordArray(item, field) || hasStringArrayFields(item, [field])
-          );
+          hasStringArrayFields(item, ['dataSourcesExamined']) &&
+          hasRecordArrayFields(item, 'timelineSummary', ['timestamp', 'title', 'description', 'type']) &&
+          hasRecordArrayFields(item, 'findings', ['id', 'title', 'category', 'description', 'severity']) &&
+          hasRecordArrayFields(item, 'correlatedIndicators', ['id', 'type', 'value', 'defangedValue', 'riskClassification', 'reason']) &&
+          hasRecordArrayFields(item, 'correlatedTechniques', ['id', 'name', 'tactic', 'coverageStatus']) &&
+          item.correlatedTechniques.every((entry: Record<string, any>) => typeof entry.isCovered === 'boolean') &&
+          hasRecordArrayFields(item, 'recordedActions', ['id', 'title', 'type', 'status', 'executedBy', 'timestamp']) &&
+          hasRecordArrayFields(item, 'recommendations', ['id', 'title', 'description', 'priority', 'category']) &&
+          item.recommendations.every((entry: Record<string, any>) => typeof entry.isCompleted === 'boolean') &&
+          hasRecordArrayFields(item, 'relatedAlerts', ['id', 'title', 'severity', 'status', 'ruleId', 'affectedHost', 'createdAt']) &&
+          hasRecordArrayFields(item, 'relatedEvents', ['id', 'timestamp', 'category', 'sourceIp', 'destinationIp', 'sourceSystem', 'action']) &&
+          hasRecordArrayFields(item, 'evidenceList', ['id', 'title', 'type', 'value', 'description']) &&
+          hasRecordArrayFields(item, 'analystNotes', ['id', 'author', 'text', 'createdAt']);
       case 'sources':
         return hasStringFields(item, [
           'id', 'name', 'sourceType', 'typeId', 'description', 'status',
