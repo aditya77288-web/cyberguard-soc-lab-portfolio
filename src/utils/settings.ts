@@ -469,7 +469,16 @@ export function validateImportPayload(jsonString: string): ImportValidationResul
           'hostname', 'logFormat', 'lastEventReceived', 'lastConnectionCheck',
           'collectionInterval', 'healthMessage', 'createdAt',
         ]) && typeof item.eventsIngested === 'number' &&
-          typeof item.enabled === 'boolean' && typeof item.isPaused === 'boolean';
+          typeof item.enabled === 'boolean' && typeof item.isPaused === 'boolean' &&
+          (item.connectionHistory === undefined ||
+            (Array.isArray(item.connectionHistory) &&
+              item.connectionHistory.every((check: unknown) =>
+                isRecord(check) &&
+                hasStringFields(check, [
+                  'id', 'timestamp', 'result', 'message', 'simulatedEndpoint',
+                ]) &&
+                typeof check.latencyMs === 'number'
+              )));
       case 'ingestionLogs':
         return hasStringFields(item, [
           'id', 'sourceId', 'sourceName', 'startTime', 'completionTime', 'status',
