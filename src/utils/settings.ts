@@ -741,3 +741,4 @@ export function applyTheme(theme: 'dark' | 'light'): void {
     }
   } catch (_e) {}
 }
+

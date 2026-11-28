@@ -447,3 +447,4 @@ describe('Settings & Simulation Controls (Stage 10)', () => {
     assert.ok(info.totalEstimatedBytes > 0);
   });
 });
+
