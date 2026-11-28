@@ -77,18 +77,18 @@ export const CreateIncidentModal: React.FC<CreateIncidentModalProps> = ({
       aria-labelledby="create-incident-title"
       className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-black/60 dark:bg-black/75 backdrop-blur-xs animate-in fade-in duration-150"
     >
-      <div className="relative flex flex-col w-full max-w-2xl max-h-[92vh] overflow-hidden rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] shadow-2xl text-[#172033] dark:text-[#F8FAFC]">
+      <div className="relative flex flex-col w-full max-w-2xl max-h-[92vh] overflow-hidden rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#1A211B] shadow-2xl text-[#1C241F] dark:text-[#F0EFE6]">
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#111C2E] px-5 py-4">
+        <div className="flex items-center justify-between border-b border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#0D120F] px-5 py-4">
           <div className="flex items-center gap-2.5">
-            <div className="rounded-lg bg-[#007FA8]/10 dark:bg-[#00C2FF]/15 p-2 text-[#007FA8] dark:text-[#00C2FF] border border-[#007FA8]/30 dark:border-[#00C2FF]/30">
+            <div className="rounded-lg bg-[#A9492D]/10 dark:bg-[#E27A54]/15 p-2 text-[#A9492D] dark:text-[#E27A54] border border-[#A9492D]/30 dark:border-[#E27A54]/30">
               <ShieldAlert className="h-5 w-5" />
             </div>
             <div>
-              <h2 id="create-incident-title" className="text-base font-bold text-[#172033] dark:text-white">
+              <h2 id="create-incident-title" className="text-base font-bold text-[#1C241F] dark:text-white">
                 Declare Security Incident
               </h2>
-              <p className="text-xs text-[#64748B] dark:text-[#94A3B8]">
+              <p className="text-xs text-[#58635A] dark:text-[#A8B09F]">
                 Initiate a formal incident investigation ticket (Simulated)
               </p>
             </div>
@@ -97,7 +97,7 @@ export const CreateIncidentModal: React.FC<CreateIncidentModalProps> = ({
             type="button"
             onClick={onClose}
             aria-label="Close dialog"
-            className="rounded-lg p-1.5 text-[#64748B] dark:text-[#94A3B8] hover:bg-[#EEF4FA] dark:hover:bg-[#20324A] hover:text-[#172033] dark:hover:text-white transition-colors"
+            className="rounded-lg p-1.5 text-[#58635A] dark:text-[#A8B09F] hover:bg-[#E1DED1] dark:hover:bg-[#303A31] hover:text-[#1C241F] dark:hover:text-white transition-colors"
           >
             <X className="h-5 w-5" />
           </button>
@@ -114,7 +114,7 @@ export const CreateIncidentModal: React.FC<CreateIncidentModalProps> = ({
 
           {/* Title */}
           <div>
-            <label htmlFor="inc-title" className="block text-xs font-semibold uppercase tracking-wider text-[#64748B] dark:text-[#94A3B8] mb-1">
+            <label htmlFor="inc-title" className="block text-xs font-semibold uppercase tracking-wider text-[#58635A] dark:text-[#A8B09F] mb-1">
               Incident Title <span className="text-red-500 dark:text-red-400">*</span>
             </label>
             <input
@@ -127,13 +127,13 @@ export const CreateIncidentModal: React.FC<CreateIncidentModalProps> = ({
                 if (validationError) setValidationError(null);
               }}
               placeholder="e.g. Cobalt Strike Beaconing Detected on Engineering Bastion"
-              className="w-full rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#111C2E] px-3.5 py-2 text-xs text-[#172033] dark:text-[#F8FAFC] placeholder-[#8492A6] dark:placeholder-[#64748B] focus:border-[#007FA8] dark:focus:border-[#00C2FF] focus:outline-none focus:ring-1 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF]"
+              className="w-full rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#0D120F] px-3.5 py-2 text-xs text-[#1C241F] dark:text-[#F0EFE6] placeholder-[#798074] dark:placeholder-[#58635A] focus:border-[#A9492D] dark:focus:border-[#E27A54] focus:outline-none focus:ring-1 focus:ring-[#A9492D] dark:focus:ring-[#E27A54]"
             />
           </div>
 
           {/* Description */}
           <div>
-            <label htmlFor="inc-desc" className="block text-xs font-semibold uppercase tracking-wider text-[#64748B] dark:text-[#94A3B8] mb-1">
+            <label htmlFor="inc-desc" className="block text-xs font-semibold uppercase tracking-wider text-[#58635A] dark:text-[#A8B09F] mb-1">
               Incident Summary &amp; Scope <span className="text-red-500 dark:text-red-400">*</span>
             </label>
             <textarea
@@ -146,21 +146,21 @@ export const CreateIncidentModal: React.FC<CreateIncidentModalProps> = ({
                 if (validationError) setValidationError(null);
               }}
               placeholder="Provide preliminary assessment, indicators, affected systems, and threat vectors..."
-              className="w-full rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#111C2E] px-3.5 py-2 text-xs text-[#172033] dark:text-[#F8FAFC] placeholder-[#8492A6] dark:placeholder-[#64748B] focus:border-[#007FA8] dark:focus:border-[#00C2FF] focus:outline-none focus:ring-1 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF]"
+              className="w-full rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#0D120F] px-3.5 py-2 text-xs text-[#1C241F] dark:text-[#F0EFE6] placeholder-[#798074] dark:placeholder-[#58635A] focus:border-[#A9492D] dark:focus:border-[#E27A54] focus:outline-none focus:ring-1 focus:ring-[#A9492D] dark:focus:ring-[#E27A54]"
             />
           </div>
 
           {/* Severity & Priority */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label htmlFor="inc-severity" className="block text-xs font-semibold uppercase tracking-wider text-[#64748B] dark:text-[#94A3B8] mb-1">
+              <label htmlFor="inc-severity" className="block text-xs font-semibold uppercase tracking-wider text-[#58635A] dark:text-[#A8B09F] mb-1">
                 Incident Severity
               </label>
               <select
                 id="inc-severity"
                 value={severity}
                 onChange={(e) => setSeverity(e.target.value as SeverityLevel)}
-                className="w-full rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#111C2E] px-3 py-2 text-xs text-[#172033] dark:text-[#F8FAFC] focus:border-[#007FA8] dark:focus:border-[#00C2FF] focus:outline-none focus:ring-1 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF]"
+                className="w-full rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#0D120F] px-3 py-2 text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:border-[#A9492D] dark:focus:border-[#E27A54] focus:outline-none focus:ring-1 focus:ring-[#A9492D] dark:focus:ring-[#E27A54]"
               >
                 <option value="critical">Critical (Immediate containment required)</option>
                 <option value="high">High (Elevated threat or persistent vector)</option>
@@ -170,14 +170,14 @@ export const CreateIncidentModal: React.FC<CreateIncidentModalProps> = ({
             </div>
 
             <div>
-              <label htmlFor="inc-priority" className="block text-xs font-semibold uppercase tracking-wider text-[#64748B] dark:text-[#94A3B8] mb-1">
+              <label htmlFor="inc-priority" className="block text-xs font-semibold uppercase tracking-wider text-[#58635A] dark:text-[#A8B09F] mb-1">
                 Response Priority
               </label>
               <select
                 id="inc-priority"
                 value={priority}
                 onChange={(e) => setPriority(e.target.value as IncidentPriority)}
-                className="w-full rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#111C2E] px-3 py-2 text-xs text-[#172033] dark:text-[#F8FAFC] focus:border-[#007FA8] dark:focus:border-[#00C2FF] focus:outline-none focus:ring-1 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF]"
+                className="w-full rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#0D120F] px-3 py-2 text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:border-[#A9492D] dark:focus:border-[#E27A54] focus:outline-none focus:ring-1 focus:ring-[#A9492D] dark:focus:ring-[#E27A54]"
               >
                 {INCIDENT_PRIORITIES.map((p) => (
                   <option key={p} value={p}>
@@ -191,14 +191,14 @@ export const CreateIncidentModal: React.FC<CreateIncidentModalProps> = ({
           {/* Category & Affected Host */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label htmlFor="inc-category" className="block text-xs font-semibold uppercase tracking-wider text-[#64748B] dark:text-[#94A3B8] mb-1">
+              <label htmlFor="inc-category" className="block text-xs font-semibold uppercase tracking-wider text-[#58635A] dark:text-[#A8B09F] mb-1">
                 Threat Category
               </label>
               <select
                 id="inc-category"
                 value={category}
                 onChange={(e) => setCategory(e.target.value as IncidentCategory)}
-                className="w-full rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#111C2E] px-3 py-2 text-xs text-[#172033] dark:text-[#F8FAFC] focus:border-[#007FA8] dark:focus:border-[#00C2FF] focus:outline-none focus:ring-1 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF]"
+                className="w-full rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#0D120F] px-3 py-2 text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:border-[#A9492D] dark:focus:border-[#E27A54] focus:outline-none focus:ring-1 focus:ring-[#A9492D] dark:focus:ring-[#E27A54]"
               >
                 {INCIDENT_CATEGORIES.map((c) => (
                   <option key={c} value={c}>
@@ -209,7 +209,7 @@ export const CreateIncidentModal: React.FC<CreateIncidentModalProps> = ({
             </div>
 
             <div>
-              <label htmlFor="inc-host" className="block text-xs font-semibold uppercase tracking-wider text-[#64748B] dark:text-[#94A3B8] mb-1">
+              <label htmlFor="inc-host" className="block text-xs font-semibold uppercase tracking-wider text-[#58635A] dark:text-[#A8B09F] mb-1">
                 Affected Host / Asset
               </label>
               <div className="relative">
@@ -219,9 +219,9 @@ export const CreateIncidentModal: React.FC<CreateIncidentModalProps> = ({
                   value={affectedHost}
                   onChange={(e) => setAffectedHost(e.target.value)}
                   placeholder="e.g. lab-dc-01"
-                  className="w-full rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#111C2E] pl-8 pr-3 py-2 text-xs text-[#172033] dark:text-[#F8FAFC] focus:border-[#007FA8] dark:focus:border-[#00C2FF] focus:outline-none focus:ring-1 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF]"
+                  className="w-full rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#0D120F] pl-8 pr-3 py-2 text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:border-[#A9492D] dark:focus:border-[#E27A54] focus:outline-none focus:ring-1 focus:ring-[#A9492D] dark:focus:ring-[#E27A54]"
                 />
-                <Server className="absolute left-2.5 top-2.5 h-3.5 w-3.5 text-[#8492A6] dark:text-[#64748B]" />
+                <Server className="absolute left-2.5 top-2.5 h-3.5 w-3.5 text-[#798074] dark:text-[#58635A]" />
               </div>
             </div>
           </div>
@@ -229,7 +229,7 @@ export const CreateIncidentModal: React.FC<CreateIncidentModalProps> = ({
           {/* Detection Source & Assignee */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label htmlFor="inc-source" className="block text-xs font-semibold uppercase tracking-wider text-[#64748B] dark:text-[#94A3B8] mb-1">
+              <label htmlFor="inc-source" className="block text-xs font-semibold uppercase tracking-wider text-[#58635A] dark:text-[#A8B09F] mb-1">
                 Detection Source
               </label>
               <input
@@ -238,12 +238,12 @@ export const CreateIncidentModal: React.FC<CreateIncidentModalProps> = ({
                 value={detectionSource}
                 onChange={(e) => setDetectionSource(e.target.value)}
                 placeholder="e.g. Suricata NIDS, Wazuh FIM"
-                className="w-full rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#111C2E] px-3 py-2 text-xs text-[#172033] dark:text-[#F8FAFC] focus:border-[#007FA8] dark:focus:border-[#00C2FF] focus:outline-none focus:ring-1 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF]"
+                className="w-full rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#0D120F] px-3 py-2 text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:border-[#A9492D] dark:focus:border-[#E27A54] focus:outline-none focus:ring-1 focus:ring-[#A9492D] dark:focus:ring-[#E27A54]"
               />
             </div>
 
             <div>
-              <label htmlFor="inc-analyst" className="block text-xs font-semibold uppercase tracking-wider text-[#64748B] dark:text-[#94A3B8] mb-1">
+              <label htmlFor="inc-analyst" className="block text-xs font-semibold uppercase tracking-wider text-[#58635A] dark:text-[#A8B09F] mb-1">
                 Assigned Lead Analyst
               </label>
               <div className="relative">
@@ -251,7 +251,7 @@ export const CreateIncidentModal: React.FC<CreateIncidentModalProps> = ({
                   id="inc-analyst"
                   value={assignedAnalyst}
                   onChange={(e) => setAssignedAnalyst(e.target.value)}
-                  className="w-full rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#111C2E] pl-8 pr-3 py-2 text-xs text-[#172033] dark:text-[#F8FAFC] focus:border-[#007FA8] dark:focus:border-[#00C2FF] focus:outline-none focus:ring-1 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF]"
+                  className="w-full rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#0D120F] pl-8 pr-3 py-2 text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:border-[#A9492D] dark:focus:border-[#E27A54] focus:outline-none focus:ring-1 focus:ring-[#A9492D] dark:focus:ring-[#E27A54]"
                 >
                   {MOCK_ANALYSTS.map((a) => (
                     <option key={a} value={a}>
@@ -260,14 +260,14 @@ export const CreateIncidentModal: React.FC<CreateIncidentModalProps> = ({
                   ))}
                   <option value="unassigned">-- Unassigned --</option>
                 </select>
-                <User className="absolute left-2.5 top-2.5 h-3.5 w-3.5 text-[#8492A6] dark:text-[#64748B]" />
+                <User className="absolute left-2.5 top-2.5 h-3.5 w-3.5 text-[#798074] dark:text-[#58635A]" />
               </div>
             </div>
           </div>
 
           {/* Initial Note */}
           <div>
-            <label htmlFor="inc-note" className="block text-xs font-semibold uppercase tracking-wider text-[#64748B] dark:text-[#94A3B8] mb-1">
+            <label htmlFor="inc-note" className="block text-xs font-semibold uppercase tracking-wider text-[#58635A] dark:text-[#A8B09F] mb-1">
               Initial Investigation Note (Optional)
             </label>
             <textarea
@@ -276,30 +276,30 @@ export const CreateIncidentModal: React.FC<CreateIncidentModalProps> = ({
               value={initialNote}
               onChange={(e) => setInitialNote(e.target.value)}
               placeholder="Immediate triage notes, containment hypothesis, or escalation triggers..."
-              className="w-full rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F4F7FB] dark:bg-[#111C2E] px-3.5 py-2 text-xs text-[#172033] dark:text-[#F8FAFC] placeholder-[#8492A6] dark:placeholder-[#64748B] focus:border-[#007FA8] dark:focus:border-[#00C2FF] focus:outline-none focus:ring-1 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF]"
+              className="w-full rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E9E5D9] dark:bg-[#0D120F] px-3.5 py-2 text-xs text-[#1C241F] dark:text-[#F0EFE6] placeholder-[#798074] dark:placeholder-[#58635A] focus:border-[#A9492D] dark:focus:border-[#E27A54] focus:outline-none focus:ring-1 focus:ring-[#A9492D] dark:focus:ring-[#E27A54]"
             />
           </div>
 
           {/* Simulation disclaimer */}
-          <div className="rounded-lg border border-[#007FA8]/30 dark:border-[#00C2FF]/30 bg-[#007FA8]/10 dark:bg-[#00C2FF]/15 p-3 text-[11px] text-[#007FA8] dark:text-[#00C2FF] flex items-start gap-2">
-            <Sparkles className="h-3.5 w-3.5 shrink-0 text-[#007FA8] dark:text-[#00C2FF] mt-0.5" />
+          <div className="rounded-lg border border-[#A9492D]/30 dark:border-[#E27A54]/30 bg-[#A9492D]/10 dark:bg-[#E27A54]/15 p-3 text-[11px] text-[#A9492D] dark:text-[#E27A54] flex items-start gap-2">
+            <Sparkles className="h-3.5 w-3.5 shrink-0 text-[#A9492D] dark:text-[#E27A54] mt-0.5" />
             <span>
               Synthetic incident record stored with local browser persistence. No actual network isolation commands will be executed.
             </span>
           </div>
 
           {/* Footer buttons */}
-          <div className="flex items-center justify-end gap-2 pt-2 border-t border-[#DCE5EF] dark:border-[#29384D]">
+          <div className="flex items-center justify-end gap-2 pt-2 border-t border-[#CDCFC2] dark:border-[#3A443A]">
             <button
               type="button"
               onClick={onClose}
-              className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#1B2A41] px-4 py-2 text-xs font-semibold text-[#172033] dark:text-slate-300 hover:bg-[#DCE5EF] dark:hover:bg-[#20324A] transition-colors"
+              className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#252C24] px-4 py-2 text-xs font-semibold text-[#1C241F] dark:text-slate-300 hover:bg-[#CDCFC2] dark:hover:bg-[#303A31] transition-colors"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="inline-flex items-center gap-1.5 rounded-lg bg-[#007FA8] dark:bg-[#00C2FF] px-4 py-2 text-xs font-semibold text-white dark:text-[#0B1220] hover:bg-[#007FA8]/90 dark:hover:bg-[#38BDF8] shadow-xs transition-colors"
+              className="inline-flex items-center gap-1.5 rounded-lg bg-[#A9492D] dark:bg-[#E27A54] px-4 py-2 text-xs font-semibold text-white dark:text-[#111713] hover:bg-[#A9492D]/90 dark:hover:bg-[#C3D579] shadow-xs transition-colors"
             >
               <Plus className="h-4 w-4" />
               <span>Create Incident</span>

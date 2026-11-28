@@ -23,9 +23,9 @@ export const SummaryCard: React.FC<SummaryCardProps> = ({
 }) => {
   const colorMap = {
     cyan: {
-      border: 'hover:border-[#007FA8]/50 dark:hover:border-[#00C2FF]/50',
-      iconBg: 'bg-cyan-50 dark:bg-cyan-950/60 border-cyan-200 dark:border-cyan-500/30 text-[#007FA8] dark:text-[#00C2FF]',
-      topLine: 'from-[#007FA8] dark:from-[#00C2FF] to-transparent',
+      border: 'hover:border-[#A9492D]/50 dark:hover:border-[#E27A54]/50',
+      iconBg: 'bg-signal-50 dark:bg-signal-950/60 border-signal-200 dark:border-signal-500/30 text-[#A9492D] dark:text-[#E27A54]',
+      topLine: 'from-[#A9492D] dark:from-[#E27A54] to-transparent',
     },
     red: {
       border: 'hover:border-red-400 dark:hover:border-red-500/50',
@@ -58,7 +58,7 @@ export const SummaryCard: React.FC<SummaryCardProps> = ({
 
   return (
     <div
-      className={`group relative overflow-hidden rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] p-4 transition-all duration-150 shadow-xs ${style.border}`}
+      className={`group relative overflow-hidden rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#1A211B] p-4 transition-all duration-150 shadow-xs ${style.border}`}
     >
       {/* Subtle top indicator line */}
       <div
@@ -67,15 +67,15 @@ export const SummaryCard: React.FC<SummaryCardProps> = ({
 
       <div className="flex items-start justify-between">
         <div className="space-y-1">
-          <p className="text-xs font-semibold text-[#64748B] dark:text-[#94A3B8] tracking-wider uppercase">
+          <p className="text-xs font-semibold text-[#58635A] dark:text-[#A8B09F] tracking-wider uppercase">
             {label}
           </p>
           <div className="flex items-baseline gap-2">
-            <span className="text-2xl font-bold tracking-tight text-[#172033] dark:text-white font-mono">
+            <span className="text-2xl font-bold tracking-tight text-[#1C241F] dark:text-white font-mono">
               {value}
             </span>
             {badgeText && (
-              <span className="rounded bg-[#EEF4FA] dark:bg-[#1B2A41] px-1.5 py-0.5 text-[10px] font-mono font-medium text-[#64748B] dark:text-[#94A3B8] border border-[#DCE5EF] dark:border-[#29384D]">
+              <span className="rounded bg-[#E1DED1] dark:bg-[#252C24] px-1.5 py-0.5 text-[10px] font-mono font-medium text-[#58635A] dark:text-[#A8B09F] border border-[#CDCFC2] dark:border-[#3A443A]">
                 {badgeText}
               </span>
             )}
@@ -90,14 +90,14 @@ export const SummaryCard: React.FC<SummaryCardProps> = ({
       </div>
 
       {(subValue || trend) && (
-        <div className="mt-3 flex flex-wrap items-center justify-between gap-1 text-[11px] border-t border-[#DCE5EF] dark:border-[#29384D]/70 pt-2.5">
+        <div className="mt-3 flex flex-wrap items-center justify-between gap-1 text-[11px] border-t border-[#CDCFC2] dark:border-[#3A443A]/70 pt-2.5">
           {subValue && (
-            <span className="text-[#64748B] dark:text-[#94A3B8]">
+            <span className="text-[#58635A] dark:text-[#A8B09F]">
               {subValue}
             </span>
           )}
           {trend && (
-            <span className="font-mono text-[#007FA8] dark:text-[#00C2FF] font-medium">
+            <span className="font-mono text-[#A9492D] dark:text-[#E27A54] font-medium">
               {trend}
             </span>
           )}

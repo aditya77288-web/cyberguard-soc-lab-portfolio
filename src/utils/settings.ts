@@ -329,7 +329,49 @@ export function validateImportPayload(jsonString: string): ImportValidationResul
     }
   }
 
-  // Validate collection types
+  // Validate imported settings and records before they reach application state.
+  const isRecord = (value: unknown): value is Record<string, any> =>
+    !!value && typeof value === 'object' && !Array.isArray(value);
+  const hasStringFields = (value: Record<string, any>, fields: string[]) =>
+    fields.every((field) => typeof value[field] === 'string');
+  const hasBooleanFields = (value: Record<string, any>, fields: string[]) =>
+    fields.every((field) => typeof value[field] === 'boolean');
+  const hasFiniteNumberFields = (value: Record<string, any>, fields: string[]) =>
+    fields.every((field) => typeof value[field] === 'number' && Number.isFinite(value[field]));
+  const hasStringArrayFields = (value: Record<string, any>, fields: string[]) =>
+    fields.every((field) =>
+      Array.isArray(value[field]) && value[field].every((item: unknown) => typeof item === 'string')
+    );
+  const hasRecordArray = (value: Record<string, any>, field: string) =>
+    Array.isArray(value[field]) && value[field].every(isRecord);
+  const hasRecordArrayFields = (value: Record<string, any>, field: string, fields: string[]) =>
+    hasRecordArray(value, field) &&
+    value[field].every((item: Record<string, any>) => hasStringFields(item, fields));
+  const hasSettingsShape = (value: unknown): boolean => {
+    if (!isRecord(value) ||
+        !hasStringFields(value, ['version', 'schemaVersion', 'updatedAt']) ||
+        !isRecord(value.general) ||
+        !hasStringFields(value.general, ['analystDisplayName', 'dateFormat', 'timeFormat', 'timeZone', 'defaultLandingPage', 'tableDensity']) ||
+        !isRecord(value.dashboard) ||
+        !hasStringFields(value.dashboard, ['defaultTimeRange']) ||
+        !hasBooleanFields(value.dashboard, [
+          'showTotalEventsCard', 'showActiveAlertsCard', 'showCriticalAlertsCard',
+          'showOpenIncidentsCard', 'showDetectionRulesCard', 'showDataSourcesCard',
+          'showTrendChart', 'showSeverityDistribution', 'showRecentEvents', 'showDataSourceStatus',
+        ]) ||
+        !isRecord(value.simulation) ||
+        !hasStringFields(value.simulation, ['generationRateMode', 'severityDistribution']) ||
+        typeof value.simulation.simulationEnabled !== 'boolean' ||
+        typeof value.simulation.defaultBatchSize !== 'number' ||
+        !isRecord(value.notifications) ||
+        !hasBooleanFields(value.notifications, [
+          'criticalAlerts', 'highAlerts', 'newIncidents', 'sourceHealthWarnings', 'ingestionComplete',
+        ])) {
+      return false;
+    }
+    return value.general.theme === undefined || typeof value.general.theme === 'string';
+  };
+
   const categoriesFound = {
     settings: false,
     alertsCount: 0,
@@ -341,24 +383,132 @@ export function validateImportPayload(jsonString: string): ImportValidationResul
     ingestionLogsCount: 0,
   };
 
-  if (parsed.settings) {
-    if (typeof parsed.settings === 'object' && !Array.isArray(parsed.settings)) {
+  if (parsed.settings !== undefined) {
+    if (hasSettingsShape(parsed.settings)) {
       categoriesFound.settings = true;
     } else {
-      errors.push('Settings category must be a valid object.');
+      errors.push('Settings category is incomplete or contains invalid field types.');
     }
   }
 
-  const checkArrayCategory = (key: string, label: string): number => {
-    if (parsed[key] !== undefined) {
-      if (Array.isArray(parsed[key])) {
-        return parsed[key].length;
-      } else {
-        errors.push(`${label} must be an array of records.`);
-        return 0;
-      }
+  const recordIsValid = (key: string, item: unknown): boolean => {
+    if (!isRecord(item)) return false;
+    switch (key) {
+      case 'alerts':
+        return hasStringFields(item, [
+          'id', 'title', 'description', 'severity', 'status', 'createdAt',
+          'affectedHost', 'detectionRuleId', 'detectionRuleName',
+        ]) &&
+          (item.assignedAnalyst === null || typeof item.assignedAnalyst === 'string') &&
+          hasStringArrayFields(item, ['relatedEventIds']) &&
+          hasRecordArray(item, 'investigationNotes') &&
+          item.investigationNotes.every((note: Record<string, any>) =>
+            hasStringFields(note, ['id', 'author', 'text', 'createdAt'])
+          );
+      case 'events':
+        return hasStringFields(item, [
+          'id', 'timestamp', 'ruleName', 'ruleId', 'severity', 'sourceSystem',
+          'category', 'mitreTechnique', 'mitreTactic', 'sourceIp',
+          'destinationIp', 'host', 'action',
+        ]) && isRecord(item.details);
+      case 'rules':
+        return hasStringFields(item, [
+          'id', 'title', 'description', 'author', 'severity', 'status',
+          'category', 'createdAt', 'updatedAt', 'sigmaYamlSnippet',
+        ]) && typeof item.enabled === 'boolean' &&
+          isRecord(item.logsource) && isRecord(item.detection) &&
+          Array.isArray(item.detection.selections) &&
+          item.detection.selections.every((selection: unknown) =>
+            isRecord(selection) && typeof selection.name === 'string' &&
+            Array.isArray(selection.matchers) && selection.matchers.every((matcher: unknown) =>
+              isRecord(matcher) && typeof matcher.field === 'string' &&
+              typeof matcher.operator === 'string' && 'value' in matcher
+            )
+          ) &&
+          isRecord(item.detection.condition) &&
+          hasStringFields(item.detection.condition, ['type']) &&
+          hasStringArrayFields(item.detection.condition, ['selections']) &&
+          hasStringArrayFields(item, ['tags']);
+      case 'incidents':
+        return hasStringFields(item, [
+          'id', 'title', 'description', 'severity', 'priority', 'status',
+          'category', 'affectedHost', 'createdAt', 'updatedAt', 'detectionSource',
+        ]) && (item.assignedAnalyst === null || typeof item.assignedAnalyst === 'string') &&
+          hasStringArrayFields(item, [
+            'relatedAlertIds', 'relatedEventIds', 'relatedIndicatorIds',
+            'relatedDetectionRuleIds', 'relatedMitreTechniqueIds',
+          ]) &&
+          hasRecordArrayFields(item, 'investigationNotes', ['id', 'author', 'text', 'createdAt']) &&
+          hasRecordArrayFields(item, 'evidence', ['id', 'title', 'type', 'value', 'description', 'addedAt', 'addedBy']) &&
+          hasRecordArrayFields(item, 'responseActions', ['id', 'title', 'actionType', 'status', 'executedBy', 'timestamp']) &&
+          hasRecordArrayFields(item, 'timeline', ['id', 'timestamp', 'type', 'title', 'description', 'analyst']);
+      case 'reports':
+        return hasStringFields(item, [
+          'id', 'incidentId', 'title', 'reportType', 'status', 'preparedBy',
+          'createdAt', 'updatedAt', 'incidentSnapshotAt', 'incidentTitle',
+          'incidentSeverity', 'incidentPriority', 'incidentStatus',
+          'incidentCategory', 'affectedHost', 'classificationLabel',
+          'executiveSummary', 'incidentOverview', 'investigationScope',
+          'findingsSummary', 'threatIntelSummary', 'mitreMappingSummary',
+          'responseActionsSummary', 'impactAssessment', 'conclusion',
+        ]) &&
+          hasStringArrayFields(item, ['dataSourcesExamined']) &&
+          hasRecordArrayFields(item, 'timelineSummary', ['timestamp', 'title', 'description', 'type']) &&
+          hasRecordArrayFields(item, 'findings', ['id', 'title', 'category', 'description', 'severity']) &&
+          hasRecordArrayFields(item, 'correlatedIndicators', ['id', 'type', 'value', 'defangedValue', 'riskClassification', 'reason']) &&
+          item.correlatedIndicators.every((indicator: Record<string, any>) =>
+            hasFiniteNumberFields(indicator, ['riskScore', 'confidence'])
+          ) &&
+          hasRecordArrayFields(item, 'correlatedTechniques', ['id', 'name', 'tactic', 'coverageStatus']) &&
+          item.correlatedTechniques.every((entry: Record<string, any>) => typeof entry.isCovered === 'boolean') &&
+          hasRecordArrayFields(item, 'recordedActions', ['id', 'title', 'type', 'status', 'executedBy', 'timestamp']) &&
+          hasRecordArrayFields(item, 'recommendations', ['id', 'title', 'description', 'priority', 'category']) &&
+          item.recommendations.every((entry: Record<string, any>) => typeof entry.isCompleted === 'boolean') &&
+          hasRecordArrayFields(item, 'relatedAlerts', ['id', 'title', 'severity', 'status', 'ruleId', 'affectedHost', 'createdAt']) &&
+          hasRecordArrayFields(item, 'relatedEvents', ['id', 'timestamp', 'category', 'sourceIp', 'destinationIp', 'sourceSystem', 'action']) &&
+          hasRecordArrayFields(item, 'evidenceList', ['id', 'title', 'type', 'value', 'description']) &&
+          hasRecordArrayFields(item, 'analystNotes', ['id', 'author', 'text', 'createdAt']) &&
+          (item.analystObservations === undefined || typeof item.analystObservations === 'string') &&
+          (item.customNotes === undefined || typeof item.customNotes === 'string');
+      case 'sources':
+        return hasStringFields(item, [
+          'id', 'name', 'sourceType', 'typeId', 'description', 'status',
+          'hostname', 'logFormat', 'lastEventReceived', 'lastConnectionCheck',
+          'collectionInterval', 'healthMessage', 'createdAt',
+        ]) && typeof item.eventsIngested === 'number' &&
+          typeof item.enabled === 'boolean' && typeof item.isPaused === 'boolean' &&
+          (item.connectionHistory === undefined ||
+            (Array.isArray(item.connectionHistory) &&
+              item.connectionHistory.every((check: unknown) =>
+                isRecord(check) &&
+                hasStringFields(check, [
+                  'id', 'timestamp', 'result', 'message', 'simulatedEndpoint',
+                ]) &&
+                typeof check.latencyMs === 'number'
+              )));
+      case 'ingestionLogs':
+        return hasStringFields(item, [
+          'id', 'sourceId', 'sourceName', 'startTime', 'completionTime', 'status',
+        ]) && typeof item.eventsRequested === 'number' &&
+          typeof item.eventsIngested === 'number' && typeof item.eventsRejected === 'number' &&
+          hasStringArrayFields(item, ['eventIds']);
+      default:
+        return false;
     }
-    return 0;
+  };
+
+  const checkArrayCategory = (key: string, label: string): number => {
+    if (parsed[key] === undefined) return 0;
+    if (!Array.isArray(parsed[key])) {
+      errors.push(label + ' must be an array of records.');
+      return 0;
+    }
+    const invalidIndex = parsed[key].findIndex((item: unknown) => !recordIsValid(key, item));
+    if (invalidIndex >= 0) {
+      errors.push(label + ' contains an invalid record at index ' + invalidIndex + '.');
+      return 0;
+    }
+    return parsed[key].length;
   };
 
   categoriesFound.alertsCount = checkArrayCategory('alerts', 'Security Alerts');
@@ -591,3 +741,4 @@ export function applyTheme(theme: 'dark' | 'light'): void {
     }
   } catch (_e) {}
 }
+

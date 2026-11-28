@@ -5,22 +5,6 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
 import {
-  Activity,
-  AlertTriangle,
-  AlertOctagon,
-  Flame,
-  FileCode,
-  Database,
-  Radio,
-  RefreshCw,
-  Info,
-  Shield,
-  Layers,
-  Sparkles,
-  Server,
-  Zap,
-} from 'lucide-react';
-import {
   AlertStatus,
   DetectionRule,
   NavigationTab,
@@ -35,9 +19,6 @@ import {
   ThemeOption,
 } from './types/soc';
 import {
-  MOCK_DASHBOARD_METRICS,
-  MOCK_DATA_SOURCES,
-  MOCK_HOURLY_TREND,
   MOCK_SECURITY_ALERTS,
   MOCK_SECURITY_EVENTS,
   MOCK_THREAT_INDICATORS,
@@ -48,7 +29,6 @@ import { MOCK_SECURITY_INCIDENTS } from './data/mockIncidentsData';
 import { MOCK_INCIDENT_REPORTS } from './data/mockReportsData';
 import { MOCK_ATTACK_TECHNIQUES } from './data/mockMitreData';
 import { MOCK_LOG_DATA_SOURCES, MOCK_INGESTION_LOGS } from './data/mockDataSourcesData';
-import { formatNumber } from './utils/metrics';
 import {
   calculateAlertMetrics,
   isValidStatusTransition,
@@ -84,7 +64,6 @@ import {
   resetStoredIngestionLogs,
   loadStoredEvents,
   saveStoredEvents,
-  toLegacyDataSource,
   calculateDataSourcesMetrics,
 } from './utils/dataSources';
 import {
@@ -97,11 +76,7 @@ import {
 } from './utils/settings';
 import { Header } from './components/layout/Header';
 import { Sidebar } from './components/layout/Sidebar';
-import { SummaryCard } from './components/dashboard/SummaryCard';
-import { EventTrendChart } from './components/dashboard/EventTrendChart';
-import { SeverityDistribution } from './components/dashboard/SeverityDistribution';
-import { RecentEventsTable } from './components/dashboard/RecentEventsTable';
-import { DataSourceStatus } from './components/dashboard/DataSourceStatus';
+import { OperationsFloor } from './components/dashboard/OperationsFloor';
 import { SecurityAlertsPage } from './components/alerts/SecurityAlertsPage';
 import { EventExplorerPage } from './components/events/EventExplorerPage';
 import { ThreatIntelPage } from './components/intel/ThreatIntelPage';
@@ -418,7 +393,7 @@ export default function App() {
   };
 
   return (
-    <div className="h-screen bg-[#F4F7FB] dark:bg-[#0B1220] text-[#172033] dark:text-[#F8FAFC] flex flex-col font-sans selection:bg-[#007FA8]/30 dark:selection:bg-[#00C2FF]/30 selection:text-[#007FA8] dark:selection:text-[#00C2FF] overflow-hidden transition-colors">
+    <div className="operator-shell h-screen bg-[#E9E5D9] dark:bg-[#111713] text-[#1C241F] dark:text-[#F0EFE6] flex flex-col font-sans selection:bg-[#A9492D]/20 dark:selection:bg-[#E27A54]/25 selection:text-[#823B27] dark:selection:text-[#E27A54] overflow-hidden transition-colors">
       {/* Top Application Header */}
       <Header
         currentTab={currentTab}
@@ -451,177 +426,20 @@ export default function App() {
           tabIndex={-1}
         >
           {currentTab === 'soc-overview' ? (
-            <div className="space-y-6 max-w-7xl mx-auto">
-              {/* Synthetic Environment Notice Banner */}
-              <div className="rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] p-4 shadow-xs">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                  <div className="flex items-start gap-3">
-                    <div className="rounded-lg bg-cyan-50 dark:bg-cyan-950/80 p-2 border border-cyan-200 dark:border-cyan-800/50 text-[#007FA8] dark:text-[#00C2FF] shrink-0 mt-0.5 shadow-2xs">
-                      <Sparkles className="h-4 w-4" />
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-2">
-                        <h2 className="text-sm font-bold text-[#172033] dark:text-white">
-                          CyberGuard SOC Lab — Security Operations Center
-                        </h2>
-                        <span className="rounded bg-cyan-100 dark:bg-cyan-950 px-2 py-0.5 text-[10px] font-mono text-[#007FA8] dark:text-[#00C2FF] border border-cyan-200 dark:border-cyan-800/50 font-semibold">
-                          Stage 10 Active
-                        </span>
-                      </div>
-                      <p className="text-xs text-[#64748B] dark:text-[#94A3B8] mt-0.5 leading-relaxed">
-                        {SIMULATION_METADATA.syntheticNotice}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-2 self-start sm:self-center shrink-0">
-                    <button
-                      type="button"
-                      onClick={handleRefresh}
-                      disabled={isRefreshing}
-                      aria-label="Refresh simulated dashboard data"
-                      className="inline-flex items-center gap-1.5 rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#1B2A41] px-3 py-1.5 text-xs font-semibold text-[#172033] dark:text-white hover:bg-[#EDF5FA] dark:hover:bg-[#20324A] transition-colors focus:outline-none focus:ring-2 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF] disabled:opacity-50 shadow-2xs"
-                    >
-                      <RefreshCw
-                        className={`h-3.5 w-3.5 ${isRefreshing ? 'animate-spin text-[#007FA8] dark:text-[#00C2FF]' : 'text-[#8492A6] dark:text-[#64748B]'}`}
-                      />
-                      <span>{isRefreshing ? 'Syncing...' : 'Sync Telemetry'}</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              {/* Summary Cards Grid (conditioned on dashboard preferences!) */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-3 sm:gap-4">
-                {/* 1. Ingested Telemetry */}
-                {settings.dashboard.showTotalEventsCard && (
-                  <SummaryCard
-                    label="Ingested Telemetry"
-                    value={sourcesMetrics.totalEventsIngested.toLocaleString()}
-                    subValue={`${events.length} records in active triage buffer`}
-                    trend="24h cumulative feed"
-                    icon={Activity}
-                    accentColor="cyan"
-                  />
-                )}
-
-                {/* 2. Active Alerts */}
-                {settings.dashboard.showActiveAlertsCard && (
-                  <SummaryCard
-                    label="Active Alerts"
-                    value={alertMetrics.activeAlerts}
-                    subValue={`${alertMetrics.requiringInvestigation} in triage queue`}
-                    trend={`${alertMetrics.totalAlerts} total`}
-                    icon={AlertTriangle}
-                    accentColor="amber"
-                  />
-                )}
-
-                {/* 3. Critical Alerts */}
-                {settings.dashboard.showCriticalAlertsCard && (
-                  <SummaryCard
-                    label="Critical Alerts"
-                    value={alertMetrics.criticalAlerts}
-                    subValue="Active priority 1 threats"
-                    badgeText="High Priority"
-                    icon={AlertOctagon}
-                    accentColor="red"
-                  />
-                )}
-
-                {/* 4. Open Incidents */}
-                {settings.dashboard.showOpenIncidentsCard && (
-                  <SummaryCard
-                    label="Open Incidents"
-                    value={incidentMetrics.openIncidents}
-                    subValue={`${incidentMetrics.criticalIncidents} critical, ${incidentMetrics.highPriorityIncidents} high`}
-                    trend={`${incidentMetrics.totalIncidents} cases total`}
-                    icon={Flame}
-                    accentColor="orange"
-                  />
-                )}
-
-                {/* 5. Detection Rules */}
-                {settings.dashboard.showDetectionRulesCard && (
-                  <SummaryCard
-                    label="Detection Rules"
-                    value={ruleMetrics.enabledRules}
-                    subValue={`of ${ruleMetrics.totalRules} enabled (${ruleMetrics.triggeredRules} triggered)`}
-                    badgeText="Sigma"
-                    icon={FileCode}
-                    accentColor="blue"
-                  />
-                )}
-
-                {/* 6. Data Sources */}
-                {settings.dashboard.showDataSourcesCard && (
-                  <SummaryCard
-                    label="Data Sources"
-                    value={`${sourcesMetrics.healthySources}/${sourcesMetrics.totalSources}`}
-                    subValue={`${sourcesMetrics.degradedSources} degraded, ${sourcesMetrics.disconnectedSources} offline, ${sourcesMetrics.notConfiguredSources} unconfigured`}
-                    badgeText="Sensors"
-                    icon={Database}
-                    accentColor="emerald"
-                  />
-                )}
-              </div>
-
-              {/* Main Visual Panels: Event Trends & Severity Distribution */}
-              {(settings.dashboard.showTrendChart ||
-                settings.dashboard.showSeverityDistribution) && (
-                <div
-                  className={`grid grid-cols-1 ${
-                    settings.dashboard.showTrendChart &&
-                    settings.dashboard.showSeverityDistribution
-                      ? 'lg:grid-cols-3'
-                      : ''
-                  } gap-6`}
-                >
-                  {settings.dashboard.showTrendChart && (
-                    <div
-                      className={
-                        settings.dashboard.showSeverityDistribution
-                          ? 'lg:col-span-2'
-                          : ''
-                      }
-                    >
-                      <EventTrendChart data={MOCK_HOURLY_TREND} />
-                    </div>
-                  )}
-                  {settings.dashboard.showSeverityDistribution && (
-                    <div>
-                      <SeverityDistribution counts={alertMetrics.severityCounts} />
-                    </div>
-                  )}
-                </div>
-              )}
-
-              {/* Recent Security Events Table */}
-              {settings.dashboard.showRecentEvents && (
-                <div>
-                  <RecentEventsTable events={events} />
-                </div>
-              )}
-
-              {/* Data Sources Health Status */}
-              {settings.dashboard.showDataSourceStatus && (
-                <div>
-                  <DataSourceStatus sources={sources.map(toLegacyDataSource)} />
-                </div>
-              )}
-
-              {/* Footer Disclaimers */}
-              <footer className="pt-6 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-2">
-                <div className="flex items-center gap-2">
-                  <Shield className="h-4 w-4 text-slate-400" />
-                  <span>CyberGuard SOC Lab &bull; Home SOC &amp; Threat Detection Lab (Stage 10 Complete)</span>
-                </div>
-                <div className="font-mono text-[11px] text-slate-400">
-                  Simulation Engine: {settings.simulation.simulationEnabled ? 'Active' : 'Paused'} &bull; Synthetic dataset with versioned local persistence
-                </div>
-              </footer>
-            </div>
-          ) : currentTab === 'security-alerts' ? (
+            <OperationsFloor
+              dashboard={settings.dashboard}
+              events={events}
+              alerts={alerts}
+              incidents={incidents}
+              sources={sources}
+              alertMetrics={alertMetrics}
+              incidentMetrics={incidentMetrics}
+              ruleMetrics={ruleMetrics}
+              sourcesMetrics={sourcesMetrics}
+              isRefreshing={isRefreshing}
+              onRefresh={handleRefresh}
+              onNavigate={setCurrentTab}
+            />          ) : currentTab === 'security-alerts' ? (
             <SecurityAlertsPage
               alerts={alerts}
               onUpdateStatus={handleUpdateStatus}

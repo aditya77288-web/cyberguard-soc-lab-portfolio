@@ -11,27 +11,27 @@ export const DataSourceStatus: React.FC<DataSourceStatusProps> = ({ sources }) =
   const health = calculateDataSourcesHealth(sources);
 
   return (
-    <div className="flex flex-col rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] p-5 shadow-xs transition-colors">
+    <div className="flex flex-col rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#1A211B] p-5 shadow-xs transition-colors">
       {/* Header */}
-      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#DCE5EF] dark:border-[#29384D]/70 pb-4">
+      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#CDCFC2] dark:border-[#3A443A]/70 pb-4">
         <div>
           <div className="flex items-center gap-2">
-            <Database className="h-4 w-4 text-[#007FA8] dark:text-[#00C2FF]" />
-            <h2 className="text-sm font-bold tracking-tight text-[#172033] dark:text-white">
+            <Database className="h-4 w-4 text-[#A9492D] dark:text-[#E27A54]" />
+            <h2 className="text-sm font-bold tracking-tight text-[#1C241F] dark:text-white">
               Data Source &amp; Collector Status
             </h2>
-            <span className="rounded bg-[#EEF4FA] dark:bg-[#1B2A41] px-1.5 py-0.5 text-[10px] font-mono text-emerald-700 dark:text-emerald-400 border border-[#DCE5EF] dark:border-[#29384D] font-medium">
+            <span className="rounded bg-[#E1DED1] dark:bg-[#252C24] px-1.5 py-0.5 text-[10px] font-mono text-emerald-700 dark:text-emerald-400 border border-[#CDCFC2] dark:border-[#3A443A] font-medium">
               {health.connected}/{health.total} Connected
             </span>
           </div>
-          <p className="text-xs text-[#64748B] dark:text-[#94A3B8] mt-0.5">
+          <p className="text-xs text-[#58635A] dark:text-[#A8B09F] mt-0.5">
             Health telemetry from simulated agents, firewalls, and home lab network monitors
           </p>
         </div>
 
         {/* Global health pill */}
-        <div className="flex items-center gap-2 rounded-full border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] px-3 py-1 text-xs">
-          <span className="text-[#64748B] dark:text-[#94A3B8]">Pipeline Score:</span>
+        <div className="flex items-center gap-2 rounded-full border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] px-3 py-1 text-xs">
+          <span className="text-[#58635A] dark:text-[#A8B09F]">Pipeline Score:</span>
           <span className="font-mono font-bold text-emerald-600 dark:text-emerald-400">
             {health.healthPercent}%
           </span>
@@ -47,15 +47,15 @@ export const DataSourceStatus: React.FC<DataSourceStatusProps> = ({ sources }) =
           return (
             <div
               key={src.id}
-              className="flex flex-col justify-between rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#EEF4FA] dark:bg-[#111C2E] p-3.5 hover:border-[#007FA8]/40 dark:hover:border-[#00C2FF]/40 transition-colors"
+              className="flex flex-col justify-between rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#E1DED1] dark:bg-[#0D120F] p-3.5 hover:border-[#A9492D]/40 dark:hover:border-[#E27A54]/40 transition-colors"
             >
               <div>
                 <div className="flex items-start justify-between gap-2">
                   <div className="space-y-0.5">
-                    <span className="text-xs font-bold text-[#172033] dark:text-white block">
+                    <span className="text-xs font-bold text-[#1C241F] dark:text-white block">
                       {src.name}
                     </span>
-                    <span className="text-[11px] text-[#007FA8] dark:text-[#00C2FF] font-medium block">
+                    <span className="text-[11px] text-[#A9492D] dark:text-[#E27A54] font-medium block">
                       {src.type}
                     </span>
                   </div>
@@ -82,28 +82,28 @@ export const DataSourceStatus: React.FC<DataSourceStatusProps> = ({ sources }) =
                 </div>
 
                 {/* Sub details */}
-                <div className="mt-3 space-y-1.5 border-t border-[#DCE5EF] dark:border-[#29384D]/70 pt-2 text-[11px] font-mono">
-                  <div className="flex justify-between text-[#64748B] dark:text-[#94A3B8]">
+                <div className="mt-3 space-y-1.5 border-t border-[#CDCFC2] dark:border-[#3A443A]/70 pt-2 text-[11px] font-mono">
+                  <div className="flex justify-between text-[#58635A] dark:text-[#A8B09F]">
                     <span>Host / Target:</span>
-                    <span className="text-[#172033] dark:text-white font-medium truncate max-w-[150px]">{src.hostTarget}</span>
+                    <span className="text-[#1C241F] dark:text-white font-medium truncate max-w-[150px]">{src.hostTarget}</span>
                   </div>
-                  <div className="flex justify-between text-[#64748B] dark:text-[#94A3B8]">
+                  <div className="flex justify-between text-[#58635A] dark:text-[#A8B09F]">
                     <span>Ingest Rate:</span>
-                    <span className="text-[#007FA8] dark:text-cyan-300 font-bold">{src.eventsPerSecond} EPS</span>
+                    <span className="text-[#A9492D] dark:text-signal-300 font-bold">{src.eventsPerSecond} EPS</span>
                   </div>
-                  <div className="flex justify-between text-[#64748B] dark:text-[#94A3B8]">
+                  <div className="flex justify-between text-[#58635A] dark:text-[#A8B09F]">
                     <span>24h Ingested:</span>
-                    <span className="text-[#172033] dark:text-white">{formatNumber(src.totalEvents24h)}</span>
+                    <span className="text-[#1C241F] dark:text-white">{formatNumber(src.totalEvents24h)}</span>
                   </div>
-                  <div className="flex justify-between text-[#64748B] dark:text-[#94A3B8]">
+                  <div className="flex justify-between text-[#58635A] dark:text-[#A8B09F]">
                     <span>Last Seen:</span>
-                    <span className="text-[#64748B] dark:text-slate-300">{src.lastSeen}</span>
+                    <span className="text-[#58635A] dark:text-slate-300">{src.lastSeen}</span>
                   </div>
                 </div>
               </div>
 
               {/* Collector engine footer */}
-              <div className="mt-3 pt-2 border-t border-[#DCE5EF] dark:border-[#29384D]/70 text-[10px] text-[#64748B] dark:text-[#94A3B8] truncate">
+              <div className="mt-3 pt-2 border-t border-[#CDCFC2] dark:border-[#3A443A]/70 text-[10px] text-[#58635A] dark:text-[#A8B09F] truncate">
                 Engine: <span className="font-mono">{src.collectorVersion}</span>
               </div>
             </div>
@@ -111,12 +111,12 @@ export const DataSourceStatus: React.FC<DataSourceStatusProps> = ({ sources }) =
         })}
       </div>
 
-      <div className="mt-4 rounded-lg bg-[#EEF4FA] dark:bg-[#111C2E] border border-[#DCE5EF] dark:border-[#29384D] p-3 text-[11px] text-[#64748B] dark:text-[#94A3B8] flex items-center justify-between">
+      <div className="mt-4 rounded-lg bg-[#E1DED1] dark:bg-[#0D120F] border border-[#CDCFC2] dark:border-[#3A443A] p-3 text-[11px] text-[#58635A] dark:text-[#A8B09F] flex items-center justify-between">
         <div>
-          <span className="font-semibold text-[#172033] dark:text-slate-200">Simulated Lab Collector Note: </span>
+          <span className="font-semibold text-[#1C241F] dark:text-slate-200">Simulated Lab Collector Note: </span>
           All data feeds displayed above are synthetic models representing typical home SOC topologies.
         </div>
-        <span className="font-mono text-[10px] text-[#64748B] dark:text-[#94A3B8] shrink-0 ml-2">
+        <span className="font-mono text-[10px] text-[#58635A] dark:text-[#A8B09F] shrink-0 ml-2">
           Format: RFC 5424 / JSON
         </span>
       </div>

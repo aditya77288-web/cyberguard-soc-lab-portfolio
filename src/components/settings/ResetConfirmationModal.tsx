@@ -116,9 +116,9 @@ export const ResetConfirmationModal: React.FC<ResetConfirmationModalProps> = ({
       aria-modal="true"
       aria-labelledby="reset-modal-title"
     >
-      <div className="relative w-full max-w-lg rounded-2xl border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] text-[#172033] dark:text-[#F8FAFC] shadow-2xl overflow-hidden my-8">
+      <div className="relative w-full max-w-lg rounded-2xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#1A211B] text-[#1C241F] dark:text-[#F0EFE6] shadow-2xl overflow-hidden my-8">
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-[#DCE5EF] dark:border-[#29384D] px-6 py-4 bg-[#F4F7FB] dark:bg-[#111C2E]">
+        <div className="flex items-center justify-between border-b border-[#CDCFC2] dark:border-[#3A443A] px-6 py-4 bg-[#E9E5D9] dark:bg-[#0D120F]">
           <div className="flex items-center gap-3">
             <div className={`flex h-9 w-9 items-center justify-center rounded-lg border ${
               config.accent === 'red'
@@ -130,7 +130,7 @@ export const ResetConfirmationModal: React.FC<ResetConfirmationModalProps> = ({
               <Icon className="h-5 w-5" />
             </div>
             <div>
-              <h2 id="reset-modal-title" className="text-base font-semibold text-[#172033] dark:text-white">
+              <h2 id="reset-modal-title" className="text-base font-semibold text-[#1C241F] dark:text-white">
                 {config.title}
               </h2>
               <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
@@ -142,7 +142,7 @@ export const ResetConfirmationModal: React.FC<ResetConfirmationModalProps> = ({
             type="button"
             onClick={onClose}
             aria-label="Close reset dialog"
-            className="rounded-lg p-1.5 text-[#64748B] dark:text-[#94A3B8] hover:bg-[#EEF4FA] dark:hover:bg-[#1B2A41] hover:text-[#172033] dark:hover:text-[#F8FAFC] transition-colors"
+            className="rounded-lg p-1.5 text-[#58635A] dark:text-[#A8B09F] hover:bg-[#E1DED1] dark:hover:bg-[#252C24] hover:text-[#1C241F] dark:hover:text-[#F0EFE6] transition-colors"
           >
             <X className="h-5 w-5" />
           </button>
@@ -150,15 +150,15 @@ export const ResetConfirmationModal: React.FC<ResetConfirmationModalProps> = ({
 
         {/* Content */}
         <div className="p-6 space-y-4">
-          <p className="text-xs text-[#64748B] dark:text-slate-300 leading-relaxed">
+          <p className="text-xs text-[#58635A] dark:text-slate-300 leading-relaxed">
             {config.description}
           </p>
 
-          <div className="rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-[#F8FAFC] dark:bg-[#111C2E] p-3.5 space-y-2">
-            <h4 className="text-[11px] font-semibold uppercase tracking-wider text-[#64748B] dark:text-slate-400">
+          <div className="rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F0EFE6] dark:bg-[#0D120F] p-3.5 space-y-2">
+            <h4 className="text-[11px] font-semibold uppercase tracking-wider text-[#58635A] dark:text-slate-400">
               Scope of Changes
             </h4>
-            <ul className="space-y-1.5 text-xs text-[#172033] dark:text-slate-300 list-disc list-inside">
+            <ul className="space-y-1.5 text-xs text-[#1C241F] dark:text-slate-300 list-disc list-inside">
               {config.consequences.map((item, idx) => (
                 <li key={idx} className="leading-snug">{item}</li>
               ))}
@@ -167,7 +167,7 @@ export const ResetConfirmationModal: React.FC<ResetConfirmationModalProps> = ({
 
           {requiresTypedConfirm && (
             <div className="space-y-2 pt-2">
-              <label htmlFor="typed-confirm" className="block text-xs font-medium text-[#172033] dark:text-slate-300">
+              <label htmlFor="typed-confirm" className="block text-xs font-medium text-[#1C241F] dark:text-slate-300">
                 Type <span className="font-mono font-bold text-red-600 dark:text-red-400">RESET</span> to confirm complete factory reset:
               </label>
               <input
@@ -176,19 +176,19 @@ export const ResetConfirmationModal: React.FC<ResetConfirmationModalProps> = ({
                 value={typedConfirmation}
                 onChange={(e) => setTypedConfirmation(e.target.value)}
                 placeholder="RESET"
-                className="w-full rounded-lg border border-red-300 dark:border-red-900/60 bg-white dark:bg-[#111C2E] px-3 py-2 text-xs font-mono text-[#172033] dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500"
+                className="w-full rounded-lg border border-red-300 dark:border-red-900/60 bg-[#F2F0E6] dark:bg-[#0D120F] px-3 py-2 text-xs font-mono text-[#1C241F] dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500"
               />
             </div>
           )}
         </div>
 
         {/* Footer */}
-        <div className="flex items-center justify-end gap-3 border-t border-[#DCE5EF] dark:border-[#29384D] px-6 py-4 bg-[#F4F7FB] dark:bg-[#111C2E]">
+        <div className="flex items-center justify-end gap-3 border-t border-[#CDCFC2] dark:border-[#3A443A] px-6 py-4 bg-[#E9E5D9] dark:bg-[#0D120F]">
           <button
             type="button"
             onClick={onClose}
             disabled={isProcessing}
-            className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] px-4 py-2 text-xs font-medium text-[#172033] dark:text-[#F8FAFC] hover:bg-[#EEF4FA] dark:hover:bg-[#1B2A41] transition-colors"
+            className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#1A211B] px-4 py-2 text-xs font-medium text-[#1C241F] dark:text-[#F0EFE6] hover:bg-[#E1DED1] dark:hover:bg-[#252C24] transition-colors"
           >
             Cancel
           </button>

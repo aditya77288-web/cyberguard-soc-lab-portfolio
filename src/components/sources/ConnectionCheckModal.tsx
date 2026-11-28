@@ -55,20 +55,20 @@ export const ConnectionCheckModal: React.FC<ConnectionCheckModalProps> = ({
       aria-modal="true"
       aria-labelledby="conn-check-title"
     >
-      <div className="relative w-full max-w-xl rounded-2xl border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] text-[#172033] dark:text-[#F8FAFC] shadow-2xl overflow-hidden my-8">
+      <div className="relative w-full max-w-xl rounded-2xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#1A211B] text-[#1C241F] dark:text-[#F0EFE6] shadow-2xl overflow-hidden my-8">
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-[#DCE5EF] dark:border-[#29384D] px-6 py-4 bg-[#F4F7FB] dark:bg-[#111C2E]">
+        <div className="flex items-center justify-between border-b border-[#CDCFC2] dark:border-[#3A443A] px-6 py-4 bg-[#E9E5D9] dark:bg-[#0D120F]">
           <div className="flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-cyan-50 dark:bg-cyan-950/80 border border-cyan-200 dark:border-cyan-800/40 text-cyan-600 dark:text-cyan-400">
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-signal-50 dark:bg-signal-950/80 border border-signal-200 dark:border-signal-800/40 text-signal-600 dark:text-signal-400">
               <Radio className="h-5 w-5" />
             </div>
             <div>
-              <h2 id="conn-check-title" className="text-base font-semibold text-[#172033] dark:text-[#F8FAFC]">
+              <h2 id="conn-check-title" className="text-base font-semibold text-[#1C241F] dark:text-[#F0EFE6]">
                 Simulated Connection Check
               </h2>
-              <p className="text-xs text-[#64748B] dark:text-[#94A3B8]">
+              <p className="text-xs text-[#58635A] dark:text-[#A8B09F]">
                 Collector handshake test for{' '}
-                <span className="font-semibold text-cyan-600 dark:text-cyan-300">{source.name}</span>
+                <span className="font-semibold text-signal-600 dark:text-signal-300">{source.name}</span>
               </p>
             </div>
           </div>
@@ -76,7 +76,7 @@ export const ConnectionCheckModal: React.FC<ConnectionCheckModalProps> = ({
             type="button"
             onClick={onClose}
             aria-label="Close dialog"
-            className="rounded-lg p-1.5 text-[#64748B] dark:text-[#94A3B8] hover:bg-[#EEF4FA] dark:hover:bg-[#1B2A41] hover:text-[#172033] dark:hover:text-[#F8FAFC] transition-colors"
+            className="rounded-lg p-1.5 text-[#58635A] dark:text-[#A8B09F] hover:bg-[#E1DED1] dark:hover:bg-[#252C24] hover:text-[#1C241F] dark:hover:text-[#F0EFE6] transition-colors"
           >
             <X className="h-5 w-5" />
           </button>
@@ -85,30 +85,30 @@ export const ConnectionCheckModal: React.FC<ConnectionCheckModalProps> = ({
         {/* Content */}
         <div className="p-6 space-y-5">
           {/* Simulated Disclaimer Banner */}
-          <div className="rounded-xl border border-cyan-200 dark:border-cyan-900/60 bg-cyan-50/80 dark:bg-cyan-950/30 p-3.5 text-xs text-cyan-900 dark:text-cyan-300 flex items-start gap-2.5">
-            <Sparkles className="h-4 w-4 text-cyan-600 dark:text-cyan-400 shrink-0 mt-0.5" />
+          <div className="rounded-xl border border-signal-200 dark:border-signal-900/60 bg-signal-50/80 dark:bg-signal-950/30 p-3.5 text-xs text-signal-900 dark:text-signal-300 flex items-start gap-2.5">
+            <Sparkles className="h-4 w-4 text-signal-600 dark:text-signal-400 shrink-0 mt-0.5" />
             <div>
-              <span className="font-semibold text-cyan-800 dark:text-cyan-200">Demonstration Simulation:</span> Connection
+              <span className="font-semibold text-signal-800 dark:text-signal-200">Demonstration Simulation:</span> Connection
               diagnostics are evaluated locally against synthetic telemetry models. No real external
               servers, endpoints, cloud accounts, or network hardware are contacted.
             </div>
           </div>
 
           {/* Endpoint Target Information */}
-          <div className="rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-[#F8FAFC] dark:bg-[#111C2E] p-4 space-y-2 text-xs">
-            <div className="flex justify-between items-center text-[#64748B] dark:text-[#94A3B8]">
+          <div className="rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F0EFE6] dark:bg-[#0D120F] p-4 space-y-2 text-xs">
+            <div className="flex justify-between items-center text-[#58635A] dark:text-[#A8B09F]">
               <span>Target Endpoint:</span>
-              <span className="font-mono text-cyan-600 dark:text-cyan-300 font-semibold">{source.hostname}</span>
+              <span className="font-mono text-signal-600 dark:text-signal-300 font-semibold">{source.hostname}</span>
             </div>
-            <div className="flex justify-between items-center text-[#64748B] dark:text-[#94A3B8]">
+            <div className="flex justify-between items-center text-[#58635A] dark:text-[#A8B09F]">
               <span>Collector Type:</span>
-              <span className="text-[#172033] dark:text-[#F8FAFC] font-medium">{source.sourceType}</span>
+              <span className="text-[#1C241F] dark:text-[#F0EFE6] font-medium">{source.sourceType}</span>
             </div>
-            <div className="flex justify-between items-center text-[#64748B] dark:text-[#94A3B8]">
+            <div className="flex justify-between items-center text-[#58635A] dark:text-[#A8B09F]">
               <span>Engine Version:</span>
-              <span className="font-mono text-[#172033] dark:text-[#94A3B8]">{source.collectorVersion || 'v1.0'}</span>
+              <span className="font-mono text-[#1C241F] dark:text-[#A8B09F]">{source.collectorVersion || 'v1.0'}</span>
             </div>
-            <div className="flex justify-between items-center text-[#64748B] dark:text-[#94A3B8]">
+            <div className="flex justify-between items-center text-[#58635A] dark:text-[#A8B09F]">
               <span>Current Status:</span>
               <span
                 className={`font-semibold ${
@@ -126,11 +126,11 @@ export const ConnectionCheckModal: React.FC<ConnectionCheckModalProps> = ({
 
           {/* Test Status Panel */}
           {isRunning ? (
-            <div className="rounded-xl border border-cyan-300 dark:border-cyan-800/60 bg-cyan-50 dark:bg-cyan-950/40 p-6 flex flex-col items-center justify-center text-center space-y-3">
-              <RefreshCw className="h-7 w-7 text-cyan-600 dark:text-cyan-400 animate-spin" />
+            <div className="rounded-xl border border-signal-300 dark:border-signal-800/60 bg-signal-50 dark:bg-signal-950/40 p-6 flex flex-col items-center justify-center text-center space-y-3">
+              <RefreshCw className="h-7 w-7 text-signal-600 dark:text-signal-400 animate-spin" />
               <div>
-                <p className="text-sm font-semibold text-[#172033] dark:text-[#F8FAFC]">Testing Simulated Endpoint...</p>
-                <p className="text-xs text-[#64748B] dark:text-[#94A3B8] mt-1">
+                <p className="text-sm font-semibold text-[#1C241F] dark:text-[#F0EFE6]">Testing Simulated Endpoint...</p>
+                <p className="text-xs text-[#58635A] dark:text-[#A8B09F] mt-1">
                   Measuring round-trip handshake and validating buffer status
                 </p>
               </div>
@@ -170,46 +170,46 @@ export const ConnectionCheckModal: React.FC<ConnectionCheckModalProps> = ({
                         ? 'Connection Warning'
                         : 'Connection Failed'}
                     </h3>
-                    <span className="text-[10px] text-[#64748B] dark:text-[#94A3B8] font-mono">
+                    <span className="text-[10px] text-[#58635A] dark:text-[#A8B09F] font-mono">
                       Timestamp: {new Date(activeResult.timestamp).toLocaleString()}
                     </span>
                   </div>
                 </div>
 
-                <div className="rounded bg-white dark:bg-[#111C2E] border border-[#DCE5EF] dark:border-[#29384D] px-2.5 py-1 text-center font-mono shadow-xs">
-                  <span className="text-[10px] text-[#64748B] dark:text-[#94A3B8] block">Latency</span>
-                  <span className="font-bold text-[#172033] dark:text-white text-xs">{activeResult.latencyMs} ms</span>
+                <div className="rounded bg-[#F2F0E6] dark:bg-[#0D120F] border border-[#CDCFC2] dark:border-[#3A443A] px-2.5 py-1 text-center font-mono shadow-xs">
+                  <span className="text-[10px] text-[#58635A] dark:text-[#A8B09F] block">Latency</span>
+                  <span className="font-bold text-[#1C241F] dark:text-white text-xs">{activeResult.latencyMs} ms</span>
                 </div>
               </div>
 
-              <p className="text-[#172033] dark:text-slate-300 leading-relaxed text-xs border-t border-[#DCE5EF] dark:border-slate-800/60 pt-2">
+              <p className="text-[#1C241F] dark:text-slate-300 leading-relaxed text-xs border-t border-[#CDCFC2] dark:border-slate-800/60 pt-2">
                 {activeResult.message}
               </p>
 
               {activeResult.details && (
-                <div className="rounded-lg bg-[#F8FAFC] dark:bg-slate-950/70 border border-[#DCE5EF] dark:border-slate-800/60 p-2.5 font-mono text-[11px] text-[#64748B] dark:text-slate-400 space-y-1">
+                <div className="rounded-lg bg-[#F0EFE6] dark:bg-slate-950/70 border border-[#CDCFC2] dark:border-slate-800/60 p-2.5 font-mono text-[11px] text-[#58635A] dark:text-slate-400 space-y-1">
                   {Object.entries(activeResult.details).map(([k, v]) => (
                     <div key={k} className="flex justify-between">
-                      <span className="text-[#64748B] dark:text-slate-500">{k}:</span>
-                      <span className="text-[#172033] dark:text-slate-300 font-semibold">{String(v)}</span>
+                      <span className="text-[#58635A] dark:text-slate-500">{k}:</span>
+                      <span className="text-[#1C241F] dark:text-slate-300 font-semibold">{String(v)}</span>
                     </div>
                   ))}
                 </div>
               )}
             </div>
           ) : (
-            <div className="rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-[#F8FAFC] dark:bg-[#111C2E] p-6 text-center text-xs text-[#64748B] dark:text-[#94A3B8]">
+            <div className="rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F0EFE6] dark:bg-[#0D120F] p-6 text-center text-xs text-[#58635A] dark:text-[#A8B09F]">
               No recent connection checks recorded for this source.
             </div>
           )}
         </div>
 
         {/* Footer Actions */}
-        <div className="flex items-center justify-between border-t border-[#DCE5EF] dark:border-[#29384D] px-6 py-4 bg-[#F4F7FB] dark:bg-[#111C2E]">
+        <div className="flex items-center justify-between border-t border-[#CDCFC2] dark:border-[#3A443A] px-6 py-4 bg-[#E9E5D9] dark:bg-[#0D120F]">
           <button
             type="button"
             onClick={onClose}
-            className="rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] px-4 py-2 text-xs font-medium text-[#172033] dark:text-[#F8FAFC] hover:bg-[#EEF4FA] dark:hover:bg-[#1B2A41] transition-colors"
+            className="rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#1A211B] px-4 py-2 text-xs font-medium text-[#1C241F] dark:text-[#F0EFE6] hover:bg-[#E1DED1] dark:hover:bg-[#252C24] transition-colors"
           >
             Close
           </button>
@@ -218,7 +218,7 @@ export const ConnectionCheckModal: React.FC<ConnectionCheckModalProps> = ({
             type="button"
             disabled={isRunning}
             onClick={handleRunCheck}
-            className="inline-flex items-center gap-2 rounded-lg bg-cyan-600 px-4 py-2 text-xs font-semibold text-white hover:bg-cyan-500 transition-colors shadow-xs disabled:opacity-50 focus:ring-2 focus:ring-cyan-400"
+            className="inline-flex items-center gap-2 rounded-lg bg-signal-600 px-4 py-2 text-xs font-semibold text-white hover:bg-signal-500 transition-colors shadow-xs disabled:opacity-50 focus:ring-2 focus:ring-signal-400"
           >
             <RefreshCw className={`h-3.5 w-3.5 ${isRunning ? 'animate-spin' : ''}`} />
             <span>{isRunning ? 'Checking Connection...' : 'Run Connection Test'}</span>

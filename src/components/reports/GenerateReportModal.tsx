@@ -92,18 +92,18 @@ export const GenerateReportModal: React.FC<GenerateReportModalProps> = ({
       aria-modal="true"
       aria-labelledby="generate-report-title"
     >
-      <div className="w-full max-w-2xl rounded-2xl border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#17243A] text-[#172033] dark:text-[#F8FAFC] shadow-2xl overflow-hidden flex flex-col max-h-[90vh] transition-colors">
+      <div className="w-full max-w-2xl rounded-2xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#1A211B] text-[#1C241F] dark:text-[#F0EFE6] shadow-2xl overflow-hidden flex flex-col max-h-[90vh] transition-colors">
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-[#DCE5EF] dark:border-[#29384D] px-6 py-4 bg-[#F4F7FB] dark:bg-[#111C2E]">
+        <div className="flex items-center justify-between border-b border-[#CDCFC2] dark:border-[#3A443A] px-6 py-4 bg-[#E9E5D9] dark:bg-[#0D120F]">
           <div className="flex items-center gap-3">
-            <div className="rounded-lg bg-[#EEF4FA] dark:bg-[#1B2A41] p-2 text-[#007FA8] dark:text-[#00C2FF] border border-[#DCE5EF] dark:border-[#29384D]">
+            <div className="rounded-lg bg-[#E1DED1] dark:bg-[#252C24] p-2 text-[#A9492D] dark:text-[#E27A54] border border-[#CDCFC2] dark:border-[#3A443A]">
               <FileText className="h-5 w-5" />
             </div>
             <div>
-              <h2 id="generate-report-title" className="text-lg font-bold text-[#172033] dark:text-[#F8FAFC]">
+              <h2 id="generate-report-title" className="text-lg font-bold text-[#1C241F] dark:text-[#F0EFE6]">
                 Generate Incident Report
               </h2>
-              <p className="text-xs text-[#64748B] dark:text-[#94A3B8]">
+              <p className="text-xs text-[#58635A] dark:text-[#A8B09F]">
                 Synthesize telemetry, findings, and playbooks from existing incident cases
               </p>
             </div>
@@ -112,14 +112,14 @@ export const GenerateReportModal: React.FC<GenerateReportModalProps> = ({
             type="button"
             onClick={onClose}
             aria-label="Close generate report dialog"
-            className="rounded-lg p-1.5 text-[#64748B] dark:text-[#94A3B8] hover:bg-[#EEF4FA] dark:hover:bg-[#1B2A41] hover:text-[#172033] dark:hover:text-[#F8FAFC] transition-colors"
+            className="rounded-lg p-1.5 text-[#58635A] dark:text-[#A8B09F] hover:bg-[#E1DED1] dark:hover:bg-[#252C24] hover:text-[#1C241F] dark:hover:text-[#F0EFE6] transition-colors"
           >
             <X className="h-5 w-5" />
           </button>
         </div>
 
         {/* Content Form */}
-        <form onSubmit={handleSubmit} className="p-6 space-y-5 overflow-y-auto bg-white dark:bg-[#17243A]">
+        <form onSubmit={handleSubmit} className="p-6 space-y-5 overflow-y-auto bg-[#F2F0E6] dark:bg-[#1A211B]">
           {error && (
             <div className="rounded-lg border border-rose-300 dark:border-rose-800 bg-rose-50 dark:bg-rose-950/50 p-3 text-xs text-rose-700 dark:text-rose-300 flex items-center gap-2">
               <AlertTriangle className="h-4 w-4 shrink-0 text-rose-600 dark:text-rose-400" />
@@ -131,9 +131,9 @@ export const GenerateReportModal: React.FC<GenerateReportModalProps> = ({
           <div>
             <label
               htmlFor="select-incident"
-              className="block text-xs font-semibold text-[#172033] dark:text-[#F8FAFC] mb-1.5"
+              className="block text-xs font-semibold text-[#1C241F] dark:text-[#F0EFE6] mb-1.5"
             >
-              Source Incident Case <span className="text-[#007FA8] dark:text-[#00C2FF]">*</span>
+              Source Incident Case <span className="text-[#A9492D] dark:text-[#E27A54]">*</span>
             </label>
             {incidents.length === 0 ? (
               <p className="text-xs text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/60 p-3 rounded-lg">
@@ -147,7 +147,7 @@ export const GenerateReportModal: React.FC<GenerateReportModalProps> = ({
                   setSelectedIncidentId(e.target.value);
                   setCustomTitle('');
                 }}
-                className="w-full rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F8FAFC] dark:bg-[#0B1220] px-3 py-2 text-xs text-[#172033] dark:text-[#F8FAFC] focus:border-[#007FA8] dark:focus:border-[#00C2FF] focus:outline-none focus:ring-1 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF] font-mono"
+                className="w-full rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F0EFE6] dark:bg-[#111713] px-3 py-2 text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:border-[#A9492D] dark:focus:border-[#E27A54] focus:outline-none focus:ring-1 focus:ring-[#A9492D] dark:focus:ring-[#E27A54] font-mono"
               >
                 {incidents.map((inc) => (
                   <option key={inc.id} value={inc.id}>
@@ -160,17 +160,17 @@ export const GenerateReportModal: React.FC<GenerateReportModalProps> = ({
 
           {/* Selected Incident Context Card */}
           {selectedIncident && (
-            <div className="rounded-xl border border-[#DCE5EF] dark:border-[#29384D] bg-[#F8FAFC] dark:bg-[#111C2E]/70 p-3.5 space-y-2 text-xs">
+            <div className="rounded-xl border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F0EFE6] dark:bg-[#0D120F]/70 p-3.5 space-y-2 text-xs">
               <div className="flex items-center justify-between">
-                <span className="font-semibold text-[#172033] dark:text-[#F8FAFC]">{selectedIncident.title}</span>
-                <span className="font-mono text-[10px] uppercase px-2 py-0.5 rounded bg-[#EEF4FA] dark:bg-[#1B2A41] text-[#64748B] dark:text-[#94A3B8] border border-[#DCE5EF] dark:border-[#29384D]">
+                <span className="font-semibold text-[#1C241F] dark:text-[#F0EFE6]">{selectedIncident.title}</span>
+                <span className="font-mono text-[10px] uppercase px-2 py-0.5 rounded bg-[#E1DED1] dark:bg-[#252C24] text-[#58635A] dark:text-[#A8B09F] border border-[#CDCFC2] dark:border-[#3A443A]">
                   {selectedIncident.category}
                 </span>
               </div>
-              <p className="text-[#64748B] dark:text-[#94A3B8] line-clamp-2">{selectedIncident.description}</p>
-              <div className="flex flex-wrap items-center gap-4 text-[11px] text-[#172033] dark:text-[#F8FAFC] pt-1 font-mono">
+              <p className="text-[#58635A] dark:text-[#A8B09F] line-clamp-2">{selectedIncident.description}</p>
+              <div className="flex flex-wrap items-center gap-4 text-[11px] text-[#1C241F] dark:text-[#F0EFE6] pt-1 font-mono">
                 <div className="flex items-center gap-1">
-                  <Server className="h-3.5 w-3.5 text-[#007FA8] dark:text-[#00C2FF]" />
+                  <Server className="h-3.5 w-3.5 text-[#A9492D] dark:text-[#E27A54]" />
                   <span>Host: {selectedIncident.affectedHost}</span>
                 </div>
                 <div className="flex items-center gap-1">
@@ -178,7 +178,7 @@ export const GenerateReportModal: React.FC<GenerateReportModalProps> = ({
                   <span className="uppercase">{selectedIncident.severity}</span>
                 </div>
                 <div className="flex items-center gap-1">
-                  <Layers className="h-3.5 w-3.5 text-[#8492A6] dark:text-[#64748B]" />
+                  <Layers className="h-3.5 w-3.5 text-[#798074] dark:text-[#58635A]" />
                   <span>{selectedIncident.relatedAlertIds.length} Alerts Linked</span>
                 </div>
               </div>
@@ -190,7 +190,7 @@ export const GenerateReportModal: React.FC<GenerateReportModalProps> = ({
             <div>
               <label
                 htmlFor="select-report-type"
-                className="block text-xs font-semibold text-[#172033] dark:text-[#F8FAFC] mb-1.5"
+                className="block text-xs font-semibold text-[#1C241F] dark:text-[#F0EFE6] mb-1.5"
               >
                 Report Template Type
               </label>
@@ -198,7 +198,7 @@ export const GenerateReportModal: React.FC<GenerateReportModalProps> = ({
                 id="select-report-type"
                 value={reportType}
                 onChange={(e) => setReportType(e.target.value as ReportType)}
-                className="w-full rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F8FAFC] dark:bg-[#0B1220] px-3 py-2 text-xs text-[#172033] dark:text-[#F8FAFC] focus:border-[#007FA8] dark:focus:border-[#00C2FF] focus:outline-none focus:ring-1 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF]"
+                className="w-full rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F0EFE6] dark:bg-[#111713] px-3 py-2 text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:border-[#A9492D] dark:focus:border-[#E27A54] focus:outline-none focus:ring-1 focus:ring-[#A9492D] dark:focus:ring-[#E27A54]"
               >
                 <option value="Technical Investigation">Technical Investigation</option>
                 <option value="Executive Brief">Executive Brief</option>
@@ -210,7 +210,7 @@ export const GenerateReportModal: React.FC<GenerateReportModalProps> = ({
             <div>
               <label
                 htmlFor="select-analyst"
-                className="block text-xs font-semibold text-[#172033] dark:text-[#F8FAFC] mb-1.5"
+                className="block text-xs font-semibold text-[#1C241F] dark:text-[#F0EFE6] mb-1.5"
               >
                 Prepared By (Lead Analyst)
               </label>
@@ -218,7 +218,7 @@ export const GenerateReportModal: React.FC<GenerateReportModalProps> = ({
                 id="select-analyst"
                 value={preparedBy}
                 onChange={(e) => setPreparedBy(e.target.value)}
-                className="w-full rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F8FAFC] dark:bg-[#0B1220] px-3 py-2 text-xs text-[#172033] dark:text-[#F8FAFC] focus:border-[#007FA8] dark:focus:border-[#00C2FF] focus:outline-none focus:ring-1 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF]"
+                className="w-full rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F0EFE6] dark:bg-[#111713] px-3 py-2 text-xs text-[#1C241F] dark:text-[#F0EFE6] focus:border-[#A9492D] dark:focus:border-[#E27A54] focus:outline-none focus:ring-1 focus:ring-[#A9492D] dark:focus:ring-[#E27A54]"
               >
                 <option value="Alex Chen (Tier 2 Lead)">Alex Chen (Tier 2 Lead)</option>
                 <option value="Sarah Lin (Tier 1 SOC)">Sarah Lin (Tier 1 SOC)</option>
@@ -231,9 +231,9 @@ export const GenerateReportModal: React.FC<GenerateReportModalProps> = ({
           <div>
             <label
               htmlFor="custom-title-input"
-              className="block text-xs font-semibold text-[#172033] dark:text-[#F8FAFC] mb-1.5"
+              className="block text-xs font-semibold text-[#1C241F] dark:text-[#F0EFE6] mb-1.5"
             >
-              Report Title <span className="text-[#8492A6] dark:text-[#64748B] font-normal">(Optional Override)</span>
+              Report Title <span className="text-[#798074] dark:text-[#58635A] font-normal">(Optional Override)</span>
             </label>
             <input
               id="custom-title-input"
@@ -245,31 +245,31 @@ export const GenerateReportModal: React.FC<GenerateReportModalProps> = ({
               }
               value={customTitle}
               onChange={(e) => setCustomTitle(e.target.value)}
-              className="w-full rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-[#F8FAFC] dark:bg-[#0B1220] px-3 py-2 text-xs text-[#172033] dark:text-[#F8FAFC] placeholder-[#8492A6] dark:placeholder-[#64748B] focus:border-[#007FA8] dark:focus:border-[#00C2FF] focus:outline-none focus:ring-1 focus:ring-[#007FA8] dark:focus:ring-[#00C2FF]"
+              className="w-full rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F0EFE6] dark:bg-[#111713] px-3 py-2 text-xs text-[#1C241F] dark:text-[#F0EFE6] placeholder-[#798074] dark:placeholder-[#58635A] focus:border-[#A9492D] dark:focus:border-[#E27A54] focus:outline-none focus:ring-1 focus:ring-[#A9492D] dark:focus:ring-[#E27A54]"
             />
           </div>
 
           {/* Notice */}
-          <div className="rounded-lg border border-[#007FA8]/20 dark:border-[#00C2FF]/30 bg-[#EEF4FA] dark:bg-[#00C2FF]/10 p-3 text-[11px] text-[#007FA8] dark:text-[#38BDF8] flex items-start gap-2 leading-relaxed">
-            <Sparkles className="h-4 w-4 shrink-0 text-[#007FA8] dark:text-[#00C2FF] mt-0.5" />
+          <div className="rounded-lg border border-[#A9492D]/20 dark:border-[#E27A54]/30 bg-[#E1DED1] dark:bg-[#E27A54]/10 p-3 text-[11px] text-[#A9492D] dark:text-[#C3D579] flex items-start gap-2 leading-relaxed">
+            <Sparkles className="h-4 w-4 shrink-0 text-[#A9492D] dark:text-[#E27A54] mt-0.5" />
             <span>
               The report will synthesize all associated telemetry from the incident case including correlated alerts, events, IOCs, Sigma rules, timeline milestones, and playbook actions. All data is synthetic for demonstration.
             </span>
           </div>
 
           {/* Footer Buttons */}
-          <div className="pt-2 border-t border-[#DCE5EF] dark:border-[#29384D] flex items-center justify-end gap-3">
+          <div className="pt-2 border-t border-[#CDCFC2] dark:border-[#3A443A] flex items-center justify-end gap-3">
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 rounded-lg border border-[#DCE5EF] dark:border-[#29384D] bg-white dark:bg-[#1B2A41] text-xs font-semibold text-[#64748B] dark:text-[#94A3B8] hover:bg-[#EEF4FA] dark:hover:bg-[#20324A] hover:text-[#172033] dark:hover:text-[#F8FAFC] transition-colors"
+              className="px-4 py-2 rounded-lg border border-[#CDCFC2] dark:border-[#3A443A] bg-[#F2F0E6] dark:bg-[#252C24] text-xs font-semibold text-[#58635A] dark:text-[#A8B09F] hover:bg-[#E1DED1] dark:hover:bg-[#303A31] hover:text-[#1C241F] dark:hover:text-[#F0EFE6] transition-colors"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={!selectedIncident}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#007FA8] hover:bg-[#006A8C] dark:bg-[#00C2FF] dark:hover:bg-[#38BDF8] disabled:opacity-50 text-xs font-semibold text-white dark:text-[#0B1220] shadow-xs transition-colors"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#A9492D] hover:bg-[#823B27] dark:bg-[#E27A54] dark:hover:bg-[#C3D579] disabled:opacity-50 text-xs font-semibold text-white dark:text-[#111713] shadow-xs transition-colors"
             >
               <span>Generate Report</span>
               <ChevronRight className="h-4 w-4" />
