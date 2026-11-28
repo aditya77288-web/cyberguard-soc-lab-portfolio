@@ -1,0 +1,60 @@
+flowchart LR
+  subgraph INPUTS["01 · Inputs — synthetic demonstration data"]
+    E[Windows / Sysmon events]
+    N[Firewall & IDS events]
+    T[Threat intelligence samples]
+  end
+
+  subgraph DETECT["02 · Event analysis and detection"]
+    X[Event Explorer<br/>Search · filter · inspect]
+    S[Sigma Detection Engine<br/>Rule matches · findings · rationale]
+    M[MITRE ATT&CK<br/>Technique mapping · coverage]
+  end
+
+  subgraph TRIAGE["03 · Alert triage — separate seeded alert queue"]
+    F[(Synthetic alert fixtures)]
+    A[Security Alerts<br/>Analyst assignment · notes · status]
+  end
+
+  subgraph RESPOND["04 · Incident response and reporting"]
+    I[Incident Response<br/>Manual escalation · investigation]
+    P[Simulated response playbooks]
+    R[Incident Reports<br/>Document outcomes]
+  end
+
+  E --> X
+  N --> X
+  T --> X
+  X --> S
+  S --> M
+  F --> A
+  A -->|manual escalation| I
+  I --> P
+  I --> R
+  X -. event correlation .-> A
+  T -. indicator correlation .-> A
+
+  APP[CyberGuard SOC Lab interface<br/>Dashboard · data sources · events · rules · ATT&CK · alerts · incidents · reports]
+  STORE[(Browser localStorage<br/>simulated records and user changes)]
+  APP --- X
+  APP --- S
+  APP --- M
+  APP --- A
+  APP --- I
+  APP --- R
+  APP --- STORE
+
+  NOTE[Educational portfolio simulation<br/>No live SIEM or endpoint integration<br/>No production monitoring or automated containment]
+  APP --- NOTE
+
+  classDef input fill:#102235,stroke:#4cc9f0,color:#e8f1f8;
+  classDef detect fill:#102235,stroke:#2e5b72,color:#e8f1f8;
+  classDef triage fill:#28232a,stroke:#9a6c48,color:#e8f1f8;
+  classDef respond fill:#102235,stroke:#2a695e,color:#e8f1f8;
+  classDef platform fill:#102b40,stroke:#29445b,color:#e8f1f8;
+  class E,N,T input;
+  class X,S,M detect;
+  class F,A triage;
+  class I,P,R respond;
+  class APP,STORE,NOTE platform;
+
