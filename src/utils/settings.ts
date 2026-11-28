@@ -336,6 +336,8 @@ export function validateImportPayload(jsonString: string): ImportValidationResul
     fields.every((field) => typeof value[field] === 'string');
   const hasBooleanFields = (value: Record<string, any>, fields: string[]) =>
     fields.every((field) => typeof value[field] === 'boolean');
+  const hasFiniteNumberFields = (value: Record<string, any>, fields: string[]) =>
+    fields.every((field) => typeof value[field] === 'number' && Number.isFinite(value[field]));
   const hasStringArrayFields = (value: Record<string, any>, fields: string[]) =>
     fields.every((field) =>
       Array.isArray(value[field]) && value[field].every((item: unknown) => typeof item === 'string')
@@ -454,6 +456,9 @@ export function validateImportPayload(jsonString: string): ImportValidationResul
           hasRecordArrayFields(item, 'timelineSummary', ['timestamp', 'title', 'description', 'type']) &&
           hasRecordArrayFields(item, 'findings', ['id', 'title', 'category', 'description', 'severity']) &&
           hasRecordArrayFields(item, 'correlatedIndicators', ['id', 'type', 'value', 'defangedValue', 'riskClassification', 'reason']) &&
+          item.correlatedIndicators.every((indicator: Record<string, any>) =>
+            hasFiniteNumberFields(indicator, ['riskScore', 'confidence'])
+          ) &&
           hasRecordArrayFields(item, 'correlatedTechniques', ['id', 'name', 'tactic', 'coverageStatus']) &&
           item.correlatedTechniques.every((entry: Record<string, any>) => typeof entry.isCovered === 'boolean') &&
           hasRecordArrayFields(item, 'recordedActions', ['id', 'title', 'type', 'status', 'executedBy', 'timestamp']) &&
@@ -462,7 +467,9 @@ export function validateImportPayload(jsonString: string): ImportValidationResul
           hasRecordArrayFields(item, 'relatedAlerts', ['id', 'title', 'severity', 'status', 'ruleId', 'affectedHost', 'createdAt']) &&
           hasRecordArrayFields(item, 'relatedEvents', ['id', 'timestamp', 'category', 'sourceIp', 'destinationIp', 'sourceSystem', 'action']) &&
           hasRecordArrayFields(item, 'evidenceList', ['id', 'title', 'type', 'value', 'description']) &&
-          hasRecordArrayFields(item, 'analystNotes', ['id', 'author', 'text', 'createdAt']);
+          hasRecordArrayFields(item, 'analystNotes', ['id', 'author', 'text', 'createdAt']) &&
+          (item.analystObservations === undefined || typeof item.analystObservations === 'string') &&
+          (item.customNotes === undefined || typeof item.customNotes === 'string');
       case 'sources':
         return hasStringFields(item, [
           'id', 'name', 'sourceType', 'typeId', 'description', 'status',
@@ -734,3 +741,4 @@ export function applyTheme(theme: 'dark' | 'light'): void {
     }
   } catch (_e) {}
 }
+
