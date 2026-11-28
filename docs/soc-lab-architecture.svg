@@ -52,7 +52,7 @@
   <!-- response & output -->
   <text x="1190" y="222" class="label subtle">03  /  RESPOND</text>
   <rect x="1190" y="244" width="334" height="208" rx="18" class="card"/>
-  <text x="1216" y="284" class="head">Incident Response</text><text x="1216" y="312" class="body muted">Investigate and track incidents</text>
+  <text x="1216" y="284" class="head">Incident Response</text><text x="1216" y="312" class="body muted">Manual escalation from alert triage</text>
   <rect x="1216" y="337" width="130" height="34" rx="9" class="soft"/><text x="1232" y="359" class="small">Status &amp; owner</text>
   <rect x="1356" y="337" width="142" height="34" rx="9" class="soft"/><text x="1372" y="359" class="small">Evidence notes</text>
   <rect x="1216" y="382" width="282" height="42" rx="9" fill="#142d31" stroke="#2a5e56"/><text x="1232" y="408" class="small green">Playbooks guide analyst actions</text>
