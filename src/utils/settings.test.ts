@@ -23,6 +23,7 @@ import {
   executeResetScope,
 } from './settings';
 import { ApplicationSettings } from '../types/soc';
+import { MOCK_INCIDENT_REPORTS } from '../data/mockReportsData';
 
 // Mock localStorage for Node.js test environment
 class MockLocalStorage {
@@ -346,6 +347,22 @@ describe('Settings & Simulation Controls (Stage 10)', () => {
       }],
     }));
     assert.equal(invalidSourceHistory.isValid, false);
+
+    const reportWithInvalidNotes = JSON.parse(JSON.stringify(MOCK_INCIDENT_REPORTS[0]));
+    reportWithInvalidNotes.analystObservations = { unexpected: 'object' };
+    const invalidReportNotes = validateImportPayload(JSON.stringify({
+      backupMetadata: { schemaVersion: 'v1' },
+      reports: [reportWithInvalidNotes],
+    }));
+    assert.equal(invalidReportNotes.isValid, false);
+
+    const reportWithInvalidIndicatorScores = JSON.parse(JSON.stringify(MOCK_INCIDENT_REPORTS[0]));
+    delete reportWithInvalidIndicatorScores.correlatedIndicators[0].riskScore;
+    const invalidIndicatorScores = validateImportPayload(JSON.stringify({
+      backupMetadata: { schemaVersion: 'v1' },
+      reports: [reportWithInvalidIndicatorScores],
+    }));
+    assert.equal(invalidIndicatorScores.isValid, false);
   });
 
   // 13. Preference reset behaviour
