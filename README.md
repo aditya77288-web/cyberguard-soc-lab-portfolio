@@ -34,6 +34,14 @@ The interface is styled with a **Midnight Blue + Electric Cyan** theme, featurin
 
 ---
 
+## Architecture
+
+![CyberGuard SOC Lab architecture](docs/soc-lab-architecture.svg)
+
+The editable Mermaid source is available at [docs/soc-lab-architecture.mmd](docs/soc-lab-architecture.mmd). Detection findings and the separately seeded alert triage queue are shown as distinct workflows.
+
+---
+
 ## Screenshots
 
 > Screenshot assets are cataloged in [`docs/screenshots/`](docs/screenshots/README.md).
