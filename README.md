@@ -46,9 +46,9 @@ The editable Mermaid source is available at [docs/soc-lab-architecture.mmd](docs
 
 > Screenshot assets are cataloged in [`docs/screenshots/`](docs/screenshots/README.md).
 
-| SOC Overview (Dark Mode) | Security Alerts Triage (Dark Mode) |
+| Operations Floor (Dark Mode) | Security Alerts (Dark Mode) |
 | :---: | :---: |
-| ![SOC Overview](docs/screenshots/01-soc-overview-dark.png) | ![Security Alerts](docs/screenshots/02-security-alerts-dark.png) |
+| ![Operations Floor](docs/screenshots/01-operations-floor-dark.png) | ![Security Alerts](docs/screenshots/02-security-alerts-dark.png) |
 
 | Event Explorer (Dark Mode) | Threat Intelligence (Dark Mode) |
 | :---: | :---: |
@@ -66,9 +66,9 @@ The editable Mermaid source is available at [docs/soc-lab-architecture.mmd](docs
 | :---: | :---: |
 | ![Data Sources](docs/screenshots/09-data-sources-dark.png) | ![Settings](docs/screenshots/10-settings-dark.png) |
 
-| SOC Overview (Light Mode) | Security Alerts Triage Queue (Light Mode) |
+| Operations Floor (Light Mode) | Alert Queue (Light Mode) |
 | :---: | :---: |
-| ![SOC Overview Light](docs/screenshots/11-soc-overview-light.png) | ![Security Alerts Triage Light](docs/screenshots/12-light-mode-overview.png) |
+| ![Operations Floor Light](docs/screenshots/11-operations-floor-light.png) | ![Alert Queue Light](docs/screenshots/12-alert-queue-light.png) |
 
 ---
 
